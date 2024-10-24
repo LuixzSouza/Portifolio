@@ -1,0 +1,61 @@
+/* globals.css */
+
+/* Reset básico para garantir consistência em todos os navegadores */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Aplicando a fonte global */
+:root {
+  --font-family-base: var(--font-robeert); /* Fonte customizada */
+}
+
+/* Estilização global */
+body {
+  font-family: var(--font-family-base), sans-serif;
+  line-height: 1.5; /* Aumenta a legibilidade */
+  -webkit-font-smoothing: antialiased; /* Suaviza fontes no macOS */
+  -moz-osx-font-smoothing: grayscale; /* Suaviza fontes no Firefox */
+  background-color: #fff; /* Cor de fundo branca */
+  color: #111; /* Cor de texto padrão */
+  min-height: 100vh;
+}
+
+/* Links padrão */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remover estilo padrão de listas */
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Estilos para botões */
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Adiciona espaçamento entre as seções para um layout limpo */
+section {
+  padding: 2rem 0;
+}
+
