@@ -28,9 +28,25 @@ const roobert = localFont({
   ]
 });
 
+const playFair = localFont({
+variable: "--font-playFair",
+src: [
+  {
+    path: '../font/PlayfairDisplay-Italic.woff2',
+    weight: 'normal',
+    style: 'italic'
+  },
+  {
+    path: '../font/PlayfairDisplay-Regular.woff2',
+    weight: 'normal', 
+    style: 'normal', 
+  },
+]
+});
+
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html lang="pt-br" className={`${roobert.variable}`} >
+    <html lang="pt-br" className={`${roobert.variable} ${playFair.variable}`} >
       <body>
         {children}
       </body>

@@ -10,7 +10,8 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-robeert)', ...fontFamily.sans],
+        roobert: ['var(--font-robeert)', ...fontFamily.sans],
+        playFair: ['var(--font-playFair)', ...fontFamily.sans],
       },
       colors: {
         black: '#000', // Cor preta
@@ -29,6 +30,7 @@ const config = {
       },
       maxWidth: {
         grid: '76.5rem',
+        nav: '31.25rem',
       },
       keyframes: {
         marquee: {

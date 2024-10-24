@@ -54,8 +54,9 @@ button {
   font-family: inherit;
 }
 
-/* Adiciona espaçamento entre as seções para um layout limpo */
-section {
-  padding: 2rem 0;
+i {
+  font-family: var(--font-playFair);
+  font-style: italic;
 }
+
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Components
-import{ HeaderHome }from "@/components/HeaderHome"
+import{ Homing }from "@/components/Homing"
 
 const openGraphImage = { images: ["https://Caminho_no_servidor.com.br/nome_imagem.png"] };
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <section>
-      <HeaderHome/>
+      <Homing/>
     </section>
   );
 }

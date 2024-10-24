@@ -1,11 +1,11 @@
-export default function Paragraph({size = "medium", children}) {
+export function Paragraph({size = "medium", color = "black", children}) {
     const sizes = {
-        large: "text-[28px] leading-[1.75rem]",
-        medium: "text-[24px] leading-[1.55rem]",
-        small: "text-[20px] leading-[1.25rem]",
+        large: "text-[1.75rem] leading-[2.5rem]",//28px
+        medium: "text-[1.5rem] leading-[2rem]",//24px
+        small: "text-[1.25rem] leading-[1.75rem]", //20px
     };
 
     return (
-        <p className={sizes[size]} >{children}</p>
+        <p className={`${sizes[size]} text-${color}`}>{children}</p>
     )
 }
