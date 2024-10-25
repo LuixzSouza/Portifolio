@@ -12,6 +12,7 @@ export default function About() {
         <>
             <HeaderHome/>
             <h2>ABOUT</h2>
+            
         </>
     )
 }

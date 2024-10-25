@@ -31,6 +31,20 @@ const config = {
       maxWidth: {
         grid: '76.5rem',
         nav: '31.25rem',
+        '194': '12.125rem', // 194px
+        '330': '20.625rem', // 330px
+        '360': '22.5rem', // 360px
+        '400': '25rem', // 400px
+        '600': '37.5rem', // 600px
+        '1018': '63.625rem', //1018px
+      },
+      height: {
+        '330': '20.625rem', // 330px
+        '370': '23.125rem', // 370px
+        '450': '28.125rem', // 450px
+        '480': '30rem', // 480px
+        '485': '30.313rem', //485px,
+        '550': '34.375', //550px
       },
       keyframes: {
         marquee: {
@@ -44,6 +58,9 @@ const config = {
       gridTemplateColumns: {
         // Grid de 3 colunas de 200px
         'custom-3': 'repeat(3, 200px)',
+      },
+      lineHeight: {
+        '100px': '100px',
       },
     },
   },

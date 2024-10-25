@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 
 // Components
-import{ Homing }from "@/components/Homing"
+import{ Homing }from "@/components/Homing";
+import { CreateImpactProjects } from "@/components/SImpactProjects";
+import { HeaderFixed } from "@/components/HeaderFixed";
+import { SectionYears } from "@/components/SYears";
+import { SectionWork } from "@/components/SWork";
+import {SectionFooter} from "@/components/Footer";
+
 
 const openGraphImage = { images: ["https://Caminho_no_servidor.com.br/nome_imagem.png"] };
 
@@ -18,8 +24,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section>
+    <section className="relative" >
       <Homing/>
+      <HeaderFixed/>
+      <CreateImpactProjects/>
+      <SectionYears/>
+      <SectionWork/>
+      <SectionFooter/>
     </section>
   );
 }

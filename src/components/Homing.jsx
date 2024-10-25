@@ -10,7 +10,7 @@ import {Heading} from '@/components/Heading';
 
 export function Homing() {
     return (
-        <section className='relative w-screen h-full bg-black' >
+        <section className='relative w-screen h-full bg-black overflow-hidden' >
             <HeaderHome/>
             <ContainerGrid className={"relative overflow-hidden"} >
                 <div className='grid grid-cols-3 grid-rows-3 pb-16' style={{
