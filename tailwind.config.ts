@@ -41,6 +41,10 @@ const config = {
       animation: {
         marquee: 'marquee 5s linear infinite',
       },
+      gridTemplateColumns: {
+        // Grid de 3 colunas de 200px
+        'custom-3': 'repeat(3, 200px)',
+      },
     },
   },
   plugins: [],

@@ -24,7 +24,7 @@ body {
   line-height: 1.5; /* Aumenta a legibilidade */
   -webkit-font-smoothing: antialiased; /* Suaviza fontes no macOS */
   -moz-osx-font-smoothing: grayscale; /* Suaviza fontes no Firefox */
-  background-color: #fff; /* Cor de fundo branca */
+  background-color: #000; /* Cor de fundo branca */
   color: #111; /* Cor de texto padrão */
   min-height: 100vh;
 }
@@ -39,7 +39,6 @@ a {
 img {
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
 /* Remover estilo padrão de listas */
