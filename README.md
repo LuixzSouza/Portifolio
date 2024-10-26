@@ -76,8 +76,16 @@ npm run dev
 ```
 
 ## Tecnologias Utilizadas
+- HTML
+- CSS
+- JavaScript
 - Next.js
-- Tailwind CSS
+- Tailwind
+- GitHub
+- Figma
+- VisualCode
+- ChatGPT
+- YouTube
 
 ## Contribuição
 Se desejar contribuir, sinta-se à vontade para abrir uma issue ou enviar um pull request.

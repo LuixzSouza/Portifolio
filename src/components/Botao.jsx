@@ -7,7 +7,7 @@ export function BotaoPrimary({tipo = "button",children,}) {
   return (
     <button type={tipo} className={`${estilosBase} ${estilosHover} relative`}>
       <div className="absolute inset-1 shadow-md shadow-black rounded-full bg-white scale-y-0 scale-x-0 origin-center group-hover:scale-y-100 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></div>
-      <span className="relative z-10 group-hover:text-black">{children}</span>
+      <span className="text-2xl font-roobert relative z-10 group-hover:text-black transition-colors duration-300 ease-out">{children}</span>
     </button>
   );
 }

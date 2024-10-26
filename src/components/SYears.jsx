@@ -4,7 +4,7 @@ import { Paragraph } from "@/components/Paragraph";
 
 export function SectionYears() {
     return (
-        <section className="w-screen h-screen bg-white overflow-hidden" >
+        <section className="relative z-30 w-full h-screen bg-white overflow-hidden" >
             <ContainerGrid className={"grid grid-cols-4 grid-rows-2"} >
                 <div className="flex items-center justify-center col-start-1 col-end-5 row-start-1 row-end-1" >
                     <div className="w-20 h-56 bg-red-500" >
@@ -21,7 +21,7 @@ export function SectionYears() {
                     </div>
                 </div>
                 <div className="flex items-center justify-center col-start-1 col-end-5 row-start-2 row-end-2 text-center">
-                    <Paragraph>Ajudando marcas a prosperar no mundo digital.</Paragraph>
+                    <Paragraph>Estudando e evoluindo para fazer marcas prosperarem no universo digital</Paragraph>
                 </div>
             </ContainerGrid>
         </section>

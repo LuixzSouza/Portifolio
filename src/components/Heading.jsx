@@ -3,16 +3,19 @@ export function Heading({
     size = "large", 
     color = "black", 
     lineHeight = "normal", 
+    align = 'left',
+    className = "", // Adiciona suporte para className dinâmico
     children 
 }) {
   const sizes = {
-      super: "text-[25rem] tracking-[-0.375rem] font-light", //400px
-      xlarge: "text-[17.5rem] tracking-[-0.375rem] font-light", //280px
-      large: "text-[10rem] tracking-[-0.375rem] font-light", //160px
-      midlle: "text-[7.5rem] tracking-[-0.375rem] font-light", //120px
-      medium: "text-[4rem] font-regular", //64px
-      small: "text-[2.5rem] font-regular", //40px
-      tiny: "text-[1.75rem] font-regular", //28px
+      super: "text-[25rem] tracking-[-0.375rem] font-light", 
+      xlarge: "text-[17.5rem] tracking-[-0.375rem] font-light", 
+      large: "text-[10rem] tracking-[-0.375rem] font-light", 
+      midlle: "text-[7.5rem] tracking-[-0.375rem] font-light", 
+      menu: "text-[6.25rem] font-normal", 
+      medium: "text-[4rem] font-regular", 
+      small: "text-[2.5rem] font-regular", 
+      tiny: "text-[1.75rem] font-regular", 
   };
 
   const lineHeights = {
@@ -20,11 +23,20 @@ export function Heading({
       tight: "leading-tight",
       relaxed: "leading-relaxed",
       none: "leading-none",
-      custom: `leading-[${lineHeight}]`, // Suporte para valor personalizado
+      custom: `leading-[${lineHeight}]`,
   };
 
   return (
-      <Tag className={`${sizes[size]} ${lineHeights[lineHeight] || lineHeights.custom} text-${color} w-full`}>
+      <Tag 
+          className={`
+              ${sizes[size]} 
+              ${lineHeights[lineHeight] || lineHeights.custom} 
+              text-${color} 
+              text-${align} 
+              w-full 
+              transition-transform duration-300 ease-in-out ${className}
+          `}
+      >
           {children}
       </Tag>
   );
