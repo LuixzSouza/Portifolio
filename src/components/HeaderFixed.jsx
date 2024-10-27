@@ -7,20 +7,19 @@ import { LinkNav } from "@/components/LinkNav";
 export function HeaderFixed({ toggleMenu }) {
   const [isVisible, setIsVisible] = useState(false); // Inicialmente invisível
   const [lastScrollY, setLastScrollY] = useState(0); // Guarda a última posição do scroll
-  const triggerPoint = 900; // Ponto a partir do qual a função será ativada
+  const [isAboveTrigger, setIsAboveTrigger] = useState(false); // Indica se está acima do ponto de ativação
+  const triggerPoint = 1000; // Ponto a partir do qual a função será ativada
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY; // Posição atual do scroll
 
       if (currentScrollY > triggerPoint) {
-        if (currentScrollY > lastScrollY) {
-          setIsVisible(false); // Esconder ao rolar para baixo
-        } else {
-          setIsVisible(true); // Mostrar ao rolar para cima
-        }
+        setIsAboveTrigger(true); // Indica que estamos acima do ponto de ativação
+        setIsVisible(currentScrollY <= lastScrollY); // Mostrar ao rolar para cima, esconder ao rolar para baixo
       } else {
-        setIsVisible(false); // Manter invisível antes do ponto de ativação
+        setIsAboveTrigger(false); // Indica que estamos abaixo do ponto de ativação
+        setIsVisible(false); // Suma instantaneamente abaixo do triggerPoint
       }
 
       setLastScrollY(currentScrollY); // Atualizar a última posição de scroll
@@ -36,9 +35,18 @@ export function HeaderFixed({ toggleMenu }) {
   return (
     <header
       className={`sticky top-0 left-0 w-full z-50 bg-white transition-all duration-500 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+        isAboveTrigger
+          ? isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full"
+          : "opacity-0"
       }`}
-      style={{ pointerEvents: isVisible ? "auto" : "none" }}
+      style={{
+        pointerEvents: isVisible ? "auto" : "none",
+        transition: isAboveTrigger
+          ? "opacity 0.1s, transform 0.5s"
+          : "opacity 0.1s", // Transição instantânea abaixo do triggerPoint
+      }}
     >
       <ContainerGrid className="flex justify-between items-center py-5 w-full">
         <div>

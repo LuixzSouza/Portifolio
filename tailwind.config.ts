@@ -14,45 +14,56 @@ const config = {
         playFair: ['var(--font-playFair)', ...fontFamily.sans],
       },
       colors: {
-        black: '#000', // Cor preta
-        white: '#FFF', // Cor branca
-        gray: '#C9CAC1', // Cinza personalizado
-
-        marrom: '#2B1F24', // Marrom
-        primary: '#ED3833', // Vermelho vibrante
-        secondary: '#F5A540', // Laranja
-        yellow: '#F5ED4E', // Amarelo
-        mint: '#98F0DE', // Menta clara
-        blue: '#1CA0F3', // Azul vibrante
+        black: '#000',
+        white: '#FFF',
+        gray: '#C9CAC1',
+        marrom: '#2B1F24',
+        primary: '#ED3833',
+        secondary: '#F5A540',
+        yellow: '#F5ED4E',
+        mint: '#98F0DE',
+        blue: '#1CA0F3',
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, #2B1F24 0%, #ED8333 18.16%, #F5A540 30.77%, #F5ED4E 42.09%, #EDB397 54.02%, #FFFFFF 70.47%, #98F0DE 85.95%, #1CA0F3 100%)',
         'gradient-gray': 'linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 18.16%, #C0C0C0 30.77%, #A0A0A0 42.09%, #808080 54.02%, #606060 70.47%, #404040 85.95%, #000000 100%)',
+        'gradient-html': 'conic-gradient(#E34F26 0%, #FFFFFF 36%, #F06529 100%)',
+        'gradient-css': 'conic-gradient(#2965F1 0%, #FFFFFF 36%, #264DE4 100%)',
+        'gradient-js': 'conic-gradient(#F7DF1E 0%, #000000 36%, #E2E2E2 100%)',
+        'gradient-react': 'conic-gradient(#61DAFB 0%, #20232A 36%, #FFFFFF 100%)',
+        'gradient-sass': 'conic-gradient(#CD6799 0%, #CD6799 36%, #FFFFFF 100%)',
+        'gradient-next': 'conic-gradient(#000000 0%, #FFFFFF 36%, #000000 100%)',
         'footer': "url('/image/bg-footer.png')",
         'hero': "url('/image/bg-hero.png')",
         'menu': "url('/image/bg-menu.png')",
         'icon-about': "url('/image/icon-about.png')",
         'icon-contato': "url('/image/icon-contato.png')",
         'icon-work': "url('/image/icon-work.png')",
+        'bg-html': "url('/image/bg-html.png')",
+        'bg-css': "url('/image/bg-css.png')",
+        'bg-js': "url('/image/bg-js.png')",
+        'bg-react': "url('/image/bg-react.png')",
+        'bg-sass': "url('/image/bg-sass.png')",
+        'bg-next': "url('/image/bg-next.png')",
       },
       maxWidth: {
         grid: '76.5rem',
         nav: '31.25rem',
-        '194': '12.125rem', // 194px
-        '330': '20.625rem', // 330px
-        '360': '22.5rem', // 360px
-        '400': '25rem', // 400px
-        '600': '37.5rem', // 600px
-        '900': '56.25rem', // 900px
-        '1018': '63.625rem', //1018px
+        '194': '12.125rem',
+        '330': '20.625rem',
+        '360': '22.5rem',
+        '400': '25rem',
+        '600': '37.5rem',
+        '900': '56.25rem',
+        '1018': '63.625rem',
       },
       height: {
-        '330': '20.625rem', // 330px
-        '370': '23.125rem', // 370px
-        '450': '28.125rem', // 450px
-        '480': '30rem', // 480px
-        '485': '30.313rem', //485px,
-        '550': '34.375', //550px
+        '330': '20.625rem',
+        '370': '23.125rem',
+        '450': '28.125rem',
+        '480': '30rem',
+        '485': '30.313rem',
+        '550': '34.375',
       },
       keyframes: {
         marquee: {
@@ -84,9 +95,7 @@ const config = {
         blink: 'blink 1s step-end infinite',
         'spin-slow': 'spin 10s linear infinite',
       },
-      
       gridTemplateColumns: {
-        // Grid de 3 colunas de 200px
         'custom-3': 'repeat(3, 200px)',
       },
       lineHeight: {

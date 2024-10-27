@@ -79,13 +79,16 @@ npm run dev
 - HTML
 - CSS
 - JavaScript
+- React.js
 - Next.js
 - Tailwind
+- TypeScript
 - GitHub
 - Figma
 - VisualCode
 - ChatGPT
 - YouTube
+- Notion
 
 ## Contribuição
 Se desejar contribuir, sinta-se à vontade para abrir uma issue ou enviar um pull request.
