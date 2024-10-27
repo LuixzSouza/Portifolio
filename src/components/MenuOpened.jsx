@@ -8,6 +8,7 @@ import { LinkNav } from "./LinkNav";
 import { ListMenu } from "./MenuList";
 import { Clock } from "./Clock";
 import Link from "next/link";
+import Image from "next/image";
 
 export function MenuOpened({ isOpen, toggleMenu }) {
   const [isAnimating, setIsAnimating] = useState(true);
@@ -60,13 +61,7 @@ export function MenuOpened({ isOpen, toggleMenu }) {
         <ContainerGrid className="relative z-20 w-full h-full flex flex-col items-start justify-between">
           <div className="flex items-center justify-between w-full">
             <div onClick={toggleMenu}>
-              <LinkNav
-                link="/"
-                firstText="LUIZ SOUZA"
-                secondText="LUIZ SOUZA"
-                color="white"
-                onClick={handleLinkClick}
-              />
+              <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo" onClick={handleLinkClick}/> </LinkNav>
             </div>
             <div>
               <span className="text-white cursor-pointer" onClick={toggleMenu}>

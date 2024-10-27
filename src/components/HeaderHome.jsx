@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ContainerGrid } from "@/components/ContainerGrid";
 import { LinkNav } from "@/components/LinkNav";
 import { Clock } from "@/components/Clock";
+import Image from "next/image";
 
 export function HeaderHome() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -24,13 +25,13 @@ export function HeaderHome() {
             ${isScrolled ? 'translate-y-[-100%]' : 'translate-y-0'}`}
         >
             <div className={`transition-all duration-500 delay-200 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                <LinkNav link="/" firstText="LUIZ SOUZA" secondText="LUIZ SOUZA" color={"white"}/>
+                <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
             </div>
             <nav className={`flex justify-center items-center gap-16 transition-all duration-500 delay-400 
             ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                <LinkNav link="/work" firstText="WORK" secondText="WORK" color={"white"}/>
-                <LinkNav link="/about" firstText="ABOUT" secondText="ABOUT" color={"white"}/>
-                <LinkNav link="/contact" firstText="CONTACT" secondText="CONTACT" color={"white"}/>
+                <LinkNav link="/work" color={"white"}>WORK </LinkNav>
+                <LinkNav link="/about"  color={"white"}>ABOUT</LinkNav>
+                <LinkNav link="/contact"  color={"white"}>CONTACT</LinkNav>
             </nav>
             <div className={`flex justify-center items-center gap-8 w-full max-w-48 transition-all duration-500 delay-600 
             ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>

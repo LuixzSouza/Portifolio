@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ContainerGrid } from "@/components/ContainerGrid";
 import { LinkNav } from "@/components/LinkNav";
+import Image from "next/image";
 
 export function HeaderFixed({ toggleMenu }) {
   const [isVisible, setIsVisible] = useState(false); // Inicialmente invisível
@@ -50,12 +51,7 @@ export function HeaderFixed({ toggleMenu }) {
     >
       <ContainerGrid className="flex justify-between items-center py-5 w-full">
         <div>
-          <LinkNav
-            link="/"
-            firstText="LUIZ SOUZA"
-            secondText="LUIZ SOUZA"
-            color={"black"}
-          />
+          <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
         </div>
         <div className="flex justify-center items-center gap-16">
           <span className="cursor-pointer" onClick={toggleMenu}>
