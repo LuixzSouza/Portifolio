@@ -1,9 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import { Paragraph } from '@/components/Paragraph';
 import { Heading } from '@/components/Heading';
 import { ContainerGrid } from '@/components/ContainerGrid';
+import { useEffect, useRef } from 'react';
 
-// Classes de fundo mapeadas para evitar problemas dinâmicos
 const bgClasses = {
   html: 'bg-bg-html',
   css: 'bg-bg-css',
@@ -13,7 +15,6 @@ const bgClasses = {
   next: 'bg-bg-next',
 };
 
-// Gradientes mapeados
 const gradientClasses = {
   html: 'bg-gradient-html',
   css: 'bg-gradient-css',
@@ -26,15 +27,37 @@ const gradientClasses = {
 const elements = [
   { maxWidth: 330, height: 330, left: 20, top: 0, fill: 'html', nome: 'HTML 5' },
   { maxWidth: 330, height: 330, left: '50%', top: 16, fill: 'css', nome: 'CSS 3' },
-  { maxWidth: 330, height: 330, right: 0, top: 56, fill: 'js', nome: 'JavaScript' },
+  { maxWidth: 330, height: 330, right: 20, top: 56, fill: 'js', nome: 'JavaScript' },
   { maxWidth: 330, height: 330, left: 0, bottom: 28, fill: 'react', nome: 'React' },
   { maxWidth: 330, height: 330, left: '33%', bottom: 0, fill: 'sass', nome: 'SASS' },
   { maxWidth: 330, height: 330, right: 28, bottom: 28, fill: 'next', nome: 'Next.js' },
 ];
 
 export function CreateImpactProjects() {
+  const elementRefs = useRef([]); // Ref para armazenar os elementos
+
+  useEffect(() => {
+    const handleScroll = () => {
+      elementRefs.current.forEach((el) => {
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Calcular a posição entre 0 e 1 com base na rolagem
+        const progress = Math.min(Math.max((rect.top / windowHeight), 0), 1);
+
+        // Aplicar o efeito parallax e a opacidade dinamicamente
+        el.style.transform = `translateY(${progress * -100}px)`; // Mover para cima
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="relative z-30 bg-white w-full h-[200vh]">
+    <section className="relative z-30 bg-white w-full h-[300vh]">
       <ContainerGrid className="sticky top-0 w-full h-screen flex flex-col items-center justify-center text-center">
         <Paragraph size="litlleSmall" color="black">
           TRANSDORMANDO IDEIAS EM SOLUÇÕES DIGITAIS
@@ -44,15 +67,17 @@ export function CreateImpactProjects() {
         </Heading>
       </ContainerGrid>
 
-      <div className="absolute bottom-0 left-0 w-full h-screen overflow-hidden">
+      <div className="absolute left-0 w-full h-screen">
         <div className="relative w-screen h-screen">
           {elements.map((item, index) => (
             <div
               key={index}
-              className={`absolute w-full overflow-hidden shadow-lgw- shadow-black rounded-lg`}
+              ref={(el) => (elementRefs.current[index] = el)} // Armazenar ref de cada elemento
+              className={`absolute w-full overflow-hidden shadow-lgw- shadow-black rounded-lg transition-all duration-700 ease-in-out`} // Adicionado transition para suavizar a animação
               style={{
                 maxWidth: `${item.maxWidth}px`,
                 height: `${item.height}px`,
+                opacity: 1, // Começa visível
                 ...(item.left !== undefined && { left: item.left }),
                 ...(item.right !== undefined && { right: `${item.right}px` }),
                 ...(item.top !== undefined && { top: `${item.top}px` }),
@@ -60,9 +85,8 @@ export function CreateImpactProjects() {
               }}
             >
               <div className="relative w-full h-full p-1">
-                {/* Aplicação Condicional do Gradiente */}
                 <div
-                  className={`absolute inset-0 z-10 ${gradientClasses[item.fill]} animate-spin-slow min-w-[200%] min-h-[200%] aspect-ratio-[1/1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+                  className={`absolute inset-0 z-10 blur-sm ${gradientClasses[item.fill]} animate-spin-slow min-w-[200%] min-h-[200%] aspect-ratio-[1/1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
                 ></div>
 
                 <div
@@ -87,6 +111,7 @@ export function CreateImpactProjects() {
     </section>
   );
 }
+
 
 //Transformando Ideias em Soluções Digitais
 
