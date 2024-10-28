@@ -25,12 +25,12 @@ const gradientClasses = {
 };
 
 const elements = [
-  { maxWidth: 330, height: 330, left: 20, top: 0, fill: 'html', nome: 'HTML 5' },
-  { maxWidth: 330, height: 330, left: '50%', top: 16, fill: 'css', nome: 'CSS 3' },
-  { maxWidth: 330, height: 330, right: 20, top: 56, fill: 'js', nome: 'JavaScript' },
-  { maxWidth: 330, height: 330, left: 0, bottom: 28, fill: 'react', nome: 'React' },
-  { maxWidth: 330, height: 330, left: '33%', bottom: 0, fill: 'sass', nome: 'SASS' },
-  { maxWidth: 330, height: 330, right: 28, bottom: 28, fill: 'next', nome: 'Next.js' },
+  { maxWidth: 330, height: 330, left: 20, top: 0, fill: 'html', nome: 'HTML 5', z: 1 },
+  { maxWidth: 400, height: 330, right: 107, top: 16, fill: 'js', nome: 'JavaScript', z: 2 },
+  { maxWidth: 194, height: 370, right: 30, top: 238, fill: 'css', nome: 'CSS 3', z: 1 },
+  { maxWidth: 600, height: 480, left: -50, bottom: 100, fill: 'react', nome: 'React', z: 1 },
+  { maxWidth: 360, height: 450, left: 433, bottom: 0, fill: 'sass', nome: 'SASS', z: 1 },
+  { maxWidth: 370, height: 485, right: 114, bottom: 104, fill: 'next', nome: 'Next.js', z: 1 },
 ];
 
 export function CreateImpactProjects() {
@@ -67,14 +67,16 @@ export function CreateImpactProjects() {
         </Heading>
       </ContainerGrid>
 
-      <div className="absolute left-0 w-full h-screen">
-        <div className="relative w-screen h-screen">
+
+      <div className="p-16 absolute left-0 w-full h-[200vh] overflow-hidden">
+        <div className="relative w-screen h-[170vh]">
           {elements.map((item, index) => (
             <div
               key={index}
               ref={(el) => (elementRefs.current[index] = el)} // Armazenar ref de cada elemento
               className={`absolute w-full overflow-hidden shadow-lgw- shadow-black rounded-lg transition-all duration-700 ease-in-out`} // Adicionado transition para suavizar a animação
               style={{
+                zIndex: `z-${item.z}`,
                 maxWidth: `${item.maxWidth}px`,
                 height: `${item.height}px`,
                 opacity: 1, // Começa visível
