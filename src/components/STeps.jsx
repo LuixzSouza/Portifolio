@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Step from "./Step"; // Importando o componente Step
+import { title } from "process";
 
 const stepsData = [
   {
@@ -30,11 +31,33 @@ Primeiros passos no Node.js para back-end.`,
     title: "Faculdade e Aprendizados Diversificados",
     heading: "2023 – Começo de Faculdade e Aprendizados Diversificados",
     paragraph: `Criação de projetos com TDD (Test-Driven Development) e arquitetura limpa.
-Participação no curso da Webflow University para explorar novas ferramentas.
-Mergulho no universo de UI/UX, utilizando Figma, Invision e Canva.
-Introdução a Arduino e conceitos básicos de Python.
-Experimentos com sistemas operacionais como Linux, Windows e Debian.`,
+    Participação no curso da Webflow University para explorar novas ferramentas.
+    Mergulho no universo de UI/UX, utilizando Figma, Invision e Canva.
+    Introdução a Arduino e conceitos básicos de Python.
+    Experimentos com sistemas operacionais como Linux, Windows e Debian.`,
     imgSrc: "https://via.placeholder.com/400",
+  },
+  {
+    stepNumber:"04",
+    title: "Primeiras Experiências Profissionais e Faculdade",
+    heading: "2024 – Primeiras Experiências Profissionais e Faculdade" ,
+    paragraph: `Aprendizado contínuo em MySQL, explorando comandos e consultas.
+    Estudo aprofundado em Java, incluindo conceitos como SOLID.
+    Uso das plataformas IntelliJ IDEA e Eclipse para projetos Java.
+    Implementação de testes e projetos com Netlify.
+    Desenvolvedor Freelancer para a Formula Idiomas:
+    Criação de um site dinâmico e responsivo.
+    Desenvolvimento de sistema de teste de nivelamento de inglês.
+    Desafio: utilização de PHP para envio de formulários.
+    Início dos estudos de inglês para aprimorar habilidades de comunicação.`
+  },
+  {
+    stepNumber:"05",
+    title: "Evolução Contínua Em andamento: 4º período do curso de Desenvolvimento de Sistemas de Informação.",
+    heading: "Até o Momento –",
+    paragraph: `Aperfeiçoamento constante em design e desenvolvimento.
+    Aplicação de práticas para ampliar conhecimentos e habilidades.
+    Em busca da primeira oportunidade profissional fixa na área de tecnologia.`
   },
 ];
 
