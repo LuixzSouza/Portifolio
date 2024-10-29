@@ -47,7 +47,7 @@ const config = {
         'bg-next': "url('/image/bg-next.png')",
       },
       maxWidth: {
-        grid: '76.5rem',
+        grid: '87.5rem', //1400
         nav: '31.25rem',
         '194': '12.125rem',
         '330': '20.625rem',

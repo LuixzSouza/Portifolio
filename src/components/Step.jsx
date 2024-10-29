@@ -1,8 +1,9 @@
 "use client"; // Para habilitar hooks e estado
 
+import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 
-export function Step({ stepNumber, title, heading, paragraph, videoSrc, imgSrc }) {
+export function Step({ stepNumber, title, heading, paragraph, imgSrc }) {
   const svgRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
   const totalLength = 1330; // Comprimento total da linha
@@ -16,8 +17,7 @@ useEffect(() => {
     const windowHeight = window.innerHeight;
 
     // Verifica se o elemento está totalmente visível na tela
-    const isFullyVisible =
-      elementTop >= 0 && elementBottom <= windowHeight;
+    const isFullyVisible = elementTop >= 0 && elementBottom < windowHeight;
 
     if (isFullyVisible) {
       // Calcula a porcentagem de preenchimento
@@ -65,32 +65,20 @@ useEffect(() => {
         />
       </svg>
 
-      <div className="content w-1/2">
-        <h3 className="text-xl font-semibold text-gray-700 mb-2">
+      <div className="flex flex-col items-center justify-center text-center w-1/2">
+        <h3 className="text-xl font-semibold text-gray-700 mb-2 text-[#201d19cc]">
           {stepNumber} — {title}
         </h3>
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">{heading}</h2>
-        <p className="text-gray-600">{paragraph}</p>
+        <h2 className="text-6xl font-bold text-gray-900 mb-4 text-[#e56144]">{heading}</h2>
+        <p className="text-gray-600 text-[#201d19cc] w-full max-w-[600px]">{paragraph}</p>
       </div>
-
-      <div className="media w-1/2">
-        {videoSrc ? (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="rounded-lg shadow-lg w-full"
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-        ) : imgSrc ? (
-          <img
-            src={imgSrc}
-            alt={heading || "Image"}
-            className="rounded-lg shadow-lg w-full object-cover"
-          />
-        ) : null}
+      <div className="flex flex-col items-center justify-center w-1/2">
+        <div className="relative z-10" >
+          <Image src={imgSrc} alt={heading || "Image"} width={465} height={250}  className="rounded-lg" />
+          <div className="absolute z-20 -bottom-20 -right-20" >
+            <Image src={imgSrc} alt={heading || "Image"} width={270} height={185} className="rounded-lg" />
+          </div>
+        </div>
       </div>
     </div>
   );
