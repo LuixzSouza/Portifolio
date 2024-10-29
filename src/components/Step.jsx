@@ -7,19 +7,29 @@ export function Step({ stepNumber, title, heading, paragraph, videoSrc, imgSrc }
   const [scrollY, setScrollY] = useState(0);
   const totalLength = 1330; // Comprimento total da linha
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!svgRef.current) return;
+useEffect(() => {
+  const handleScroll = () => {
+    if (!svgRef.current) return;
 
-      const elementTop = svgRef.current.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      let scrollPercent = Math.min(Math.max((windowHeight - elementTop) / windowHeight, 0), 1);
-      setScrollY(scrollPercent * totalLength);
-    };
+    const elementTop = svgRef.current.getBoundingClientRect().top;
+    const elementBottom = svgRef.current.getBoundingClientRect().bottom;
+    const windowHeight = window.innerHeight;
 
+    // Verifica se o elemento está totalmente visível na tela
+    const isFullyVisible =
+      elementTop >= 0 && elementBottom <= windowHeight;
+
+    if (isFullyVisible) {
+      // Calcula a porcentagem de preenchimento
+      let scrollPercent = (windowHeight - elementTop) / windowHeight;
+      setScrollY(Math.min(scrollPercent * totalLength, totalLength));
+    }
+  };
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
 
   return (
     <div className="step-content sticky top-0 h-screen w-screen flex items-center justify-center bg-white z-30 overflow-hidden">

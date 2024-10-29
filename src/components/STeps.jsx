@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Step from "./Step"; // Importando o componente Step
-import { title } from "process";
 
 const stepsData = [
   {
@@ -62,18 +61,36 @@ Primeiros passos no Node.js para back-end.`,
 ];
 
 export function Steps() {
-  const trackRef = useRef(null); // Referência para a track dos passos
-  const [scrollY, setScrollY] = useState(0);
+  const trackRef = useRef(null); // Referência para a trilha de passos
+  const stepsContainerRef = useRef(null); // Referência para o container de steps
+  const [scrollPercent, setScrollPercent] = useState(0); // Percentual de rolagem
 
   useEffect(() => {
     const handleScroll = () => {
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = window.scrollY / maxScroll; // Percentual do scroll
-      const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
+      if (!stepsContainerRef.current || !trackRef.current) return;
 
-      // Move a track proporcionalmente ao scroll vertical
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(-${scrollPercent * maxTranslateX}px)`;
+      const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
+      const containerHeight = stepsContainerRef.current.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      // Verifica se o container está parcialmente visível na tela
+      const isInViewport =
+        containerTop < windowHeight && containerTop + containerHeight > 0;
+
+      if (isInViewport) {
+        const maxScroll = containerHeight - windowHeight;
+        const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
+        const scrollPercentage = Math.min(scrolled / maxScroll, 1);
+
+        setScrollPercent(scrollPercentage);
+
+        const maxTranslateX =
+          trackRef.current.scrollWidth - window.innerWidth;
+
+        // Aplica a transformação horizontal proporcionalmente ao scroll vertical
+        trackRef.current.style.transform = `translateX(-${
+          scrollPercentage * maxTranslateX
+        }px)`;
       }
     };
 
@@ -82,11 +99,14 @@ export function Steps() {
   }, []);
 
   return (
-    <div className="steps-container relative z-30 h-[500vh] w-full">
+    <div
+      ref={stepsContainerRef}
+      className="steps-container relative z-30 h-[500vh] w-full"
+    >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <div
           ref={trackRef}
-          className="steps-track flex h-full transition-transform duration-300 ease-out"
+          className="steps-track flex h-full transition-transform duration-500 ease-out"
         >
           {stepsData.map((step, index) => (
             <div
