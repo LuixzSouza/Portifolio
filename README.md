@@ -82,7 +82,10 @@ npm run dev
 - React.js
 - Next.js
 - Tailwind
+- Tailwind-merge
 - TypeScript
+- Swiper
+- Gsap
 - GitHub
 - Figma
 - VisualCode
