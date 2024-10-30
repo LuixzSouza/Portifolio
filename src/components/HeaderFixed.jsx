@@ -51,12 +51,10 @@ export function HeaderFixed({ toggleMenu }) {
     >
       <ContainerGrid className="flex justify-between items-center py-5 w-full">
         <div>
-          <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
+          <LinkNav link="/" color={"white"}><Image src={'/image/logo-black.svg'} width={151} height={25} alt="logo"/> </LinkNav>
         </div>
         <div className="flex justify-center items-center gap-16">
-          <span className="cursor-pointer" onClick={toggleMenu}>
-            ABRIR MENU
-          </span>
+          <span className="cursor-pointer" onClick={toggleMenu}>MENU</span>
         </div>
       </ContainerGrid>
     </header>

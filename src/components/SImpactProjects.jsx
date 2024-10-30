@@ -57,7 +57,7 @@ export function CreateImpactProjects() {
   }, []);
 
   return (
-    <section className="relative z-30 bg-white w-full h-[300vh]">
+    <section className="relative z-30 bg-white w-full h-[300vh] rounded-t-3xl rounded-r-3xl">
       <ContainerGrid className="sticky top-0 w-full h-screen flex flex-col items-center justify-center text-center">
         <Paragraph size="litlleSmall" color="black">
           TRANSDORMANDO IDEIAS EM SOLUÇÕES DIGITAIS
@@ -74,7 +74,7 @@ export function CreateImpactProjects() {
             <div
               key={index}
               ref={(el) => (elementRefs.current[index] = el)} // Armazenar ref de cada elemento
-              className={`absolute w-full overflow-hidden shadow-lgw- shadow-black rounded-lg transition-all duration-700 ease-in-out`} // Adicionado transition para suavizar a animação
+              className={`absolute w-full overflow-hidden shadow-lgw- shadow-black rounded-lg transition-all duration-700 ease-in-out group hover:scale-110`} // Adicionado transition para suavizar a animação
               style={{
                 zIndex: `z-${item.z}`,
                 maxWidth: `${item.maxWidth}px`,
@@ -94,7 +94,7 @@ export function CreateImpactProjects() {
                 <div
                   className={`relative z-20 w-full h-full rounded-lg ${bgClasses[item.fill]} bg-center bg-cover bg-no-repeat flex items-center justify-center`}
                 >
-                  <div className="text-center">
+                  <div className="flex flex-col items-center justify-center text-center">
                     <Image
                       src={`/image/icon-${item.fill}.svg`}
                       width={50}
@@ -102,7 +102,7 @@ export function CreateImpactProjects() {
                       alt={item.nome}
                       priority={true}
                     />
-                    <h2>{item.nome}</h2>
+                    <Heading size='tiny' color='white' lineHeight='relaxed' >{item.nome}</Heading>
                   </div>
                 </div>
               </div>

@@ -29,9 +29,9 @@ export function HeaderHome() {
             </div>
             <nav className={`flex justify-center items-center gap-16 transition-all duration-500 delay-400 
             ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                <LinkNav link="/work" color={"white"}>WORK </LinkNav>
-                <LinkNav link="/about"  color={"white"}>ABOUT</LinkNav>
-                <LinkNav link="/contact"  color={"white"}>CONTACT</LinkNav>
+                <LinkNav link="/work" color={"white"}>PROJETOS </LinkNav>
+                <LinkNav link="/about"  color={"white"}>SOBRE</LinkNav>
+                <LinkNav link="/contact"  color={"white"}>CONTATO</LinkNav>
             </nav>
             <div className={`flex justify-center items-center gap-8 w-full max-w-48 transition-all duration-500 delay-600 
             ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>

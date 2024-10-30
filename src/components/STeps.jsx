@@ -80,8 +80,7 @@ export function Steps() {
       const containerHeight = stepsContainerRef.current.offsetHeight;
       const windowHeight = window.innerHeight;
 
-      const isInViewport =
-        containerTop < windowHeight && containerTop + containerHeight > 0;
+      const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
 
       if (isInViewport) {
         const maxScroll = containerHeight - windowHeight;
@@ -90,12 +89,9 @@ export function Steps() {
 
         setScrollPercent(scrollPercentage);
 
-        const maxTranslateX =
-          trackRef.current.scrollWidth - window.innerWidth;
+        const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
 
-        trackRef.current.style.transform = `translateX(-${
-          scrollPercentage * maxTranslateX
-        }px)`;
+        trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
       }
     };
 
@@ -106,20 +102,11 @@ export function Steps() {
   if (!isMounted) return null; // Evita renderização no SSR
 
   return (
-    <div
-      ref={stepsContainerRef}
-      className="steps-container relative z-30 h-[500vh] w-full bg-white"
-    >
+    <div ref={stepsContainerRef} className="steps-container relative z-30 h-[500vh] w-full bg-white">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
-        <div
-          ref={trackRef}
-          className="steps-track flex h-full transition-transform duration-500 ease-out bg-white"
-        >
+        <div ref={trackRef} className="steps-track flex h-full transition-transform duration-500 ease-out bg-white">
           {stepsData.map((step, index) => (
-            <div
-              key={index}
-              className="step-wrapper w-screen h-full flex-shrink-0 bg-white"
-            >
+            <div key={index} className="step-wrapper w-full h-full flex-shrink-0 bg-white">
               <Step {...step} />
             </div>
           ))}

@@ -10,8 +10,8 @@ import {Heading} from '@/components/Heading';
 
 export function Homing() {
     return (
-        <section className='sticky top-0 z-20' >
-            <div className='w-full h-screen bg-hero bg-center bg-no-repeat bg-contain' >
+        <section className='sticky top-0 z-20 bg-hero bg-center bg-no-repeat bg-cover' >
+            <div className='w-full h-screen' >
                 <HeaderHome/>
                 <ContainerGrid className={"h-full relative overflow-hidden"} >
                     <div className='h-full grid grid-cols-3 grid-rows-3 pb-16 justify-between' style={{
@@ -23,7 +23,7 @@ export function Homing() {
                         </div>
                         <div className='relative flex items-center justify-between col-start-1 col-end-3 row-start-2 row-end-2' >
                             <div className='relative z-30 flex items-start justify-start' >
-                                <Heading as='h2' size='medium' color='white' > Dev.Jr </Heading>
+                                <Heading as='h2' size='medium' color='white' > FullStack </Heading>
                             </div>
                             <div className='absolute z-10 border-b-2 border-white overflow-hidden -top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 max-w-full h-auto' >
                                 <Image src={'/image/MySelf.png'} width={400} height={440} alt='Luiz' />
@@ -42,7 +42,7 @@ export function Homing() {
                                 <span className='text-white font-roobert text-lg leading-5' >— DISPONÍVEL PARA TRABALHO —</span>
                             </div>
                             <div className='w-full flex items-center justify-end' >
-                                <span className='text-white font-roobert text-lg leading-5' >— Baseado no Brasil 2019 — 2024 —</span>
+                                <span className='text-white font-roobert text-lg leading-5' >BRASIL - 2021/2024 -</span>
                             </div>
                         </div>
                     </div>
