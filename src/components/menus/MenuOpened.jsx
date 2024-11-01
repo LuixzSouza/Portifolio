@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Paragraph } from "@/components/typrography/Paragraph";//ok
-import { LinkCustom } from "./LinkCustom";
-import { ContainerGrid } from "./ContainerGrid";
-import { LinkNav } from "./LinkNav";
+import { LinkCustom } from "../ui/LinkCustom";
+import { ContainerGrid } from "../layout/ContainerGrid";
+import { LinkNav } from "../ui/LinkNav";
 import { ListMenu } from "./MenuList";
-import { Clock } from "./Clock";
+import { Clock } from "../widgets/Clock";
 import Link from "next/link";
 import Image from "next/image";
 

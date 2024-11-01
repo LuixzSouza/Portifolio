@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ContainerGrid } from "@/components/ContainerGrid";
-import { LinkNav } from "@/components/LinkNav";
+import { ContainerGrid } from "@/components/layout/ContainerGrid";
+import { LinkNav } from "@/components/ui/LinkNav";
 import Image from "next/image";
 
 export function HeaderFixed({ toggleMenu }) {

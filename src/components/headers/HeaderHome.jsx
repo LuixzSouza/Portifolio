@@ -1,9 +1,9 @@
 'use client';
 // Components
 import { useEffect, useState } from "react";
-import { ContainerGrid } from "@/components/ContainerGrid";
-import { LinkNav } from "@/components/LinkNav";
-import { Clock } from "@/components/Clock";
+import { ContainerGrid } from "@/components/layout/ContainerGrid";
+import { LinkNav } from "@/components/ui/LinkNav";
+import { Clock } from "@/components/widgets/Clock";
 import Image from "next/image";
 
 export function HeaderHome() {

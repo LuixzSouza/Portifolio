@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Paragraph } from '@/components/typrography/Paragraph';//ok
 import { Heading } from '@/components/typrography/Heading';//ok
-import { ContainerGrid } from '@/components/ContainerGrid';
+import { ContainerGrid } from '@/components/layout/ContainerGrid';
 import { useEffect, useRef } from 'react';
 
 const bgClasses = {

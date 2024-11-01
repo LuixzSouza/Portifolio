@@ -4,11 +4,11 @@
 import { useState } from 'react';
 import { Homing } from '@/components/Homing';
 import { CreateImpactProjects } from '@/components/SImpactProjects';
-import { HeaderFixed } from '@/components/HeaderFixed';
+import { HeaderFixed } from '@/components/headers/HeaderFixed';//ok
 import Steps from '@/components/Steps'; // Importação correta
 import { SectionWork } from '@/components/SWork';
 import { SectionFooter } from '@/components/Footer';
-import { MenuOpened } from '@/components/MenuOpened';
+import { MenuOpened } from '@/components/menus/MenuOpened';//ok
 
 export function SectionHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

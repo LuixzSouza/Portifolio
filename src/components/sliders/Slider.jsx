@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules"; // Importe o módulo do efeito desejado
-import { RetangleProjects } from "@/components/ContentProject";
+import { RetangleProjects } from "@/components/content/ContentProject";//ok
 
 import 'swiper/css';
 import 'swiper/css/navigation';
