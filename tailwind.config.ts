@@ -9,6 +9,9 @@ const config = {
   ],
   theme: {
     extend: {
+      cursor: {
+        'cursoClick': 'url(/image/cursor-click.png) 42 42, pointer',
+      },
       fontFamily: {
         roobert: ['var(--font-robeert)', ...fontFamily.sans],
         playFair: ['var(--font-playFair)', ...fontFamily.sans],
@@ -28,6 +31,7 @@ const config = {
         greenSecondary: '#2F4F4F',
         bluePrimary: '#1E3A8A',
         blueSecondary: '#2C3E50',
+        'gradient-black': 'linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, #000000 80%,#000000 100%)',
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, #2B1F24 0%, #ED8333 18.16%, #F5A540 30.77%, #F5ED4E 42.09%, #EDB397 54.02%, #FFFFFF 70.47%, #98F0DE 85.95%, #1CA0F3 100%)',
@@ -39,6 +43,7 @@ const config = {
         'gradient-sass': 'conic-gradient(#CD6799 0%, #CD6799 36%, #FFFFFF 100%)',
         'gradient-next': 'conic-gradient(#000000 0%, #FFFFFF 36%, #000000 100%)',
         'gradient-white': 'linear-gradient(90deg, rgba(255, 255, 255, 0.39) 0%, #FFFFFF 40%, #FFFFFF 100%)',
+        'gradient-black': 'linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, #000000 80%,#000000 100%)',
         'footer': "url('/image/bg-footer.png')",
         'hero': "url('/image/bg-home.png')",
         'menu': "url('/image/bg-menu.png')",
@@ -51,6 +56,7 @@ const config = {
         'bg-react': "url('/image/bg-react.png')",
         'bg-sass': "url('/image/bg-sass.png')",
         'bg-next': "url('/image/bg-next.png')",
+        'bg-more': "url('/image/bg-more-projects.png)",
       },
       maxWidth: {
         grid: '87.5rem', //1400

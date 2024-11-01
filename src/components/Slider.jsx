@@ -1,53 +1,50 @@
 'use client'
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, EffectFade } from "swiper/modules"; // Importe o módulo do efeito desejado
 import { RetangleProjects } from "@/components/ContentProject";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade'; // Importe o CSS para o efeito específico
 import { useRef } from "react";
 
 export function Slider() {
     const swiperRef = useRef();
 
     return (
-        <div className="relative w-full">
+        <div className="relative max-w-1018 overflow-hidden">
             <button
-                className="p-3 text-white font-roobert bg-blue rounded-full shadow-lg flex items-center justify-center absolute z-10 left-4 top-1/2 -translate-y-1/2 hover:bg-black/50 transition duration-300"
+                className="p-2 text-black font-roobert border border-black bg-white rounded-full shadow-lg flex items-center justify-center absolute z-10 left-4 top-1/2 -translate-y-1/2 hover:bg-black hover:text-white hover:border-white  transition duration-300"
                 onClick={() => swiperRef.current?.slidePrev()}
             >
                 ANTERIOR
             </button>
 
             <Swiper
-                modules={[Navigation, Autoplay]}
+                modules={[Navigation, Autoplay, EffectFade]} // Adicione o módulo do efeito
                 slidesPerView={1}
                 spaceBetween={40}
                 speed={800}
                 loop={true}
-                autoplay={{
-                    delay: 2000,  // 2 segundos entre os slides
-                    disableOnInteraction: false,  // Continua mesmo após interação do usuário
-                    pauseOnMouseEnter: true,  // Pausa ao passar o mouse sobre o slide
-                }}
+                effect="fade" // Especifique o tipo de efeito aqui
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
             >
                 <SwiperSlide>
-                    <RetangleProjects nome="Projeto 1" img="p-codeboost.png" />
+                    <RetangleProjects nome="Code-Boost" img="p-codeboost.png" categoryies={"HTML CSS JAVASCRIPT"} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <RetangleProjects nome="Projeto 2" img="p-formula-idioma.png" />
+                    <RetangleProjects nome="Formula Idioma" img="p-formula-idioma.png" categoryies={"HTML CSS JAVASCRIPT SASS"}/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <RetangleProjects nome="Projeto 3" img="p-new-project.png" />
+                    <RetangleProjects nome="Mais Projetos" img="bg-more-projects.png" categoryies={"HTML CSS JAVASCRIPT"}/>
                 </SwiperSlide>
             </Swiper>
 
             <button
-                className="p-3 text-white font-roobert bg-blue rounded-full shadow-lg flex items-center justify-center absolute z-10 right-4 top-1/2 -translate-y-1/2 hover:bg-black/50 transition duration-300"
+                className="p-3 text-black font-roobert border border-black bg-white rounded-full shadow-lg flex items-center justify-center absolute z-10 right-4 top-1/2 -translate-y-1/2 hover:bg-black hover:text-white hover:border-white transition duration-300"
                 onClick={() => swiperRef.current?.slideNext()}
             >
                 PRÓXIMO

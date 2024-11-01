@@ -57,13 +57,13 @@ export function CreateImpactProjects() {
   }, []);
 
   return (
-    <section className="relative z-30 bg-white w-full h-[300vh] rounded-t-3xl rounded-r-3xl">
+    <section className="relative z-30 bg-white w-full h-[300vh] rounded-t-full">
       <ContainerGrid className="sticky top-0 w-full h-screen flex flex-col items-center justify-center text-center">
         <Paragraph size="litlleSmall" color="black">
           TRANSDORMANDO IDEIAS EM SOLUÇÕES DIGITAIS
         </Paragraph>
         <Heading as="h2" size="medium">
-          Transformo cada projeto em uma solução exclusiva, onde inovação e estratégia se conectam para gerar impacto duradouro.
+          Desenvolvo cada projeto em uma solução exclusiva, onde conceitos e estratégia se conectam para gerar produto unico.
         </Heading>
       </ContainerGrid>
 
@@ -87,16 +87,11 @@ export function CreateImpactProjects() {
               }}
             >
               <div className="relative w-full h-full p-1">
-                <div
-                  className={`absolute inset-0 z-10 blur-sm ${gradientClasses[item.fill]} animate-spin-slow min-w-[200%] min-h-[200%] aspect-ratio-[1/1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-                ></div>
-
-                <div
-                  className={`relative z-20 w-full h-full rounded-lg ${bgClasses[item.fill]} bg-center bg-cover bg-no-repeat flex items-center justify-center`}
-                >
+                <div className={`absolute inset-0 z-10 blur-sm ${gradientClasses[item.fill]} animate-spin-slow min-w-[200%] min-h-[200%] aspect-ratio-[1/1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
+                </div>
+                <div className={`relative z-20 w-full h-full rounded-lg ${bgClasses[item.fill]} bg-center bg-cover bg-no-repeat flex items-center justify-center`}>
                   <div className="flex flex-col items-center justify-center text-center">
-                    <Image
-                      src={`/image/icon-${item.fill}.svg`}
+                    <Image src={`/image/icon-${item.fill}.svg`}
                       width={50}
                       height={50}
                       alt={item.nome}

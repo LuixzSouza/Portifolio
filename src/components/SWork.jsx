@@ -10,7 +10,7 @@ export function SectionWork() {
                 <div className="sticky top-0 w-full h-screen pb-16 flex items-center justify-center overflow-hidden" >
                     <div className="flex flex-col items-start justify-center" >
                         <span>selecione</span>
-                        <Heading as="h2" size="xlarge" color="black" lineHeight="none" >WORK</Heading>
+                        <Heading as="h2" size="xlarge" color="black" lineHeight="none" >PROJETO</Heading>
                     </div>
                 </div>
                 <div className="sticky top-0 w-full h-screen flex items-center justify-center gap-10 overflow-hidden" >

@@ -16,6 +16,7 @@ export function Heading({
       medium: "text-[4rem] font-regular", 
       small: "text-[2.5rem] font-regular", 
       tiny: "text-[1.75rem] font-regular", 
+      litlle: "text-[1.20rem] font-regular",
   };
 
   const lineHeights = {

@@ -1,7 +1,7 @@
 import { SectionHero } from "@/components/SectionHero"
 
 export const metadata = {
-  title: "Portifolio",
+  title: "Luiz Antônio de Souza | Portifolio/Home",
   description: "Luiz Antônio de Souza",
   openGraph: {
     images: ["https://Caminho_no_servidor.com.br/nome_imagem.png"],

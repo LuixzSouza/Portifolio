@@ -1,4 +1,4 @@
-export function Paragraph({ size = "medium", color = "black", max, children }) {
+export function Paragraph({ size = "medium", color = "black", max, children, className }) {
     const sizes = {
         large: "text-[1.75rem] leading-[2.5rem]", //28px
         medium: "text-[1.5rem] leading-[2rem]", //24px
@@ -8,7 +8,7 @@ export function Paragraph({ size = "medium", color = "black", max, children }) {
 
     return (
         <p
-            className={`w-full ${sizes[size]} text-${color}`}
+            className={`w-full ${sizes[size]} text-${color} ${className}`}
             style={{ maxWidth: max }}
         >
             {children}
