@@ -32,6 +32,7 @@ const config = {
         bluePrimary: '#1E3A8A',
         blueSecondary: '#2C3E50',
         'gradient-black': 'linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, #000000 80%,#000000 100%)',
+        'gradient-bluePrimary': 'linear-gradient(180deg, #1E3A8A 0%, #FFF 100%)',
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, #2B1F24 0%, #ED8333 18.16%, #F5A540 30.77%, #F5ED4E 42.09%, #EDB397 54.02%, #FFFFFF 70.47%, #98F0DE 85.95%, #1CA0F3 100%)',
@@ -77,6 +78,7 @@ const config = {
         'bg-sass': "url('/image/bg-sass.png')",
         'bg-next': "url('/image/bg-next.png')",
         'bg-more': "url('/image/bg-more-projects.png)",
+        'bg-gradwhite': "url('/image/bg-white-gradient.png')",
       },
       maxWidth: {
         grid: '87.5rem', //1400
