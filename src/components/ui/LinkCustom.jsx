@@ -1,5 +1,6 @@
-import Image from "next/image";
+// Next
 import Link from "next/link";
+import Image from "next/image";
 
 export function LinkCustom({ link, children, color, img, nomeimg }) {
   return (

@@ -1,7 +1,10 @@
+// Next
+import Image from "next/image";
+
+// Componente
+import {Category} from "@/components/buttons/Category"
 import { Heading } from "@/components/typrography/Heading"//ok
 import { Paragraph } from "@/components/typrography/Paragraph";//ok
-import Image from "next/image";
-import {Category} from "@/components/buttons/Category"
 
 export function RetangleProjects({nome, img, categoryies}) {
     return(

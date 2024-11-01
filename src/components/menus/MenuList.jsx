@@ -1,4 +1,7 @@
+// Next
 import Image from "next/image";
+
+// Componentes
 import { Heading } from "@/components/typrography/Heading";
 
 export function ListMenu({ image, children }) {

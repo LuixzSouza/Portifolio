@@ -116,6 +116,9 @@ const config = {
       borderRadius: {
         'custom-80': '80px',
       },
+      transitionProperty: {
+        'width': 'width',
+      },
     },
   },
   plugins: [],

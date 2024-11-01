@@ -1,7 +1,11 @@
 "use client"; // Para habilitar hooks e estado
 
+
+// React
 import { useEffect, useRef, useState } from "react";
-import Step from "./Step"; // Importando o componente Step
+
+// Componentes
+import { StimeLine } from "@/components/sections/StimeLine";
 
 const stepsData = [
   {
@@ -71,54 +75,74 @@ const stepsData = [
   },
 ];
 
-
-
-export function Steps() {
+export function StimeLines() {
   const trackRef = useRef(null);
   const stepsContainerRef = useRef(null);
   const [scrollPercent, setScrollPercent] = useState(0);
+  const [progressArray, setProgressArray] = useState(Array(stepsData.length).fill(0));
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true); // Garante que só será renderizado no cliente
+    setIsMounted(true);
 
     if (typeof window === 'undefined') return;
 
     const handleScroll = () => {
       if (!stepsContainerRef.current || !trackRef.current) return;
-
+    
       const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
       const containerHeight = stepsContainerRef.current.offsetHeight;
       const windowHeight = window.innerHeight;
-
+    
       const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
-
+    
       if (isInViewport) {
         const maxScroll = containerHeight - windowHeight;
         const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
         const scrollPercentage = Math.min(scrolled / maxScroll, 1);
-
+    
         setScrollPercent(scrollPercentage);
-
+    
+        // Atualiza a progressão de cada linha sequencialmente
+        const newProgressArray = progressArray.map((progress, index) => {
+          const stepStart = index / stepsData.length;
+          const stepEnd = (index + 1) / stepsData.length;
+          if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
+            return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
+          } else if (scrollPercentage >= stepEnd) {
+            return 100;
+          } else {
+            return 0;
+          }
+        });
+    
+        setProgressArray(newProgressArray);
+    
+        // Move a trilha horizontalmente conforme o scroll
         const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
-
-        trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
+        if (scrollPercentage > 0) {
+          trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
+        } else {
+          // Garante que a posição inicial seja correta
+          trackRef.current.style.transform = 'translateX(0)';
+        }
       }
     };
+    
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [progressArray]);
 
-  if (!isMounted) return null; // Evita renderização no SSR
+  if (!isMounted) return null;
 
   return (
     <div ref={stepsContainerRef} className="steps-container relative z-30 h-[500vh] w-full bg-whiteSecondary">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div ref={trackRef} className="steps-track flex h-full transition-transform duration-500 ease-out ">
-          {stepsData.map((step, index) => (
+        <div ref={trackRef} className="steps-track flex h-full transition-transform duration-500 ease-out">
+          {stepsData.map((timeLiner, index) => (
             <div key={index} className="step-wrapper w-full h-full flex-shrink-0">
-              <Step {...step} />
+              <StimeLine {...timeLiner} lineClass={`line-${index + 1}`} progress={progressArray[index]} />
             </div>
           ))}
         </div>
@@ -126,5 +150,3 @@ export function Steps() {
     </div>
   );
 }
-
-export default Steps;

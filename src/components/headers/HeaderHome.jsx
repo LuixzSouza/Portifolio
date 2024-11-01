@@ -1,10 +1,13 @@
 'use client';
-// Components
+
+// React / Next
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ContainerGrid } from "@/components/layout/ContainerGrid";
+
+// Components
 import { LinkNav } from "@/components/ui/LinkNav";
 import { Clock } from "@/components/widgets/Clock";
-import Image from "next/image";
+import { ContainerGrid } from "@/components/layout/ContainerGrid";
 
 export function HeaderHome() {
     const [isScrolled, setIsScrolled] = useState(false);

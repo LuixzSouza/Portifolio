@@ -1,13 +1,19 @@
 'use client'
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, EffectFade } from "swiper/modules"; // Importe o módulo do efeito desejado
-import { RetangleProjects } from "@/components/content/ContentProject";//ok
+// React
+import { useRef } from "react";
 
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay, EffectFade } from "swiper/modules";
+
+// Componentes
+import { RetangleProjects } from "@/components/content/ContentProject";
+
+// Css Swiper
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-fade'; // Importe o CSS para o efeito específico
-import { useRef } from "react";
+import 'swiper/css/effect-fade';
 
 export function Slider() {
     const swiperRef = useRef();

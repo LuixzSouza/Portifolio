@@ -1,3 +1,4 @@
+// Next
 import Link from "next/link";
 
 export function LinkNav({ link, children, color }) {

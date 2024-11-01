@@ -1,10 +1,13 @@
 'use client';
 
+// React / Next
 import Image from 'next/image';
-import { Paragraph } from '@/components/typrography/Paragraph';//ok
-import { Heading } from '@/components/typrography/Heading';//ok
-import { ContainerGrid } from '@/components/layout/ContainerGrid';
 import { useEffect, useRef } from 'react';
+
+// Componentes
+import { Heading } from '@/components/typrography/Heading';
+import { Paragraph } from '@/components/typrography/Paragraph';
+import { ContainerGrid } from '@/components/layout/ContainerGrid';
 
 const bgClasses = {
   html: 'bg-bg-html',
@@ -109,8 +112,3 @@ export function CreateImpactProjects() {
   );
 }
 
-
-//Transformando Ideias em Soluções Digitais
-
-//Cada projeto é uma chance de criar algo único e impactante. Combinando inovação e performance,
-// desenvolvo soluções personalizadas que fazem a diferença e entregam resultados reais.

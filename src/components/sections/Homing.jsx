@@ -1,12 +1,13 @@
+// Next
 import Image from 'next/image'
 
 // Components
-import {HeaderHome} from '@/components/headers/HeaderHome';
-import {Paragraph} from '@/components/typrography/Paragraph';//ok
-import { ContainerGrid } from '@/components/layout/ContainerGrid';
-import {TypingEffect} from '@/components/animations/TypingEffect';//ok
 import {LinkCustom} from '@/components/ui/LinkCustom';
-import {Heading} from '@/components/typrography/Heading';//ok
+import { Heading } from '@/components/typrography/Heading';
+import { HeaderHome } from '@/components/headers/HeaderHome';
+import { Paragraph } from '@/components/typrography/Paragraph';
+import { ContainerGrid } from '@/components/layout/ContainerGrid';
+import { TypingEffect } from '@/components/animations/TypingEffect';
 
 export function Homing() {
     return (

@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ContainerGrid } from "@/components/layout/ContainerGrid";
-import { LinkNav } from "@/components/ui/LinkNav";
+// React / Next
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+// Componentes
+import { LinkNav } from "@/components/ui/LinkNav";
+import { ContainerGrid } from "@/components/layout/ContainerGrid";
 
 export function HeaderFixed({ toggleMenu }) {
   const [isVisible, setIsVisible] = useState(false); // Inicialmente invisível

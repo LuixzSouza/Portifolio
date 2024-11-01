@@ -1,4 +1,4 @@
-import { MainSection } from "@/components/MainSection"
+import { MainSection } from "@/components/sections/MainSection"
 
 export const metadata = {
   title: "Luiz Antônio de Souza | Portifolio/Home",

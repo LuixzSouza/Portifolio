@@ -1,14 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Paragraph } from "@/components/typrography/Paragraph";//ok
-import { LinkCustom } from "../ui/LinkCustom";
-import { ContainerGrid } from "../layout/ContainerGrid";
-import { LinkNav } from "../ui/LinkNav";
-import { ListMenu } from "./MenuList";
-import { Clock } from "../widgets/Clock";
+// React / Next
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+// Componentes
+import { ListMenu } from "./MenuList";
+import { LinkNav } from "../ui/LinkNav";
+import { Clock } from "../widgets/Clock";
+import { LinkCustom } from "../ui/LinkCustom";
+import { ContainerGrid } from "../layout/ContainerGrid";
+import { Paragraph } from "@/components/typrography/Paragraph";//ok
 
 export function MenuOpened({ isOpen, toggleMenu }) {
   const [isAnimating, setIsAnimating] = useState(true);

@@ -1,14 +1,18 @@
-// components/SectionHero.js
-"use client"; // Habilita hooks e estado
+// Habilita hooks e estado
+"use client"; 
 
+// React
 import { useState } from 'react';
+
+// Componentes
 import { Homing } from '@/components/sections/Homing';
-import { CreateImpactProjects } from '@/components/sections/SImpactProjects';
-import { HeaderFixed } from '@/components/headers/HeaderFixed';//ok
-import Steps from '@/components/sections/Steps'; // Importação correta
 import { SectionWork } from '@/components/sections/SWork';
+import { MenuOpened } from '@/components/menus/MenuOpened';
 import { SectionFooter } from '@/components/sections/Footer';
-import { MenuOpened } from '@/components/menus/MenuOpened';//ok
+import { StimeLines } from '@/components/sections/StimeLines';
+import { HeaderFixed } from '@/components/headers/HeaderFixed';
+import { CreateImpactProjects } from '@/components/sections/SImpactProjects';
+import { ClimUp } from '@/components/widgets/ClimUp';
 
 export function MainSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,11 +23,12 @@ export function MainSection() {
       <Homing />
       <HeaderFixed toggleMenu={toggleMenu} />
       <CreateImpactProjects />
-      <Steps /> {/* Agora o Steps está funcionando */}
+      <StimeLines />
       <SectionWork />
       <div className="relative z-20 w-full h-16 bg-white rounded-bl-custom-80 rounded-br-custom-80"></div>
       <SectionFooter />
       <MenuOpened isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <ClimUp/>
     </section>
   );
 }

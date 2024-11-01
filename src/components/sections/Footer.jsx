@@ -1,10 +1,12 @@
+// Next
 import Image from "next/image";
 
-import { ContainerGrid } from "@/components/layout/ContainerGrid";
-import { Heading } from "@/components/typrography/Heading";//ok
-import { Paragraph } from "@/components/typrography/Paragraph";//ok
-import { BotaoPrimary } from "@/components/buttons/Botao";
+// Componentes
 import { LinkCustom } from "@/components/ui/LinkCustom";
+import { BotaoPrimary } from "@/components/buttons/Botao";
+import { Heading } from "@/components/typrography/Heading";
+import { Paragraph } from "@/components/typrography/Paragraph";
+import { ContainerGrid } from "@/components/layout/ContainerGrid";
 
 export function SectionFooter() {
     return (
