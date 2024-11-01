@@ -1,5 +1,5 @@
-import { Heading } from "@/components/Heading"
-import { Paragraph } from "@/components/Paragraph";
+import { Heading } from "@/components/typrography/Heading"//ok
+import { Paragraph } from "@/components/typrography/Paragraph";//ok
 import Image from "next/image";
 import {Category} from "@/components/Category"
 

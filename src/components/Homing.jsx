@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 // Components
 import {HeaderHome} from '@/components/HeaderHome';
-import {Paragraph} from '@/components/Paragraph';
+import {Paragraph} from '@/components/typrography/Paragraph';//ok
 import { ContainerGrid } from '@/components/ContainerGrid';
 import {TypingEffect} from '@/components/TypingEffect';
 import {LinkCustom} from '@/components/LinkCustom';
-import {Heading} from '@/components/Heading';
+import {Heading} from '@/components/typrography/Heading';//ok
 
 export function Homing() {
     return (

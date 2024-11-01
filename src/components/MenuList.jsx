@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Heading } from "./Heading";
+import { Heading } from "@/components/typrography/Heading";
 
 export function ListMenu({ image, children }) {
     return (

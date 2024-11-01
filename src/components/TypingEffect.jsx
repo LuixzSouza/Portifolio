@@ -1,7 +1,7 @@
 'use client'
 // TypingEffect.js
 import { useState, useEffect } from 'react';
-import { Heading } from '@/components/Heading';
+import { Heading } from '@/components/typrography/Heading';//ok
 
 const words = ["LUIZ A.", "ANTÔNIO", "SOUZA"];
 

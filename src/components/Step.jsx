@@ -1,8 +1,7 @@
 "use client"; // Para habilitar hooks e estado
 
 import Image from "next/image";
-import { Heading } from "./Heading";
-import { Paragraph } from "./Paragraph";
+import { Heading } from "@/components/typrography/Heading";//ok
 
 export function Step({ stepNumber, title, heading, paragraph, date, imgSrc, subImgSrc }) {
   return (

@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 import { ContainerGrid } from "@/components/ContainerGrid";
-import { Heading } from "@/components/Heading";
-import { Paragraph } from "@/components/Paragraph";
+import { Heading } from "@/components/typrography/Heading";//ok
+import { Paragraph } from "@/components/typrography/Paragraph";//ok
 import { BotaoPrimary } from "@/components/Botao";
 import { LinkCustom } from "@/components/LinkCustom";
 

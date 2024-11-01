@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { Paragraph } from '@/components/Paragraph';
-import { Heading } from '@/components/Heading';
+import { Paragraph } from '@/components/typrography/Paragraph';//ok
+import { Heading } from '@/components/typrography/Heading';//ok
 import { ContainerGrid } from '@/components/ContainerGrid';
 import { useEffect, useRef } from 'react';
 

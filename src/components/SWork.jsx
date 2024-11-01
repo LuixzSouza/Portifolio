@@ -1,5 +1,5 @@
 import { ContainerGrid } from "@/components/ContainerGrid";
-import { Heading } from "@/components/Heading";
+import { Heading } from "@/components/typrography/Heading";//ok
 import { Slider } from "@/components/Slider";
 
 export function SectionWork() {

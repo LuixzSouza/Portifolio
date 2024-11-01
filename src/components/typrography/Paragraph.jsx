@@ -15,3 +15,4 @@ export function Paragraph({ size = "medium", color = "black", max, children, cla
         </p>
     );
 }
+

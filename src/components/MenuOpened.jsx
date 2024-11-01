@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Paragraph } from "./Paragraph";
+import { Paragraph } from "@/components/typrography/Paragraph";//ok
 import { LinkCustom } from "./LinkCustom";
 import { ContainerGrid } from "./ContainerGrid";
 import { LinkNav } from "./LinkNav";
