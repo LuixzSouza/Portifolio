@@ -2,15 +2,15 @@
 "use client"; // Habilita hooks e estado
 
 import { useState } from 'react';
-import { Homing } from '@/components/Homing';
-import { CreateImpactProjects } from '@/components/SImpactProjects';
+import { Homing } from '@/components/sections/Homing';
+import { CreateImpactProjects } from '@/components/sections/SImpactProjects';
 import { HeaderFixed } from '@/components/headers/HeaderFixed';//ok
-import Steps from '@/components/Steps'; // Importação correta
-import { SectionWork } from '@/components/SWork';
-import { SectionFooter } from '@/components/Footer';
+import Steps from '@/components/sections/Steps'; // Importação correta
+import { SectionWork } from '@/components/sections/SWork';
+import { SectionFooter } from '@/components/sections/Footer';
 import { MenuOpened } from '@/components/menus/MenuOpened';//ok
 
-export function SectionHero() {
+export function MainSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -28,4 +28,4 @@ export function SectionHero() {
   );
 }
 
-export default SectionHero;
+export default MainSection;

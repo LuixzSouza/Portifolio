@@ -1,4 +1,4 @@
-import { SectionHero } from "@/components/SectionHero"
+import { MainSection } from "@/components/MainSection"
 
 export const metadata = {
   title: "Luiz Antônio de Souza | Portifolio/Home",
@@ -15,6 +15,6 @@ export default function Home() {
 
 
   return (
-    <SectionHero/>
+    <MainSection/>
   );
 }
