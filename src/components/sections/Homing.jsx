@@ -11,26 +11,26 @@ import { TypingEffect } from '@/components/animations/TypingEffect';
 
 export function Homing() {
     return (
-        <section className='sticky top-0 z-20 bg-hero bg-center bg-no-repeat bg-cover' >
+        <section className='sticky top-0 z-20 bg-hero bg-cover' >
             <div className='w-full h-screen' >
                 <HeaderHome/>
                 <ContainerGrid className={"h-full relative overflow-hidden"} >
-                    <div className='h-full grid grid-cols-3 grid-rows-3 pb-16 justify-between' style={{
+                    <div className='h-full grid grid-cols-3 grid-rows-3 pb-32 justify-between items-center' style={{
                             gridTemplateColumns: 'auto 1fr auto', // Ajusta primeiro e último ao conteúdo, o meio ocupa o espaço restante
                             gridTemplateRows: 'auto auto',         // Linhas se ajustam ao conteúdo
                         }}>
-                        <div className='relative flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1 ' >
-                            <TypingEffect />
+                        <div className='relative w-full flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1 ' >
+                            <div className='w-full flex items-center justify-center text-center' >
+                                <Heading as='h1' size='larger' color='white' > LUIZ SOUZA</Heading>
+                            </div>
                         </div>
-                        <div className='relative flex items-center justify-between col-start-1 col-end-3 row-start-2 row-end-2' >
-                            <div className='relative z-30 flex items-start justify-start' >
-                                <Heading as='h2' size='medium' color='white' > FullStack </Heading>
+                        <div className='relative flex items-start justify-between col-start-1 col-end-3 row-start-2 row-end-2' >
+                            <div className='relative z-30 flex flex-col items-start justify-start w-full' >
+                                <Heading as='h2' size='medium' color='white' > Desenvolvedor </Heading>
+                                <TypingEffect />
                             </div>
-                            <div className='absolute z-10 border-b-2 border-white overflow-hidden -top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 max-w-full h-auto' >
-                                <Image src={'/image/MySelf.png'} width={400} height={440} alt='Luiz' />
-                            </div>
-                            <div className='flex items-end justify-end '>
-                                <Paragraph size='small' color='white' max={'11.875rem'} >CRIANDO PROJETOS IMPRESSIONANTES</Paragraph>
+                            <div className='flex items-end justify-start text-right pt-10'>
+                                <Paragraph size='small' color='white' max={'14.875rem'} >CRIANDO PROJETOS IMPRESSIONANTES</Paragraph>
                             </div>
                         </div>
                         <div className='flex items-center justify-between col-start-1 col-end-4 row-span-3 mt-24' >

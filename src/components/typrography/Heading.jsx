@@ -10,6 +10,7 @@ export function Heading({
   const sizes = {
       super: "text-[25rem] tracking-[-0.375rem] font-light", 
       xlarge: "text-[17.5rem] tracking-[-0.375rem] font-light", 
+      larger: "text-[13.5rem] tracking-[-0.375] font-light",
       large: "text-[10rem] tracking-[-0.375rem] font-light", 
       midlle: "text-[7.5rem] tracking-[-0.375rem] font-light", 
       menu: "text-[6.25rem] font-normal", 

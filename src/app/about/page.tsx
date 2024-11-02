@@ -1,5 +1,9 @@
-import { HeaderHome } from "@/components/headers/HeaderHome";
+// Next
 import type { Metadata } from "next";
+
+// Componentes
+import { HeaderHome } from "@/components/headers/HeaderHome";
+import { LayoutStart } from "@/components/layout/LayoutStart";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,8 +15,7 @@ export default function About() {
     return (
         <>
             <HeaderHome/>
-            <h2>ABOUT</h2>
-            
+            <LayoutStart heading1={"SOBRE"} />
         </>
     )
 }

@@ -24,7 +24,7 @@ export function HeaderHome() {
 
     return (
         <ContainerGrid 
-            className={`sticky top-0 z-50 flex justify-between items-center py-5 w-full transition-all duration-700 
+            className={`sticky top-0 z-50 flex justify-between items-center py-5 w-full transition-all duration-700 bg-black/0
             ${isScrolled ? 'translate-y-[-100%]' : 'translate-y-0'}`}
         >
             <div className={`transition-all duration-500 delay-200 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>

@@ -1,4 +1,5 @@
 import { HeaderHome } from "@/components/headers/HeaderHome";
+import { SectionProjeto } from "@/components/sections/SectionProjeto"
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export default function Work() {
     return (
         <>
             <HeaderHome />
-            <h1>Work</h1>
+            <SectionProjeto />
         </>
     )
 }

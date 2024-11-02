@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 // Componente
 import { Heading } from '@/components/typrography/Heading';//ok
 
-const words = ["LUIZ A.", "ANTÔNIO", "SOUZA"];
+const words = ["FullStack", "Front-End", "Back-End"];
 
 export function TypingEffect() {
   const [index, setIndex] = useState(0);
@@ -44,7 +44,7 @@ export function TypingEffect() {
   }, [text, isDeleting]);
 
   return (
-    <Heading as="h1" size="xlarge" color="white" align="center" className="text-playFair">
+    <Heading as="h1" size="medium" color="white" align="center" className="text-playFair text-start">
       {text}
       <span className={`blinking-cursor ${isBlinking ? 'animate-blink' : ''}`}>|</span>
     </Heading>

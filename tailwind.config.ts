@@ -31,7 +31,7 @@ const config = {
         greenSecondary: '#2F4F4F',
         bluePrimary: '#1E3A8A',
         blueSecondary: '#2C3E50',
-        'gradient-black': 'linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, #000000 80%,#000000 100%)',
+        'gradient-black': 'linear-gradient(180deg, #000000 0%,#000000 100%)',
         'gradient-bluePrimary': 'linear-gradient(180deg, #1E3A8A 0%, #FFF 100%)',
       },
       backgroundImage: {
@@ -64,9 +64,10 @@ const config = {
         'gradient-styled-components': 'conic-gradient(#F94FC3 0%, #2B2D42 36%, #FFD359 100%)',
         'gradient-python': 'conic-gradient(#3572A5 0%, #FEDC00 36%, #4B4B4B 100%)',
         'gradient-white': 'linear-gradient(90deg, rgba(255, 255, 255, 0.39) 0%, #FFFFFF 40%, #FFFFFF 100%)',
-        'gradient-black': 'linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, #000000 80%,#000000 100%)',
+        'gradient-black': 'linear-gradient(180deg, rgba(000, 000, 000, 0.5) 0%, rgba(000, 000, 000, 0.5) 100%)',
         'footer': "url('/image/bg-footer.png')",
-        'hero': "url('/image/bg-home.png')",
+        'hero': "url('/image/bg-hero.png')",
+        'about': "url('/image/bg-about.png')",
         'menu': "url('/image/bg-menu.png')",
         'icon-about': "url('/image/icon-about.png')",
         'icon-contato': "url('/image/icon-contato.png')",
@@ -98,6 +99,9 @@ const config = {
         '480': '30rem',
         '485': '30.313rem',
         '550': '34.375',
+      },
+      maxHeight: {
+        '755': '47.188rem',
       },
       keyframes: {
         marquee: {

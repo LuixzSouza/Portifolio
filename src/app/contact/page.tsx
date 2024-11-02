@@ -1,4 +1,5 @@
 import { HeaderHome } from "@/components/headers/HeaderHome";
+import {SectionContato} from "@/components/sections/SectionContato"
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export default function Contact() {
   return (
     <>
       <HeaderHome/>
-      <h1>Contato</h1>
+      <SectionContato/>
     </>
   );
 }
