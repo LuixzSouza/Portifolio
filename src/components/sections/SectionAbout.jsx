@@ -1,9 +1,13 @@
 
 // Componentes
-import { LayouStart } from "@/components/layout/LayoutStart";
+import { LayoutStart } from "@/components/layout/LayoutStart";
+import {SMyHistory} from "@/components/sections/SMyHistory"
 
 export function SectionAbout() {
     return (
-        <LayouStart heading1={"SOBRE"} />
+        <>
+            <LayoutStart heading1={"SOBRE"} />
+            <SMyHistory/>
+        </>
     )
 }

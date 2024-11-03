@@ -1,13 +1,13 @@
 
 // Componentes
-import { LayouStart } from "@/components/layout/LayoutStart";
-import { SProjetos } from "@/components/sections/SProjetos";
+import { LayoutStart } from "@/components/layout/LayoutStart";
+import { SectionFormulario } from "@/components/sections/SForm";
 
 export function SectionContato() {
     return (
         <>
-            <LayouStart heading1={"CONTATO"} />
-            <SProjetos/>
+            <LayoutStart heading1={"CONTATO"} />
+            <SectionFormulario/>
         </>
     )
 }

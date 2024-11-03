@@ -65,6 +65,7 @@ const config = {
         'gradient-python': 'conic-gradient(#3572A5 0%, #FEDC00 36%, #4B4B4B 100%)',
         'gradient-white': 'linear-gradient(90deg, rgba(255, 255, 255, 0.39) 0%, #FFFFFF 40%, #FFFFFF 100%)',
         'gradient-black': 'linear-gradient(180deg, rgba(000, 000, 000, 0.5) 0%, rgba(000, 000, 000, 0.5) 100%)',
+        'gradient-black-white': 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(000, 000, 000, 1) 100%)',
         'footer': "url('/image/bg-footer.png')",
         'hero': "url('/image/bg-hero.png')",
         'about': "url('/image/bg-about.png')",
