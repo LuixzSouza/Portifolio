@@ -1,6 +1,7 @@
-import { ContainerGrid } from "../layout/ContainerGrid"
-import { Heading } from "../typrography/Heading"
-import { Paragraph } from "../typrography/Paragraph"
+import { ContainerGrid } from "../layout/ContainerGrid";
+import { Heading } from "../typrography/Heading";
+import { Paragraph } from "../typrography/Paragraph";
+import { InputForm } from '@/components/ui/InputForm';
 
 export function SectionFormulario() {
     return (
@@ -15,42 +16,12 @@ export function SectionFormulario() {
                 </div>
                 <div className="flex flex-col items-start justify-center w-full" >
                     <Heading as="h4" size="menu" color="white" >Olá 😊</Heading>
-                    <div className="flex items-end justify-between w-full" >
-                        <Heading as="h4" size="medium" color="white" className="max-w-max" >Meu nome é</Heading>
-                        <div className="w-full h-full border-b  border-white" >
-                            <input type="text" placeholder="Insira seu nomee" className="bg-transparent ml-5" />
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-between w-full">
-                        <Heading as="h4" size="medium" color="white" className="max-w-max" >Eu sou de</Heading>
-                        <div className="w-full h-full border-b  border-white" >
-                            <input type="text" placeholder="Insira o nome da sua empresa" />    
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-between w-full">
-                        <Heading as="h4" size="medium" color="white" className="max-w-max">Aqui está meu email</Heading>
-                        <div className="w-full h-full border-b  border-white" >
-                            <input type="text" placeholder="Insira seu e-mail" />
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-between w-full">
-                        <Heading as="h4" size="medium" color="white" className="max-w-max">Número de Telefone</Heading>
-                        <div className="w-full h-full border-b  border-white" >
-                            <input type="text" placeholder="Insira seu telefone" /> 
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-between w-full">
-                        <Heading as="h4" size="medium" color="white" className="max-w-max">Motivo do contato</Heading>
-                        <input type="checkbox" placeholder="Dúvida" />
-                        <input type="checkbox" placeholder="Orçamento" />
-                        <input type="checkbox" placeholder="Suporte Técnico"/>
-                    </div>
-                    <div className="flex items-center justify-between w-full">
-                        <Heading as="h4" size="medium" color="white" className="max-w-max">Mensagem</Heading>
-                        <div className="w-full h-full border-b  border-white" >
-                            <input type="text" placeholder="Insira sua mensagem" />
-                        </div>
-                    </div>
+                    <InputForm quest={"Meu nome é"} placehold={"Insira seu nome"} tipo={"text"} />
+                    <InputForm quest={"Eu sou de"} placehold={"Insira o nome da sua empresa"} tipo={"text"} />
+                    <InputForm quest={"Aqui está meu email"} placehold={"Insira seu e-mail"} tipo={"text"} />
+                    <InputForm quest={"Número de Telefone"} placehold={"Insira seu telefone"} tipo={"text"} />
+                    <InputForm quest={"Motivo do contato"} placehold={"Insira o motivo"} tipo={"text"} />
+                    <InputForm quest={"Mensagem"} placehold={"Insira sua mensagem"} tipo={"text"} />
                 </div>
                 <button className="p-10 w-full h-full text-center bg-white rounded-full text-black mt-10" >ENVIAR</button>
             </ContainerGrid>
