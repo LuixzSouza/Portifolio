@@ -35,6 +35,8 @@ const config = {
         'gradient-bluePrimary': 'linear-gradient(180deg, #1E3A8A 0%, #FFF 100%)',
       },
       backgroundImage: {
+
+        // Gradientes
         'custom-gradient': 'linear-gradient(90deg, #2B1F24 0%, #ED8333 18.16%, #F5A540 30.77%, #F5ED4E 42.09%, #EDB397 54.02%, #FFFFFF 70.47%, #98F0DE 85.95%, #1CA0F3 100%)',
         'gradient-gray': 'linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 18.16%, #C0C0C0 30.77%, #A0A0A0 42.09%, #808080 54.02%, #606060 70.47%, #404040 85.95%, #000000 100%)',
         'gradient-html': 'conic-gradient(#E34F26 0%, #FFFFFF 36%, #F06529 100%)',
@@ -66,20 +68,26 @@ const config = {
         'gradient-white': 'linear-gradient(90deg, rgba(255, 255, 255, 0.39) 0%, #FFFFFF 40%, #FFFFFF 100%)',
         'gradient-black': 'linear-gradient(180deg, rgba(000, 000, 000, 0.5) 0%, rgba(000, 000, 000, 0.5) 100%)',
         'gradient-black-white': 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(000, 000, 000, 1) 100%)',
-        'footer': "url('/image/bg-footer.png')",
-        'hero': "url('/image/bg-hero.png')",
-        'about': "url('/image/bg-about.png')",
-        'menu': "url('/image/bg-menu.png')",
+
+        // Principais
+        'footer': "url('/background/bg-footer.png')",
+        'hero': "url('/background/bg-hero.png')",
+        'about': "url('/background/bg-about.png')",
+        'menu': "url('/background/bg-menu.png')",
+
+        // Icones
         'icon-about': "url('/image/icon-about.png')",
         'icon-contato': "url('/image/icon-contato.png')",
         'icon-work': "url('/image/icon-work.png')",
-        'bg-html': "url('/image/bg-html.png')",
-        'bg-css': "url('/image/bg-css.png')",
-        'bg-js': "url('/image/bg-js.png')",
-        'bg-react': "url('/image/bg-react.png')",
-        'bg-sass': "url('/image/bg-sass.png')",
-        'bg-next': "url('/image/bg-next.png')",
-        'bg-more': "url('/image/bg-more-projects.png)",
+
+        // Background Tecnologias
+        'bg-html': "url('/background/bg-html.png')",
+        'bg-css': "url('/background/bg-css.png')",
+        'bg-js': "url('/background/bg-js.png')",
+        'bg-react': "url('/background/bg-react.png')",
+        'bg-sass': "url('/background/bg-sass.png')",
+        'bg-next': "url('/background/bg-next.png')",
+        'bg-more': "url('/background/bg-more-projects.png)",
         'bg-gradwhite': "url('/image/bg-white-gradient.png')",
       },
       maxWidth: {
