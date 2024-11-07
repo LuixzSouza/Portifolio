@@ -19,18 +19,18 @@ export function SectionFormulario() {
 
     return (
         <section>
-            <ContainerGrid className={"w-full h-full flex flex-col items-start justify-center"}>
+            <ContainerGrid className={"w-full h-full flex flex-col items-start justify-center py-28"}>
                 <div>
-                    <Heading as="h2" size="medium" color="white">Tem alguma <span className="text-red-800">pergunta?</span></Heading>
-                    <Heading as="h2" size="medium" color="white">Pronto para <span className="text-red-800">começar?</span></Heading>
+                    <Heading as="h2" size="medium" color="white">Tem alguma <span className="text-gradient-black font-semibold">pergunta?</span></Heading>
+                    <Heading as="h2" size="medium" color="white">Pronto para <span className="text-gradient-black font-extrabold">começar?</span></Heading>
                 </div>
                 <div>
                     <Paragraph size="litlleSmall" color="white">Vamos iniciar uma conversa! Preencha nosso formulário de contato, <br/> e entraremos em contato com você o mais rápido possível</Paragraph>
                 </div>
                 <div className="flex flex-col items-start justify-center w-full">
-                    <div className={`flex items-center justify-center ${animateIcon ? 'icon-animation' : ''}`}>
+                    <div className={`flex items-center justify-start ${animateIcon ? 'icon-animation' : ''}`}>
                         <Heading as="h4" size="menu" color="white">Olá</Heading>
-                        <Image src={`icons/icon-faces/${currentIcon}`} width={250} height={80} alt="Icon" />
+                        <Image src={`icons/icon-faces/${currentIcon}`} width={150} height={120} alt="Icon" />
                     </div>
                     <InputForm
                         quest={"Meu nome é"}

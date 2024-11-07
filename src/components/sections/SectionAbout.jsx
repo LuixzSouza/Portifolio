@@ -6,7 +6,7 @@ import {SMyHistory} from "@/components/sections/SMyHistory"
 export function SectionAbout() {
     return (
         <>
-            <LayoutStart heading1={"SOBRE"} />
+            <LayoutStart heading1={"SOBRE"} bg={"bg-about"} />
             <SMyHistory/>
         </>
     )

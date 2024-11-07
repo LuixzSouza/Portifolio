@@ -5,9 +5,9 @@ import { Paragraph } from "@/components/typrography/Paragraph";
 import { TypingEffect } from "@/components/animations/TypingEffect";
 import { LinkCustom } from "@/components/ui/LinkCustom"
 
-export function LayoutStart({heading1, }) {
+export function LayoutStart({heading1, bg}) {
     return (
-        <section className="w-full h-screen bg-about bg-cover bg-center" >
+        <section className={`w-full h-screen ${bg} bg-cover bg-center`} >
             <ContainerGrid>
                 <div className='h-full grid grid-cols-3 grid-rows-3 pb-32 justify-between items-center' style={{
                         gridTemplateColumns: 'auto 1fr auto', // Ajusta primeiro e último ao conteúdo, o meio ocupa o espaço restante

@@ -73,6 +73,8 @@ const config = {
         'footer': "url('/background/bg-footer.png')",
         'hero': "url('/background/bg-hero.png')",
         'about': "url('/background/bg-about.png')",
+        'form': "url('/background/bg-form.png')",
+        'projetos': "url('/background/bg-projects.png')",
         'menu': "url('/background/bg-menu.png')",
 
         // Icones

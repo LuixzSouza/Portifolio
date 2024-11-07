@@ -6,7 +6,7 @@ import { SectionFormulario } from "@/components/sections/SForm";
 export function SectionContato() {
     return (
         <>
-            <LayoutStart heading1={"CONTATO"} />
+            <LayoutStart heading1={"CONTATO"} bg={"bg-form"} />
             <SectionFormulario/>
         </>
     )
