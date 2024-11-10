@@ -10,12 +10,12 @@ import { Paragraph } from '@/components/typrography/Paragraph';
 import { ContainerGrid } from '@/components/layout/ContainerGrid';
 
 const bgClasses = {
-  html: 'bg-bg-html',
-  css: 'bg-bg-css',
-  js: 'bg-bg-js',
-  react: 'bg-bg-react',
-  sass: 'bg-bg-sass',
-  next: 'bg-bg-next',
+  html: 'bg-gradient-black-tecnologys',
+  css: 'bg-gradient-black-tecnologys',
+  js: 'bg-gradient-black-tecnologys',
+  react: 'bg-gradient-black-tecnologys',
+  sass: 'bg-gradient-black-tecnologys',
+  next: 'bg-gradient-black-tecnologys',
 };
 
 const gradientClasses = {
@@ -60,18 +60,18 @@ export function CreateImpactProjects() {
   }, []);
 
   return (
-    <section className="relative z-30 bg-white w-full h-[300vh] rounded-t-full">
+    <section className="relative z-30 border-t border-b-2 border-white bg-black w-full h-[300vh] rounded-t-full">
       <ContainerGrid className="sticky top-0 w-full h-screen flex flex-col items-center justify-center text-center">
-        <Paragraph size="litlleSmall" color="black">
+        <Paragraph size="litlleSmall" color="white">
           TRANSDORMANDO IDEIAS EM SOLUÇÕES DIGITAIS
         </Paragraph>
-        <Heading as="h2" size="medium">
+        <Heading as="h2" size="medium" color='white'>
           Desenvolvo cada projeto em uma solução exclusiva, onde conceitos e estratégia se conectam para gerar produto unico.
         </Heading>
       </ContainerGrid>
 
 
-      <div className="p-16 absolute left-0 w-full h-[200vh] overflow-hidden">
+      <div className="p-24 absolute left-0 w-full h-[200vh] overflow-hidden">
         <div className="relative w-screen h-[170vh]">
           {elements.map((item, index) => (
             <div

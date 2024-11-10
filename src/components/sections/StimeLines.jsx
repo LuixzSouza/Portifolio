@@ -137,7 +137,7 @@ export function StimeLines() {
   if (!isMounted) return null;
 
   return (
-    <div ref={stepsContainerRef} className="steps-container relative z-30 h-[500vh] w-full bg-whiteSecondary">
+    <div ref={stepsContainerRef} className="steps-container relative z-30 h-[500vh] w-full bg-blackTerdy">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <div ref={trackRef} className="steps-track flex h-full transition-transform duration-500 ease-out">
           {stepsData.map((timeLiner, index) => (
