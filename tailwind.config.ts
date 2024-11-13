@@ -106,6 +106,9 @@ const config = {
         'bg-more': "url('/background/bg-more-projects.png)",
         'bg-gradwhite': "url('/image/bg-white-gradient.png')",
       },
+      width: {
+        '55':  '13.7rem',
+      },
       maxWidth: {
         grid: '87.5rem', //1400
         nav: '31.25rem',
