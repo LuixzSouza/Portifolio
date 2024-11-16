@@ -1,4 +1,9 @@
+
+
+// Next - React
 import Image from "next/image";
+
+// Compononetes
 import { Heading } from "../typrography/Heading";
 import { Category } from "../buttons/Category";
 import { LinkCustom } from "../ui/LinkCustom";
