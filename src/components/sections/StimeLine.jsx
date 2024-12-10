@@ -4,7 +4,7 @@
 // Next
 import Image from "next/image";
 
-// Componentes
+// Componentess
 import { Heading } from "@/components/typrography/Heading";//ok
 
 export function StimeLine({ stepNumber, title, heading, paragraph, date, imgSrc, subImgSrc, lineClass, progress }) {
