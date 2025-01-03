@@ -29,13 +29,13 @@ export function HeaderHome() {
                 <div className={`transition-all duration-500 delay-200 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
                     <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
                 </div>
-                <nav className={`flex justify-center items-center gap-16 transition-all duration-500 delay-400 
+                <nav className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex
                 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
                     <LinkNav link="/work" color={"white"}>PROJETOS </LinkNav>
                     <LinkNav link="/about"  color={"white"}>SOBRE</LinkNav>
                     <LinkNav link="/contact"  color={"white"}>CONTATO</LinkNav>
                 </nav>
-                <div className={`flex justify-center items-center gap-8 w-full max-w-48 transition-all duration-500 delay-600 
+                <div className={`flex justify-end items-center gap-8 w-full max-w-48 transition-all duration-500 delay-600 
                 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
                     <Clock />
                 </div>

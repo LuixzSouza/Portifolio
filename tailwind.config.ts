@@ -178,6 +178,11 @@ const config = {
       transitionProperty: {
         'width': 'width',
       },
+      screen: {
+        '@desktop': '1024px',
+        '@tablet': '640px',
+        '@mobile': '460px',
+      },
     },
   },
   plugins: [],

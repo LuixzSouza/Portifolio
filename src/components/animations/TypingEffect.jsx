@@ -1,24 +1,22 @@
-'use client'
+'use client';
 
 // React
 import { useState, useEffect } from 'react';
 
 // Componente
-import { Heading } from '@/components/typrography/Heading';//ok
+import { Heading } from '@/components/typrography/Heading'; // ok
 
-const words = ["FullStack", "Front-End", "Back-End"];
-
-export function TypingEffect() {
-  const [index, setIndex] = useState(0);
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loop, setLoop] = useState(0); // Controla a repetição do ciclo
+export function TypingEffect({ words = [], typingSpeed = 150, deletingSpeed = 100, pauseTime = 2500, classe }) {
+  const [index, setIndex] = useState(0); // Controla qual palavra está ativa
+  const [text, setText] = useState(''); // Texto atual sendo exibido
+  const [isDeleting, setIsDeleting] = useState(false); // Se está apagando o texto
   const [isBlinking, setIsBlinking] = useState(true); // Controla o estado da animação
-  const typingSpeed = isDeleting ? 100 : 150; // Velocidade de digitação e apagamento
 
   useEffect(() => {
+    if (words.length === 0) return;
+
     const currentWord = words[index];
-    
+
     // Desativa a animação enquanto está digitando ou apagando
     setIsBlinking(false);
 
@@ -32,19 +30,18 @@ export function TypingEffect() {
       if (!isDeleting && updatedText === currentWord) {
         // Pausa antes de começar a apagar e reativa o blink
         setIsBlinking(true);
-        setTimeout(() => setIsDeleting(true), 2500); 
+        setTimeout(() => setIsDeleting(true), pauseTime);
       } else if (isDeleting && updatedText === '') {
         setIsDeleting(false);
-        setIndex((prev) => (prev + 1) % words.length);
-        setLoop(loop + 1); 
+        setIndex((prev) => (prev + 1) % words.length); // Alterna para a próxima palavra
       }
-    }, typingSpeed);
+    }, isDeleting ? deletingSpeed : typingSpeed);
 
-    return () => clearTimeout(timer); 
-  }, [text, isDeleting]);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, words, typingSpeed, deletingSpeed, pauseTime]);
 
   return (
-    <Heading as="h1" size="medium" color="white" align="center" className="text-playFair text-start">
+    <Heading as="h2" size="medium" color="white" align="center" className={`text-playFair ${classe}`}>
       {text}
       <span className={`blinking-cursor ${isBlinking ? 'animate-blink' : ''}`}>|</span>
     </Heading>

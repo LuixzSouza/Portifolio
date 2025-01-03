@@ -6,7 +6,7 @@ import {SMyHistory} from "@/components/sections/SMyHistory"
 export function SectionAbout() {
     return (
         <>
-            <LayoutStart heading1={"SOBRE"} bg={"bg-about"} />
+            <LayoutStart heading1={"SOBRE"} bg={"bg-about"} wordFixed={"Jornada"} wordsEfect={["Experiência.", "Crescimento.", "Paixão."]} textRigth={"Tecnologia com propósito, paixão em cada linha de código."}/>
             <SMyHistory/>
         </>
     )

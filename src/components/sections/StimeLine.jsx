@@ -27,10 +27,10 @@ export function StimeLine({ stepNumber, title, heading, paragraph, date, imgSrc,
         </div>
       </div>
       <div className="flex flex-col items-center justify-center text-center w-1/2 first-of-type:ml-1">
-        <Heading as="h3" size="litlle" color="white" className="font-semibold mb-2">
+        <Heading as="h3" size="litlle" color="white" className="font-semibold mb-2 text-center">
           {stepNumber} — {title}
         </Heading>
-        <Heading as="h2" size="small" className="font-bold mb-4 text-bluePrimary max-w-900">
+        <Heading as="h2" size="small" className="font-bold mb-4 text-bluePrimary max-w-900 text-center">
           {heading}
         </Heading>
         <p className="max-w-[600px] font-medium text-whiteSecondary" dangerouslySetInnerHTML={{ __html: paragraph }} />
