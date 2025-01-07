@@ -12,11 +12,15 @@ export function HeaderFixed({ toggleMenu }) {
   const [isVisible, setIsVisible] = useState(false); // Inicialmente invisível
   const [lastScrollY, setLastScrollY] = useState(0); // Guarda a última posição do scroll
   const [isAboveTrigger, setIsAboveTrigger] = useState(false); // Indica se está acima do ponto de ativação
-  const triggerPoint = 1000; // Ponto a partir do qual a função será ativada
+  const triggerPoint = 0; // Ponto a partir do qual a função será ativada
+
+  // triggerPoint 1000 caso queira começar na segunda DIV
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY; // Posição atual do scroll
+      console.log(currentScrollY)
+      console.log(lastScrollY)
 
       if (currentScrollY > triggerPoint) {
         setIsAboveTrigger(true); // Indica que estamos acima do ponto de ativação
@@ -38,7 +42,7 @@ export function HeaderFixed({ toggleMenu }) {
 
   return (
     <header
-      className={`sticky top-0 left-0 w-full z-50 bg-white/5 border-b border-white/10 backdrop-blur-md transition-all duration-500 rounded-full ${
+      className={`fixed top-0 left-0 w-full z-50 bg-white/5 border-b border-white/10 backdrop-blur-md transition-all duration-500 rounded-full ${
         isAboveTrigger
           ? isVisible
             ? "opacity-100 translate-y-0"
@@ -54,12 +58,14 @@ export function HeaderFixed({ toggleMenu }) {
     >
       <ContainerGrid className="flex justify-between items-center py-5 w-full">
         <div>
-          <LinkNav link="/" color={"white"}><Image src={'/image/logo-black.svg'} width={151} height={25} alt="logo"/> </LinkNav>
+          <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
         </div>
         <div className="flex justify-center items-center gap-16">
-          <span className="cursor-pointer" onClick={toggleMenu}>MENU</span>
+          <span className="cursor-pointer text-white" onClick={toggleMenu}>MENU</span>
         </div>
       </ContainerGrid>
     </header>
   );
 }
+
+// /image/logo-black.svg
