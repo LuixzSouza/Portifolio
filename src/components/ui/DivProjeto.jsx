@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Heading } from "../typrography/Heading";
 import { Category } from "../buttons/Category";
 
-export function DivProjeto({ nome, imagem, tecnologias, links, onClick }) {
+export function DivProjeto({ nome, imagem, tecnologias, onClick }) {
     return (
         <div onClick={onClick} className="relative h-480 flex flex-col items-center justify-center border border-white/30 rounded-lg overflow-hidden cursor-pointer hover:border-purple-900 hover:scale-105 transition-all duration-300 ease-in-out group" >
             <div className="h-full overflow-hidden" >

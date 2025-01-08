@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function TooltipIconCard({ img, text, marg, posit, widt, rotate, hovx, setaPosit, span, textDirect, spanFont }) {
+export function TooltipIconCard({ img, text, marg, posit, widt, rotate, hovx, setaPosit, span, textDirect }) {
     return (
         <div className="relative">
             {/* Coloque a classe 'group' diretamente na imagem */}

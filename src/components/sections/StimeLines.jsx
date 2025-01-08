@@ -84,6 +84,13 @@ export function StimeLines() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (isMounted) {
+      localStorage.setItem("scrollPercent", scrollPercent);
+    }
+  }, [scrollPercent, isMounted]);
+  
+
+  useEffect(() => {
     setIsMounted(true);
 
     const updateLayout = () => {
@@ -96,51 +103,51 @@ export function StimeLines() {
   }, []);
 
   useEffect(() => {
-    if (!isMobile) {
-      const handleScroll = () => {
-        if (!stepsContainerRef.current || !trackRef.current) return;
-  
-        const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
-        const containerHeight = stepsContainerRef.current.offsetHeight;
-        const windowHeight = window.innerHeight;
-  
-        const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
-  
-        if (isInViewport) {
-          const maxScroll = containerHeight - windowHeight;
-          const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
-          const scrollPercentage = Math.min(scrolled / maxScroll, 1);
-  
-          setScrollPercent(scrollPercentage); // Uso correto da variável
-  
-          const newProgressArray = progressArray.map((progress, index) => {
-            const stepStart = index / stepsData.length;
-            const stepEnd = (index + 1) / stepsData.length;
-            if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
-              return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
-            } else if (scrollPercentage >= stepEnd) {
-              return 100;
-            } else {
-              return 0;
-            }
-          });
-  
-          setProgressArray(newProgressArray);
-  
-          const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
-          trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
-        }
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    } else {
-      if (trackRef.current) {
-        trackRef.current.style.transform = "translateX(0)";
+  if (!isMobile) {
+    const handleScroll = () => {
+      if (!stepsContainerRef.current || !trackRef.current) return;
+
+      const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
+      const containerHeight = stepsContainerRef.current.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
+
+      if (isInViewport) {
+        const maxScroll = containerHeight - windowHeight;
+        const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
+        const scrollPercentage = Math.min(scrolled / maxScroll, 1);
+
+        setScrollPercent(scrollPercentage); // Uso correto da variável
+
+        const newProgressArray = progressArray.map((progress, index) => {
+          const stepStart = index / stepsData.length;
+          const stepEnd = (index + 1) / stepsData.length;
+          if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
+            return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
+          } else if (scrollPercentage >= stepEnd) {
+            return 100;
+          } else {
+            return 0;
+          }
+        });
+
+        setProgressArray(newProgressArray);
+
+        const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
+        trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
       }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  } else {
+    if (trackRef.current) {
+      trackRef.current.style.transform = "translateX(0)";
     }
-  }, [isMobile, progressArray]);
-  
+  }
+}, [isMobile, progressArray]);
+
 
   return (
     <div ref={stepsContainerRef} className="steps-container relative z-30 h-full w-full bg-blackTerdy md:h-[500vh]">
