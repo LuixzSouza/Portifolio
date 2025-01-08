@@ -86,7 +86,7 @@ export function SProjetosRetangle() {
                     ) : (
                         // Exibe mensagem se nenhum projeto for encontrado
                         <div className="text-center text-white py-10">
-                            <p>Nenhum projeto encontrado para: "{searchText}"</p>
+                            <p>Nenhum projeto encontrado para: &quot;{searchText}&quot;</p>
                         </div>
                     )}
                 </ContainerGrid>

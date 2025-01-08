@@ -97,27 +97,22 @@ export function StimeLines() {
 
   useEffect(() => {
     if (!isMobile) {
-      setIsMounted(true);
-
-      if (typeof window === 'undefined') return;
-
       const handleScroll = () => {
         if (!stepsContainerRef.current || !trackRef.current) return;
-      
+  
         const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
         const containerHeight = stepsContainerRef.current.offsetHeight;
         const windowHeight = window.innerHeight;
-      
+  
         const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
-      
+  
         if (isInViewport) {
           const maxScroll = containerHeight - windowHeight;
           const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
           const scrollPercentage = Math.min(scrolled / maxScroll, 1);
-      
-          setScrollPercent(scrollPercentage);
-
-          // Atualiza a progressão de cada linha sequencialmente
+  
+          setScrollPercent(scrollPercentage); // Uso correto da variável
+  
           const newProgressArray = progressArray.map((progress, index) => {
             const stepStart = index / stepsData.length;
             const stepEnd = (index + 1) / stepsData.length;
@@ -129,30 +124,23 @@ export function StimeLines() {
               return 0;
             }
           });
-
+  
           setProgressArray(newProgressArray);
-
-          // Move a trilha horizontalmente conforme o scroll
+  
           const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
-          if (scrollPercentage > 0) {
-            trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
-          } else {
-            trackRef.current.style.transform = 'translateX(0)';
-          }
+          trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
         }
       };
-      
+  
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
     } else {
-      // No mobile, garante que a trilha não seja movida
       if (trackRef.current) {
-        trackRef.current.style.transform = 'translateX(0)';
+        trackRef.current.style.transform = "translateX(0)";
       }
     }
   }, [isMobile, progressArray]);
-
-  if (!isMounted) return null;
+  
 
   return (
     <div ref={stepsContainerRef} className="steps-container relative z-30 h-full w-full bg-blackTerdy md:h-[500vh]">

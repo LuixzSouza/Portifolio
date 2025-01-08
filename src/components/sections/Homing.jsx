@@ -2,9 +2,6 @@
 
 import { useState, useEffect } from 'react';
 
-// Next
-import Image from 'next/image'
-
 // Components
 import { LinkCustom } from '@/components/ui/LinkCustom';
 import { Heading } from '@/components/typrography/Heading';

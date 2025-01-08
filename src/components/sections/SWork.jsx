@@ -3,7 +3,6 @@ import { Slider } from "@/components/sliders/Slider";
 import { Heading } from "@/components/typrography/Heading";
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
 import { TooltipIconCard } from "@/components/ui/TooltipIconCard"
-import Image from "next/image";
 
 export function SectionWork() {
     return (
