@@ -24,7 +24,7 @@ export function Clock({ isDarkMode }) { // Recebe isDarkMode como prop
     }, []);
 
     return (
-        <span className={`${isDarkMode ? 'text-white' : 'text-black'}`}>
+        <span className={`${isDarkMode ? 'text-black' : 'text-white'}`}>
             {time}
         </span>
     );

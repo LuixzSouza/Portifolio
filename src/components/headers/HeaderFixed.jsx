@@ -54,7 +54,7 @@ export function HeaderFixed({ toggleMenu }) {
           : "opacity 0.1s", // Transição instantânea abaixo do triggerPoint
       }}
     >
-      <ContainerGrid className="flex justify-between items-center py-5 w-full">
+      <ContainerGrid className="flex justify-between items-center py-5 px-4 w-full md:px-0">
         <div>
           <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
         </div>

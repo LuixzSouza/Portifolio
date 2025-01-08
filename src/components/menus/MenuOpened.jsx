@@ -72,13 +72,13 @@ export function MenuOpened({ isOpen, toggleMenu }) {
               </span>
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full flex flex-col">
             <Link href={"/"}><ListMenu image={"/image/icon-work.png"}>HOME</ListMenu></Link>
             <Link href={"/work"}><ListMenu image={"/image/icon-work.png"}>TRABALHO</ListMenu></Link>
             <Link href={"/about"}><ListMenu image={"/image/icon-about.png"}>SOBRE</ListMenu></Link>
             <Link href={"/contact"}><ListMenu image={"/image/icon-contato.png"}>CONTATO</ListMenu></Link>
           </div>
-          <div className="relative w-full flex items-center justify-between">
+          <div className="relative w-full flex flex-col items-center justify-between md:flex-row">
             <div className="absolute left-0 -top-9">
               <Paragraph size="litlleSmall" color="white">
                 SOCIAL
@@ -115,7 +115,7 @@ export function MenuOpened({ isOpen, toggleMenu }) {
                 INSTAGRAM
               </LinkCustom>
             </div>
-            <div className="w-full flex items-center justify-end">
+            <div className="w-full flex items-center justify-start md:justify-end">
               <Clock />
             </div>
           </div>

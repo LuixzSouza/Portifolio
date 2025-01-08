@@ -56,8 +56,8 @@ export function Slider() {
                     {/* Slides de projetos */}
                     <SwiperSlide className="flex items-center justify-center">
                         <RetangleProjects 
-                            nome="Code-Boost" 
-                            img="p-codeboost.png" 
+                            nome="CasaPronta" 
+                            img="p-casapronta.png" 
                             categoryies={"HTML CSS JAVASCRIPT"} 
                             idProjeto={"PLZ-0100"}
                             resum={"O FormulaIdiomas é uma plataforma dedicada ao ensino de idiomas, oferecendo um ambiente interativo para aprendizado eficaz. O site foi projetado para ser intuitivo e acessível, facilitando a jornada do usuário no aprendizado de novos idiomas."}

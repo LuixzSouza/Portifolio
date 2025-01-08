@@ -32,15 +32,15 @@ export function HeaderHome() {
             <ContainerGrid className={"flex justify-between items-center"} >
                 <div className={`transition-all duration-500 delay-200 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
                     <LinkNav link="/">
-                        {isDarkMode ? <Image src={'/image/logo.svg'} width={151} height={25} alt="logo" /> : <Image src={'/image/logo-black.svg'} width={151} height={25} alt="logo" />}
+                        {isDarkMode ? <Image src={'/image/logo-black.svg'} width={151} height={25} alt="logo" /> : <Image src={'/image/logo.svg'} width={151} height={25} alt="logo" />}
                     </LinkNav>
                 </div>
                 <nav className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex
                 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                    <LinkNav link="/" color={isDarkMode ? "white" : "black"}>HOME </LinkNav>
-                    <LinkNav link="/work" color={isDarkMode ? "white" : "black"}>PROJETOS </LinkNav>
-                    <LinkNav link="/about" color={isDarkMode ? "white" : "black"}>SOBRE</LinkNav>
-                    <LinkNav link="/contact" color={isDarkMode ? "white" : "black"}>CONTATO</LinkNav>
+                    <LinkNav link="/" color={isDarkMode ? "black" : "white"}>HOME </LinkNav>
+                    <LinkNav link="/work" color={isDarkMode ? "black" : "white"}>PROJETOS </LinkNav>
+                    <LinkNav link="/about" color={isDarkMode ? "black" : "white"}>SOBRE</LinkNav>
+                    <LinkNav link="/contact" color={isDarkMode ? "black" : "white"}>CONTATO</LinkNav>
                 </nav>
                 <div className={`flex justify-end items-center gap-8 w-full max-w-48 transition-all duration-500 delay-600 
                 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>

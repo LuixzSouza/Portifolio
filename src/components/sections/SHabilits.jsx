@@ -67,7 +67,7 @@ export function SHabilits() {
             </ContainerGrid>
             <Looping />
             <ContainerGrid className="text-center flex flex-col items-center justify-center pt-28">
-                <Heading as="h2" size="medium" className='font-semibold text-blue-700'>SERVIÇOS</Heading>
+                <Heading as="h2" size="medium" className='font-semibold text-blue-700 text-center'>SERVIÇOS</Heading>
                 <ServiceList />
             </ContainerGrid>
         </section>
