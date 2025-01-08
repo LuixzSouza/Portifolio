@@ -8,9 +8,11 @@ import { useEffect, useState } from "react";
 import { LinkNav } from "@/components/ui/LinkNav";
 import { Clock } from "@/components/widgets/Clock";
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
+import { DarkLight } from "@/components/ui/DarkLight";
 
 export function HeaderHome() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false); // Estado para controlar o tema
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,21 +25,27 @@ export function HeaderHome() {
     }, []);
 
     return (
-        <header className={`fixed top-0 z-50 flex justify-between items-center py-5 w-full transition-all duration-700 bg-black/0
-            ${isScrolled ? 'translate-y-[-100%]' : 'translate-y-0'}`} >
+        <header
+            className={`fixed top-0 z-50 flex justify-between items-center py-5 w-full transition-all duration-700 
+                ${isScrolled ? 'translate-y-[-100%]' : 'translate-y-0'}`} // Troca a cor com base no tema
+        >
             <ContainerGrid className={"flex justify-between items-center"} >
                 <div className={`transition-all duration-500 delay-200 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                    <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
+                    <LinkNav link="/">
+                        {isDarkMode ? <Image src={'/image/logo.svg'} width={151} height={25} alt="logo" /> : <Image src={'/image/logo-black.svg'} width={151} height={25} alt="logo" />}
+                    </LinkNav>
                 </div>
                 <nav className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex
                 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                    <LinkNav link="/work" color={"white"}>PROJETOS </LinkNav>
-                    <LinkNav link="/about"  color={"white"}>SOBRE</LinkNav>
-                    <LinkNav link="/contact"  color={"white"}>CONTATO</LinkNav>
+                    <LinkNav link="/" color={isDarkMode ? "white" : "black"}>HOME </LinkNav>
+                    <LinkNav link="/work" color={isDarkMode ? "white" : "black"}>PROJETOS </LinkNav>
+                    <LinkNav link="/about" color={isDarkMode ? "white" : "black"}>SOBRE</LinkNav>
+                    <LinkNav link="/contact" color={isDarkMode ? "white" : "black"}>CONTATO</LinkNav>
                 </nav>
                 <div className={`flex justify-end items-center gap-8 w-full max-w-48 transition-all duration-500 delay-600 
                 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                    <Clock />
+                    <DarkLight onToggleTheme={setIsDarkMode} /> {/* Passa o callback */}
+                    <Clock isDarkMode={isDarkMode} />
                 </div>
             </ContainerGrid>
         </header>

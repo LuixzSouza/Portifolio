@@ -14,6 +14,7 @@ import { RetangleProjects } from "@/components/content/ContentProject";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import Link from "next/link";
 
 export function Slider() {
     const swiperRef = useRef();
@@ -36,7 +37,6 @@ export function Slider() {
                 {/* Componente Swiper para projetos em estilo de galeria */}
                 <Swiper
                     modules={[Navigation, Autoplay, EffectFade]}
-                    slidesPerView={3}  
                     spaceBetween={30}
                     speed={800}
                     loop={false}
@@ -47,6 +47,11 @@ export function Slider() {
                         setIsBeginning(swiper.isBeginning);
                         setIsEnd(swiper.isEnd);
                     }}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 2,
+                        },
+                    }}
                 >
                     {/* Slides de projetos */}
                     <SwiperSlide className="flex items-center justify-center">
@@ -56,6 +61,7 @@ export function Slider() {
                             categoryies={"HTML CSS JAVASCRIPT"} 
                             idProjeto={"PLZ-0100"}
                             resum={"O FormulaIdiomas é uma plataforma dedicada ao ensino de idiomas, oferecendo um ambiente interativo para aprendizado eficaz. O site foi projetado para ser intuitivo e acessível, facilitando a jornada do usuário no aprendizado de novos idiomas."}
+                            link={"/work"}
                         />
                     </SwiperSlide>
                     
@@ -66,18 +72,19 @@ export function Slider() {
                             categoryies={"HTML CSS JAVASCRIPT SASS"} 
                             idProjeto={"PLZ-0200"}
                             resum={"O FormulaIdiomas é uma plataforma dedicada ao ensino de idiomas, oferecendo um ambiente interativo para aprendizado eficaz. O site foi projetado para ser intuitivo e acessível, facilitando a jornada do usuário no aprendizado de novos idiomas."}
+                            link={"/work"}
                         />
                     </SwiperSlide>
                     
                     {/* Slide de "Ver Todos Projetos" */}
                     <SwiperSlide>
-                        <div className="flex flex-col items-center justify-center w-full h-full max-h-755">
-                            <div className="flex flex-col items-center justify-center relative w-full max-w-900 h-full bg-white p-6 border-2 border-black/10 hover:bg-black hover:text-white ease-in-out duration-300 cursor-pointer">
-                                <span className="text-4xl font-bold">
+                        <Link href={"/work"} className="flex flex-col items-center justify-center w-full h-550 max-h-755 rounded-lg group">
+                            <div className="flex flex-col items-center justify-center relative w-full rounded-lg max-w-900 h-full bg-white p-6 border-2 border-black/10 hover:bg-black hover:text-white hover:border-white transition-all ease-in-out duration-300 cursor-pointer">
+                                <span className="text-4xl font-bold group-hover:scale-150 transition-all ease-in-out duration-75">
                                     VER TODOS <br /> PROJETOS
                                 </span>
                             </div>
-                        </div>
+                        </Link>
                     </SwiperSlide>
                 </Swiper>
 

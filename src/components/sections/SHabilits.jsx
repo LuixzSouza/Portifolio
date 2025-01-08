@@ -50,8 +50,8 @@ export function SHabilits() {
     return (
         <section className="relative z-30 bg-whiteSecondary">
             <ContainerGrid className="text-center flex flex-col items-center justify-center py-28">
-                <Heading as='h2' size='medium' className='font-semibold text-blue-700'>Habilidades & Softwares</Heading>
-                <div className='w-full h-full grid grid-cols-4 gap-10 pt-20'>
+                <Heading as='h2' size='medium' className='font-semibold text-blue-700 text-center'>Habilidades & Softwares</Heading>
+                <div className='w-full h-full grid grid-cols-2 gap-10 pt-20  md:grid-cols-3 lg:grid-cols-4'>
                     {allHabilits.slice(0, visibleItems).map((habilit, index) => (
                         <ListHabilits
                             key={index}

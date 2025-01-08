@@ -110,8 +110,9 @@ export function SectionWork() {
                         </div>
                     </ContainerGrid>
                 </div>
-                <Slider/>
-
+                <ContainerGrid>
+                    <Slider/>
+                </ContainerGrid>
             </div>
         </section>
     )

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export function Clock() {
+export function Clock({ isDarkMode }) { // Recebe isDarkMode como prop
     const [time, setTime] = useState("");
 
     useEffect(() => {
@@ -23,5 +23,9 @@ export function Clock() {
         return () => clearInterval(interval); // Limpa o intervalo ao desmontar
     }, []);
 
-    return <span className="text-white" >{time}</span>;
+    return (
+        <span className={`${isDarkMode ? 'text-white' : 'text-black'}`}>
+            {time}
+        </span>
+    );
 }

@@ -19,8 +19,6 @@ export function HeaderFixed({ toggleMenu }) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY; // Posição atual do scroll
-      console.log(currentScrollY)
-      console.log(lastScrollY)
 
       if (currentScrollY > triggerPoint) {
         setIsAboveTrigger(true); // Indica que estamos acima do ponto de ativação

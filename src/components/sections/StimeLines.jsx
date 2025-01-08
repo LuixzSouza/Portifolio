@@ -81,68 +81,86 @@ export function StimeLines() {
   const [scrollPercent, setScrollPercent] = useState(0);
   const [progressArray, setProgressArray] = useState(Array(stepsData.length).fill(0));
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
 
-    if (typeof window === 'undefined') return;
-
-    const handleScroll = () => {
-      if (!stepsContainerRef.current || !trackRef.current) return;
-    
-      const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
-      const containerHeight = stepsContainerRef.current.offsetHeight;
-      const windowHeight = window.innerHeight;
-    
-      const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
-    
-      if (isInViewport) {
-        const maxScroll = containerHeight - windowHeight;
-        const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
-        const scrollPercentage = Math.min(scrolled / maxScroll, 1);
-    
-        setScrollPercent(scrollPercentage);
-    
-        // Atualiza a progressão de cada linha sequencialmente
-        const newProgressArray = progressArray.map((progress, index) => {
-          const stepStart = index / stepsData.length;
-          const stepEnd = (index + 1) / stepsData.length;
-          if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
-            return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
-          } else if (scrollPercentage >= stepEnd) {
-            return 100;
-          } else {
-            return 0;
-          }
-        });
-    
-        setProgressArray(newProgressArray);
-    
-        // Move a trilha horizontalmente conforme o scroll
-        const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
-        if (scrollPercentage > 0) {
-          trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
-        } else {
-          // Garante que a posição inicial seja correta
-          trackRef.current.style.transform = 'translateX(0)';
-        }
-      }
+    const updateLayout = () => {
+      setIsMobile(window.innerWidth < 768);
     };
-    
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [progressArray]);
+    updateLayout(); // Verifica no carregamento inicial
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      setIsMounted(true);
+
+      if (typeof window === 'undefined') return;
+
+      const handleScroll = () => {
+        if (!stepsContainerRef.current || !trackRef.current) return;
+      
+        const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
+        const containerHeight = stepsContainerRef.current.offsetHeight;
+        const windowHeight = window.innerHeight;
+      
+        const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
+      
+        if (isInViewport) {
+          const maxScroll = containerHeight - windowHeight;
+          const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
+          const scrollPercentage = Math.min(scrolled / maxScroll, 1);
+      
+          setScrollPercent(scrollPercentage);
+
+          // Atualiza a progressão de cada linha sequencialmente
+          const newProgressArray = progressArray.map((progress, index) => {
+            const stepStart = index / stepsData.length;
+            const stepEnd = (index + 1) / stepsData.length;
+            if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
+              return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
+            } else if (scrollPercentage >= stepEnd) {
+              return 100;
+            } else {
+              return 0;
+            }
+          });
+
+          setProgressArray(newProgressArray);
+
+          // Move a trilha horizontalmente conforme o scroll
+          const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
+          if (scrollPercentage > 0) {
+            trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
+          } else {
+            trackRef.current.style.transform = 'translateX(0)';
+          }
+        }
+      };
+      
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      // No mobile, garante que a trilha não seja movida
+      if (trackRef.current) {
+        trackRef.current.style.transform = 'translateX(0)';
+      }
+    }
+  }, [isMobile, progressArray]);
 
   if (!isMounted) return null;
 
   return (
-    <div ref={stepsContainerRef} className="steps-container relative z-30 h-[500vh] w-full bg-blackTerdy">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div ref={trackRef} className="steps-track flex h-full transition-transform duration-500 ease-out">
+    <div ref={stepsContainerRef} className="steps-container relative z-30 h-full w-full bg-blackTerdy md:h-[500vh]">
+      <div className="relative h-full w-full overflow-hidden md:sticky md:top-0 md:h-screen">
+        <div ref={trackRef} className="steps-track flex flex-col h-full transition-transform duration-500 ease-out md:flex-row">
           {stepsData.map((timeLiner, index) => (
             <div key={index} className="step-wrapper w-full h-full flex-shrink-0">
-              <StimeLine {...timeLiner} lineClass={`line-${index + 1}`} progress={progressArray[index]} />
+              <StimeLine {...timeLiner} lineClass={`line-${index + 1}`} progress={progressArray[index]} isMobile={isMobile} />
             </div>
           ))}
         </div>

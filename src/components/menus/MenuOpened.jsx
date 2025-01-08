@@ -73,6 +73,7 @@ export function MenuOpened({ isOpen, toggleMenu }) {
             </div>
           </div>
           <div className="w-full">
+            <Link href={"/"}><ListMenu image={"/image/icon-work.png"}>HOME</ListMenu></Link>
             <Link href={"/work"}><ListMenu image={"/image/icon-work.png"}>TRABALHO</ListMenu></Link>
             <Link href={"/about"}><ListMenu image={"/image/icon-about.png"}>SOBRE</ListMenu></Link>
             <Link href={"/contact"}><ListMenu image={"/image/icon-contato.png"}>CONTATO</ListMenu></Link>

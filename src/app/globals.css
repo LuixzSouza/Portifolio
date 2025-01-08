@@ -62,3 +62,8 @@ i {
 .animate-pause {
   animation-play-state: paused;
 }
+
+.dark {
+  --background: #000000;
+  --text: #ffffff;
+}

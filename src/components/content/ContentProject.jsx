@@ -2,22 +2,21 @@
 import Image from "next/image";
 
 // Componente
-import {Category} from "@/components/buttons/Category";
 import { Heading } from "@/components/typrography/Heading";
-import { Paragraph } from "@/components/typrography/Paragraph";
-import { LinkCustomBlack } from "@/components/ui/LinkCustomBlack";
+import Link from "next/link";
 
-export function RetangleProjects({nome, img, resum, idProjeto}) {
+export function RetangleProjects({nome, img, link, idProjeto}) {
     return(
-        <div className="flex flex-col items-center justify-center w-full h-full" >
-            <div className="flex flex-col items-center justify-center relative w-full h-550 overflow-hidden group cursor-cursoClick border-2 border-bluePrimary bg-black p-6 rounded-lg" >
-                <div className="relative w-full h-full overflow-hidden" >
-                    <Image src={`/image/${img}`} width={1200} height={550} alt="Projeto" />
+        <Link href={link} className="flex flex-col items-center justify-center w-full h-550 group cursor-cursoClick border-2 border-bluePrimary bg-black p-6 rounded-lg group" >
+            <div className="flex flex-col items-center justify-center relative w-full h-full overflow-hidden" >
+                <div className="relative w-full h-full overflow-hidden rounded-lg" >
+                    <Image src={`/image/${img}`} layout="fill" objectFit="cover" alt="Projeto" className="group-hover:scale-110 transition-all duration-200 ease-in-out" />
                 </div>
             </div>
-            <div className="flex items-center justify-between w-full h-auto pb-6" >
+            <div className="flex items-center justify-between w-full h-auto py-3" >
                 <Heading as="h4" size="tiny" color="white" className="font-semibold" >{nome}</Heading>
+                <p className="w-32 text-white" >{idProjeto}</p>
             </div>
-        </div>
+        </Link>
     )
 }
