@@ -1,13 +1,13 @@
 'use client';
 
-// React / Next
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
 
-// Componentes
+import { useEffect, useRef } from 'react';
 import { Heading } from '@/components/typrography/Heading';
 import { Paragraph } from '@/components/typrography/Paragraph';
 import { ContainerGrid } from '@/components/layout/ContainerGrid';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 const bgClasses = {
   html: 'bg-neutral-900',
@@ -37,37 +37,94 @@ const elements = [
 ];
 
 export function CreateImpactProjects() {
-  const elementRefs = useRef([]); // Ref para armazenar os elementos
+  const elementRefs = useRef([]);
+  const sectionRef = useRef(null); // Adicionando a referência para a section
+  const subTitleRef = useRef(null); // Adicionando a referência para a section
+  const titleRef = useRef(null); // Adicionando a referência para a section
 
   useEffect(() => {
-    const handleScroll = () => {
-      elementRefs.current.forEach((el) => {
-        if (!el) return;
-
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-
-        // Calcular a posição entre 0 e 1 com base na rolagem
-        const progress = Math.min(Math.max((rect.top / windowHeight), 0), 1);
-
-        // Aplicar o efeito parallax e a opacidade dinamicamente
-        el.style.transform = `translateY(${progress * -100}px)`; // Mover para cima
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const subTitle = subTitleRef.current;
+    const title = titleRef.current;
+  
+    // Animando a borda e a visibilidade
+    gsap.to(sectionRef.current, {
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 30%',
+        end: 'bottom top',
+        scrub: true, // Para scrubbing suave
+        onEnter: () => {
+          // Quando a seção entra na tela, remova a borda suavemente
+          gsap.to(sectionRef.current, { 
+            borderRadius: "0%", // Anima a borda de volta ao 0%
+            duration: 0.6, // Duração da animação
+            ease: "power2.inOut", // Suaviza a animação
+          });
+        },
+        onLeaveBack: () => {
+          // Quando a seção sai de volta, restaurar o borda redonda
+          gsap.to(sectionRef.current, { 
+            borderRadius: "55rem", // Borda arredondada de volta
+            duration: 0.6, 
+            ease: "power2.inOut", 
+          });
+        },
+      },
+    });
+  
+    // Animações separadas
+    gsap.fromTo(subTitle, 
+      {
+        opacity: 0,
+        y: -100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: subTitle,
+          start: 'top 10%',
+        }
+      }
+    );
+  
+    // Animações com ScrollTrigger para title
+    gsap.fromTo(title,
+      {
+        opacity: 0,
+        y: -100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: title,
+          start: 'top 3%',
+        }
+      }
+    );
   }, []);
-
+  
+  
   return (
-    <section className="relative z-30 border-t border-b-2 border-white bg-black w-full h-[300vh] rounded-t-full">
+    <section ref={sectionRef} className="relative z-30 bg-black w-full h-[300vh] rounded-t-full">
       <ContainerGrid className="sticky top-0 w-full h-screen flex flex-col items-center justify-center text-center">
-        <Paragraph size="litlleSmall" color="white">
-          TRANSDORMANDO IDEIAS EM SOLUÇÕES DIGITAIS
-        </Paragraph>
-        <Heading as="h2" size="medium" color='white' className='text-center'>
-          Desenvolvo cada projeto em uma solução exclusiva, onde conceitos e estratégia se conectam para gerar produto unico.
-        </Heading>
+        <div ref={subTitleRef} >
+          <Paragraph size="litlleSmall" color="white">
+            TRANSDORMANDO IDEIAS EM SOLUÇÕES DIGITAIS
+          </Paragraph>
+        </div>
+        <div ref={titleRef} >
+          <Heading as="h2" size="medium" color='white' className='text-center'>
+            Desenvolvo cada projeto em uma solução exclusiva, onde conceitos e estratégia se conectam para gerar produto unico.
+          </Heading>
+        </div>
       </ContainerGrid>
 
       <div className="absolute left-0 w-full h-[200vh] overflow-hidden lg:p-24">
@@ -75,7 +132,7 @@ export function CreateImpactProjects() {
           {elements.map((item, index) => (
             <div
               key={index}
-              ref={(el) => (elementRefs.current[index] = el)} // Armazenar ref de cada elemento
+              ref={(el) => (elementRefs.current[index] = el)}
               className={`absolute w-full overflow-hidden shadow-lgw- shadow-black rounded-lg transition-all duration-700 ease-in-out group hover:scale-110`}
               style={{
                 zIndex: `z-${item.z}`,

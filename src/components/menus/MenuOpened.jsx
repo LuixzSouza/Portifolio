@@ -60,7 +60,7 @@ export function MenuOpened({ isOpen, toggleMenu }) {
       }}
       onTransitionEnd={handleTransitionEnd}
     >
-      <div className="relative w-full h-screen py-4 overflow-hidden">
+      <div className="relative w-full h-dvh py-4 overflow-hidden">
         <ContainerGrid className="relative z-20 w-full h-full flex flex-col items-start justify-between">
           <div className="flex items-center justify-between w-full">
             <div onClick={toggleMenu}>

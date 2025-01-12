@@ -5,7 +5,8 @@ export function Heading({
     lineHeight = "normal", 
     align = 'left',
     className = "", // Adiciona suporte para className dinâmico
-    children 
+    children,
+    ref
 }) {
     const sizes = {
         super: "text-[12rem] tracking-[-0.375rem] font-light sm:text-[18rem] lg:text-[25rem]", 
@@ -16,8 +17,8 @@ export function Heading({
         menu: "text-[3rem] font-normal sm:text-[4.5rem] md:text-[6.25rem]", 
         medium: "text-[2rem] font-regular sm:text-[3rem] md:text-[4rem]",
         small: "text-[1.25rem] font-regular sm:text-[1.75rem] md:text-[2.5rem]", 
-        tiny: "text-[1rem] font-regular sm:text-[1.25rem] md:text-[1.75rem]", 
-        litlle: "text-[0.875rem] font-regular sm:text-[1rem] md:text-[1.20rem]", 
+        tiny: "text-[1rem] font-regular sm:text-[1.45rem] md:text-[1.75rem]", 
+        litlle: "text-[0.75rem] font-regular sm:text-[1rem] md:text-[1.20rem]", 
       };
       
   const lineHeights = {
@@ -29,15 +30,16 @@ export function Heading({
   };
 
   return (
-      <Tag 
-          className={`
-              ${sizes[size]} 
-              ${lineHeights[lineHeight] || lineHeights.custom} 
-              text-${color} 
-              text-${align} 
-              w-full 
-              transition-transform duration-300 ease-in-out ${className}
-          `}
+      <Tag
+        ref = {ref}
+        className={`
+            ${sizes[size]} 
+            ${lineHeights[lineHeight] || lineHeights.custom} 
+            text-${color} 
+            text-${align} 
+            w-full 
+            transition-transform duration-300 ease-in-out ${className}
+        `}
       >
           {children}
       </Tag>

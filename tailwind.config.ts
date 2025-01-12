@@ -157,6 +157,10 @@ const config = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+        jump: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         marquee: 'marquee 5s linear infinite',
@@ -165,6 +169,8 @@ const config = {
         blink: 'blink 1s step-end infinite',
         'spin-slow': 'spin 10s linear infinite',
         slide: 'slide 20s linear infinite',
+        bounce: 'bounce 1s infinite', 
+        jump: 'jump 0.5s ease-in-out',
       },
       gridTemplateColumns: {
         'custom-3': 'repeat(3, 200px)',

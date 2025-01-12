@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 // Componentes
 import { LinkNav } from "@/components/ui/LinkNav";
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
+import { Clock } from "../widgets/Clock";
 
 export function HeaderFixed({ toggleMenu }) {
   const [isVisible, setIsVisible] = useState(false); // Inicialmente invisível
@@ -40,7 +41,7 @@ export function HeaderFixed({ toggleMenu }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 bg-white/5 border-b border-white/10 backdrop-blur-md transition-all duration-500 rounded-full ${
+      className={`fixed top-4 left-0 w-full z-50 transition-all duration-500 rounded-full ${
         isAboveTrigger
           ? isVisible
             ? "opacity-100 translate-y-0"
@@ -54,14 +55,24 @@ export function HeaderFixed({ toggleMenu }) {
           : "opacity 0.1s", // Transição instantânea abaixo do triggerPoint
       }}
     >
-      <ContainerGrid className="flex justify-between items-center py-5 px-4 w-full md:px-0">
-        <div>
-          <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
-        </div>
-        <div className="flex justify-center items-center gap-16">
-          <span className="cursor-pointer text-white" onClick={toggleMenu}>MENU</span>
-        </div>
-      </ContainerGrid>
+      <div>
+
+        <ContainerGrid className="flex justify-between items-center py-5 px-4 bg-black/25 shadow-white/10 shadow-2xl backdrop-blur-xl rounded-full w-full md:px-8">
+          <div>
+            <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
+          </div>
+          <nav className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex`}>
+              <LinkNav link="/" color={"white"}>HOME </LinkNav>
+              <LinkNav link="/work" color={"white"}>PROJETOS </LinkNav>
+              <LinkNav link="/about" color={"white"}>SOBRE</LinkNav>
+              <LinkNav link="/contact" color={"white"}>CONTATO</LinkNav>
+          </nav>
+          <div className="flex justify-center items-center gap-2">
+            <Clock/>
+            <span className="cursor-pointer text-white" onClick={toggleMenu}>MENU</span>
+          </div>
+        </ContainerGrid>
+      </div>
     </header>
   );
 }

@@ -11,7 +11,7 @@ export function HoverableIcon({ src, alt, width = 50, height = 50, onMouseEnter,
                 width={width}
                 height={height}
                 alt={alt}
-                className="filter grayscale group-hover:scale-110 hover:filter-none transition duration-100"
+                className="filter grayscale group-hover:scale-110 group-hover:filter-none transition duration-100"
             />
             <div className={`absolute overflow-hidden shadow-sm shadow-black -bottom-14 left-1/2 transform -translate-x-1/2 ${gradient} rounded-full opacity-0 group-hover:opacity-100 -translate-y-9 group-hover:-translate-y-0 transition ease-in-out duration-300`}>
                 <div className="relative w-full h-full p-1" >

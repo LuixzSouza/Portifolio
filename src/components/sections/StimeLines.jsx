@@ -1,6 +1,5 @@
 "use client"; // Para habilitar hooks e estado
 
-
 // React
 import { useEffect, useRef, useState } from "react";
 
@@ -10,70 +9,92 @@ import { StimeLine } from "@/components/sections/StimeLine";
 const stepsData = [
   {
     stepNumber: "01",
-    title: "Primeiros Passos na Programação",
+    title: "Explorando o Início da Programação e seus Primeiros Conceitos",
     date: "2021",
     heading: "Primeiros Passos na Programação",
     paragraph: `
-      Início das descobertas no universo da programação por meio de <strong >cursos gratuitos no YouTube</strong>. 
-      Foi nessa fase que a <strong>paixão pelo desenvolvimento web</strong> e pela <strong>resolução de problemas</strong> começou a florescer. 
-      Os primeiros contatos práticos envolveram <strong>HTML, CSS e JavaScript</strong>, estabelecendo uma base essencial para projetos futuros.`,
+      Descoberta inicial: Começo com cursos gratuitos no YouTube, explorando o universo da programação.
+      Paixão pelo Desenvolvimento Web: Primeiro contato com HTML, CSS e JavaScript, estabelecendo a base para projetos futuros.
+      Resolução de Problemas: Interesse crescente em solucionar desafios e criar soluções.`,
     imgSrc: "/image/timeline-2021.png",
     subImgSrc: "/image/sub-timeline-1.png",
+    icons: [
+      "/icons/html5.svg", 
+      "/icons/CSS3.svg", 
+      "/icons/JavaScript.svg"    
+    ]
   },
   {
     stepNumber: "02",
-    title: "Aprofundamento e Primeiros Projetos",
+    title: "Aprofundando os Estudos e Iniciando Projetos Reais",
     date: "2022",
-    heading: "Aprofundamento e Primeiros Projetos",
+    heading: "Aprofundamento em Projetos",
     paragraph: `
-      Aprofundamento em <strong>JavaScript</strong> e no <strong>desenvolvimento front-end</strong>, com participação no <strong>curso de Front-end do CodeBoost</strong> para reforçar a base adquirida. 
-      Projetos práticos começaram a ganhar vida com <strong>HTML, CSS, JavaScript e SASS</strong>, enquanto estudos iniciais sobre <strong>React</strong> e <strong>Next.js</strong> foram introduzidos.
-      Ferramentas como <strong>Tailwind CSS, Bootstrap</strong> e <strong>Styled Components</strong> enriqueceram o processo de criação. 
-      Também houve os primeiros experimentos com <strong>Node.js</strong>, expandindo as habilidades para o back-end.`,
+      Aprimoramento Técnico: Estudo aprofundado de JavaScript e frameworks como React e Next.js.
+      Projetos Práticos: Desenvolvimento de aplicações com HTML, CSS, JavaScript, SASS, e introdução a ferramentas como Tailwind CSS.
+      Exploração Back-End: Primeiros experimentos com Node.js, expandindo habilidades técnicas.`,
     imgSrc: "/image/timeline-2022.png",
     subImgSrc: "/image/sub-timeline-2.png",
+    icons: [
+      "/icons/JavaScript.svg",
+      "/icons/React.svg",
+      "/icons/next.svg",
+      "/icons/Sass.svg",
+      "/icons/Node.svg",
+
+    ]
   },
   {
     stepNumber: "03",
-    title: "Faculdade e Aprendizados Diversificados",
+    title: "Aplicando Metodologias e Ferramentas de Design no Desenvolvimento",
     date: "2023",
-    heading: "Começo de Faculdade e Aprendizados Diversificados",
+    heading: "Faculdade e Novos Desafios",
     paragraph: `
-      Durante essa fase, projetos passaram a ser desenvolvidos com <strong>TDD (Test-Driven Development)</strong> e <strong>arquitetura limpa</strong>. 
-      A exploração de novas ferramentas se intensificou com cursos na <strong>Webflow University</strong> e imersões em <strong>UI/UX</strong>, utilizando <strong>Figma, Invision</strong> e <strong>Canva</strong>.
-      A curiosidade também levou à introdução em <strong>Arduino</strong> e aos conceitos básicos de <strong>Python</strong>.
-      Experiências com diferentes sistemas operacionais, como <strong>Linux, Windows</strong> e <strong>Debian</strong>, ampliaram a compreensão sobre ambientes de desenvolvimento.`,
+      Novas Metodologias: Uso de TDD (Test-Driven Development) e aplicação de arquitetura limpa.
+      UI/UX: Cursos em Webflow e ferramentas como Figma e Canva.
+      Tecnologias Diversas: Introdução a Arduino, conceitos básicos de Python e aprofundamento em sistemas operacionais como Linux e Windows.`,
     imgSrc: "/image/timeline-2023.png",
     subImgSrc: "/image/sub-timeline-3.png",
+    icons: [
+      "/icons/Figma.svg", 
+      "/icons/python.svg", 
+      "/icons/Linux.svg", 
+      "/icons/Windows.svg", 
+    ]
   },
   {
     stepNumber: "04",
-    title: "Primeiras Experiências Profissionais e Faculdade",
+    title: "Desenvolvimento de Sistemas e Projetos Profissionais",
     date: "2024",
-    heading: "Primeiras Experiências Profissionais e Faculdade",
+    heading: "Primeiras Experiências Profissionais",
     paragraph: `
-      O aprendizado em <strong>MySQL</strong> foi aprofundado, explorando <strong>comandos e consultas</strong> para manipulação de dados. 
-      Os estudos em <strong>Java</strong> destacaram a aplicação dos <strong>princípios SOLID</strong>, utilizando <strong>IntelliJ IDEA</strong> e <strong>Eclipse</strong> como IDEs principais.
-      Experimentos práticos incluíram <strong>testes e projetos publicados no Netlify</strong>.
-      Como freelancer para a <strong>Formula Idiomas</strong>, foi desenvolvido um <strong>site dinâmico e responsivo</strong>, além de um <strong>sistema de teste de nivelamento de inglês</strong>.
-      O desafio nessa experiência envolveu a <strong>integração de PHP</strong> para envio de formulários. 
-      Paralelamente, o <strong>estudo do inglês</strong> foi iniciado para aprimorar habilidades de comunicação.`,
+      Banco de Dados: Aprendizado de MySQL, com foco em comandos e consultas.
+      Projetos Publicados: Criação de sites dinâmicos e responsivos no Netlify, com integração de PHP.
+      Experiência Profissional: Desenvolvimento de um sistema de nivelamento de inglês para a Formula Idiomas.
+      Desenvolvimento Pessoal: Progresso no estudo de inglês para aprimorar comunicação técnica.`,
     imgSrc: "/image/timeline-2024.png",
     subImgSrc: "/image/sub-timeline-4.png",
+    icons: [
+      "/icons/mysql.svg", 
+      "/icons/netlify.svg", 
+      "/icons/PHP.svg", 
+      "/icons/duolingo.svg", 
+    ]
   },
   {
     stepNumber: "05",
-    title: "Evolução Contínua",
-    date: "2024",
-    heading: "Até o Momento",
+    title: "Aprimorando Habilidades Técnicas e Buscando Novas Oportunidades",
+    date: "2025",
+    heading: "Evolução Contínua",
     paragraph: `
-      Em andamento no <strong>4º período do curso de Desenvolvimento de Sistemas de Informação</strong>, a <strong>evolução é constante</strong>. 
-      O foco está na aplicação de <strong>boas práticas</strong> para ampliar conhecimentos em <strong>design e desenvolvimento</strong>, sempre buscando novas oportunidades de crescimento.
-      A missão atual é conquistar a <strong>primeira oportunidade profissional fixa</strong> na área de tecnologia, transformando aprendizado em impacto real.`,
+      Faculdade em Andamento: No 5º período do curso de Desenvolvimento de Sistemas de Informação.
+      Práticas Avançadas: Foco na aplicação de boas práticas e no crescimento técnico.
+      Objetivo Atual: Conquistar a primeira oportunidade profissional fixa na área de tecnologia.`,
     imgSrc: "/image/timeline-moment.png",
     subImgSrc: "/image/sub-timeline-5.png",
   },
 ];
+
 
 export function StimeLines() {
   const trackRef = useRef(null);
@@ -88,7 +109,6 @@ export function StimeLines() {
       localStorage.setItem("scrollPercent", scrollPercent);
     }
   }, [scrollPercent, isMounted]);
-  
 
   useEffect(() => {
     setIsMounted(true);
@@ -97,57 +117,56 @@ export function StimeLines() {
       setIsMobile(window.innerWidth < 768);
     };
 
-    updateLayout(); // Verifica no carregamento inicial
+    updateLayout();
     window.addEventListener("resize", updateLayout);
     return () => window.removeEventListener("resize", updateLayout);
   }, []);
 
   useEffect(() => {
-  if (!isMobile) {
-    const handleScroll = () => {
-      if (!stepsContainerRef.current || !trackRef.current) return;
+    if (!isMobile) {
+      const handleScroll = () => {
+        if (!stepsContainerRef.current || !trackRef.current) return;
 
-      const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
-      const containerHeight = stepsContainerRef.current.offsetHeight;
-      const windowHeight = window.innerHeight;
+        const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
+        const containerHeight = stepsContainerRef.current.offsetHeight;
+        const windowHeight = window.innerHeight;
 
-      const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
+        const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
 
-      if (isInViewport) {
-        const maxScroll = containerHeight - windowHeight;
-        const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
-        const scrollPercentage = Math.min(scrolled / maxScroll, 1);
+        if (isInViewport) {
+          const maxScroll = containerHeight - windowHeight;
+          const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
+          const scrollPercentage = Math.min(scrolled / maxScroll, 1);
 
-        setScrollPercent(scrollPercentage); // Uso correto da variável
+          setScrollPercent(scrollPercentage);
 
-        const newProgressArray = progressArray.map((progress, index) => {
-          const stepStart = index / stepsData.length;
-          const stepEnd = (index + 1) / stepsData.length;
-          if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
-            return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
-          } else if (scrollPercentage >= stepEnd) {
-            return 100;
-          } else {
-            return 0;
-          }
-        });
+          const newProgressArray = progressArray.map((progress, index) => {
+            const stepStart = index / stepsData.length;
+            const stepEnd = (index + 1) / stepsData.length;
+            if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
+              return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
+            } else if (scrollPercentage >= stepEnd) {
+              return 100;
+            } else {
+              return 0;
+            }
+          });
 
-        setProgressArray(newProgressArray);
+          setProgressArray(newProgressArray);
 
-        const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
-        trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
+          const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
+          trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      if (trackRef.current) {
+        trackRef.current.style.transform = "translateX(0)";
       }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  } else {
-    if (trackRef.current) {
-      trackRef.current.style.transform = "translateX(0)";
     }
-  }
-}, [isMobile, progressArray]);
-
+  }, [isMobile, progressArray]);
 
   return (
     <div ref={stepsContainerRef} className="steps-container relative z-30 h-full w-full bg-blackTerdy md:h-[500vh]">
@@ -155,7 +174,7 @@ export function StimeLines() {
         <div ref={trackRef} className="steps-track flex flex-col h-full transition-transform duration-500 ease-out md:flex-row">
           {stepsData.map((timeLiner, index) => (
             <div key={index} className="step-wrapper w-full h-full flex-shrink-0">
-              <StimeLine {...timeLiner} lineClass={`line-${index + 1}`} progress={progressArray[index]} isMobile={isMobile} />
+              <StimeLine {...timeLiner} lineClass={`line-${index + 1}`} progress={progressArray[index]} isMobile={isMobile} iconSrcs={timeLiner.icons} />
             </div>
           ))}
         </div>

@@ -1,3 +1,5 @@
+'use client'
+
 // Next
 import Image from "next/image";
 
@@ -7,8 +9,16 @@ import { BotaoPrimary } from "@/components/buttons/Botao";
 import { Heading } from "@/components/typrography/Heading";
 import { Paragraph } from "@/components/typrography/Paragraph";
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
+import { useEffect, useState } from "react";
 
 export function SectionFooter() {
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+        
+        useEffect(() => {
+            const year = new Date().getFullYear();
+            setCurrentYear(year);
+        }, []);
+    
     return (
         <footer className="sticky top-0 z-20 w-full bg-footer bg-center bg-no-repeat bg-cover pt-36 pb-11" >
             <ContainerGrid className={"w-full flex flex-col items-start justify-center"} >
@@ -24,7 +34,7 @@ export function SectionFooter() {
                 </div>
                 <div className="w-full flex flex-col items-center justify-between md:flex-row" >
                     <div className="w-full text-center md:text-left" >
-                        <Paragraph size="litlleSmall" color="white" >🇧🇷  2019 — 2024© Luiz Antônio de Souza</Paragraph>
+                        <Paragraph size="litlleSmall" color="white" >🇧🇷  2019 — {currentYear}© Luiz Antônio de Souza</Paragraph>
                     </div>
                     <div className='w-full flex items-center justify-center gap-8 md:justify-center' >
                         <LinkCustom color={'white'} link={'https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/'} img={"image/icon-linkedin.svg"} nomeimg={"linkedin"} >LINKEDIN</LinkCustom>

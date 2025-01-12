@@ -15,7 +15,7 @@ export const projetos: Projeto[] = [
     {
         nome: "Formula Idiomas",
         imagem: "/image/p-formula-idioma.png",
-        tecnologias: ["HTML5 ", "CSS3", "JavaScript", "PHP", "PHPMailer", "AOS", "Projeto Real"],
+        tecnologias: ["HTML5", "CSS3", "JavaScript", "PHP", "PHPMailer", "AOS", "Projeto Real"],
         links: {
             sobre: "/sobre",
             github: "https://github.com/LuixzSouza",

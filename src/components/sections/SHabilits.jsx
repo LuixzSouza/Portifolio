@@ -48,7 +48,7 @@ export function SHabilits() {
     };
 
     return (
-        <section className="relative z-30 bg-whiteSecondary">
+        <section className="relative z-30 bg-[#161616]">
             <ContainerGrid className="text-center flex flex-col items-center justify-center py-28">
                 <Heading as='h2' size='medium' className='font-semibold text-blue-700 text-center'>Habilidades & Softwares</Heading>
                 <div className='w-full h-full grid grid-cols-2 gap-10 pt-20  md:grid-cols-3 lg:grid-cols-4'>

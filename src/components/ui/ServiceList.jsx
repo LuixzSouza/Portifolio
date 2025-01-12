@@ -30,12 +30,12 @@ const itens = [
 
 export function ServiceList() {
     return (
-        <ul className="grid grid-cols-1 grid-rows-2 gap-6 py-24 md:grid-cols-2">
+        <ul className="grid grid-cols-1 grid-rows-2 gap-8 py-24 md:grid-cols-2">
             {itens.map((item, index) => (
-                <li key={index} className="w-full flex flex-col items-center justify-center bg-bg-gradwhite p-10 rounded-xl" >
-                    <Image src={`/${item.img}`} width={120} height={80} alt="Ícone" />
-                    <Heading as="h4" size="tiny" color="black"  className="mb-3 font-semibold text-center">{item.title}</Heading>
-                    <Paragraph size="small" className={"max-w-600 text-black/70"}>{item.paragraph}</Paragraph>
+                <li key={index} className="w-full flex flex-col items-center justify-center bg-white/95 p-10 rounded-xl" >
+                    <Image src={`/${item.img}`} width={150} height={80} alt="Ícone" />
+                    <Heading as="h4" size="tiny" color="bluePrimary"  className="mb-3 font-semibold text-center">{item.title}</Heading>
+                    <Paragraph size="small" color="black/70" className={"max-w-600"}>{item.paragraph}</Paragraph>
                 </li>
             ))}
         </ul>

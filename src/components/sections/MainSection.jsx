@@ -18,7 +18,6 @@ export function MainSection() {
       <StimeLines />
       <SectionWork />
       <SHabilits/>
-      <div className="relative z-20 w-full h-16 bg-whiteSecondary rounded-bl-custom-80 rounded-br-custom-80"></div>
       <SectionFooter />
       <ClimUp/>
     </section>
