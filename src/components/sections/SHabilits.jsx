@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // Componentes
 import { Looping } from '@/components/animations/Looping';
 import { ContainerGrid } from '@/components/layout/ContainerGrid';
@@ -40,6 +40,25 @@ export function SHabilits() {
 
     const [visibleItems, setVisibleItems] = useState(12); // Inicia mostrando 3 linhas (3 * 4 itens)
 
+    useEffect(() => {
+        const updateVisibleItems = () => {
+            if (window.innerWidth >= 1024) {
+                setVisibleItems(12); // Exibir 4 itens por linha em telas grandes
+            } else if (window.innerWidth >= 768) {
+                setVisibleItems(6); // Exibir 3 itens por linha em telas médias
+            } else {
+                setVisibleItems(4); // Exibir 2 itens por linha em telas pequenas
+            }
+        };
+
+        updateVisibleItems();
+        window.addEventListener('resize', updateVisibleItems);
+
+        return () => {
+            window.removeEventListener('resize', updateVisibleItems);
+        };
+    }, []);
+
     const handleViewMore = () => {
         console.log('Botão clicado, estado atual:', visibleItems);
         const newCount = visibleItems + 4; // Adiciona mais uma linha de 4 itens
@@ -51,7 +70,7 @@ export function SHabilits() {
         <section className="relative z-30 bg-[#161616]">
             <ContainerGrid className="text-center flex flex-col items-center justify-center py-28">
                 <Heading as='h2' size='medium' className='font-semibold text-blue-700 text-center'>Habilidades & Softwares</Heading>
-                <div className='w-full h-full grid grid-cols-2 gap-10 pt-20  md:grid-cols-3 lg:grid-cols-4'>
+                <div className='w-full h-full grid grid-cols-2 gap-4 pt-20 md:gap-10  md:grid-cols-3 lg:grid-cols-4'>
                     {allHabilits.slice(0, visibleItems).map((habilit, index) => (
                         <ListHabilits
                             key={index}

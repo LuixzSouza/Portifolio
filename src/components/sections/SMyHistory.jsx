@@ -14,8 +14,8 @@ export function SMyHistory() {
                         Sou Luiz Antônio, um jovem de 20 anos nascido e criado no interior de Minas Gerais, em uma cidade com menos de 7 mil habitantes. Crescer em um ambiente tão pequeno me motivou a buscar conhecimento além das fronteiras da minha realidade. Todos os dias, percorro 100 km para chegar à faculdade, onde estudo Bacharelado em Sistemas de Informação e sigo em busca de evolução constante. Já atuo na área de desenvolvimento e web design há mais de dois anos, absorvendo tudo que posso para me tornar um profissional cada vez mais capacitado.
                     </Paragraph>
                 </div>
-                <div className="relative flex items-start justify-between gap-10 w-full h-full" >
-                    <div className="sticky -top-0 w-full h-full bg-gradient-black-white">
+                <div className="relative flex flex-col items-start justify-between gap-10 w-full h-full md:flex-row" >
+                    <div className="relative w-full h-full bg-gradient-black-white md:sticky md:-top-0">
                         <Image src={"/image/MySelf.png"} width={900} height={600} alt="Luiz Foto"/>
                     </div>
                     <div className="w-full flex flex-col gap-10 py-24" >

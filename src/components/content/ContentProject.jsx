@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function RetangleProjects({nome, img, link, idProjeto}) {
     return(
-        <Link href={link} className="flex flex-col items-center justify-center w-full h-550 group cursor-cursoClick border-2 border-bluePrimary bg-black p-6 rounded-lg group" >
+        <Link href={link} className="flex flex-col items-center justify-center w-full h-370 group cursor-cursoClick border-2 border-bluePrimary bg-black p-6 rounded-lg group md:h-550" >
             <div className="flex flex-col items-center justify-center relative w-full h-full overflow-hidden" >
                 <div className="relative w-full h-full overflow-hidden rounded-lg" >
                     <Image src={`/image/${img}`} layout="fill" objectFit="cover" alt="Projeto" className="group-hover:scale-110 transition-all duration-200 ease-in-out" />

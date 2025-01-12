@@ -153,7 +153,7 @@ export function SProjetosRetangle() {
                                 <DivProjeto
                                     key={index}
                                     nome={projeto.nome}
-                                    imagem={projeto.imagem}
+                                    imagem={projeto.imagem || "/image/MySelf.png"}
                                     tecnologias={projeto.tecnologias}
                                     links={projeto.links}
                                     onClick={() => handleOpenModal(projeto)} // Define o projeto clicado

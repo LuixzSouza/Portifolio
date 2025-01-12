@@ -52,7 +52,7 @@ export function StimeLine({
         <Heading as="h2" size="small" className="font-bold mb-4 text-bluePrimary max-w-900 text-start">
           {heading}
         </Heading>
-        <Heading as="h3" size="litlle" color="white" className="font-semibold mb-2 text-start">
+        <Heading as="h3" size="tiny" color="white" className="font-semibold mb-2 text-start">
           {date} — {title}
         </Heading>
 

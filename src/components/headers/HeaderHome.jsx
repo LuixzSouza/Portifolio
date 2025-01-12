@@ -8,9 +8,12 @@ import { useEffect, useState } from "react";
 import { LinkNav } from "@/components/ui/LinkNav";
 import { Clock } from "@/components/widgets/Clock";
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
+import { MenuOpened } from '@/components/menus/MenuOpened';
 
 export function HeaderHome() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,28 +26,33 @@ export function HeaderHome() {
     }, []);
 
     return (
-        <header
-            className={`fixed top-0 z-50 flex justify-between items-center py-5 w-full transition-all duration-700 
-                ${isScrolled ? 'translate-y-[-100%]' : 'translate-y-0'}`} // Troca a cor com base no tema
-        >
-            <ContainerGrid className={"flex justify-between items-center"} >
-                <div className={`transition-all duration-500 delay-200 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                    <LinkNav link="/">
-                        <Image src={'/image/logo.svg'} width={151} height={25} alt="logo" />
-                    </LinkNav>
-                </div>
-                <nav className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex
-                ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                    <LinkNav link="/" color={"white"}>HOME </LinkNav>
-                    <LinkNav link="/work" color={"white"}>PROJETOS </LinkNav>
-                    <LinkNav link="/about" color={"white"}>SOBRE</LinkNav>
-                    <LinkNav link="/contact" color={"white"}>CONTATO</LinkNav>
-                </nav>
-                <div className={`flex justify-end items-center gap-8 w-full max-w-48 transition-all duration-500 delay-600 
-                ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
-                    <Clock/>
-                </div>
-            </ContainerGrid>
-        </header>
+        <>
+            <header
+                className={`fixed top-0 z-50 flex justify-between items-center py-5 w-full transition-all duration-700 
+                    ${isScrolled ? 'translate-y-[-100%]' : 'translate-y-0'}`} // Troca a cor com base no tema
+            >
+                <ContainerGrid className={"flex justify-between items-center"} >
+                    <div className={`transition-all duration-500 delay-200 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
+                        <LinkNav link="/">
+                            <Image src={'/image/logo.svg'} width={151} height={25} alt="logo" />
+                        </LinkNav>
+                    </div>
+                    <nav className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex
+                    ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
+                        <LinkNav link="/" color={"white"}>HOME </LinkNav>
+                        <LinkNav link="/work" color={"white"}>PROJETOS </LinkNav>
+                        <LinkNav link="/about" color={"white"}>SOBRE</LinkNav>
+                        <LinkNav link="/contact" color={"white"}>CONTATO</LinkNav>
+                    </nav>
+                    <div className={`flex justify-end items-center gap-2 w-full max-w-48 transition-all duration-500 delay-600 sm:gap-4 md:gap-8
+                    ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
+                        <Clock/>
+                        <span className="block cursor-pointer text-white md:hidden" onClick={toggleMenu}>MENU</span>
+                    </div>
+                    
+                </ContainerGrid>
+            </header>
+            <MenuOpened isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        </>
     );
 }

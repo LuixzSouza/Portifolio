@@ -13,7 +13,7 @@ export function HeaderFixed({ toggleMenu }) {
   const [isVisible, setIsVisible] = useState(false); // Inicialmente invisível
   const [lastScrollY, setLastScrollY] = useState(0); // Guarda a última posição do scroll
   const [isAboveTrigger, setIsAboveTrigger] = useState(false); // Indica se está acima do ponto de ativação
-  const triggerPoint = 0; // Ponto a partir do qual a função será ativada
+  const triggerPoint = 50; // Ponto a partir do qual a função será ativada
 
   // triggerPoint 1000 caso queira começar na segunda DIV
 

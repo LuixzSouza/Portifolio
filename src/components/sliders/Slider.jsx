@@ -22,7 +22,7 @@ export function Slider() {
     const [isEnd, setIsEnd] = useState(false);
 
     return (
-        <div className="sticky top-0 w-full h-screen flex items-center justify-center gap-10 overflow-hidden" >
+        <div className="sticky top-0 w-full h-auto flex items-center justify-center gap-10 overflow-hidden md:h-screen" >
             <div className="relative overflow-hidden">
                 {/* Botão anterior */}
                 {!isBeginning && (
@@ -78,7 +78,7 @@ export function Slider() {
                     
                     {/* Slide de "Ver Todos Projetos" */}
                     <SwiperSlide>
-                        <Link href={"/work"} className="flex flex-col items-center justify-center w-full h-550 max-h-755 rounded-lg group">
+                        <Link href={"/work"} className="flex flex-col items-center justify-center w-full h-370 max-h-755 rounded-lg group md:h-550">
                             <div className="flex flex-col items-center justify-center relative w-full rounded-lg max-w-900 h-full bg-white p-6 border-2 border-black/10 hover:bg-black hover:text-white hover:border-white transition-all ease-in-out duration-300 cursor-pointer">
                                 <span className="text-4xl font-bold group-hover:scale-150 transition-all ease-in-out duration-75">
                                     VER TODOS <br /> PROJETOS

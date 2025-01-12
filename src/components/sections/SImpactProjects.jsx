@@ -28,13 +28,14 @@ const gradientClasses = {
 };
 
 const elements = [
-  { maxWidth: '20vw', height: '26vw', left: '5%', top: '0', fill: 'html', nome: 'HTML 5', z: 1 },
-  { maxWidth: '25vw', height: '16vw', right: '10%', top: '5%', fill: 'js', nome: 'JavaScript', z: 2 },
-  { maxWidth: '20vw', height: '35vw', right: '5%', top: '20%', fill: 'css', nome: 'CSS 3', z: 1 },
-  { maxWidth: '30vw', height: '35vw', left: '-10%', bottom: '15%', fill: 'react', nome: 'React', z: 1 },
-  { maxWidth: '25vw', height: '25vw', left: '40%', bottom: '5%', fill: 'sass', nome: 'SASS', z: 1 },
-  { maxWidth: '25vw', height: '30vw', right: '15%', bottom: '10%', fill: 'next', nome: 'Next.js', z: 1 },
+  { maxWidth: '450px', height: '350px', left: '0%', top: '10%', fill: 'html', nome: 'HTML 5', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', right: '10%', top: '3%', fill: 'js', nome: 'JavaScript', z: 2, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', right: '0%', top: '25%', fill: 'css', nome: 'CSS 3', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', left: '1%', bottom: '15%', fill: 'react', nome: 'React', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', left: '35%', bottom: '5%', fill: 'sass', nome: 'SASS', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', right: '10%', bottom: '25%', fill: 'next', nome: 'Next.js', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
 ];
+
 
 export function CreateImpactProjects() {
   const elementRefs = useRef([]);
@@ -48,72 +49,81 @@ export function CreateImpactProjects() {
     const subTitle = subTitleRef.current;
     const title = titleRef.current;
   
-    // Animando a borda e a visibilidade
-    gsap.to(sectionRef.current, {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 30%',
-        end: 'bottom top',
-        scrub: true, // Para scrubbing suave
-        onEnter: () => {
-          // Quando a seção entra na tela, remova a borda suavemente
-          gsap.to(sectionRef.current, { 
-            borderRadius: "0%", // Anima a borda de volta ao 0%
-            duration: 0.6, // Duração da animação
-            ease: "power2.inOut", // Suaviza a animação
-          });
-        },
-        onLeaveBack: () => {
-          // Quando a seção sai de volta, restaurar o borda redonda
-          gsap.to(sectionRef.current, { 
-            borderRadius: "55rem", // Borda arredondada de volta
-            duration: 0.6, 
-            ease: "power2.inOut", 
-          });
-        },
+    // Usar matchMedia para telas maiores que 768px
+    ScrollTrigger.matchMedia({
+      // Tela maior que 768px
+      "(min-width: 768px)": () => {
+        // Animação da borda
+        gsap.to(sectionRef.current, {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 30%',
+            end: 'bottom top',
+            scrub: true,
+            onEnter: () => {
+              gsap.to(sectionRef.current, { 
+                borderRadius: "0%",
+                duration: 0.6,
+                ease: "power2.inOut",
+              });
+            },
+            onLeaveBack: () => {
+              gsap.to(sectionRef.current, { 
+                borderRadius: "55rem",
+                duration: 0.6,
+                ease: "power2.inOut",
+              });
+            },
+          },
+        });
+  
+        // Animações de título e subtítulo
+        gsap.fromTo(subTitle, 
+          {
+            opacity: 0,
+            y: -100,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: subTitle,
+              start: 'top 10%',
+            }
+          }
+        );
+  
+        gsap.fromTo(title,
+          {
+            opacity: 0,
+            y: -100,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: title,
+              start: 'top 3%',
+            }
+          }
+        );
       },
     });
   
-    // Animações separadas
-    gsap.fromTo(subTitle, 
-      {
-        opacity: 0,
-        y: -100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: subTitle,
-          start: 'top 10%',
-        }
-      }
-    );
-  
-    // Animações com ScrollTrigger para title
-    gsap.fromTo(title,
-      {
-        opacity: 0,
-        y: -100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: title,
-          start: 'top 3%',
-        }
-      }
-    );
+    // Cleanup ao desmontar o componente
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
   
   
+  
   return (
-    <section ref={sectionRef} className="relative z-30 bg-black w-full h-[300vh] rounded-t-full">
+    <section ref={sectionRef} className="relative z-30 bg-black w-full h-[300vh] rounded-lg md:rounded-t-full">
       <ContainerGrid className="sticky top-0 w-full h-screen flex flex-col items-center justify-center text-center">
         <div ref={subTitleRef} >
           <Paragraph size="litlleSmall" color="white">
@@ -127,24 +137,21 @@ export function CreateImpactProjects() {
         </div>
       </ContainerGrid>
 
-      <div className="absolute left-0 w-full h-[200vh] overflow-hidden lg:p-24">
-        <div className="relative w-screen h-[170vh]">
+      <div className="absolute left-0 w-full h-[200vh] overflow-hidden">
+        <div className="relative w-full h-[170vh]">
           {elements.map((item, index) => (
             <div
-              key={index}
-              ref={(el) => (elementRefs.current[index] = el)}
-              className={`absolute w-full overflow-hidden shadow-lgw- shadow-black rounded-lg transition-all duration-700 ease-in-out group hover:scale-110`}
-              style={{
-                zIndex: `z-${item.z}`,
-                maxWidth: item.maxWidth,
-                height: item.height,
-                opacity: 1,
-                ...(item.left && { left: item.left }),
-                ...(item.right && { right: item.right }),
-                ...(item.top && { top: item.top }),
-                ...(item.bottom && { bottom: item.bottom }),
-              }}
-            >
+            key={index}
+            ref={(el) => (elementRefs.current[index] = el)}
+            className={`absolute overflow-hidden shadow-lg shadow-black rounded-lg ${item.sizeClasses}`}
+            style={{
+              zIndex: `z-${item.z}`,
+              ...(item.left && { left: item.left }),
+              ...(item.right && { right: item.right }),
+              ...(item.top && { top: item.top }),
+              ...(item.bottom && { bottom: item.bottom }),
+            }}
+          >
               <div className="relative w-full h-full p-1">
                 <div className={`absolute inset-0 z-10 blur-sm ${gradientClasses[item.fill]} animate-spin-slow min-w-[200%] min-h-[200%] aspect-ratio-[1/1] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} />
                 <div className={`relative z-20 w-full h-full rounded-lg ${bgClasses[item.fill]} bg-center bg-cover bg-no-repeat flex items-center justify-center`}>

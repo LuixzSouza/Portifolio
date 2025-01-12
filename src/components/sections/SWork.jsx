@@ -7,11 +7,11 @@ import { TooltipIconCard } from "@/components/ui/TooltipIconCard"
 export function SectionWork() {
     return (
         // Importante lembrar se tiver overflow hidden a animação pode vir a não acontecer
-        <section className="relative z-30 bg-black w-full h-full" >
+        <section className="relative z-30 bg-black w-full h-full py-16 md:py-0" >
             <div className={"relative flex flex-col items-center justify-center"} >
-                <div className="sticky top-0 w-full h-screen pb-16 flex flex-col items-center justify-center overflow-hidden" >
-                    <ContainerGrid>
-                        <div className="w-full flex items-center justify-between" >
+                <div className="sticky top-0 w-full h-auto pb-16 flex flex-col items-center justify-center overflow-hidden md:h-screen" >
+                    <ContainerGrid className={"flex flex-col gap-16 md:gap-0"} >
+                        <div className="hidden w-full sm:flex items-center justify-between" >
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_ampulheta.svg"}
                                 span={"Gerenciamento de Tempo:"}
@@ -61,7 +61,7 @@ export function SectionWork() {
                             <span className="text-6xl font-roobert text-bluePrimary/80 font-semibold" >Explore os</span>
                             <Heading as="h2" size="xlarge" color="white" lineHeight="none" >PROJETOS</Heading>
                         </div>
-                        <div className="w-full flex items-center justify-between">
+                        <div className="hidden w-full sm:flex items-center justify-between">
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_fast_relogio.svg"}
                                 span={"Velocidade e Precisão:"}
@@ -107,9 +107,12 @@ export function SectionWork() {
                                 textDirect={"text-right"}
                             />
                         </div>
+                        <div className="flex h-auto md:hidden" >
+                            <Slider/>
+                        </div>
                     </ContainerGrid>
                 </div>
-                <ContainerGrid>
+                <ContainerGrid className={"hidden md:flex"} >
                     <Slider/>
                 </ContainerGrid>
             </div>

@@ -82,6 +82,7 @@ const config = {
         'gradient-white': 'linear-gradient(90deg, rgba(255, 255, 255, 0.39) 0%, #FFFFFF 40%, #FFFFFF 100%)',
         'gradient-black': 'linear-gradient(180deg, rgba(000, 000, 000, 0.5) 0%, rgba(000, 000, 000, 0.5) 100%)',
         'gradient-black-white': 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(000, 000, 000, 1) 100%)',
+        'blackTransparent': 'linear-gradient(180deg, rgba(255, 255, 255, 0) -50%, rgba(000, 000, 000, 1) 100%)',
 
         // Principais
         'footer': "url('/background/bg-footer.png')",

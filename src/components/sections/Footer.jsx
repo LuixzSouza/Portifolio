@@ -10,6 +10,7 @@ import { Heading } from "@/components/typrography/Heading";
 import { Paragraph } from "@/components/typrography/Paragraph";
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export function SectionFooter() {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -29,14 +30,13 @@ export function SectionFooter() {
                     </div>
                 </div>
                 <div className="w-full flex flex-col items-center justify-center gap-16 mb-20 md:justify-start md:flex-row" >
-                    <BotaoPrimary estilo="primary" >luiz.antoniodesouza004@gmail.com</BotaoPrimary>
-                    <BotaoPrimary estilo="primary" >+55 35 9 9735 4797</BotaoPrimary>
+                    <Link href={"/contact"}><BotaoPrimary estilo="primary" >Entre em contato</BotaoPrimary></Link>
                 </div>
-                <div className="w-full flex flex-col items-center justify-between md:flex-row" >
+                <div className="w-full flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:gap-0" >
                     <div className="w-full text-center md:text-left" >
                         <Paragraph size="litlleSmall" color="white" >🇧🇷  2019 — {currentYear}© Luiz Antônio de Souza</Paragraph>
                     </div>
-                    <div className='w-full flex items-center justify-center gap-8 md:justify-center' >
+                    <div className='w-full flex items-center justify-center gap-8 md:justify-end' >
                         <LinkCustom color={'white'} link={'https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/'} img={"image/icon-linkedin.svg"} nomeimg={"linkedin"} >LINKEDIN</LinkCustom>
                         <LinkCustom color={'white'} link={'https://github.com/Luixz157'}  img={"image/icon-github.svg"} nomeimg={"github"}>GITHUB</LinkCustom>
                         <LinkCustom color={'white'} link={'https://www.instagram.com/luizantonio.souza_/?next=%2F'} img={"image/icon-instagram.svg"} nomeimg={"instagram"}>INSTAGRAM</LinkCustom>
