@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { LinkNav } from "@/components/ui/LinkNav";
 import { Clock } from "@/components/widgets/Clock";
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
-import { DarkLight } from "@/components/ui/DarkLight";
 
 export function HeaderHome() {
     const [isScrolled, setIsScrolled] = useState(false);

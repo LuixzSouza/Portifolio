@@ -15,7 +15,6 @@ import { gsap } from "gsap";
 export function Homing() {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
     const [hasAnimated, setHasAnimated] = useState(false);  // Novo estado para controlar a animação
-    const [scrollDirection, setScrollDirection] = useState('up');
 
     const headingLuizRef = useRef(null);
     const textLeftRef = useRef(null); 
@@ -31,12 +30,6 @@ export function Homing() {
 
     const handleScroll = () => {
         const scrollTop = window.pageYOffset;
-        if (scrollTop > 0) {
-            setScrollDirection('down');
-        } else {
-            setScrollDirection('up');
-        }
-
         // Se o scroll ultrapassar 30% da altura da tela e a animação ainda não tiver ocorrido
         if (scrollTop > window.innerHeight * 0.3 && !hasAnimated) {
             setHasAnimated(true);
@@ -50,7 +43,7 @@ export function Homing() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [hasAnimated]);
+    }, [hasAnimated]); // Adiciona 'hasAnimated' como dependência
 
     useEffect(() => {
         const headingLuiz = headingLuizRef.current;
@@ -83,11 +76,10 @@ export function Homing() {
             tl.to(textLeft, { opacity: 0, x: -100, duration: 0.1, ease: "power2.in" });
             tl.to(headingLuiz, { opacity: 0, y: -100, duration: 0.1, ease: "power2.in" });
         }
-    }, [hasAnimated]);
+    }, [hasAnimated]); // Dependente de 'hasAnimated'
+
     return (
-        <section
-            className={`sticky top-0 z-20 bg-cover transition-colors duration-500 bg-hero`}
-        >
+        <section className={`sticky top-0 z-20 bg-cover transition-colors duration-500 bg-hero`}>
             <div className='w-full h-screen'>
                 <HeaderHome />
                 <ContainerGrid className={"h-full relative overflow-hidden"}>
