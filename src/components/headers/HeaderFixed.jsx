@@ -13,9 +13,8 @@ export function HeaderFixed({ toggleMenu }) {
   const [isVisible, setIsVisible] = useState(false); // Inicialmente invisível
   const [lastScrollY, setLastScrollY] = useState(0); // Guarda a última posição do scroll
   const [isAboveTrigger, setIsAboveTrigger] = useState(false); // Indica se está acima do ponto de ativação
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar o menu
   const triggerPoint = 50; // Ponto a partir do qual a função será ativada
-
-  // triggerPoint 1000 caso queira começar na segunda DIV
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +38,11 @@ export function HeaderFixed({ toggleMenu }) {
     };
   }, [lastScrollY]);
 
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen); // Alterna o estado do menu
+    toggleMenu && toggleMenu(); // Chama o callback externo, se necessário
+  };
+
   return (
     <header
       className={`fixed top-4 left-0 w-full z-50 transition-all duration-500 rounded-full ${
@@ -56,25 +60,47 @@ export function HeaderFixed({ toggleMenu }) {
       }}
     >
       <div>
-
         <ContainerGrid className="flex justify-between items-center py-5 px-4 bg-black/25 shadow-white/10 shadow-2xl backdrop-blur-xl rounded-full w-full md:px-8">
           <div>
-            <LinkNav link="/" color={"white"}><Image src={'/image/logo.svg'} width={151} height={25} alt="logo"/> </LinkNav>
+            <LinkNav link="/" color={"white"}>
+              <Image src={"/image/logo.svg"} width={151} height={25} alt="logo" />
+            </LinkNav>
           </div>
-          <nav className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex`}>
-              <LinkNav link="/" color={"white"}>HOME </LinkNav>
-              <LinkNav link="/work" color={"white"}>PROJETOS </LinkNav>
-              <LinkNav link="/about" color={"white"}>SOBRE</LinkNav>
-              <LinkNav link="/contact" color={"white"}>CONTATO</LinkNav>
+          <nav
+            className={`hidden justify-center items-center gap-16 transition-all duration-500 delay-400 md:flex`}
+          >
+            <LinkNav link="/" color={"white"}>
+              HOME
+            </LinkNav>
+            <LinkNav link="/work" color={"white"}>
+              PROJETOS
+            </LinkNav>
+            <LinkNav link="/about" color={"white"}>
+              SOBRE
+            </LinkNav>
+            <LinkNav link="/contact" color={"white"}>
+              CONTATO
+            </LinkNav>
           </nav>
           <div className="flex justify-center items-center gap-2">
-            <Clock/>
-            <span className="cursor-pointer text-white" onClick={toggleMenu}>MENU</span>
+            <Clock />
+            <div
+              className="flex flex-col justify-center items-center cursor-pointer w-8 h-8 gap-1"
+              onClick={handleMenuClick}
+            >
+              <span
+                className={`block w-full h-[2px] bg-white transition-transform duration-300 `}
+              ></span>
+              <span
+                className={`block w-full h-[2px] bg-white transition-all duration-300 `}
+              ></span>
+              <span
+                className={`block w-full h-[2px] bg-white transition-transform duration-300 `}
+              ></span>
+            </div>
           </div>
         </ContainerGrid>
       </div>
     </header>
   );
 }
-
-// /image/logo-black.svg
