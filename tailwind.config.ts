@@ -128,6 +128,7 @@ const config = {
         '480': '30rem',
         '485': '30.313rem',
         '550': '34.375rem',
+        '700': '700px'
       },
       maxHeight: {
         '755': '47.188rem',
@@ -184,6 +185,10 @@ const config = {
       },
       transitionProperty: {
         'width': 'width',
+      },
+      zIndex: {
+        '999': '999',
+        '1000': '1000',
       },
       screen: {
         '@desktop': '1024px',

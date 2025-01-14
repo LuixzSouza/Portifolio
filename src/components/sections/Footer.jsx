@@ -38,7 +38,7 @@ export function SectionFooter() {
                     </div>
                     <div className='w-full flex items-center justify-center gap-8 md:justify-end' >
                         <LinkCustom color={'white'} link={'https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/'} img={"image/icon-linkedin.svg"} nomeimg={"linkedin"} >LINKEDIN</LinkCustom>
-                        <LinkCustom color={'white'} link={'https://github.com/Luixz157'}  img={"image/icon-github.svg"} nomeimg={"github"}>GITHUB</LinkCustom>
+                        <LinkCustom color={'white'} link={'https://github.com/LuixzSouza'}  img={"image/icon-github.svg"} nomeimg={"github"}>GITHUB</LinkCustom>
                         <LinkCustom color={'white'} link={'https://www.instagram.com/luizantonio.souza_/?next=%2F'} img={"image/icon-instagram.svg"} nomeimg={"instagram"}>INSTAGRAM</LinkCustom>
                     </div>
                 </div>

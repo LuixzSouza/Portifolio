@@ -126,39 +126,43 @@ export function StimeLines() {
     if (!isMobile) {
       const handleScroll = () => {
         if (!stepsContainerRef.current || !trackRef.current) return;
-
+  
         const containerTop = stepsContainerRef.current.getBoundingClientRect().top;
         const containerHeight = stepsContainerRef.current.offsetHeight;
         const windowHeight = window.innerHeight;
-
+  
         const isInViewport = containerTop < windowHeight && containerTop + containerHeight > 0;
-
+  
         if (isInViewport) {
           const maxScroll = containerHeight - windowHeight;
           const scrolled = window.scrollY - stepsContainerRef.current.offsetTop;
           const scrollPercentage = Math.min(scrolled / maxScroll, 1);
-
+  
           setScrollPercent(scrollPercentage);
-
+  
+          // Atualiza o progresso de cada etapa
           const newProgressArray = progressArray.map((progress, index) => {
             const stepStart = index / stepsData.length;
             const stepEnd = (index + 1) / stepsData.length;
+  
             if (scrollPercentage >= stepStart && scrollPercentage < stepEnd) {
-              return Math.min(((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100, 100);
+              const partialProgress = ((scrollPercentage - stepStart) / (stepEnd - stepStart)) * 100;
+              return partialProgress > 95 ? 100 : partialProgress; // Progresso limitado a 95%
             } else if (scrollPercentage >= stepEnd) {
-              return 100;
+              return 100; // Marca como completo
             } else {
-              return 0;
+              return 0; // Reseta para etapas futuras
             }
           });
-
+  
           setProgressArray(newProgressArray);
-
+  
+          // Calcula o deslocamento horizontal do track
           const maxTranslateX = trackRef.current.scrollWidth - window.innerWidth;
           trackRef.current.style.transform = `translateX(-${scrollPercentage * maxTranslateX}px)`;
         }
       };
-
+  
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
     } else {
@@ -167,7 +171,7 @@ export function StimeLines() {
       }
     }
   }, [isMobile, progressArray]);
-
+  
   return (
     <div ref={stepsContainerRef} className="steps-container relative z-30 h-full w-full bg-blackTerdy md:h-[500vh]">
       <div className="relative h-full w-full overflow-hidden md:sticky md:top-0 md:h-screen">

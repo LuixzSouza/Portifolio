@@ -45,7 +45,7 @@ export function HeaderFixed({ toggleMenu }) {
 
   return (
     <header
-      className={`fixed top-4 left-0 w-full z-50 transition-all duration-500 rounded-full ${
+      className={`fixed top-4 left-0 w-full z-999 transition-all duration-500 rounded-full ${
         isAboveTrigger
           ? isVisible
             ? "opacity-100 translate-y-0"

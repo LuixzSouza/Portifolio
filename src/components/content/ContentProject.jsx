@@ -10,7 +10,13 @@ export function RetangleProjects({nome, img, link, idProjeto}) {
         <Link href={link} className="flex flex-col items-center justify-center w-full h-370 group cursor-cursoClick border-2 border-bluePrimary bg-black p-6 rounded-lg group md:h-550" >
             <div className="flex flex-col items-center justify-center relative w-full h-full overflow-hidden" >
                 <div className="relative w-full h-full overflow-hidden rounded-lg" >
-                    <Image src={`/image/${img}`} layout="fill" objectFit="cover" alt="Projeto" className="group-hover:scale-110 transition-all duration-200 ease-in-out" />
+                <Image
+                        src={`/image/${img}`}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        alt="Projeto"
+                        className="group-hover:scale-110 transition-all duration-200 ease-in-out"
+                    />
                 </div>
             </div>
             <div className="flex items-center justify-between w-full h-auto py-3" >

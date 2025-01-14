@@ -28,12 +28,12 @@ const gradientClasses = {
 };
 
 const elements = [
-  { maxWidth: '450px', height: '350px', left: '0%', top: '10%', fill: 'html', nome: 'HTML 5', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
-  { maxWidth: '450px', height: '350px', right: '10%', top: '3%', fill: 'js', nome: 'JavaScript', z: 2, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
-  { maxWidth: '450px', height: '350px', right: '0%', top: '25%', fill: 'css', nome: 'CSS 3', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
-  { maxWidth: '450px', height: '350px', left: '1%', bottom: '15%', fill: 'react', nome: 'React', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
-  { maxWidth: '450px', height: '350px', left: '35%', bottom: '5%', fill: 'sass', nome: 'SASS', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
-  { maxWidth: '450px', height: '350px', right: '10%', bottom: '25%', fill: 'next', nome: 'Next.js', z: 1, sizeClasses: 'w-[250px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', left: '0%', top: '10%', fill: 'html', nome: 'HTML 5', z: 1, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', right: '10%', top: '3%', fill: 'js', nome: 'JavaScript', z: 2, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', right: '0%', top: '25%', fill: 'css', nome: 'CSS 3', z: 1, sizeClasses: 'w-[150px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', left: '1%', bottom: '15%', fill: 'react', nome: 'React', z: 1, sizeClasses: 'w-[150px] h-[180px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', left: '35%', bottom: '5%', fill: 'sass', nome: 'SASS', z: 1, sizeClasses: 'w-[150px] h-[170px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
+  { maxWidth: '450px', height: '350px', right: '10%', bottom: '25%', fill: 'next', nome: 'Next.js', z: 1, sizeClasses: 'w-[150px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]' },
 ];
 
 
@@ -81,7 +81,7 @@ export function CreateImpactProjects() {
         gsap.fromTo(subTitle, 
           {
             opacity: 0,
-            y: -100,
+            y: 100,
           },
           {
             opacity: 1,
@@ -90,7 +90,7 @@ export function CreateImpactProjects() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: subTitle,
-              start: 'top 10%',
+              start: 'top -59%',
             }
           }
         );
@@ -98,7 +98,7 @@ export function CreateImpactProjects() {
         gsap.fromTo(title,
           {
             opacity: 0,
-            y: -100,
+            y: 100,
           },
           {
             opacity: 1,
@@ -107,7 +107,7 @@ export function CreateImpactProjects() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: title,
-              start: 'top 3%',
+              start: 'top -75%',
             }
           }
         );

@@ -15,7 +15,7 @@ export function SOverflowProjects({ projeto, onClose }) {
                         <Image
                             src={projeto.imagem || "/image/MySelf.png"} // Fallback aplicado corretamente
                             fill
-                            className="object-cover"
+                            style={{ objectFit: "cover" }}
                             alt={`Imagem do projeto ${projeto.nome}` || "Imagem do Projeto"}
                         />
                     </div>
