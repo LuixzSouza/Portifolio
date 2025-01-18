@@ -11,6 +11,7 @@ export function SProjetosRetangle() {
     const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar o modal
     const [searchText, setSearchText] = useState(""); // Estado para o texto de pesquisa
     const [displayedProjects, setDisplayedProjects] = useState([]); // Estado para exibir projetos
+    const [allTechnologies, setAllTechnologies] = useState([]); // Estado para armazenar todas as tecnologias usadas
 
     // Função para embaralhar os projetos
     const shuffleArray = (array) => {
@@ -23,6 +24,13 @@ export function SProjetosRetangle() {
     // Atualizar a lista de projetos exibidos ao carregar o componente
     useEffect(() => {
         setDisplayedProjects(shuffleArray(projetos));
+
+        // Extrair todas as tecnologias únicas dos projetos
+        const techSet = new Set();
+        projetos.forEach((projeto) => {
+            projeto.tecnologias.forEach((tec) => techSet.add(tec));
+        });
+        setAllTechnologies([...techSet]); // Converte o Set para um array
     }, []);
 
     // Função para abrir o modal com o projeto selecionado
@@ -103,47 +111,18 @@ export function SProjetosRetangle() {
                     </div>
 
                     <div className="flex justify-center items-center gap-4 flex-wrap text-white mb-10">
-                        {/* Renderiza tecnologias clicáveis */}
-                        {[
-                            "HTML5", 
-                            "CSS3", 
-                            "JavaScript", 
-                            "TypeScript", 
-                            "React", 
-                            "Next.js", 
-                            "Angular", 
-                            "Vue.js", 
-                            "Node.js", 
-                            "Express.js", 
-                            "Python", 
-                            "Django", 
-                            "Flask", 
-                            "PHP", 
-                            "Laravel", 
-                            "Java", 
-                            "Spring Boot", 
-                            "C#", 
-                            ".NET", 
-                            "Ruby on Rails", 
-                            "MySQL", 
-                            "PostgreSQL", 
-                            "MongoDB", 
-                            "Firebase", 
-                            "GraphQL", 
-                            "Docker", 
-                            "Kubernetes", 
-                            "AWS", 
-                            "Azure"
-                        ].map((technology, index) => (
+                        {/* Renderiza todas as tecnologias usadas em qualquer projeto */}
+                        {allTechnologies.map((technology, index) => (
                             <span
                                 key={index}
-                                onClick={() => handleTechnologyClick(technology)} // Atualiza o input e embaralha
-                                className="cursor-pointer bg-white/10 p-2 rounded-lg hover:bg-white/20"
+                                onClick={() => handleTechnologyClick(technology)} // Atualiza o input e filtra
+                                className={`cursor-pointer p-2 rounded-lg bg-white/10 hover:bg-white/20 ${
+                                    searchText === technology ? "bg-purple-900 text-white" : ""
+                                }`}
                             >
                                 {technology}
                             </span>
                         ))}
-
                     </div>
 
                     {/* Verificar se há projetos exibidos */}

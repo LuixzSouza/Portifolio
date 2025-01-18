@@ -6,6 +6,8 @@ import { LinkCustom } from "../ui/LinkCustom";
 export function SOverflowProjects({ projeto, onClose }) {
     if (!projeto) return null; // Retorna null se não houver projeto selecionado
 
+    const projectImage = projeto.imagem || "/image/MySelf.png";
+
     return (
         <div className="fixed top-0 w-screen h-screen flex items-center justify-center bg-black/60 z-40" onClick={onClose}>
             <div className="w-5/6 flex flex-col-reverse items-start justify-center gap-12 bg-projetos bg-no-repeat bg-cover p-6 rounded-lg md:flex-row">
@@ -13,7 +15,7 @@ export function SOverflowProjects({ projeto, onClose }) {
                 <div className="flex flex-col justify-between w-full h-full">
                     <div className="relative w-full h-64 md:h-96 bg-black rounded-lg overflow-hidden">
                         <Image
-                            src={projeto.imagem || "/image/MySelf.png"} // Fallback aplicado corretamente
+                            src={projectImage} // Fallback aplicado corretamente
                             fill
                             style={{ objectFit: "cover" }}
                             alt={`Imagem do projeto ${projeto.nome}` || "Imagem do Projeto"}
@@ -37,9 +39,11 @@ export function SOverflowProjects({ projeto, onClose }) {
                 {/* Informações do projeto */}
                 <div className="relative w-full h-full flex flex-col items-start justify-between gap-4">
                     <Heading as="h4" size="small" color="white">{projeto.nome}</Heading>
-                    <Paragraph size="tiny" color="white"> 
-                        {projeto.descricao || "Descrição não disponível."}
-                    </Paragraph>
+                    <div className="h-36 pr-6 overflow-x-auto md:h-full md:overflow-visible" >
+                        <Paragraph size="tiny" color="white"> 
+                            {projeto.descricao || "Descrição não disponível."}
+                        </Paragraph>
+                    </div>
                     <div className="flex gap-2 flex-wrap">
                         {projeto.tecnologias.map((tec, idx) => (
                             <span key={idx} className="text-sm text-white bg-black/10 p-1 rounded">

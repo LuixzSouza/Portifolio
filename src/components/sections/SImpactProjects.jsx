@@ -40,79 +40,8 @@ const elements = [
 export function CreateImpactProjects() {
   const elementRefs = useRef([]);
   const sectionRef = useRef(null); // Adicionando a referência para a section
-  const subTitleRef = useRef(null); // Adicionando a referência para a section
-  const titleRef = useRef(null); // Adicionando a referência para a section
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-  
-    const subTitle = subTitleRef.current;
-    const title = titleRef.current;
-  
-    // Usar matchMedia para telas maiores que 768px
-    ScrollTrigger.matchMedia({
-      // Tela maior que 768px
-      "(min-width: 768px)": () => {
-        // Animação da borda
-        gsap.to(sectionRef.current, {
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 30%',
-            end: 'bottom top',
-            scrub: true,
-            onEnter: () => {
-              gsap.to(sectionRef.current, { 
-                borderRadius: "0%",
-                duration: 0.6,
-                ease: "power2.inOut",
-              });
-            },
-            onLeaveBack: () => {
-              gsap.to(sectionRef.current, { 
-                borderRadius: "55rem",
-                duration: 0.6,
-                ease: "power2.inOut",
-              });
-            },
-          },
-        });
-  
-        // Animações de título e subtítulo
-        gsap.fromTo(subTitle, 
-          {
-            opacity: 0,
-            y: 100,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: subTitle,
-              start: 'top -59%',
-            }
-          }
-        );
-  
-        gsap.fromTo(title,
-          {
-            opacity: 0,
-            y: 100,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: title,
-              start: 'top -75%',
-            }
-          }
-        );
-      },
-    });
   
     // Cleanup ao desmontar o componente
     return () => {
@@ -125,12 +54,12 @@ export function CreateImpactProjects() {
   return (
     <section ref={sectionRef} className="relative z-30 bg-black w-full h-[300vh] rounded-lg md:rounded-t-full">
       <ContainerGrid className="sticky top-0 w-full h-screen flex flex-col items-center justify-center text-center">
-        <div ref={subTitleRef} >
+        <div>
           <Paragraph size="litlleSmall" color="white">
             TRANSDORMANDO IDEIAS EM SOLUÇÕES DIGITAIS
           </Paragraph>
         </div>
-        <div ref={titleRef} >
+        <div>
           <Heading as="h2" size="medium" color='white' className='text-center'>
             Desenvolvo cada projeto em uma solução exclusiva, onde conceitos e estratégia se conectam para gerar produto unico.
           </Heading>
