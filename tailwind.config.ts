@@ -134,6 +134,11 @@ const config = {
         '755': '47.188rem',
       },
       keyframes: {
+        iconChange: {
+          '0%': { transform: 'scale(0.5)', opacity: '0' },
+          '50%': { transform: 'scale(1)', opacity: '0.5' },
+          '100%': { transform: 'scale(0.9)', opacity: '1' },
+        },
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
@@ -163,6 +168,7 @@ const config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        
       },
       animation: {
         marquee: 'marquee 5s linear infinite',
@@ -173,6 +179,7 @@ const config = {
         slide: 'slide 20s linear infinite',
         bounce: 'bounce 1s infinite', 
         jump: 'jump 0.5s ease-in-out',
+        'icon-change': 'iconChange 0.5s ease-in-out',
       },
       gridTemplateColumns: {
         'custom-3': 'repeat(3, 200px)',

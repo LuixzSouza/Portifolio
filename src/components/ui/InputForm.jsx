@@ -1,15 +1,15 @@
 // Componentes
-import { Heading } from "../typrography/Heading";
+import { Paragraph } from "../typrography/Paragraph";
 
 export function InputForm({ quest, placehold, tipo, onFocus, onChange }) {
     return (
-        <div className="flex items-center justify-between w-full">
-            <Heading as="h4" size="small" color="white" className="max-w-max leading-tight">{quest}</Heading>
-            <div className="w-full h-full border-b border-white pt-6 ml-8">
+        <div className="flex flex-col items-start justify-between w-full">
+            <Paragraph size="small" color="white" className="max-w-max leading-tight">{quest}:</Paragraph>
+            <div className="flex items-start justify-start w-full h-full border border-white rounded-lg">
                 <input
                     type={tipo}
                     placeholder={placehold}
-                    className="bg-transparent ml-5 text-white w-full focus:outline-none"
+                    className="bg-transparent text-white w-full focus:outline-none p-6"
                     onChange={onChange}
                     onFocus={onFocus} // Adiciona a função de onFocus aqui
                 />

@@ -6,6 +6,34 @@ import { Heading } from "../typrography/Heading";
 import { Paragraph } from "../typrography/Paragraph";
 import { InputForm } from '@/components/ui/InputForm';
 import { useState } from 'react';
+import Link from "next/link";
+
+const socialInfo = [
+    {
+        icon: '/image/icon-linkedin.svg',
+        type: 'Linkedin',
+        subtype: 'Luiz Antônio de Souza',
+        link: '/'
+    },
+    {
+        icon: '/image/icon-instagram.svg',
+        type: 'Instagram',
+        subtype: 'luizantonio.souza_',
+        link: '/'
+    },
+    {
+        icon: '/image/icon-gmail.svg',
+        type: 'Gmail',
+        subtype: 'luiz.antoniodesouza004@gmail.com',
+        link: '/'
+    },
+    {
+        icon: '/image/icon-gmail.svg',
+        type: 'Telefone',
+        subtype: '55+ (35) 99735-4797',
+        link: '/'
+    },
+]
 
 export function SectionFormulario() {
     const [currentIcon, setCurrentIcon] = useState("f-hello.svg");
@@ -25,7 +53,7 @@ export function SectionFormulario() {
     return (
         <section>
             <ContainerGrid className={"w-full h-full flex flex-col items-start justify-center py-28 gap-16 md:flex-row"}>
-                <div className="w-full" >
+                <div className="flex flex-col items-start justify-start gap-8 w-full" >
                     <div>
                         <Heading as="h2" size="medium" color="white">Tem alguma <span className="text-gradient-black font-semibold">pergunta?</span></Heading>
                         <Heading as="h2" size="medium" color="white">Pronto para <span className="text-gradient-black font-extrabold">começar?</span></Heading>
@@ -33,13 +61,48 @@ export function SectionFormulario() {
                     <div>
                         <Paragraph size="litlleSmall" color="white">Vamos iniciar uma conversa! Preencha nosso formulário de contato, <br /> e entraremos em contato com você o mais rápido possível</Paragraph>
                     </div>
-                </div>
-                <div className="flex flex-col items-start justify-center w-full">
-                    {/* Exibição dinâmica do nome */}
-                    <div className={`flex items-center justify-start ${animateIcon ? 'icon-animation' : ''}`}>
-                        <Heading as="h4" size="medium" color="white">Olá {userName}</Heading>
-                        <Image src={`icons/icon-faces/${currentIcon}`} width={150} height={120} alt="Icon" />
+                    <div className=" flex flex-col items-start justify-start gap-4" >
+                        {socialInfo.map((item, index) => (
+                            <Link
+                            href={item.link}
+                            key={index}
+                            className="flex items-center justify-center gap-6 group transition-all duration-300"
+                        >
+                            <Image
+                                src={item.icon}
+                                width={45}
+                                height={45}
+                                alt="Icone"
+                                className="transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 ease-in-out"
+                            />
+                            <div className="flex flex-col items-start justify-start">
+                                <Paragraph size="small" color="white">
+                                    {item.type}
+                                </Paragraph>
+                                <Paragraph size="tiny" color="white">
+                                    {item.subtype}
+                                </Paragraph>
+                            </div>
+                        </Link>
+                        
+                        ))}
                     </div>
+                </div>
+                <div className="relative bg-white/5 flex flex-col items-start justify-center gap-8 w-full rounded-xl p-4 md:p-10 md:-top-40 ">
+                    {/* Exibição dinâmica do nome */}
+                    <div className={`relative w-full flex items-center justify-start pb-2`}>
+                        <Heading as="h4" size="medium" color="white" className="break-words w-full max-w-400">Olá {userName}</Heading>
+                        <div className={`absolute right-0 top-0 ${animateIcon ? 'animate-icon-change' : ''}`} >
+                            <Image 
+                                src={`icons/icon-faces/${currentIcon}`} 
+                                width={120} 
+                                height={100} 
+                                alt="Icon" 
+                                className="transition-transform duration-500" // Optional: to add smooth transition for transform
+                            />
+                        </div>
+                    </div>
+
 
                     {/* Campo de entrada para nome */}
                     <InputForm
@@ -82,7 +145,7 @@ export function SectionFormulario() {
                         tipo={"text"}
                         onFocus={() => handleFocus("f-conversation.svg")}
                     />
-                    <button onFocus={() => handleFocus("f-send.svg")} className="p-10 w-full h-full text-center bg-white rounded-full text-black mt-10">ENVIAR</button>
+                    <button onFocus={() => handleFocus("f-send.svg")} className="p-6 w-full h-full text-center bg-white rounded-full text-black mt-10">ENVIAR</button>
                 </div>
             </ContainerGrid>
         </section>
