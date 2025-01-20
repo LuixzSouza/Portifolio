@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 // Components
 import { LinkCustom } from '@/components/ui/LinkCustom';
@@ -28,15 +28,16 @@ export function Homing() {
         setCurrentYear(year);
     }, []);
 
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         const scrollTop = window.pageYOffset;
+    
         // Se o scroll ultrapassar 30% da altura da tela e a animação ainda não tiver ocorrido
         if (scrollTop > window.innerHeight * 0.3 && !hasAnimated) {
             setHasAnimated(true);
         } else if (scrollTop <= window.innerHeight * 0.3 && hasAnimated) {
             setHasAnimated(false);
         }
-    };
+    }, [hasAnimated]); 
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);

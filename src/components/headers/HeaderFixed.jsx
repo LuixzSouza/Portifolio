@@ -40,7 +40,9 @@ export function HeaderFixed({ toggleMenu }) {
 
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen); // Alterna o estado do menu
-    toggleMenu && toggleMenu(); // Chama o callback externo, se necessário
+    if (toggleMenu) {
+        toggleMenu(); // Chama o callback externo, se necessário
+    }
   };
 
   return (

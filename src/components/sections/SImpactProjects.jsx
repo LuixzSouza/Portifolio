@@ -7,7 +7,6 @@ import { Heading } from '@/components/typrography/Heading';
 import { Paragraph } from '@/components/typrography/Paragraph';
 import { ContainerGrid } from '@/components/layout/ContainerGrid';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
 
 const bgClasses = {
   html: 'bg-neutral-900',
