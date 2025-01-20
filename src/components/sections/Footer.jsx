@@ -24,10 +24,12 @@ export function SectionFooter() {
         <footer className="sticky top-0 z-20 w-full bg-footer bg-center bg-no-repeat bg-cover pt-36 pb-11" >
             <ContainerGrid className={"w-full flex flex-col items-start justify-center"} >
                 <div className="relative mb-32" >
-                    <Heading as="h2" size="midlle" color="white" className="w-full text-center md:text-left md:max-w-900" > VAMOS JUNTOS TRABALHAR</Heading>
-                    <div className="absolute bottom-2 right-12 rotate-12 md:right-60" >
-                        <Image src={"/image/angular-colors.png"} width={70} height={40} alt="Icon angular colors"/>
-                    </div>
+                    <Heading as="h2" size="midlle" color="white" className="relative w-full text-center md:text-left max-w-900" > VAMOS JUNTOS TRABALHAR
+                        <div className="absolute -bottom-4 right-0 rotate-12 sm:right-12 sm:bottom-2 md:right-60" >
+                            <Image src={"/image/angular-colors.png"} width={70} height={40} alt="Icon angular colors"/>
+                        </div>
+                    </Heading>
+                    
                 </div>
                 <div className="w-full flex flex-col items-center justify-center gap-16 mb-20 md:justify-start md:flex-row" >
                     <Link href={"/contact"}><BotaoPrimary estilo="primary" >Entre em contato</BotaoPrimary></Link>

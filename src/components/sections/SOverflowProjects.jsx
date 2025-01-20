@@ -23,14 +23,14 @@ export function SOverflowProjects({ projeto, onClose }) {
                     </div>
                     <div className="flex items-center justify-between w-full pt-5">
                         <div className="flex items-center justify-center gap-5">
-                            <LinkCustom link={projeto.links.sobre} color="white">
-                                LINKEEDIN
+                            <LinkCustom img={"image/icon-linkedin.svg"} link={projeto.links.linkedin} color="white">
+                                LINKEDIN
                             </LinkCustom>
-                            <LinkCustom link={projeto.links.github} color="white">
+                            <LinkCustom img={"image/icon-github.svg"} link={projeto.links.github} color="white">
                                 GIT HUB
                             </LinkCustom>
                         </div>
-                        <LinkCustom link={projeto.links.verProjeto} color="white">
+                        <LinkCustom img={"image/icon-eye.svg"} link={projeto.links.verProjeto} color="white">
                             VER PROJETO
                         </LinkCustom>
                     </div>

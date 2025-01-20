@@ -67,6 +67,7 @@ export function SProjetosRetangle() {
     // Função para pesquisar clicando em uma tecnologia
     const handleTechnologyClick = (technology) => {
         setSearchText(technology); // Atualiza o texto de pesquisa
+        console.log("searchText:", searchText, "technology:", technology);
 
         // Filtra os projetos relacionados à tecnologia clicada
         const filtered = projetos.filter((projeto) =>
@@ -113,15 +114,18 @@ export function SProjetosRetangle() {
                     <div className="flex justify-center items-center gap-4 flex-wrap text-white mb-10">
                         {/* Renderiza todas as tecnologias usadas em qualquer projeto */}
                         {allTechnologies.map((technology, index) => (
-                            <span
-                                key={index}
-                                onClick={() => handleTechnologyClick(technology)} // Atualiza o input e filtra
-                                className={`cursor-pointer p-2 rounded-lg bg-white/10 hover:bg-white/20 ${
-                                    searchText === technology ? "bg-purple-900 text-white" : ""
-                                }`}
-                            >
-                                {technology}
-                            </span>
+                           <span
+                           key={index}
+                           onClick={() => {
+                               handleTechnologyClick(technology); // Atualiza o estado
+                           }}
+                           className={`cursor-pointer p-2 rounded-lg bg-white/10 hover:bg-white/20 ${
+                               searchText.toLowerCase() === technology.toLowerCase() ? "bg-purple-500 text-white" : ""
+                           }`}
+                       >
+                           {technology}
+                       </span>
+                       
                         ))}
                     </div>
 

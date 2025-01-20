@@ -3,7 +3,7 @@ export interface Projeto {
     imagem?: string; // Permitir que a imagem seja uma string ou null
     tecnologias: string[];
     links: {
-        sobre?: string;
+        linkedin?: string;
         github?: string;
         verProjeto?: string;
     };
@@ -17,7 +17,7 @@ export const projetos: Projeto[] = [
         imagem: "/image/p-formula-idioma.png",
         tecnologias: ["HTML5", "CSS3", "JavaScript", "PHP", "PHPMailer", "AOS", "Projeto Real"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_webdevelopment-frontenddevelopment-edutech-activity-7199815632731684864-gagJ?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza",
             verProjeto: "https://www.formulaidiomas.com.br"
         },
@@ -25,11 +25,23 @@ export const projetos: Projeto[] = [
         data: "16 de Setembro 2024"
     },
     {
+        nome: "Casa Pronta",
+        imagem: "/image/p-casapronta.png",
+        tecnologias: ["HTML5", "CSS3", "JavaScript", "Next.js", "React",  "PHP", "PHPMailer", "Gsap", "Projeto Real"],
+        links: {
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
+            github: "https://github.com/LuixzSouza",
+            verProjeto: "https://casaprontaconstrusilva.com.br"
+        },
+        descricao: "Projeto Real",
+        data: "20 de Janeiro 2025"
+    },
+    {
         nome: "WireFrimes",
         imagem: "/projects/WireFrimes.png",
-        tecnologias: ["UI/UX", "HTML5", "CSS3", "JavaScript", "SASS", "Gulp", "Netlify"],
+        tecnologias: ["UI/UX", "HTML5", "CSS3", "JavaScript", "Sass", "Gulp", "Netlify"],
         links: {
-            sobre: "/sobre-outro",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_webdevelopment-frontenddevelopment-wireframetowebsite-activity-7286881599680376832-zmt7?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/WireFrames-Sites",
             verProjeto: "https://wireframe-training-luiz.netlify.app"
         },
@@ -41,7 +53,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/API-CEP.png",
         tecnologias: ["HTML5", "CSS3", "JavaScript", "API", "UI/UX"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-de-front-end-lan%C3%A7ado-buscar-cep-activity-7197338952368820224-wtLX?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/API_BuscarCep",
             verProjeto: "https://buscarcepluiz.netlify.app"
         },
@@ -53,7 +65,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/API-Pokemon.png",
         tecnologias: ["HTML5", "CSS3", "JavaScript", "API"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-de-front-end-pokemon-sobre-activity-7197338670616498178-FYUo?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/Pokemon",
             verProjeto: "https://pokemonluiz.netlify.app"
         },
@@ -65,7 +77,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/BarberWeb.png",
         tecnologias: ["HTML5", "CSS", "Sass", "JavaScript", "UX/UI"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_desenvolvimentoweb-frontend-educaaexaeto-activity-7199779916848975872-c5vG?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/CabeleireiroPratic",
             verProjeto: "https://cabeleireiroluiz.netlify.app"
         },
@@ -75,9 +87,9 @@ export const projetos: Projeto[] = [
     {
         nome: "Blizzard",
         imagem: "/projects/Blizzard.png",
-        tecnologias: ["HTML5", "CSS3", "SASS", "JavaScript"],
+        tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-de-front-end-blizzard-sobre-activity-7197338443922726912-bST3?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/Blizzard",
             verProjeto: "https://blizzardluiz.netlify.app"
         },
@@ -87,9 +99,9 @@ export const projetos: Projeto[] = [
     {
         nome: "Calculadora",
         imagem: "/projects/Calculadora.png",
-        tecnologias: ["HTML5", "CSS3", "SASS", "JavaScript", "Faculdade"],
+        tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "Faculdade"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/Calculadora-Web",
             verProjeto: "https://calculadora-pmbok.netlify.app"
         },
@@ -99,9 +111,9 @@ export const projetos: Projeto[] = [
     {
         nome: "CloudBoost",
         imagem: "/projects/CloudBoost.png",
-        tecnologias: ["HTML5", "CSS3", "SASS", "JavaScript"],
+        tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-cloudboost-sobre-o-projeto-activity-7197337712696184832-48T-?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/CloudBoost",
             verProjeto: "https://cloudboostluiz.netlify.app"
         },
@@ -113,7 +125,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/First-site-1.png",
         tecnologias: ["HTML5", "CSS3", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_este-foi-meu-primeiro-site-de-front-end-activity-7197336365104037888-qZ7l?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/PrimeiroSite",
             verProjeto: "https://primeirositeold.netlify.app"
         },
@@ -125,7 +137,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/First-site-2.png",
         tecnologias: ["HTML5", "CSS3", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_este-site-foi-uma-reformula%C3%A7%C3%A3o-do-primeiro-activity-7197337018165530624-wNUl?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/PrimeiroSiteReformula",
             verProjeto: "https://primeirositenew.netlify.app"
         },
@@ -137,7 +149,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/God-of-War-Ragnarok.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-de-front-end-god-of-war-ragnar%C3%B6k-activity-7197339199480455168-C8qH?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/GodOfWarRagnarok",
             verProjeto: "https://godofwarluiz.netlify.app"
         },
@@ -149,7 +161,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Hostinger.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-kinghost-sobre-o-projeto-activity-7197337439034597376-97nr?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/KingHost",
             verProjeto: "https://kinghostluiz.netlify.app"
         },
@@ -161,7 +173,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/IP-Neon.png",
         tecnologias: ["HTML5", "CSS3", "WordPress", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-de-front-end-ip-neon-sobre-activity-7197338134496325632-1QSn?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/IpNeon",
             verProjeto: "https://ipneonluiz.netlify.app"
         },
@@ -173,7 +185,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/SI-Faculdade.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza",
             verProjeto: "https://github.com/LuixzSouza"
         },
@@ -185,7 +197,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/UiBoost.png",
         tecnologias: ["Webflow"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_projeto-de-front-end-uiboost-sobre-activity-7197662895793430528-nfR0?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza",
             verProjeto: "https://uiboost-desafio.webflow.io"
         },
@@ -197,7 +209,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/SuperGet.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_react-frontenddevelopment-webdevelopment-activity-7199046285767651328--fJN?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/SuperGetReact",
             verProjeto: "https://supergetluiz.netlify.app"
         },
@@ -209,7 +221,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Rede.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/REDE-Site",
             verProjeto: "https://redeluiz.netlify.app"
         },
@@ -221,7 +233,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Itau.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/Itau-Site",
             verProjeto: "https://itauluiz.netlify.app"
         },
@@ -233,7 +245,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/More-Talent.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_m%C3%B4re-talent-tech-descri%C3%A7%C3%A3o-do-projeto-activity-7212050959210860545-mhiu?utm_source=share&utm_medium=member_desktop",
             github: "https://moretalentsluiz.netlify.app",
             verProjeto: "https://moretalentsluiz.netlify.app"
         },
@@ -245,7 +257,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Lanistar.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/lanistarluiz",
             verProjeto: "https://lanistarluiz.netlify.app"
         },
@@ -257,7 +269,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Tecsany.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/tecsanyluiz",
             verProjeto: "https://tecsanyluiz.netlify.app"
         },
@@ -269,7 +281,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Latam AirlIines.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/LatamAirLanes",
             verProjeto: "https://latamairlinesluiz.netlify.app"
         },
@@ -281,7 +293,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Spider-Man2.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/spidermanluiz",
             verProjeto: "https://spidermanluiz.netlify.app"
         },
@@ -293,7 +305,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/JAVA-SQL.png",
         tecnologias: ["Faculdade", "JAVA", "SQL"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/JAVA-SQL",
             verProjeto: "https://github.com/LuixzSouza/JAVA-SQL"
         },
@@ -305,7 +317,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Python-BotNotepad-Test.png",
         tecnologias: ["Python"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/Python-BotNotepad-Test",
             verProjeto: "https://github.com/LuixzSouza/Python-BotNotepad-Test"
         },
@@ -317,7 +329,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Exercicios-JavaScript.png",
         tecnologias: ["Node.js", "JavaScript"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/Exercicio_JavaScript-Node.js",
             verProjeto: "https://github.com/LuixzSouza/Exercicio_JavaScript-Node.js"
         },
@@ -329,7 +341,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Trabalho-Java-ONG.png",
         tecnologias: ["Faculdade", "JAVA", ],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/Sistema-de-Gerenciamento-de-ONG",
             verProjeto: "https://github.com/LuixzSouza/Sistema-de-Gerenciamento-de-ONG"
         },
@@ -341,7 +353,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Trabalho-POO-Java.png",
         tecnologias: ["JAVA", "Atividade"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",
             github: "https://github.com/LuixzSouza/LISTA_EXERCICIOS_POO-4p---Luiz-Ant-nio-de-Souza-",
             verProjeto: "https://github.com/LuixzSouza/LISTA_EXERCICIOS_POO-4p---Luiz-Ant-nio-de-Souza-"
         },
@@ -353,7 +365,7 @@ export const projetos: Projeto[] = [
         imagem: "/projects/Modulo-JavaScript.png",
         tecnologias: ["JavaScript", "Ajuda"],
         links: {
-            sobre: "/sobre",
+            linkedin: "https://www.linkedin.com/posts/luiz-antonio-souza-5000a226b_javascript-webdevelopment-codingjourney-activity-7200155836277542912-faey?utm_source=share&utm_medium=member_desktop",
             github: "https://github.com/LuixzSouza/ModuloJavaScript",
             verProjeto: "https://github.com/LuixzSouza/ModuloJavaScript"
         },

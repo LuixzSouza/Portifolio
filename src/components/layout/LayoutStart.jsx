@@ -51,8 +51,8 @@ export function LayoutStart({heading1, wordFixed, wordsEfect = [], textRigth, bg
                         gridTemplateColumns: 'auto 1fr auto', // Ajusta primeiro e último ao conteúdo, o meio ocupa o espaço restante
                         gridTemplateRows: 'auto auto',         // Linhas se ajustam ao conteúdo
                     }}>
-                    <div ref={headingLuizRef} className='relative w-full flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1 text-center' >
-                        <Heading as="h1" size="larger" color="white" className="text-center" >{heading1}</Heading>
+                    <div ref={headingLuizRef} className='relative w-full flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1 text-center pt-12' >
+                        <Heading as="h1" size="larger" color="white" className="text-center"  lineHeight="normal">{heading1}</Heading>
                     </div>
                     <div className='relative flex flex-col items-center justify-between col-start-1 col-end-3 row-start-2 row-end-2 md:items-start md:flex-row' >
                         <div ref={textLeftRef} className='relative z-30 flex flex-col items-start justify-start w-full text-left' >

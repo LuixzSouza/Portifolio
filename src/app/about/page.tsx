@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { HeaderHome } from "@/components/headers/HeaderHome";
 import { SectionAbout } from "@/components/sections/SectionAbout"
 import { MenuDefaultOpen } from "@/components/menus/MenuDefaultOpen"
+import { SectionFooter } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,6 +19,7 @@ export default function About() {
             <MenuDefaultOpen/>
             <HeaderHome/>
             <SectionAbout/>
+            <SectionFooter/>
         </>
     )
 }

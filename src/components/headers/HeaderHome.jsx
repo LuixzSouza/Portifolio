@@ -47,9 +47,16 @@ export function HeaderHome() {
                     <div className={`flex justify-end items-center gap-2 w-full max-w-48 transition-all duration-500 delay-600 sm:gap-4 md:gap-8
                     ${isScrolled ? 'opacity-0' : 'opacity-100'}`}>
                         <Clock/>
-                        <span className="block cursor-pointer text-white md:hidden" onClick={toggleMenu}>MENU</span>
+                        <div
+                        className="flex flex-col justify-center items-center cursor-pointer w-8 h-8 gap-1"
+                        onClick={toggleMenu}
+                        >
+                            <span className={`block w-full h-[2px] bg-white transition-transform duration-300 `}></span>
+                            <span className={`block w-full h-[2px] bg-white transition-all duration-300 `}></span>
+                            <span className={`block w-full h-[2px] bg-white transition-transform duration-300 `}></span>
+                        </div>
                     </div>
-                    
+                
                 </ContainerGrid>
             </header>
             <MenuOpened isOpen={isMenuOpen} toggleMenu={toggleMenu} />

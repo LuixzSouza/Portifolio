@@ -92,12 +92,13 @@ export function Homing() {
                         }}
                     >
                         <div className='relative w-full flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1'>
-                            <div ref={headingLuizRef} className='w-full flex items-center justify-center text-center'>
+                            <div ref={headingLuizRef} className='w-full flex items-center justify-center text-center pt-12'>
                                 <Heading
                                     as='h1'
                                     size='larger'
                                     color={'white'}
-                                    className='text-center'
+                                    className='text-center leading-normal'
+                                    lineHeight='normal'
                                 >
                                     LUIZ SOUZA
                                 </Heading>

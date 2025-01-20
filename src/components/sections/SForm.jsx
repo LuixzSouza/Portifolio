@@ -13,25 +13,25 @@ const socialInfo = [
         icon: '/image/icon-linkedin.svg',
         type: 'Linkedin',
         subtype: 'Luiz Antônio de Souza',
-        link: '/'
+        link: 'https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/'
     },
     {
         icon: '/image/icon-instagram.svg',
         type: 'Instagram',
         subtype: 'luizantonio.souza_',
-        link: '/'
+        link: 'https://www.instagram.com/luizantonio.souza_/?next=%2F'
     },
     {
         icon: '/image/icon-gmail.svg',
         type: 'Gmail',
         subtype: 'luiz.antoniodesouza004@gmail.com',
-        link: '/'
+        link: 'luiz.antoniodesouza004@gmail.com'
     },
     {
-        icon: '/image/icon-gmail.svg',
+        icon: '/image/icon-phone.svg',
         type: 'Telefone',
         subtype: '55+ (35) 99735-4797',
-        link: '/'
+        link: 'https://web.whatsapp.com'
     },
 ]
 

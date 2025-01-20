@@ -1,14 +1,13 @@
 import { ContainerGrid } from "../layout/ContainerGrid";
+import { SlideCertificate } from "@/components/sliders/SlideCertificate"
+import { Heading } from "../typrography/Heading";
 
 export function SCertificate() {
     return(
-        <section className="pb-28" >
-            <ContainerGrid>
-                <div>
-                    <object data="/certificates/Certificado_Boost_Luiz.pdf" type="application/pdf">
-                        <p>Seu navegador não tem um plugin pra PDF</p>
-                    </object>
-                </div>
+        <section className="py-12 md:py-28" >
+            <ContainerGrid className={"flex flex-col gap-9"} >
+                <Heading as="h2" size="medium" color="white">Certificados</Heading>
+                <SlideCertificate/>
             </ContainerGrid>
         </section>
     )
