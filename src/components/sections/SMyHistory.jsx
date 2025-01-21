@@ -60,7 +60,7 @@ export function SMyHistory() {
 
                 {/* Seção da imagem com paralaxe */}
                 <div className="relative flex flex-col items-start justify-between gap-10 w-full h-full md:flex-row">
-                    <div className="relative w-full h-450 bg-gradient-black-white overflow-hidden md:sticky md:-top-0 md:h-700">
+                    <div className="relative w-full h-450 bg-gradient-black-white overflow-hidden rounded-lg md:sticky md:top-0 md:h-700 2xl:top-12">
                         <Image
                             src={"/image/MySelf.png"}
                             width={900}
@@ -78,30 +78,29 @@ export function SMyHistory() {
                             {/* Parágrafos fixos visíveis inicialmente */}
                             <Heading as="h3" size="medium" color="white">Minha Historia</Heading>
                             <Paragraph size="small" color="white">
-                                Minha história de vida é marcada por desafios e superações. Meus pais eram surdos e mudos, mas, felizmente, não herdei essa condição. Quando eu tinha apenas 2 anos, minha mãe faleceu, e fui encontrado chorando ao seu lado. Com a perda, meu pai, que não podia cuidar de mim sozinho, me deixou aos cuidados de meus avós. Durante esse período, fui separado da minha irmã, algo que me marcou profundamente.
+                                Minha história de vida é marcada por desafios e superações. Meus pais eram surdos e mudos, mas, felizmente, não herdei essa condição. Quando eu tinha apenas 2 anos, minha mãe faleceu, e fui encontrado chorando ao seu lado. 💔 Com a perda, meu pai, que não podia cuidar de mim sozinho, me deixou aos cuidados de meus avós. Durante esse período, fui separado da minha irmã, algo que me marcou profundamente. 🍼
                             </Paragraph>
                             <Paragraph size="small" color="white">
-                                Meu pai sempre me visitava, mas, em um triste dia, ele passou mal e, a caminho do hospital, sofreu um acidente dentro da ambulância que o deixou em coma. Ele resistiu por um tempo, mas não tive a oportunidade de me despedir, e guardo dele apenas as memórias.
+                                Meu pai sempre me visitava, mas, em um triste dia, ele passou mal e, a caminho do hospital, sofreu um acidente dentro da ambulância que o deixou em coma. 🚑 Ele resistiu por um tempo, mas não tive a oportunidade de me despedir, e guardo dele apenas as memórias. 🕊️
                             </Paragraph>
 
                             {/* Parágrafos adicionais que serão visíveis ao expandir */}
                             {isExpanded && (
                                 <>
                                     <Paragraph size="small" color="white">
-                                        Na infância, especialmente quando ainda vivia com meus avós, eu era uma criança rebelde, passando boa parte do tempo na rua. Quando fui morar com minha tia e meu tio (que considero como meus pais), trouxe muitos desafios para eles, pois era muito arteiro. Mesmo assim, eles me educaram com amor e paciência. Enfrentei dificuldades na escola e, em certo momento, precisei repetir de ano para conseguir acompanhar os estudos. Mas, graças ao apoio incondicional da minha família, pude crescer e aprender o que significa realmente ter uma família.
+                                        Na infância, especialmente quando ainda vivia com meus avós, eu era uma criança rebelde, passando boa parte do tempo na rua. 👦 Quando fui morar com minha tia e meu tio (que considero como meus pais), trouxe muitos desafios para eles, pois era muito arteiro. Mesmo assim, eles me educaram com amor e paciência. 🌟 Enfrentei dificuldades na escola e, em certo momento, precisei repetir de ano para conseguir acompanhar os estudos. Mas, graças ao apoio incondicional da minha família, pude crescer e aprender o que significa realmente ter uma família. 🏠
                                     </Paragraph>
                                     <Paragraph size="small" color="white">
-                                        Com o tempo, percebi o quanto sou abençoado por ter minha tia Edmara e meu tio João como pais e meu irmão adotivo, Edu, que tanto admiro. Sou grato também pela família dele, com a Amanda e o pequeno Nicolas, a quem adoro ser tio. Além disso, encontrei o amor verdadeiro com minha namorada, Ingrid, minha primeira e única namorada, que me mostrou o que é amar de verdade.
+                                        Com o tempo, percebi o quanto sou abençoado por ter minha tia Edmara e meu tio João como pais e meu irmão adotivo, Edu, que tanto admiro. Sou grato também pela família dele, com a Amanda e o pequeno Nicolas, a quem adoro ser tio. 🍼 Além disso, encontrei o amor verdadeiro com minha namorada, Ingrid, minha primeira e única namorada, que me mostrou o que é amar de verdade. ❤️
                                     </Paragraph>
                                     <Paragraph size="small" color="white">
-                                        Hoje, gosto de aproveitar meu tempo livre com minha família e me envolver em atividades que me fazem feliz. Amo jogos, tanto eletrônicos quanto esportivos, e a academia faz parte da minha rotina. Sou apaixonado por animais, especialmente por minha cachorrinha Lola, que já foi do meu irmão Edu. Embora muitas vezes seja uma pessoa tranquila e observadora, dependendo da situação, me abro e me mostro mais.
+                                        Hoje, gosto de aproveitar meu tempo livre com minha família e me envolver em atividades que me fazem feliz. Amo jogos, tanto eletrônicos quanto esportivos. 🎮 A academia faz parte da minha rotina. 🏋️ Sou apaixonado por animais, especialmente por minha cachorrinha Lola, que já foi do meu irmão Edu. 🐾 Embora muitas vezes seja uma pessoa tranquila e observadora, dependendo da situação, me abro e me mostro mais.
                                     </Paragraph>
                                     <Paragraph size="small" color="white">
-                                        Descobri que uma das coisas que mais me traz satisfação é resolver problemas. Enfrentar desafios e superá-los com dedicação é uma das minhas maiores fontes de realização. Sou um entusiasta por estudos e livros, com preferência por aqueles que trazem conhecimento prático e informativo. Essa é uma breve jornada sobre quem sou. Se você leu até aqui, agradeço de coração e ficarei feliz em nos conhecermos.
+                                        Descobri que uma das coisas que mais me traz satisfação é resolver problemas. 💡 Enfrentar desafios e superá-los com dedicação é uma das minhas maiores fontes de realização. Sou um entusiasta por estudos e livros, com preferência por aqueles que trazem conhecimento prático e informativo. 📚 Essa é uma breve jornada sobre quem sou. Se você leu até aqui, agradeço de coração e ficarei feliz em nos conhecermos. ✍️
                                     </Paragraph>
                                 </>
                             )}
-
                             {/* Botão para expandir a leitura */}
                             <button
                                 onClick={toggleReadMore}
