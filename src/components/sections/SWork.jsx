@@ -9,7 +9,7 @@ export function SectionWork() {
         // Importante lembrar se tiver overflow hidden a animação pode vir a não acontecer
         <section className="relative z-30 bg-black w-full h-full py-16 md:py-0" >
             <div className={"relative flex flex-col items-center justify-center"} >
-                <div className="sticky top-0 w-full h-auto pb-16 flex flex-col items-center justify-center overflow-hidden md:h-screen" >
+                <div className="sticky top-0 w-full h-auto pb-16 flex flex-col items-center justify-center overflow-hidden" >
                     <ContainerGrid className={"flex flex-col gap-16 md:gap-0"} >
                         <div className="hidden w-full sm:flex items-center justify-between" >
                             <TooltipIconCard 
@@ -21,6 +21,7 @@ export function SectionWork() {
                                 widt={"w-56"}
                                 hovx={"-translate-x-10"}
                                 setaPosit={"right-full"}
+                                floatDelay="animate-floating"
                             />
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_chave_martelo.svg"}
@@ -31,6 +32,7 @@ export function SectionWork() {
                                 widt={"w-72"}
                                 hovx={"-translate-x-10"}
                                 setaPosit={"right-full"}
+                                floatDelay="animate-floating1"
                             />
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_computador_codigo.svg"}
@@ -43,6 +45,7 @@ export function SectionWork() {
                                 setaPosit={"left-full"}
                                 rotate={"rotate-180"}
                                 textDirect={"text-right"}
+                                floatDelay="animate-floating2"
                             />
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_engrenagens.svg"}
@@ -55,6 +58,7 @@ export function SectionWork() {
                                 setaPosit={"left-full"}
                                 rotate={"rotate-180"}
                                 textDirect={"text-right"}
+                                floatDelay="animate-floating3"
                             />
                         </div>
                         <div className="flex flex-col items-start justify-center my-1" >
@@ -71,6 +75,7 @@ export function SectionWork() {
                                 widt={"w-52"}
                                 hovx={"-translate-x-10"}
                                 setaPosit={"right-full"}
+                                floatDelay="animate-floating3"
                             />
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_grafico_crescimento.svg"}
@@ -81,6 +86,7 @@ export function SectionWork() {
                                 widt={"w-55"}
                                 hovx={"-translate-x-10"}
                                 setaPosit={"right-full"}
+                                floatDelay="animate-floating2"
                             />
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_lampada.svg"}
@@ -93,6 +99,7 @@ export function SectionWork() {
                                 setaPosit={"left-full"}
                                 rotate={"rotate-180"}
                                 textDirect={"text-right"}
+                                floatDelay="animate-floating1"
                             />
                             <TooltipIconCard 
                                 img={"/icons/icon-projetos/icone_pessoa_degraus.svg"}
@@ -105,6 +112,7 @@ export function SectionWork() {
                                 setaPosit={"left-full"}
                                 rotate={"rotate-180"}
                                 textDirect={"text-right"}
+                                floatDelay="animate-floating"
                             />
                         </div>
                         <div className="flex h-auto md:hidden" >

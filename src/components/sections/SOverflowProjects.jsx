@@ -13,7 +13,7 @@ export function SOverflowProjects({ projeto, onClose }) {
             <div className="w-5/6 flex flex-col-reverse items-start justify-center gap-12 bg-projetos bg-no-repeat bg-cover p-6 rounded-lg md:flex-row">
                 {/* Imagem do projeto */}
                 <div className="flex flex-col justify-between w-full h-full">
-                    <div className="relative w-full h-64 md:h-96 bg-black rounded-lg overflow-hidden">
+                    <div className="relative w-full h-44 md:h-96 bg-black rounded-lg overflow-hidden">
                         <Image
                             src={projectImage} // Fallback aplicado corretamente
                             fill
@@ -39,7 +39,7 @@ export function SOverflowProjects({ projeto, onClose }) {
                 {/* Informações do projeto */}
                 <div className="relative w-full h-full flex flex-col items-start justify-between gap-4">
                     <Heading as="h4" size="small" color="white">{projeto.nome}</Heading>
-                    <div className="h-36 pr-6 overflow-x-auto md:h-full md:overflow-visible" >
+                    <div className="h-28 pr-6 overflow-x-auto md:h-full md:overflow-visible" >
                         <Paragraph size="tiny" color="white"> 
                             {projeto.descricao || "Descrição não disponível."}
                         </Paragraph>
