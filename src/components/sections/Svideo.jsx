@@ -10,7 +10,7 @@ export function Svideo() {
                 <div className="flex flex-col gap-6 items-center justify-center pb-16">
                     <div className="rounded-lg overflow-hidden w-full max-w-screen-lg">
                         <iframe
-                        src="https://drive.google.com/file/d/1j6tl672n3leC4IZ3b5H09EtWHythhlI8/preview"
+                        src="https://drive.google.com/file/d/1n8ybI69mWs8uWvrb22zY_xbDZqfJYTml/preview"
                         className="w-full aspect-[16/9] object-cover"
                         allow="autoplay"
                         />
@@ -24,7 +24,7 @@ export function Svideo() {
                         </Heading>
                         <div>
                         <Paragraph size="tiny" className="text-white/60">
-                            20/01/2025 • 10min de video
+                            20/01/2025 • 1min de video
                         </Paragraph>
                         </div>
                     </div>
