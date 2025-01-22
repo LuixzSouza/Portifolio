@@ -26,7 +26,7 @@ export function StimeLine({
         <div className="relative w-full h-full flex items-start md:items-center md:justify-center">
           <div className="absolute -left-8 z-20 flex items-center justify-center w-14 h-14 bg-bluePrimary rounded-full md:relative md:-left-1">
             <div className="absolute -bottom-16 left-0">
-              <Heading as="h2" size="small" className="font-bold mb-4 text-whiteSecondary max-w-900">
+              <Heading as="h3" size="tiny" className="font-semibold mb-4 text-whiteSecondary max-w-900">
                 {date}
               </Heading>
             </div>
@@ -48,14 +48,14 @@ export function StimeLine({
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start text-center w-full first-of-type:ml-1 pt-8 md:pt-0 md:pl-8 md:w-1/2">
-        <Heading as="h2" size="small" className="font-bold mb-4 text-bluePrimary max-w-900 text-start">
+      <div className="flex flex-col items-start justify-start text-center w-full first-of-type:ml-1 pt-12 md:pl-8 md:w-1/2">
+        <Heading as="h3" size="tiny" className="font-bold mb-4 text-bluePrimary max-w-900 text-start">
           {heading}
         </Heading>
-        <Heading as="h3" size="tiny" color="white" className="font-semibold mb-2 text-start">
-          {date} — {title}
+        <Heading as="h2" size="small" color="white" className="font-semibold mb-2 text-start max-w-600">
+          {title}
         </Heading>
-
+        
         {/* Adicionando a lista de tópicos */}
         <ul className="text-left text-whiteSecondary max-w-600">
           {paragraphList.map((item, index) => (

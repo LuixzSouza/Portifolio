@@ -5,7 +5,7 @@ import { SProjetosRetangle } from '@/components/sections/SProjetosRetangle'
 export function SectionProjeto() {
     return (
         <>
-            <LayoutStart heading1={"PROJETOS"} bg={"bg-projetos"} wordFixed={"Contribuições"} wordsEfect={["Criatividade.", "Inovação.", "Soluções."]} textRigth={"Projetos, Desafios, funcionalidade."}/>
+            <LayoutStart heading1={"PROJETOS"} bg={"bg-projetos"} textRigth={"Projetos, Desafios, funcionalidade."} colorWork={"#F96FFB"}/>
             <SProjetosRetangle/>
         </>
     )

@@ -21,7 +21,7 @@ export function SectionFooter() {
         }, []);
     
     return (
-        <footer className="sticky top-0 z-20 w-full bg-footer bg-center bg-no-repeat bg-cover pt-36 pb-11" >
+        <footer className="relative z-20 w-full bg-footer bg-right-bottom bg-no-repeat bg-cover pt-36 pb-11 border-t border-white" >
             <ContainerGrid className={"w-full flex flex-col items-start justify-center"} >
                 <div className="relative mb-32" >
                     <Heading as="h2" size="midlle" color="white" className="relative w-full text-center md:text-left max-w-900" > VAMOS JUNTOS TRABALHAR

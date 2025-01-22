@@ -9,7 +9,7 @@ import { StimeLine } from "@/components/sections/StimeLine";
 const stepsData = [
   {
     stepNumber: "01",
-    title: "Explorando o Início da Programação e seus Primeiros Conceitos",
+    title: "Início da Programação e seus Primeiros Conceitos",
     date: "2021",
     heading: "Primeiros Passos na Programação",
     paragraph: `
@@ -46,7 +46,7 @@ const stepsData = [
   },
   {
     stepNumber: "03",
-    title: "Aplicando Metodologias e Ferramentas de Design no Desenvolvimento",
+    title: "Metodologias e Ferramentas de Design no Desenvolvimento",
     date: "2023",
     heading: "Faculdade e Novos Desafios",
     paragraph: `
@@ -83,7 +83,7 @@ const stepsData = [
   },
   {
     stepNumber: "05",
-    title: "Aprimorando Habilidades Técnicas e Buscando Novas Oportunidades",
+    title: "Aprimorando Habilidades e Buscando Novas Oportunidades",
     date: "2025",
     heading: "Evolução Contínua",
     paragraph: `

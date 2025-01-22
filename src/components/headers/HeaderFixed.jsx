@@ -87,17 +87,17 @@ export function HeaderFixed({ toggleMenu }) {
           <div className="flex justify-center items-center gap-2">
             <Clock />
             <div
-              className="flex flex-col justify-center items-center cursor-pointer w-8 h-8 gap-1"
+              className="flex flex-col justify-center items-center cursor-pointer w-8 h-8 gap-1 hover:-rotate-90 duration-300 ease-in-out transition-all"
               onClick={handleMenuClick}
             >
               <span
-                className={`block w-full h-[2px] bg-white transition-transform duration-300 `}
+                className={`block w-full h-[1px] bg-white transition-transform duration-300 `}
               ></span>
               <span
-                className={`block w-full h-[2px] bg-white transition-all duration-300 `}
+                className={`block w-full h-[1px] bg-white transition-all duration-300 `}
               ></span>
               <span
-                className={`block w-full h-[2px] bg-white transition-transform duration-300 `}
+                className={`block w-full h-[1px] bg-white transition-transform duration-300 `}
               ></span>
             </div>
           </div>

@@ -10,7 +10,7 @@ export function SOverflowProjects({ projeto, onClose }) {
 
     return (
         <div className="fixed top-0 w-screen h-screen flex items-center justify-center bg-black/60 z-40" onClick={onClose}>
-            <div className="w-5/6 flex flex-col-reverse items-start justify-center gap-12 bg-projetos bg-no-repeat bg-cover p-6 rounded-lg md:flex-row">
+            <div className="w-5/6 flex flex-col-reverse items-start justify-center gap-12 bg-projetos bg-bottom bg-no-repeat bg-cover p-6 rounded-lg md:flex-row">
                 {/* Imagem do projeto */}
                 <div className="flex flex-col justify-between w-full h-full">
                     <div className="relative w-full h-44 md:h-96 bg-black rounded-lg overflow-hidden">
@@ -46,7 +46,7 @@ export function SOverflowProjects({ projeto, onClose }) {
                     </div>
                     <div className="flex gap-2 flex-wrap">
                         {projeto.tecnologias.map((tec, idx) => (
-                            <span key={idx} className="text-sm text-white bg-black/10 p-1 rounded">
+                            <span key={idx} className="text-sm text-white bg-white/10 p-1 rounded">
                                 {tec}
                             </span>
                         ))}

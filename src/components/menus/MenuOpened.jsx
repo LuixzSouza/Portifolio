@@ -116,7 +116,7 @@ export function MenuOpened({ isOpen, toggleMenu }) {
           </div>
           <div className="relative w-full flex flex-col items-center justify-between md:flex-row">
             <div className="absolute left-0 -top-9">
-              <Paragraph size="litlleSmall" color="white">
+              <Paragraph size="tiny" className={"text-white/75"}>
                 SOCIAL
               </Paragraph>
             </div>

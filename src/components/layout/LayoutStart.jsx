@@ -4,14 +4,13 @@
 import { ContainerGrid } from "@/components/layout/ContainerGrid";
 import { Heading } from "@/components/typrography/Heading";
 import { Paragraph } from "@/components/typrography/Paragraph";
-import { TypingEffect } from "@/components/animations/TypingEffect";
 import { LinkCustom } from "@/components/ui/LinkCustom"
 import { useState, useEffect, useRef } from 'react';
 import Link from "next/link";
 import gsap from "gsap";
 
-export function LayoutStart({heading1, wordFixed, wordsEfect = [], textRigth, bg}) {
-    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+export function LayoutStart({heading1, textRigth, bg, colorWork}) {
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear().toString().slice(-2));
     const headingLuizRef = useRef(null);
     const textLeftRef = useRef(null); 
     const textRightRef = useRef(null); 
@@ -20,7 +19,7 @@ export function LayoutStart({heading1, wordFixed, wordsEfect = [], textRigth, bg
     const linkTextRightRef = useRef(null); 
     
     useEffect(() => {
-        const year = new Date().getFullYear();
+        const year = new Date().getFullYear().toString().slice(-2);
         setCurrentYear(year);
     }, []);
 
@@ -47,19 +46,15 @@ export function LayoutStart({heading1, wordFixed, wordsEfect = [], textRigth, bg
     return (
         <section className={`w-full h-screen ${bg} bg-cover bg-center md:h-auto`} >
             <ContainerGrid>
-                <div className='h-screen grid grid-cols-3 grid-rows-3 justify-between items-center overflow-hidden md:h-full md:pb-32 xl:h-screen' style={{
+                <div className='h-screen grid grid-cols-3 grid-rows-3 justify-between items-center overflow-hidden md:h-full xl:h-screen' style={{
                         gridTemplateColumns: 'auto 1fr auto', // Ajusta primeiro e último ao conteúdo, o meio ocupa o espaço restante
                         gridTemplateRows: 'auto auto',         // Linhas se ajustam ao conteúdo
                     }}>
                     <div ref={headingLuizRef} className='relative w-full flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1 text-center pt-12' >
                         <Heading as="h1" size="larger" color="white" className="text-center"  lineHeight="normal">{heading1}</Heading>
                     </div>
-                    <div className='relative flex flex-col items-center justify-between col-start-1 col-end-3 row-start-2 row-end-2 md:items-start md:flex-row' >
-                        <div ref={textLeftRef} className='relative z-30 flex flex-col items-start justify-start w-full text-left' >
-                            <Heading as='h2' size='medium' color='white' className="text-center md:text-left" > {wordFixed} </Heading>
-                            <TypingEffect words={wordsEfect} classe={"text-center md:text-left"}/>
-                        </div>
-                        <div ref={textRightRef} className='flex items-end justify-start pt-10 text-center md:text-right'>
+                    <div className='relative flex flex-col items-center justify-center col-start-1 col-end-3 row-start-2 row-end-2 md:flex-row' >
+                        <div ref={textRightRef} className='flex items-center justify-center text-center'>
                             <Paragraph size='small' color='white' max={'20.875rem'} className={"uppercase"} >{textRigth}</Paragraph>
                         </div>
                     </div>
@@ -73,14 +68,14 @@ export function LayoutStart({heading1, wordFixed, wordsEfect = [], textRigth, bg
                             <Link href={"/contact"}
                                 className="inline-block text-white hover:scale-110 transition-all duration-300 ease-in-out"
                                 style={{
-                                    textShadow: '0 0 10px #00ffcc, 0 0 20px #00ffcc',
+                                    textShadow:`0 0 10px ${colorWork}, 0 0 20px ${colorWork}`,
                                 }}
                             >
                                 — DISPONÍVEL PARA TRABALHO —
                             </Link>
                         </div>
                         <div className='w-full flex items-center justify-center md:justify-end' >
-                            <span ref={linkTextRightRef} className='text-white font-roobert text-lg leading-5' >BRASIL - 2021/{currentYear} -</span>
+                            <span ref={linkTextRightRef} className='text-white font-roobert text-lg leading-5' >BRASIL — 21/{currentYear}</span>
                         </div>
                     </div>
                 </div>

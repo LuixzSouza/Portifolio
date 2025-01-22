@@ -2,7 +2,6 @@ export function Heading({
     as: Tag = "h1", 
     size = "large", 
     color = "black", 
-    lineHeight = "normal", 
     align = 'left',
     className = "", // Adiciona suporte para className dinâmico
     children,
@@ -21,20 +20,12 @@ export function Heading({
         litlle: "text-[1rem] font-regular md:text-[1.20rem]", 
       };
       
-  const lineHeights = {
-      normal: "leading-normal",
-      tight: "leading-tight",
-      relaxed: "leading-relaxed",
-      none: "leading-none",
-      custom: `leading-[${lineHeight}]`,
-  };
 
   return (
       <Tag
         ref = {ref}
         className={`
             ${sizes[size]} 
-            ${lineHeights[lineHeight] || lineHeights.custom} 
             text-${color} 
             text-${align} 
             w-full 

@@ -7,11 +7,11 @@ import { Heading } from "@/components/typrography/Heading";
 export function ListMenu({ image, children }) {
     return (
         <div className="w-full group cursor-pointer">
-            <div className="relative w-full py-1 transition-all duration-75 ease-in-out ">
-                <Heading as="h3" size="menu" color="white" className="group-hover:translate-x-16 transition-transform duration-300 ease">
+            <div className="relative flex items-start justify-start w-full py-1 gap-9 group-hover:translate-x-16 transition-transform duration-300 ease">
+                <Heading as="h3" size="menu" color="white" className="max-w-max">
                     {children}
                 </Heading>
-                <div className="hidden absolute bottom-5 right-16 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out animate-wiggle md:block">
+                <div className="hidden opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out animate-wiggle md:block">
                     <Image src={`${image}`} width={150} height={150} alt="Icon" style={{ width: '150px', height: 'auto' }}/>
                 </div>
             </div>

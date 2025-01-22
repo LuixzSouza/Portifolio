@@ -51,9 +51,9 @@ export function Looping() {
     ];
 
     return (
-        <div className="relative logos overflow-hidden py-16 bg-white whitespace-nowrap">
-            <div className="bg-white/50 backdrop-blur-sm w-20 h-full absolute top-0 left-0 z-30" ></div>
-            <div className="bg-white/50 backdrop-blur-sm w-20 h-full absolute top-0 right-0 z-30" ></div>
+        <div className="relative logos overflow-hidden py-16 bg-white/30 whitespace-nowrap">
+            <div className="bg-gradient-loop backdrop-blur-sm w-28 h-full absolute top-0 left-0 z-30" ></div>
+            <div className="bg-gradient-loop backdrop-blur-sm w-28 h-full absolute top-0 right-0 z-30 rotate-180" ></div>
             {/* Aplica a classe de animação com base no estado */}
             <div className={`logos-slide relative inline-block animate-slide ${isPaused ? 'animate-pause' : ''}`}>
                 <div className="inline-flex items-center gap-12 px-7">

@@ -12,6 +12,7 @@ export function SProjetosRetangle() {
     const [searchText, setSearchText] = useState(""); // Estado para o texto de pesquisa
     const [displayedProjects, setDisplayedProjects] = useState([]); // Estado para exibir projetos
     const [allTechnologies, setAllTechnologies] = useState([]); // Estado para armazenar todas as tecnologias usadas
+    const [selectedTechnology, setSelectedTechnology] = useState("null"); // Estado para armazenar a tecnologia selecionada
 
     // Função para embaralhar os projetos
     const shuffleArray = (array) => {
@@ -66,19 +67,20 @@ export function SProjetosRetangle() {
 
     // Função para pesquisar clicando em uma tecnologia
     const handleTechnologyClick = (technology) => {
-        setSearchText(technology); // Atualiza o texto de pesquisa
-        console.log("searchText:", searchText, "technology:", technology);
-
+        setSelectedTechnology(technology); // Atualiza o estado com a tecnologia clicada
+        setSearchText(technology); // Atualiza o texto de pesquisa com a tecnologia selecionada
+    
         // Filtra os projetos relacionados à tecnologia clicada
         const filtered = projetos.filter((projeto) =>
             projeto.tecnologias.some(
                 (tec) => tec.toLowerCase() === technology.toLowerCase() // Comparação insensível a maiúsculas/minúsculas
             )
         );
-
+    
         // Atualiza a lista com os projetos filtrados
         setDisplayedProjects(filtered); // Sem embaralhar para manter ordem lógica
     };
+    
 
     // Efeito para controlar o overflow do body ao abrir e fechar o modal
     useEffect(() => {
@@ -101,31 +103,37 @@ export function SProjetosRetangle() {
                     <div className="flex items-center justify-between w-full bg-white/5 rounded-full p-3 mb-10">
                         <input
                             type="text"
-                            placeholder="PESQUISAR PROJETO"
+                            placeholder="Pesquise por alguma tecnologia ou projeto" // Deixe o placeholder vazio, já que a exibição será controlada pela condicional
                             value={searchText} // Valor controlado
                             onChange={handleSearchChange} // Atualiza o texto de pesquisa
                             className="w-full bg-transparent text-white focus:outline-none pl-6"
                         />
-                        <div className="w-full max-w-max p-3 bg-white/10 rounded-full">
-                            <span className="text-white">PESQUISAR</span>
-                        </div>
+                        {searchText === "" ? (
+                            <div className="w-full max-w-max p-3 bg-white/10 rounded-full cursor-pointer">
+                                <span className="text-white">Pesquise</span>
+                            </div>
+                        ) : (
+                            <div onClick={() => { setSearchText(""); setSelectedTechnology(null); }} className="w-full max-w-max p-3 bg-red-500 rounded-full cursor-pointer">
+                                <span className="text-white">Apagar</span>
+                            </div>
+                        )}
                     </div>
 
                     <div className="flex justify-center items-center gap-4 flex-wrap text-white mb-10">
                         {/* Renderiza todas as tecnologias usadas em qualquer projeto */}
                         {allTechnologies.map((technology, index) => (
-                           <span
-                           key={index}
-                           onClick={() => {
-                               handleTechnologyClick(technology); // Atualiza o estado
-                           }}
-                           className={`cursor-pointer p-2 rounded-lg bg-white/10 hover:bg-white/20 ${
-                               searchText.toLowerCase() === technology.toLowerCase() ? "bg-purple-500 text-white" : ""
-                           }`}
-                       >
-                           {technology}
-                       </span>
-                       
+                            <span
+                            key={index}
+                            onClick={() => handleTechnologyClick(technology)} // Atualiza o estado ao clicar na tecnologia
+                            className={`cursor-pointer p-2 rounded-lg bg-white/10 hover:bg-white/20 ${
+                                searchText.toLowerCase() === technology.toLowerCase() || selectedTechnology === technology
+                                    ? "bg-purple-600 text-white" // Aplica fundo roxo e texto branco quando selecionado
+                                    : "bg-transparent text-white" // Aplica fundo transparente e texto branco quando não selecionado
+                            }`}
+                        >
+                            {technology}
+                        </span>
+                        
                         ))}
                     </div>
 

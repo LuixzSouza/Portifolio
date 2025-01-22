@@ -88,7 +88,7 @@ export function SectionFormulario() {
                         ))}
                     </div>
                 </div>
-                <div className="relative bg-white/5 flex flex-col items-start justify-center gap-8 w-full rounded-xl p-4 md:p-10 md:-top-40 ">
+                <div className="relative bg-white/5 flex flex-col items-start justify-center gap-8 w-full rounded-xl p-4 md:p-10 ">
                     {/* Exibição dinâmica do nome */}
                     <div className={`relative w-full flex items-center justify-start pb-2`}>
                         <Heading as="h4" size="medium" color="white" className="break-words w-full max-w-400">Olá {userName}</Heading>

@@ -13,7 +13,7 @@ import Link from 'next/link';
 import { gsap } from "gsap"; 
 
 export function Homing() {
-    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear().toString().slice(-2));
     const [hasAnimated, setHasAnimated] = useState(false);  // Novo estado para controlar a animação
 
     const headingLuizRef = useRef(null);
@@ -24,7 +24,7 @@ export function Homing() {
     const linkTextRightRef = useRef(null); 
 
     useEffect(() => {
-        const year = new Date().getFullYear();
+        const year = new Date().getFullYear().toString().slice(-2);
         setCurrentYear(year);
     }, []);
 
@@ -44,7 +44,7 @@ export function Homing() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [hasAnimated]); // Adiciona 'hasAnimated' como dependência
+    }, [handleScroll]); // Incluindo handleScroll na lista de dependências    
 
     useEffect(() => {
         const headingLuiz = headingLuizRef.current;
@@ -80,15 +80,14 @@ export function Homing() {
     }, [hasAnimated]); // Dependente de 'hasAnimated'
 
     return (
-        <section className={`sticky top-0 z-20 bg-cover transition-colors duration-500 bg-hero`}>
+        <section className={`sticky top-0 z-20 bg-cover bg-top bg-no-repeat transition-colors duration-500 bg-hero`}>
             <div className='w-full h-screen'>
                 <HeaderHome />
                 <ContainerGrid className={"h-full relative overflow-hidden"}>
                     <div
-                        className={`h-full grid grid-cols-3 grid-rows-3 pb-32 justify-between items-center text-white`}
+                        className={`h-full grid grid-cols-3 grid-rows-3 justify-between items-center text-white`}
                         style={{
                             gridTemplateColumns: 'auto 1fr auto',
-                            gridTemplateRows: 'auto auto',
                         }}
                     >
                         <div className='relative w-full flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1'>
@@ -97,10 +96,9 @@ export function Homing() {
                                     as='h1'
                                     size='larger'
                                     color={'white'}
-                                    className='text-center leading-normal'
-                                    lineHeight='normal'
+                                    className='text-center'
                                 >
-                                    LUIZ SOUZA
+                                    LUIZ S<span className="italic" >O</span>UZA
                                 </Heading>
                             </div>
                         </div>
@@ -125,11 +123,11 @@ export function Homing() {
                                     color={'white'}
                                     max={'20.875rem'}
                                 >
-                                    DESENVOLVENDO PROJETOS IMPRESSIONANTES
+                                    DESENVOLVENDO PROJETOS RÁPIDOS E RESPONSIVOS.
                                 </Paragraph>
                             </div>
                         </div>
-                        <div className='flex flex-col-reverse items-center justify-between col-start-1 col-end-4 row-span-3 pt-0 gap-8 md:pt-24 md:flex-row md:gap-0'>
+                        <div className='flex flex-col-reverse items-center justify-between col-start-1 col-end-4 row-span-3 pt-0 gap-8 md:flex-row md:gap-0'>
                             <div ref={linkTextLeftRef} className='w-full flex items-center justify-center gap-8 md:justify-start'>
                                 <LinkCustom
                                     color={'white'}
@@ -160,7 +158,7 @@ export function Homing() {
                                 <Link href={"/contact"}
                                     className="inline-block text-white hover:scale-110 transition-all duration-300 ease-in-out"
                                     style={{
-                                        textShadow: '0 0 10px #00ffcc, 0 0 20px #00ffcc',
+                                        textShadow: '0 0 10px #333DF8, 0 0 20px #333DF8',
                                     }}
                                 >
                                     — DISPONÍVEL PARA TRABALHO —
@@ -171,7 +169,7 @@ export function Homing() {
                                     ref={linkTextRightRef}
                                     className={`font-roobert text-lg leading-5 text-white`}
                                 >
-                                    BRASIL - 2021/{currentYear} -
+                                    BRASIL — 21/{currentYear} 
                                 </span>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ export function TooltipIconCard({ img, text, marg, posit, widt, rotate, hovx, se
                     width={80} 
                     height={80} 
                     alt="Ícone" 
-                    className="group-hover:scale-110 ease-in duration-150 mx-5"
+                    className="group-hover:scale-110 ease-in duration-150 mx-5 filter grayscale invert group-hover:invert-0 group-hover:grayscale-0"
                 />
                 {/* Tooltip que aparece ao passar o mouse */}
                 <div className={`absolute top-0 ${posit} ${widt} h-auto border border-bluePrimary rounded-lg bg-black opacity-0 group-hover:opacity-100 ${hovx} group-hover:translate-x-0 duration-200 ease-in p-1 pointer-events-none`}>

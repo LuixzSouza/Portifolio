@@ -83,6 +83,7 @@ const config = {
         'gradient-black': 'linear-gradient(180deg, rgba(000, 000, 000, 0.5) 0%, rgba(000, 000, 000, 0.5) 100%)',
         'gradient-black-white': 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(000, 000, 000, 1) 100%)',
         'blackTransparent': 'linear-gradient(180deg, rgba(255, 255, 255, 0) -50%, rgba(000, 000, 000, 1) 100%)',
+        'gradient-loop': 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(242,242,242,0) 100%)',
 
         // Principais
         'footer': "url('/background/bg-footer.png')",
@@ -196,6 +197,10 @@ const config = {
       transitionProperty: {
         'width': 'width',
       },
+      boxShadow: {
+        'custom-inset': 'rgba(50, 50, 93, 0.2) 0px 0px 170px -12px inset',
+      },
+
       zIndex: {
         '999': '999',
         '1000': '1000',

@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 // Componentes
-import { Looping } from '@/components/animations/Looping';
 import { ContainerGrid } from '@/components/layout/ContainerGrid';
 import { Heading } from '@/components/typrography/Heading';
 import { ServiceList } from '@/components/ui/ServiceList';
 import { ListHabilits } from '@/components/ui/ListHabilits';
 import { BtnGradientAnimate } from '@/components/buttons/BtnGradientAnimate';
+import { TooltipIconCard } from '../ui/TooltipIconCard';
 
 export function SHabilits() {
     const allHabilits = [
@@ -21,7 +21,6 @@ export function SHabilits() {
         { icon: "icons/duolingo.svg", name: "Duolingo", stars: "image/stars-5.svg" },
         { icon: "icons/eclipse.svg", name: "Eclipse", stars: "image/stars-3.svg" },
         { icon: "icons/Figma.svg", name: "Figma", stars: "image/stars-5.svg" },
-        { icon: "icons/invision.svg", name: "Invision", stars: "image/stars-4.svg" },
         { icon: "icons/java.svg", name: "Java", stars: "image/stars-4.svg" },
         { icon: "icons/Linux.svg", name: "Linux", stars: "image/stars-3.svg" },
         { icon: "icons/mysql.svg", name: "MySQL", stars: "image/stars-4.svg" },
@@ -69,7 +68,8 @@ export function SHabilits() {
     return (
         <section className="relative z-30 bg-[#161616]">
             <ContainerGrid className="text-center flex flex-col items-center justify-center py-28">
-                <Heading as='h2' size='medium' className='font-semibold text-blue-700 text-center'>Habilidades & Softwares</Heading>
+                <Heading as='h3' size='tiny' className='font-semibold text-blue-700 text-center'>Minhas ferramentas e competências.</Heading>
+                <Heading as='h2' size='medium' className='font-semibold text-white text-center'>Habilidades & Softwares</Heading>
                 <div className='w-full h-full grid grid-cols-2 gap-4 pt-20 md:gap-10  md:grid-cols-3 lg:grid-cols-4'>
                     {allHabilits.slice(0, visibleItems).map((habilit, index) => (
                         <ListHabilits
@@ -83,11 +83,112 @@ export function SHabilits() {
                 {visibleItems < allHabilits.length && (
                     <BtnGradientAnimate onClick={handleViewMore} className={"mt-11"} >Ver mais +</BtnGradientAnimate>
                 )}
-            </ContainerGrid>
-            <Looping />
-            <ContainerGrid className="text-center flex flex-col items-center justify-center pt-28">
-                <Heading as="h2" size="medium" className='font-semibold text-blue-700 text-center'>SERVIÇOS</Heading>
-                <ServiceList />
+                <div className='my-24 w-full h-[1px] bg-white/50' ></div>
+                <Heading as='h3' size='tiny' className='font-semibold text-blue-700 text-center'>Como posso ajudar.</Heading>
+                <Heading as="h2" size="medium" className='font-semibold text-white text-center'>Alguns Serviços</Heading>
+                 <div className='md:py-24' >
+                    <div className="hidden w-full sm:flex items-center justify-between" >
+                        <TooltipIconCard
+                            img={"/icons/icon-projetos/icone_ampulheta.svg"}
+                            span={"Gerenciamento de Tempo:"}
+                            text={" Priorizando prazos e eficiência em cada projeto."}
+                            marg={"mb-20"}
+                            posit={"left-full"}
+                            widt={"w-56"}
+                            hovx={"-translate-x-10"}
+                            setaPosit={"right-full"}
+                            floatDelay="animate-floating"
+                        />
+                        <TooltipIconCard 
+                            img={"/icons/icon-projetos/icone_chave_martelo.svg"}
+                            span={"Ferramentas de Desenvolvimento:"}
+                            text={" Personalizando e ajustando cada aplicação para máxima eficiência."}
+                            marg={"mb-0"}
+                            posit={"left-full"}
+                            widt={"w-72"}
+                            hovx={"-translate-x-10"}
+                            setaPosit={"right-full"}
+                            floatDelay="animate-floating1"
+                        />
+                        <TooltipIconCard 
+                            img={"/icons/icon-projetos/icone_computador_codigo.svg"}
+                            span={"Desenvolvimento Web Completo:"}
+                            text={" Criação de soluções front-end e back-end inovadoras e eficazes."}
+                            marg={"mb-20"}
+                            posit={"right-full"}
+                            widt={"w-64"}
+                            hovx={"translate-x-10"}
+                            setaPosit={"left-full"}
+                            rotate={"rotate-180"}
+                            textDirect={"text-right"}
+                            floatDelay="animate-floating2"
+                        />
+                        <TooltipIconCard 
+                            img={"/icons/icon-projetos/icone_engrenagens.svg"}
+                            span={"Integração de Sistemas:"}
+                            text={" Conexões precisa entre serviços, APIs e mais."}
+                            marg={"mb-0"}
+                            posit={"right-full"}
+                            widt={"w-48"}
+                            hovx={"translate-x-10"}
+                            setaPosit={"left-full"}
+                            rotate={"rotate-180"}
+                            textDirect={"text-right"}
+                            floatDelay="animate-floating3"
+                        />
+                    </div>
+                    <ServiceList />
+                    <div className="hidden w-full sm:flex items-center justify-between">
+                        <TooltipIconCard 
+                            img={"/icons/icon-projetos/icone_fast_relogio.svg"}
+                            span={"Velocidade e Precisão:"}
+                            text={" Soluções rápidas sem comprometer a qualidade."}
+                            marg={"mt-20"}
+                            posit={"left-full"}
+                            widt={"w-52"}
+                            hovx={"-translate-x-10"}
+                            setaPosit={"right-full"}
+                            floatDelay="animate-floating3"
+                        />
+                        <TooltipIconCard 
+                            img={"/icons/icon-projetos/icone_grafico_crescimento.svg"}
+                            span={"Crescimento Contínuo:"}
+                            text={" Foco em resultados escaláveis e de alto impacto."}
+                            marg={"mt-0"}
+                            posit={"left-full"}
+                            widt={"w-55"}
+                            hovx={"-translate-x-10"}
+                            setaPosit={"right-full"}
+                            floatDelay="animate-floating2"
+                        />
+                        <TooltipIconCard 
+                            img={"/icons/icon-projetos/icone_lampada.svg"}
+                            span={"Ideias Inovadoras Top:"}
+                            text={" Soluções criativas para problemas complexos."}
+                            marg={"mt-20"}
+                            posit={"right-full"}
+                            widt={"w-48"}
+                            hovx={"translate-x-10"}
+                            setaPosit={"left-full"}
+                            rotate={"rotate-180"}
+                            textDirect={"text-right"}
+                            floatDelay="animate-floating1"
+                        />
+                        <TooltipIconCard 
+                            img={"/icons/icon-projetos/icone_pessoa_degraus.svg"}
+                            span={"Velocidade com Precisão:"}
+                            text={" Soluções rápidas sem comprometer a qualidade."}
+                            marg={"mb-0"}
+                            posit={"right-full"}
+                            widt={"w-52"}
+                            hovx={"translate-x-10"}
+                            setaPosit={"left-full"}
+                            rotate={"rotate-180"}
+                            textDirect={"text-right"}
+                            floatDelay="animate-floating"
+                        />
+                    </div>
+                 </div>
             </ContainerGrid>
         </section>
     );
