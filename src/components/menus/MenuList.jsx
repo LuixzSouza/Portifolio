@@ -12,7 +12,7 @@ export function ListMenu({ image, children }) {
                     {children}
                 </Heading>
                 <div className="hidden opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out animate-wiggle md:block">
-                    <Image src={`${image}`} width={150} height={150} alt="Icon" style={{ width: '150px', height: 'auto' }}/>
+                    <Image src={`${image}`} unoptimized width={150} height={150} alt="Icon" style={{ width: '150px', height: 'auto' }}/>
                 </div>
             </div>
         </div>

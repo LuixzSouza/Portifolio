@@ -278,7 +278,7 @@ export const projetos: Projeto[] = [
     },
     {
         nome: "Latam Airlines",
-        imagem: "/projects/Latam AirlIines.png",
+        imagem: "/projects/LatamAirlIines.png",
         tecnologias: ["HTML5", "CSS3", "Sass", "JavaScript", "React", "Next.js", "Tailwind", "Swiper"],
         links: {
             linkedin: "https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/",

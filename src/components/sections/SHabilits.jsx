@@ -12,7 +12,7 @@ import { TooltipIconCard } from '../ui/TooltipIconCard';
 export function SHabilits() {
     const allHabilits = [
         { icon: "icons/html5.svg", name: "HTML 5", stars: "image/stars-5.svg" },
-        { icon: "icons/css3.svg", name: "CSS 3", stars: "image/stars-5.svg" },
+        { icon: "icons/CSS3.svg", name: "CSS 3", stars: "image/stars-5.svg" },
         { icon: "icons/JavaScript.svg", name: "Java Script", stars: "image/stars-5.svg" },
         { icon: "icons/React.svg", name: "React.js", stars: "image/stars-4.svg" },
         { icon: "icons/bootstrap.svg", name: "BootStrap", stars: "image/stars-2.svg" },
