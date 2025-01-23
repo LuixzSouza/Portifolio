@@ -9,8 +9,14 @@ import { SectionFooter } from "@/components/sections/Footer";
 import { SDepoimentos } from "@/components/sections/SDepoimentos"
 
 export const metadata: Metadata = {
-  title: "Sobre",
-  description: "Sobre O Luiz",
+  title: "Sobre | Luiz Souza",
+  description: "Saiba mais sobre quem é o Luiz e Sua historia",
+  openGraph: {
+    images: ["https://luixzsouza.netlify.app/image/imgShareCover.png"],
+    title: "Portifolio",
+    description: "Luiz Antônio de Souza",
+    type: "profile",
+  },
 };
 
 

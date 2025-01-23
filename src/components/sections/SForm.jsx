@@ -7,6 +7,7 @@ import { Paragraph } from "../typrography/Paragraph";
 import { InputForm } from '@/components/ui/InputForm';
 import { useState } from 'react';
 import Link from "next/link";
+import { BotaoPrimary } from "../buttons/Botao";
 
 const socialInfo = [
     {
@@ -58,8 +59,9 @@ export function SectionFormulario() {
                         <Heading as="h2" size="medium" color="white">Tem alguma <span className="text-gradient-black font-semibold">pergunta?</span></Heading>
                         <Heading as="h2" size="medium" color="white">Pronto para <span className="text-gradient-black font-extrabold">começar?</span></Heading>
                     </div>
-                    <div>
+                    <div className="flex flex-col gap-6" >
                         <Paragraph size="litlleSmall" color="white">Vamos iniciar uma conversa! Preencha nosso formulário de contato, <br /> e entraremos em contato com você o mais rápido possível</Paragraph>
+                        <Link href={"/certificates/Curriculo_Luiz_2025.pdf"}><BotaoPrimary estilo="primary" >Dowload CV</BotaoPrimary></Link>
                     </div>
                     <div className=" flex flex-col items-start justify-start gap-4" >
                         {socialInfo.map((item, index) => (

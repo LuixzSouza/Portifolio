@@ -48,13 +48,3 @@ export function SectionFooter() {
         </footer>
     )
 }
-
-/*
-Elementos para Adicionar ao Footer:
-
-Endereço: Se você estiver confortável em compartilhar uma localização (mesmo que seja aproximada).
-Horário de disponibilidade: Algo como “Disponível para contato de Segunda a Sexta, das 9h às 18h.”
-Botão de CTA (Call to Action): Um botão adicional com link para agendamento de reunião ou formulário de contato. Exemplo: "Entre em contato" ou "Marque uma conversa."
-Links rápidos: Além de LinkedIn, GitHub e Instagram, você pode adicionar portfólios (como Behance ou Dribbble, caso faça sentido).
-Ícone de Scroll to Top: Para facilitar a navegação do usuário.
-*/

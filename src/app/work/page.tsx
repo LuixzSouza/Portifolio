@@ -5,8 +5,14 @@ import type { Metadata } from "next";
 import { SectionFooter } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Trabalho",
-  description: "Trabalho do Luiz Antönio de Souza",
+  title: "Projetos | Luiz Souza",
+  description: "Projetos Desenvolvidos por Luiz Antônio de Souza",
+  openGraph: {
+    images: ["https://luixzsouza.netlify.app/image/imgShareCover.png"],
+    title: "Portifolio",
+    description: "Luiz Antônio de Souza",
+    type: "profile",
+  },
 };
 
 export default function Work() {

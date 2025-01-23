@@ -63,7 +63,7 @@ export function SMyHistory() {
                     <div className="relative w-full h-450 bg-gradient-black-white overflow-hidden rounded-lg md:sticky md:top-0 md:h-700 2xl:top-12">
                         <Image
                             src={"/image/MySelf.png"}
-                            width={900}
+                            width={800}
                             height={600}
                             alt="Luiz Foto"
                             style={{
