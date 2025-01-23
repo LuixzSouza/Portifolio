@@ -11,7 +11,6 @@ import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import Link from "next/link";
 import { LinkCustom } from "../ui/LinkCustom";
 import { Paragraph } from "../typrography/Paragraph";
 import Image from "next/image";

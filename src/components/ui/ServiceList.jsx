@@ -33,7 +33,7 @@ export function ServiceList() {
         <ul className="grid grid-cols-1 grid-rows-2 gap-8 py-8 md:grid-cols-2">
             {itens.map((item, index) => (
                 <li key={index} className="w-full flex flex-col items-center justify-center bg-[#101010] border-t border-white/50 p-10 rounded-xl hover:shadow-custom-inset hover:shadow-blue-700 hover:border hover:border-blue-500 transition-all duration-300 ease" >
-                    <Image src={`/${item.img}`} width={150} height={80} alt="Ícone" className="filter grayscale invert" />
+                    <Image src={`/${item.img}`} unoptimized width={150} height={80} alt="Ícone" className="filter grayscale invert" />
                     <Heading as="h4" size="tiny" color="white"  className="mb-3 font-semibold text-center">{item.title}</Heading>
                     <Paragraph size="small" color="white/70" className={"max-w-600"}>{item.paragraph}</Paragraph>
                 </li>

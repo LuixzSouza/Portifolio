@@ -42,9 +42,9 @@ export function StimeLine({
       </div>
       <div className="flex flex-col items-end justify-center w-full pb-8 md:w-1/2 md:pb-0 md:pr-8">
         <div className="relative w-full md:w-96 h-330" >
-          <Image src={imgSrc} alt={heading || "Image"} fill style={{ objectFit: "cover" }} className="rounded-lg md:shadow-white/15 md:shadow-2xl" />
+          <Image src={imgSrc} alt={heading || "Image"} unoptimized fill style={{ objectFit: "cover" }} className="rounded-lg md:shadow-white/15 md:shadow-2xl" />
           <div className="relative hidden w-64 h-48 z-20 md:block md:absolute md:-bottom-20 md:-left-20">
-            <Image src={subImgSrc} alt={heading || "Image"} fill style={{ objectFit: "cover" }} className="rounded-lg md:shadow-white/10 md:shadow-2xl" />
+            <Image src={subImgSrc} alt={heading || "Image"} unoptimized fill style={{ objectFit: "cover" }} className="rounded-lg md:shadow-white/10 md:shadow-2xl" />
           </div>
         </div>
       </div>

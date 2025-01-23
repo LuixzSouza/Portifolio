@@ -16,6 +16,7 @@ export function SOverflowProjects({ projeto, onClose }) {
                     <div className="relative w-full h-44 md:h-96 bg-black rounded-lg overflow-hidden">
                         <Image
                             src={projectImage} // Fallback aplicado corretamente
+                            unoptimized
                             fill
                             style={{ objectFit: "cover" }}
                             alt={`Imagem do projeto ${projeto.nome}` || "Imagem do Projeto"}

@@ -65,6 +65,7 @@ export function SMyHistory() {
                             src={"/image/MySelf.png"}
                             width={800}
                             height={600}
+                            unoptimized
                             alt="Luiz Foto"
                             style={{
                                 transform: isParallaxActive ? `translateY(${-parallaxY}px)` : "none",

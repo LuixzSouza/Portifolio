@@ -6,13 +6,13 @@ const depoiments = [
     {
         nome: "Eduardo Souza",
         emprego: "Visual Design",
-        depoimento: "lorem ldsa sq qdsqd qqsd 2sqdqwd qwgsdbqwidh qwdbqwyge d2qeudh2 dy2bdy2bde 2dbn2y8dgb 2d2n1iudeh 2ydbhe2yd2fybdol",
+        depoimento: "Solicitado...",
         image: "/image/edu.png",
     },
     {
         nome: "Lennon Mauricio",
         emprego: "Produtor de Vídeo",
-        depoimento: "lorem ldsa sq qdsqd qqsd 2sqdqwd qwgsdbqwidh qwdbqwyge d2qeudh2 dy2bdy2bde 2dbn2y8dgb 2d2n1iudeh 2ydbhe2yd2fybdol",
+        depoimento: "Solicitado...",
         image: "/image/lennon.png",
     },
     {

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Sobre | Luiz Souza",
   description: "Saiba mais sobre quem é o Luiz e Sua historia",
   openGraph: {
-    images: ["https://luixzsouza.netlify.app/image/imgShareCover.png"],
+    images: ["https://luixzsouza.com.br/image/imgShareCover.png"],
     title: "Portifolio",
     description: "Luiz Antônio de Souza",
     type: "profile",

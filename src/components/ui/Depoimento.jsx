@@ -7,7 +7,7 @@ export function Depoimento({nome, emprego, depoimento, image, className}) {
         <div className={`flex flex-col gap-8 w-full lg:max-w-400 ${className}`} >
             <div className="flex items-center justify-start gap-8 py-8 border-b border-white/50" >
                 <div className="flex items-center justify-center rounded-full overflow-hidden w-28 h-28" >
-                    <Image src={image} width={170} height={170} alt="Pessoa de Depooimento"/>
+                    <Image src={image} width={170} height={170} unoptimized alt="Pessoa de Depooimento"/>
                 </div>
                 <div className="flex flex-col gap-1" >
                     <Heading as="h6" size="tiny" color="white" lineHeight="normal">{nome}</Heading>

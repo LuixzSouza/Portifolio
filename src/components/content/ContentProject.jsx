@@ -14,6 +14,7 @@ export function RetangleProjects({nome, img, link, idProjeto}) {
                         src={`/${img}`}
                         fill
                         style={{ objectFit: "cover" }}
+                        unoptimized
                         alt="Projeto"
                         className="group-hover:scale-110 transition-all duration-200 ease-in-out"
                     />

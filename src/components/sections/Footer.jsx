@@ -26,7 +26,7 @@ export function SectionFooter() {
                 <div className="relative mb-32" >
                     <Heading as="h2" size="midlle" color="white" className="relative w-full text-center md:text-left max-w-900" > VAMOS JUNTOS TRABALHAR
                         <div className="absolute -bottom-4 right-0 rotate-12 sm:right-12 sm:bottom-2 md:right-60" >
-                            <Image src={"/image/angular-colors.png"} width={70} height={40} alt="Icon angular colors"/>
+                            <Image src={"/image/angular-colors.png"} unoptimized width={70} height={40} alt="Icon angular colors"/>
                         </div>
                     </Heading>
                     

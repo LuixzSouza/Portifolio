@@ -121,6 +121,7 @@ export function CreateImpactProjects() {
                     <Image
                       src={`/mockup/mock${item.fill}.png`}
                       fill 
+                      unoptimized
                       alt='mockup'
                       priority={true}
                     />
