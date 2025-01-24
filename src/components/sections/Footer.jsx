@@ -12,7 +12,7 @@ import { ContainerGrid } from "@/components/layout/ContainerGrid";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export function SectionFooter() {
+export function SectionFooter({ bg }) {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
         
         useEffect(() => {
@@ -21,7 +21,7 @@ export function SectionFooter() {
         }, []);
     
     return (
-        <footer className="relative z-20 w-full bg-footer bg-right-bottom bg-no-repeat bg-cover pt-36 pb-11 border-t border-white" >
+        <footer className={`relative z-20 w-full ${bg} bg-left-bottom bg-no-repeat bg-cover pt-36 pb-11 border-t border-white/50`} >
             <ContainerGrid className={"w-full flex flex-col items-start justify-center"} >
                 <div className="relative mb-32" >
                     <Heading as="h2" size="midlle" color="white" className="relative w-full text-center md:text-left max-w-900" > VAMOS JUNTOS TRABALHAR
@@ -36,7 +36,7 @@ export function SectionFooter() {
                 </div>
                 <div className="w-full flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:gap-0" >
                     <div className="w-full text-center md:text-left" >
-                        <Paragraph size="litlleSmall" color="white" >🇧🇷  2019 — {currentYear}© Luiz Antônio de Souza</Paragraph>
+                        <Paragraph size="litlleSmall" color="white" >🇧🇷 2019 — {currentYear}© Luiz Antônio de Souza</Paragraph>
                     </div>
                     <div className='w-full flex items-center justify-center gap-8 md:justify-end' >
                         <LinkCustom color={'white'} link={'https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/'} img={"image/icon-linkedin.svg"} nomeimg={"linkedin"} >LINKEDIN</LinkCustom>

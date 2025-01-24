@@ -27,7 +27,7 @@ export default function About() {
             <HeaderHome/>
             <SectionAbout/>
             <SDepoimentos/>
-            <SectionFooter/>
+            <SectionFooter bg={"bg-about"} />
         </>
     )
 }

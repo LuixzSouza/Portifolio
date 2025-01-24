@@ -7,9 +7,9 @@ import Image from "next/image";
 import { Heading } from "../typrography/Heading";
 import { Category } from "../buttons/Category";
 
-export function DivProjeto({ nome, imagem, tecnologias, onClick }) {
+export function DivProjeto({ nome, imagem, tecnologias, onClick, ref }) {
     return (
-        <div onClick={onClick} className="relative h-480 flex flex-col items-center justify-center border rounded-lg overflow-hidden cursor-pointer hover:border-purple-900 hover:scale-105 transition-all duration-300 ease-in-out group" >
+        <div ref={ref} onClick={onClick} className="relative h-480 flex flex-col items-center justify-center border rounded-lg overflow-hidden cursor-pointer hover:border-purple-900 hover:scale-105 transition-all duration-300 ease-in-out group" >
             <div className="h-full overflow-hidden" >
                 <Image src={imagem || "/image/MySelf.png"} unoptimized fill style={{ objectFit: "cover" }} alt={nome || "Nome da Imagem"}/>
             </div>

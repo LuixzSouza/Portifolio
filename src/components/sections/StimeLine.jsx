@@ -57,7 +57,7 @@ export function StimeLine({
         </Heading>
         
         {/* Adicionando a lista de tópicos */}
-        <ul className="text-left text-whiteSecondary max-w-600">
+        <ul className="text-left text-whiteSecondary max-w-500">
           {paragraphList.map((item, index) => (
             <li key={index} className="text-start mb-2">{item}</li>
           ))}

@@ -2,6 +2,7 @@
 
 // React
 import { useRef, useState, useEffect } from "react";
+import gsap from "gsap";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,18 +17,18 @@ import { Paragraph } from "../typrography/Paragraph";
 import Image from "next/image";
 
 const certificados = [
-    { link: "/certificates/Certificado_ABNT_Univas_Luiz.pdf", emitido: "Univas Virtual", data: "08/12/2023", curso: "Normas da ABNT (Módulo I)" },
-    { link: "/certificates/Certificado_AWS.pdf", emitido: "AWS acadamy", data: "12/04/2024", curso: "AWS Academy Cloud Foundations"  },
-    { link: "/certificates/Certificado_GameJam.pdf", emitido: "Game Jam", data: "09/11/2024", curso: "Ganhandor | Participação"  },
-    { link: "/certificates/Certificado_ABNT2_Univas_Luiz.pdf", emitido: "Univas Virtual", data: "08/12/2023", curso: "Normas da ABNT (Módulo II)"  },
-    { link: "/certificates/Certificado_Boost_Luiz.pdf", emitido: "William Moreira", data: "03/05/2023", curso: "CodeBoost"  },
-    { link: "/certificates/Certificado_Cidadão_Univas_Luizz.pdf", emitido: "Univas Virtual", data: "06/12/2023", curso: "Módulo I do PRONID Cidadão"  },
-    { link: "/certificates/Certificado_Matematica_Univas_Luiz.pdf", emitido: "Univas Virtual", data: "06/12/2023", curso: "Módulo Matemática Descomplica"  },
-    { link: "/certificates/Certificado_php_Luiz.pdf", emitido: "ROCKTSEAT", data: "11/10/2024", curso: "Curso Online de PHP"  },
-    { link: "/certificates/Certificado_Portugues1_Univas_Luiz.pdf", emitido: "Univas Virtual", data: "06/12/22023", curso: "Módulo II PRONID"  },
-    { link: "/certificates/Certificado_Portugues2_Univas_Luiz.pdf", emitido: "Univas Virtual", data: "08/12/22023", curso: "Módulo PRONID"   },
-    { link: "/certificates/Certificado-Bradesco.pdf", emitido: "Bradesco", data: "13/10/2024", curso: "Criação de Site"  },
-    { link: "/certificates/Curriculo_Luiz_2025.pdf", emitido: "Luiz Souza", data: "01/01/2025", curso: "Portifolio Luiz"  },
+    { link: "/certificates/Certificado_ABNT_Univas_Luiz.pdf", img: "Certificado_ABNT_Univas_Luiz.png", emitido: "Univas Virtual", data: "08/12/2023", curso: "Normas da ABNT (Módulo I)" },
+    { link: "/certificates/Certificado_AWS.pdf", img: "Certificado_AWS.png", emitido: "AWS acadamy", data: "12/04/2024", curso: "AWS Academy Cloud Foundations"  },
+    { link: "/certificates/Certificado_GameJam.pdf", img: "Certificado_GameJam.png", emitido: "Game Jam", data: "09/11/2024", curso: "Ganhandor | Participação"  },
+    { link: "/certificates/Certificado_ABNT2_Univas_Luiz.pdf", img: "Certificado_ABNT2_Univas_Luiz.png", emitido: "Univas Virtual", data: "08/12/2023", curso: "Normas da ABNT (Módulo II)"  },
+    { link: "/certificates/Certificado_Boost_Luiz.pdf", img: "Certificado_Boost_Luiz.png", emitido: "William Moreira", data: "03/05/2023", curso: "CodeBoost"  },
+    { link: "/certificates/Certificado_Cidadão_Univas_Luizz.pdf", img: "Certificado_Cidadão_Univas_Luizz.png", emitido: "Univas Virtual", data: "06/12/2023", curso: "Módulo I do PRONID Cidadão"  },
+    { link: "/certificates/Certificado_Matematica_Univas_Luiz.pdf", img: "Certificado_Matematica_Univas_Luiz.png", emitido: "Univas Virtual", data: "06/12/2023", curso: "Módulo Matemática Descomplica"  },
+    { link: "/certificates/Certificado_php_Luiz.pdf", img: "Certificado_php_Luiz.png", emitido: "ROCKTSEAT", data: "11/10/2024", curso: "Curso Online de PHP"  },
+    { link: "/certificates/Certificado_Portugues1_Univas_Luiz.pdf", img: "Certificado_Portugues1_Univas_Luiz.png", emitido: "Univas Virtual", data: "06/12/22023", curso: "Módulo II PRONID"  },
+    { link: "/certificates/Certificado_Portugues2_Univas_Luiz.pdf", img: "Certificado_Portugues2_Univas_Luiz.png", emitido: "Univas Virtual", data: "08/12/22023", curso: "Módulo PRONID"   },
+    { link: "/certificates/Certificado-Bradesco.pdf", img: "Certificado-Bradesco.png", emitido: "Bradesco", data: "13/10/2024", curso: "Criação de Site"  },
+    { link: "/certificates/Curriculo_Luiz_2025.pdf", img: "Curriculo_Luiz_2025.png", emitido: "Luiz Souza", data: "01/01/2025", curso: "Portifolio Luiz"  },
 ];
 
 // Função para embaralhar os certificados
@@ -49,6 +50,15 @@ export function SlideCertificate() {
     useEffect(() => {
         // Embaralha os certificados ao carregar o componente
         setShuffledCertificados(shuffleArray(certificados));
+    }, []);
+
+    useEffect(() => {
+        const slides = document.querySelectorAll(".swiper-slide");
+        gsap.fromTo(
+            slides,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5, stagger: 0.3, ease: "power3.out" }
+        );
     }, []);
 
     return (
@@ -90,14 +100,10 @@ export function SlideCertificate() {
                     {/* Slides de projetos */}
                     {shuffledCertificados.map((item) => (
                         <SwiperSlide key={item.link} className="relative bg-white/20 flex flex-col items-center justify-center w-full h-full rounded-lg">
-                            <div className="bg-white/10 flex items-center justify-center w-full h-450 overflow-hidden rounded-lg" >
-                                <iframe
-                                    src={item.link}
-                                    className="w-full h-full max-w-full max-h-full"
-                                    title={`Certificado ${item.link}`}
-                                ></iframe>
+                            <div className="relative z-10 bg-white/10 flex items-center justify-center w-full h-450 overflow-hidden rounded-t-lg" >
+                                <Image src={`/certificates/certificatesImg/${item.img}`} unoptimized fill style={{ objectFit: "cover" }} alt={item.curso}/>
                             </div>
-                            <div className="p-4 w-full flex-col" >
+                            <div className="relative z-20 p-4 w-full flex-col" >
                                 <div className="flex flex-col gap-2" >
                                     <Paragraph size="tiny" color="white">Emitido por: <span className={"text-white/50"} >{item.emitido}</span></Paragraph>
                                     <Paragraph size="tiny" color="white">Data: <span className={"text-white/50"} >{item.data}</span></Paragraph>

@@ -18,7 +18,7 @@ export function MainSection() {
       <StimeLines />
       <SectionWork />
       <SHabilits/>
-      <SectionFooter />
+      <SectionFooter bg={"bg-hero"} />
       <ClimUp/>
     </section>
   );

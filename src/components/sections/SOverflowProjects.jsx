@@ -1,16 +1,49 @@
+'use client';
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import Image from "next/image";
 import { Heading } from "../typrography/Heading";
 import { Paragraph } from "../typrography/Paragraph";
 import { LinkCustom } from "../ui/LinkCustom";
 
 export function SOverflowProjects({ projeto, onClose }) {
+    const modalRef = useRef(null); // Referência para o container do modal
+
+    useEffect(() => {
+        // Animação para o modal quando ele é aberto
+        gsap.fromTo(
+            modalRef.current,
+            { opacity: 0, scale: 0.8 }, // Início da animação
+            { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" } // Fim da animação
+        );
+    }, [projeto]);
+
+    const handleClose = () => {
+        // Animação de fechamento do modal
+        gsap.to(modalRef.current, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.5,
+            ease: "power3.in",
+            onComplete: () => onClose() // Após a animação, chama o onClose para fechar o modal
+        });
+    };
+
     if (!projeto) return null; // Retorna null se não houver projeto selecionado
 
     const projectImage = projeto.imagem || "/image/MySelf.png";
 
     return (
-        <div className="fixed top-0 w-screen h-screen flex items-center justify-center bg-black/60 z-40" onClick={onClose}>
-            <div className="w-5/6 flex flex-col-reverse items-start justify-center gap-12 bg-projetos bg-bottom bg-no-repeat bg-cover p-6 rounded-lg md:flex-row">
+        <div
+            className="fixed top-0 w-screen h-screen flex items-center justify-center bg-black/60 z-40"
+            onClick={handleClose} // Fecha ao clicar no fundo
+        >
+            <div
+                ref={modalRef}
+                className="w-5/6 flex flex-col-reverse items-start justify-center gap-12 bg-projetos bg-bottom bg-no-repeat bg-cover p-6 rounded-lg md:flex-row"
+                onClick={(e) => e.stopPropagation()} // Impede o clique no modal de fechar
+            >
                 {/* Imagem do projeto */}
                 <div className="flex flex-col justify-between w-full h-full">
                     <div className="relative w-full h-44 md:h-96 bg-black rounded-lg overflow-hidden">
@@ -40,7 +73,7 @@ export function SOverflowProjects({ projeto, onClose }) {
                 {/* Informações do projeto */}
                 <div className="relative w-full h-full flex flex-col items-start justify-between gap-4">
                     <Heading as="h4" size="small" color="white">{projeto.nome}</Heading>
-                    <div className="h-28 pr-6 overflow-x-auto md:h-full md:overflow-visible" >
+                    <div className="h-28 pr-6 overflow-x-auto md:h-full md:overflow-visible">
                         <Paragraph size="tiny" color="white"> 
                             {projeto.descricao || "Descrição não disponível."}
                         </Paragraph>
@@ -56,7 +89,10 @@ export function SOverflowProjects({ projeto, onClose }) {
 
                     {/* Botão de fechar */}
                     <div className="absolute top-0 right-0">
-                        <button className="text-4xl text-white hover:scale-110 hover:text-red-600 hover:rotate-90 duration-150 transition-all ease-linear" onClick={onClose}>
+                        <button
+                            className="text-4xl text-white hover:scale-110 hover:text-red-600 hover:rotate-90 active:scale-105 duration-150 transition-all ease-linear"
+                            onClick={handleClose} // Chama o handleClose quando clicar no botão de fechar
+                        >
                             &times;
                         </button>
                     </div>

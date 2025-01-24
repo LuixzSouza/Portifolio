@@ -1,10 +1,12 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ContainerGrid } from "../layout/ContainerGrid";
 import { DivProjeto } from "@/components/ui/DivProjeto";
 import { SOverflowProjects } from "@/components/sections/SOverflowProjects";
 import { projetos } from "@/data/projects";
+import gsap from "gsap";
+import Image from "next/image";
 
 export function SProjetosRetangle() {
     const [selectedProject, setSelectedProject] = useState(null); // Estado para o projeto selecionado
@@ -13,6 +15,8 @@ export function SProjetosRetangle() {
     const [displayedProjects, setDisplayedProjects] = useState([]); // Estado para exibir projetos
     const [allTechnologies, setAllTechnologies] = useState([]); // Estado para armazenar todas as tecnologias usadas
     const [selectedTechnology, setSelectedTechnology] = useState("null"); // Estado para armazenar a tecnologia selecionada
+    const inputRef = useRef(null);
+    const projectsRef = useRef([]);
 
     // Função para embaralhar os projetos
     const shuffleArray = (array) => {
@@ -50,7 +54,7 @@ export function SProjetosRetangle() {
     const handleSearchChange = (e) => {
         const text = e.target.value;
         setSearchText(text);
-
+    
         // Filtra os projetos com base no texto digitado
         const filtered = projetos.filter((projeto) => {
             const search = text.toLowerCase();
@@ -60,11 +64,11 @@ export function SProjetosRetangle() {
             );
             return matchesName || matchesTecnologia;
         });
-
+    
         // Atualiza a lista exibida com os projetos filtrados e embaralhados
-        setDisplayedProjects(shuffleArray(filtered));
+        setDisplayedProjects(shuffleArray(filtered)); // Caso não haja projetos, o estado será uma lista vazia
     };
-
+    
     // Função para pesquisar clicando em uma tecnologia
     const handleTechnologyClick = (technology) => {
         setSelectedTechnology(technology); // Atualiza o estado com a tecnologia clicada
@@ -80,28 +84,51 @@ export function SProjetosRetangle() {
         // Atualiza a lista com os projetos filtrados
         setDisplayedProjects(filtered); // Sem embaralhar para manter ordem lógica
     };
-    
 
+    const handleSearchClick = () => {
+        if (inputRef.current) {
+            inputRef.current.focus(); // Dá foco ao campo de input
+        }
+    };
+    
     // Efeito para controlar o overflow do body ao abrir e fechar o modal
     useEffect(() => {
         if (isModalOpen) {
-            document.body.style.overflow = "hidden"; // Desabilita o scroll quando o modal está aberto
+            document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = "auto"; // Restaura o scroll quando o modal está fechado
+            document.body.style.overflow = "auto";
         }
 
-        // Limpeza ao desmontar o componente
         return () => {
-            document.body.style.overflow = "auto"; // Garante que o overflow seja restaurado ao desmontar
+            document.body.style.overflow = "auto";
         };
     }, [isModalOpen]);
 
+    // Animação para os projetos ao atualizar a lista
+    useEffect(() => {
+        const elements = projectsRef.current;
+        if (displayedProjects.length > 0 && elements && elements.length > 0) {
+            gsap.fromTo(
+                elements,
+                { opacity: 0, y: 60 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    ease: "power1.out",
+                }
+            );
+        }
+    }, [displayedProjects]);
+    
     return (
         <div>
             <section>
                 <ContainerGrid className="py-28">
                     <div className="flex items-center justify-between w-full bg-white/5 rounded-full p-3 mb-10">
                         <input
+                            ref={inputRef}
                             type="text"
                             placeholder="Pesquise por alguma tecnologia ou projeto" // Deixe o placeholder vazio, já que a exibição será controlada pela condicional
                             value={searchText} // Valor controlado
@@ -109,12 +136,12 @@ export function SProjetosRetangle() {
                             className="w-full bg-transparent text-white focus:outline-none pl-6"
                         />
                         {searchText === "" ? (
-                            <div className="w-full max-w-max p-3 bg-white/10 rounded-full cursor-pointer">
-                                <span className="text-white">Pesquise</span>
+                            <div onClick={handleSearchClick} className="w-full max-w-max p-3 bg-white/10 rounded-full cursor-pointer hover:scale-105 active:scale-125 transition-all duration-150">
+                                <Image src={"/image/icon-lupa.svg"} width={35} height={35} alt="lixo"/>
                             </div>
                         ) : (
-                            <div onClick={() => { setSearchText(""); setSelectedTechnology(null); }} className="w-full max-w-max p-3 bg-red-500 rounded-full cursor-pointer">
-                                <span className="text-white">Apagar</span>
+                            <div onClick={() => { setSearchText(""); setSelectedTechnology(null); }} className="w-full max-w-max p-3 bg-red-500 rounded-full cursor-pointer hover:scale-105 active:scale-125 transition-all duration-150">
+                                <Image src={"/image/icon-lixo.svg"} width={35} height={35} alt="lixo"/>
                             </div>
                         )}
                     </div>
@@ -125,7 +152,7 @@ export function SProjetosRetangle() {
                             <span
                             key={index}
                             onClick={() => handleTechnologyClick(technology)} // Atualiza o estado ao clicar na tecnologia
-                            className={`cursor-pointer p-2 rounded-lg bg-white/10 hover:bg-white/20 ${
+                            className={`cursor-pointer p-2 rounded-lg bg-white/10 hover:bg-white/20 active:scale-105 ${
                                 searchText.toLowerCase() === technology.toLowerCase() || selectedTechnology === technology
                                     ? "bg-purple-600 text-white" // Aplica fundo roxo e texto branco quando selecionado
                                     : "bg-transparent text-white" // Aplica fundo transparente e texto branco quando não selecionado
@@ -141,14 +168,18 @@ export function SProjetosRetangle() {
                     {displayedProjects.length > 0 ? (
                         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
                             {displayedProjects.map((projeto, index) => (
-                                <DivProjeto
-                                    key={index}
-                                    nome={projeto.nome}
-                                    imagem={projeto.imagem || "/image/MySelf.png"}
-                                    tecnologias={projeto.tecnologias}
-                                    links={projeto.links}
-                                    onClick={() => handleOpenModal(projeto)} // Define o projeto clicado
-                                />
+                                 <div
+                                 key={index}
+                                 ref={(el) => (projectsRef.current[index] = el)}
+                             >
+                                 <DivProjeto
+                                     nome={projeto.nome}
+                                     imagem={projeto.imagem || "/image/MySelf.png"}
+                                     tecnologias={projeto.tecnologias}
+                                     links={projeto.links}
+                                     onClick={() => handleOpenModal(projeto)}
+                                 />
+                             </div>
                             ))}
                         </div>
                     ) : (

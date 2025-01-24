@@ -11,9 +11,9 @@ import gsap from "gsap";
 import Link from 'next/link';
 
 const elements = [
-  { maxWidth: '450px', height: '350px', left: '0%', top: '35%', fill: '1', z: 1, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]', link: "https://casaprontaconstrusilva.com.br" },
-  { maxWidth: '450px', height: '350px', right: '15%', top: '3%', fill: '2', z: 2, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]', link: "https://www.formulaidiomas.com.br" },
-  { maxWidth: '450px', height: '350px', right: '-1%', top: '25%', fill: '3', z: 3, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px] z-30', link: "https://spidermanluiz.netlify.app" },
+  { maxWidth: '450px', height: '350px', left: '0%', top: '15%', fill: '1', z: 1, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]', link: "https://casaprontaconstrusilva.com.br" },
+  { maxWidth: '450px', height: '350px', right: '35%', top: '3%', fill: '2', z: 2, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]', link: "https://www.formulaidiomas.com.br" },
+  { maxWidth: '450px', height: '350px', right: '-1%', top: '20%', fill: '3', z: 3, sizeClasses: 'w-[150px] h-[150px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px] z-30', link: "https://spidermanluiz.netlify.app" },
   { maxWidth: '450px', height: '350px', left: '1%', bottom: '15%', fill: '4', z: 1, sizeClasses: 'w-[150px] h-[180px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]', link: "https://redeluiz.netlify.app" },
   { maxWidth: '450px', height: '350px', left: '35%', bottom: '5%', fill: '5', z: 1, sizeClasses: 'w-[150px] h-[170px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]', link: "https://blizzardluiz.netlify.app" },
   { maxWidth: '450px', height: '350px', right: '5%', bottom: '25%', fill: '6', z: 1, sizeClasses: 'w-[150px] h-[200px] sm:w-[350px] sm:h-[300px] lg:w-[450px] lg:h-[350px]', link: "https://faculdadenewluiz.netlify.app" },
@@ -103,10 +103,11 @@ export function CreateImpactProjects() {
         <div className="relative w-full h-[170vh]">
           {elements.map((item, index) => (
             <Link 
+            target='_blank'
             href={item.link}
             key={index}
             ref={(el) => (elementRefs.current[index] = el)}
-            className={`absolute rounded-lg ${item.sizeClasses} hover:scale-110 hover:z-40 transition-all duration-300 ease-in-out cursor-pointer`}
+            className={`absolute rounded-lg ${item.sizeClasses} hover:scale-105 hover:shadow-2xl hover:shadow-white/20 hover:z-40 transition-all duration-300 ease-in-out cursor-pointer`}
             style={{
               zIndex: `z-${item.z}`,
               ...(item.left && { left: item.left }),

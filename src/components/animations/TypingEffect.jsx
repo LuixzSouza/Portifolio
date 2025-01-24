@@ -39,7 +39,7 @@ export function TypingEffect({ words = [], typingSpeed = 150, deletingSpeed = 10
   }, [text, isDeleting, words, typingSpeed, deletingSpeed, pauseTime, index]); 
   
   return (
-    <Heading as="h2" size="medium" color="white" align="center" className={`${classe}`}>
+    <Heading as="h2" size="medium" color="white" align="center" className={`text-center sm:text-start leading-none ${classe}`}>
       {text}
       <span className={`blinking-cursor ${isBlinking ? 'animate-blink' : ''}`}>|</span>
     </Heading>

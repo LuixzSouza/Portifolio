@@ -21,7 +21,7 @@ export default function Work() {
             <MenuDefaultOpen/>
             <HeaderHome />
             <SectionProjeto/>
-            <SectionFooter/>
+            <SectionFooter bg={"bg-projetos"} />
         </>
     )
 }

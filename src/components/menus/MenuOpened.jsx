@@ -95,9 +95,14 @@ export function MenuOpened({ isOpen, toggleMenu }) {
               </LinkNav>
             </div>
             <div>
-              <span className="text-white cursor-pointer" onClick={toggleMenu}>
-                Fechar
-              </span>
+              <div onClick={toggleMenu} className="h-12 w-12 flex items-center justify-center relative group cursor-pointer transition-all duration-300 ease-in-out" >
+                <span className="absolute group-hover:opacity-0 group-hover:scale-0 text-white transition-all duration-200 ease-in-out">
+                  Fechar
+                </span>
+                <div className="absolute h-12 w-12 flex items-center justify-center py-3 text-white text-2xl bg-red-600/80 rounded-full scale-0 group-hover:scale-100 transition-all duration-300 ease-in-out" >
+                  &times;
+                </div>
+              </div>
             </div>
           </div>
           <div className="w-full flex flex-col">

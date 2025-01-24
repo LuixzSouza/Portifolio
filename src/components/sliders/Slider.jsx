@@ -17,6 +17,29 @@ import 'swiper/css/effect-fade';
 import Link from "next/link";
 import Image from "next/image";
 
+const slideProjetos = [
+    {
+        nome: "Casa Pronta Construtora ", 
+        img: "image/p-casapronta.png", 
+        link: "https://casaprontaconstrusilva.com.br",
+    },
+    {
+        nome: "Formula Idiomas",
+        img: "image/p-formula-idioma.png",
+        link: "https://www.formulaidiomas.com.br",
+    },
+    {
+        nome: "KingHost",
+        img: "image/p-kinghost.png",
+        link: "https://kinghostluiz.netlify.app",
+    },
+    {
+        nome: "CloudBoost",
+        img: "image/p-cloudboost.png", 
+        link: "https://cloudboostluiz.netlify.app",
+    }
+]
+
 export function Slider() {
     const swiperRef = useRef();
     const [isBeginning, setIsBeginning] = useState(true);
@@ -37,6 +60,7 @@ export function Slider() {
                 {/* Componente Swiper para projetos em estilo de galeria */}
                 <Swiper
                     modules={[Navigation, Autoplay, EffectFade]}
+                    slidesPerView={2}
                     spaceBetween={30}
                     speed={800}
                     loop={false}
@@ -48,48 +72,24 @@ export function Slider() {
                         setIsEnd(swiper.isEnd);
                     }}
                     breakpoints={{
-                        768: {
-                            slidesPerView: 2,
+                        0: {
+                          slidesPerView: 1, // Apenas um projeto na tela em telas pequenas
                         },
-                    }}
+                        1024: {
+                          slidesPerView: 2, // Dois projetos em telas maiores
+                        },
+                      }}
                 >
                     {/* Slides de projetos */}
-                    <SwiperSlide className="flex items-center justify-center">
-                        <RetangleProjects 
-                            nome="CasaPronta" 
-                            img="image/p-casapronta.png" 
-                            categoryies={"HTML CSS JAVASCRIPT"} 
-                            idProjeto={"PLZ-0100"}
-                            link={"https://casaprontaconstrusilva.com.br"}
-                        />
-                    </SwiperSlide>
-                    
-                    <SwiperSlide className="flex items-center justify-center">
-                        <RetangleProjects 
-                            nome="Formula Idioma" 
-                            img="image/p-formula-idioma.png" 
-                            idProjeto={"PLZ-0200"}
-                            link={"https://www.formulaidiomas.com.br"}
-                        />
-                    </SwiperSlide>
-
-                    <SwiperSlide className="flex items-center justify-center">
-                        <RetangleProjects 
-                            nome="KingHost" 
-                            img="image/p-kinghost.png" 
-                            idProjeto={"PLZ-0300"}
-                            link={"https://kinghostluiz.netlify.app"}
-                        />
-                    </SwiperSlide>
-
-                    <SwiperSlide className="flex items-center justify-center">
-                        <RetangleProjects 
-                            nome="CloudBoost" 
-                            img="image/p-cloudboost.png" 
-                            idProjeto={"PLZ-0400"}
-                            link={"https://cloudboostluiz.netlify.app"}
-                        />
-                    </SwiperSlide>
+                    {slideProjetos.map((item, index) => (
+                        <SwiperSlide key={index} className="flex items-center justify-center">
+                            <RetangleProjects 
+                                nome={item.nome} 
+                                img={item.img}
+                                link={item.img}
+                            />
+                        </SwiperSlide>
+                    ))}
                     
                     {/* Slide de "Ver Todos Projetos" */}
                     <SwiperSlide>

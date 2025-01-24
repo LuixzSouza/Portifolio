@@ -60,7 +60,6 @@ export function Homing() {
         if (!hasAnimated) {
             tl.fromTo(headingLuiz, { opacity: 0, y: -100 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
             tl.fromTo(textLeft, { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
-            tl.fromTo(textLeft.querySelector('h2'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, "-=0.4");
             tl.fromTo(textRight, { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, "-=0.4");
             tl.fromTo(linkTextLeft, { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.2, duration: 0.6, ease: "power2.out" }, "-=0.6");
             tl.fromTo(linkTextRight, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, "-=0.6");
@@ -73,7 +72,6 @@ export function Homing() {
             tl.to(linkTextRight, { opacity: 0, x: 50, duration: 0.1, ease: "power2.in" });
             tl.to(linkTextLeft, { opacity: 0, y: 50, stagger: 0.2, duration: 0.1, ease: "power2.in" });
             tl.to(textRight, { opacity: 0, x: 100, duration: 0.1, ease: "power2.in" });
-            tl.to(textLeft.querySelector('h2'), { opacity: 0, y: 20, duration: 0.1, ease: "power2.in" });
             tl.to(textLeft, { opacity: 0, x: -100, duration: 0.1, ease: "power2.in" });
             tl.to(headingLuiz, { opacity: 0, y: -100, duration: 0.1, ease: "power2.in" });
         }
@@ -90,34 +88,33 @@ export function Homing() {
                             gridTemplateColumns: 'auto 1fr auto',
                         }}
                     >
-                        <div className='relative w-full flex items-center justify-center col-start-1 col-end-3 row-start-1 row-end-1'>
-                            <div ref={headingLuizRef} className='w-full flex items-center justify-center text-center pt-12'>
+                        <div className='relative w-full h-full flex items-end justify-end col-start-1 col-end-3 row-start-1 row-end-1'>
+                            <div ref={headingLuizRef} className='opacity-0 w-full h-full flex items-end justify-end text-center'>
                                 <Heading
                                     as='h1'
                                     size='larger'
                                     color={'white'}
-                                    className='text-center'
+                                    className='text-center leading-[80%]'
                                 >
-                                    LUIZ S<span className="italic" >O</span>UZA
+                                    LUIZ S<span className="italic mr-2 sm:mr-4" >O</span>UZA
                                 </Heading>
                             </div>
                         </div>
                         <div className='relative flex flex-col items-center justify-between col-start-1 col-end-3 row-start-2 row-end-2 sm:items-start sm:flex-row'>
-                            <div ref={textLeftRef} className='relative z-30 flex flex-col items-center justify-center w-full text-center sm:items-start sm:justify-start sm:text-left'>
+                            <div ref={textLeftRef} className='opacity-0 relative z-30 flex flex-col items-center justify-center w-full text-center sm:items-start sm:justify-start sm:text-left'>
                                 <Heading
                                     as='h2'
                                     size='medium'
                                     color={'white'}
-                                    className='text-center sm:text-start'
+                                    className='text-center sm:text-start leading-none'
                                 >
                                     Desenvolvedor
                                 </Heading>
                                 <TypingEffect
-                                    classe={`text-center sm:text-start text-white`}
-                                    words={['FullStack', 'Front-End', 'Back-End']}
+                                    words={['Front-End', 'Back-End']}
                                 />
                             </div>
-                            <div ref={textRightRef} className='w-full flex items-end justify-center text-center pt-10 sm:text-right sm:justify-end'>
+                            <div ref={textRightRef} className='opacity-0 w-full flex items-end justify-center text-center md:pt-10 sm:text-right sm:justify-end'>
                                 <Paragraph
                                     size='small'
                                     color={'white'}
@@ -128,7 +125,7 @@ export function Homing() {
                             </div>
                         </div>
                         <div className='flex flex-col-reverse items-center justify-between col-start-1 col-end-4 row-span-3 pt-0 gap-8 md:flex-row md:gap-0'>
-                            <div ref={linkTextLeftRef} className='w-full flex items-center justify-center gap-8 md:justify-start'>
+                            <div ref={linkTextLeftRef} className='opacity-0 w-full flex items-center justify-center gap-8 md:justify-start'>
                                 <LinkCustom
                                     color={'white'}
                                     link={'https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/'}
@@ -154,7 +151,7 @@ export function Homing() {
                                     INSTAGRAM
                                 </LinkCustom>
                             </div>
-                            <div ref={linkTextCenterRef} className='w-full flex items-center justify-center text-center'>
+                            <div ref={linkTextCenterRef} className='opacity-0 w-full flex items-center justify-center text-center'>
                                 <Link href={"/contact"}
                                     className="inline-block text-white hover:scale-110 transition-all duration-300 ease-in-out"
                                     style={{
@@ -167,7 +164,7 @@ export function Homing() {
                             <div className='w-full max-w-56 flex items-center justify-center md:justify-end lg:max-w-none'>
                                 <span
                                     ref={linkTextRightRef}
-                                    className={`font-roobert text-lg leading-5 text-white`}
+                                    className={`opacity-0 font-roobert text-lg leading-5 text-white`}
                                 >
                                     BRASIL — 21/{currentYear} 
                                 </span>
