@@ -20,22 +20,22 @@ import Image from "next/image";
 const slideProjetos = [
     {
         nome: "Casa Pronta Construtora ", 
-        img: "image/p-casapronta.png", 
+        img: "image/projectDestaque/p-casapronta.png", 
         link: "https://casaprontaconstrusilva.com.br",
     },
     {
         nome: "Formula Idiomas",
-        img: "image/p-formula-idioma.png",
+        img: "image/projectDestaque/p-formula-idioma.png",
         link: "https://www.formulaidiomas.com.br",
     },
     {
         nome: "KingHost",
-        img: "image/p-kinghost.png",
+        img: "image/projectDestaque/p-kinghost.png",
         link: "https://kinghostluiz.netlify.app",
     },
     {
         nome: "CloudBoost",
-        img: "image/p-cloudboost.png", 
+        img: "image/projectDestaque/p-cloudboost.png", 
         link: "https://cloudboostluiz.netlify.app",
     }
 ]

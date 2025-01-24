@@ -16,8 +16,8 @@ const stepsData = [
       Descoberta inicial: Começo com cursos gratuitos no YouTube, explorando o universo da programação.
       Paixão pelo Desenvolvimento Web: Primeiro contato com HTML, CSS e JavaScript, estabelecendo a base para projetos futuros.
       Resolução de Problemas: Interesse crescente em solucionar desafios e criar soluções.`,
-    imgSrc: "/image/timeline-2021.png",
-    subImgSrc: "/image/sub-timeline-1.png",
+    imgSrc: "/image/timeline/timeline-2021.png",
+    subImgSrc: "/image/timeline/sub-timeline-1.png",
     icons: [
       "/icons/html5.svg", 
       "/icons/CSS3.svg", 
@@ -33,8 +33,8 @@ const stepsData = [
       Aprimoramento Técnico: Estudo aprofundado de JavaScript e frameworks como React e Next.js.
       Projetos Práticos: Desenvolvimento de aplicações com HTML, CSS, JavaScript, SASS, e introdução a ferramentas como Tailwind CSS.
       Exploração Back-End: Primeiros experimentos com Node.js, expandindo habilidades técnicas.`,
-    imgSrc: "/image/timeline-2022.png",
-    subImgSrc: "/image/sub-timeline-2.png",
+    imgSrc: "/image/timeline/timeline-2022.png",
+    subImgSrc: "/image/timeline/sub-timeline-2.png",
     icons: [
       "/icons/JavaScript.svg",
       "/icons/React.svg",
@@ -53,8 +53,8 @@ const stepsData = [
       Novas Metodologias: Uso de TDD (Test-Driven Development) e aplicação de arquitetura limpa.
       UI/UX: Cursos em Webflow e ferramentas como Figma e Canva.
       Tecnologias Diversas: Introdução a Arduino, conceitos básicos de Python e aprofundamento em sistemas operacionais como Linux e Windows.`,
-    imgSrc: "/image/timeline-2023.png",
-    subImgSrc: "/image/sub-timeline-3.png",
+    imgSrc: "/image/timeline/timeline-2023.png",
+    subImgSrc: "/image/timeline/sub-timeline-3.png",
     icons: [
       "/icons/Figma.svg", 
       "/icons/python.svg", 
@@ -72,8 +72,8 @@ const stepsData = [
       Projetos Publicados: Criação de sites dinâmicos e responsivos no Netlify, com integração de PHP.
       Experiência Profissional: Desenvolvimento de um sistema de nivelamento de inglês para a Formula Idiomas.
       Desenvolvimento Pessoal: Progresso no estudo de inglês para aprimorar comunicação técnica.`,
-    imgSrc: "/image/timeline-2024.png",
-    subImgSrc: "/image/sub-timeline-4.png",
+    imgSrc: "/image/timeline/timeline-2024.png",
+    subImgSrc: "/image/timeline/sub-timeline-4.png",
     icons: [
       "/icons/mysql.svg", 
       "/icons/netlify.svg", 
@@ -90,8 +90,8 @@ const stepsData = [
       Faculdade em Andamento: No 5º período do curso de Desenvolvimento de Sistemas de Informação.
       Práticas Avançadas: Foco na aplicação de boas práticas e no crescimento técnico.
       Objetivo Atual: Conquistar a primeira oportunidade profissional fixa na área de tecnologia.`,
-    imgSrc: "/image/timeline-moment.png",
-    subImgSrc: "/image/sub-timeline-5.png",
+    imgSrc: "/image/timeline/timeline-moment.png",
+    subImgSrc: "/image/timeline/sub-timeline-5.png",
   },
 ];
 

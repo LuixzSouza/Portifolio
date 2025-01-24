@@ -107,16 +107,16 @@ export function MenuOpened({ isOpen, toggleMenu }) {
           </div>
           <div className="w-full flex flex-col">
             <Link href={"/"} className="menu-item">
-              <ListMenu image={"/image/icon-home.png"}>HOME</ListMenu>
+              <ListMenu image={"icon-home.png"}>HOME</ListMenu>
             </Link>
             <Link href={"/work"} className="menu-item">
-              <ListMenu image={"/image/icon-work.png"}>TRABALHO</ListMenu>
+              <ListMenu image={"icon-work.png"}>TRABALHO</ListMenu>
             </Link>
             <Link href={"/about"} className="menu-item">
-              <ListMenu image={"/image/icon-about.png"}>SOBRE</ListMenu>
+              <ListMenu image={"icon-about.png"}>SOBRE</ListMenu>
             </Link>
             <Link href={"/contact"} className="menu-item">
-              <ListMenu image={"/image/icon-contato.png"}>CONTATO</ListMenu>
+              <ListMenu image={"icon-contato.png"}>CONTATO</ListMenu>
             </Link>
           </div>
           <div className="relative w-full flex flex-col items-center justify-between md:flex-row">
