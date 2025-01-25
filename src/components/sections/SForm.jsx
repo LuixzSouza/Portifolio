@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Heading } from "../typrography/Heading";
 import { Paragraph } from "../typrography/Paragraph";
 import { ContainerGrid } from "../layout/ContainerGrid";
+import { LoadingEmail } from "@/components/ui/LoadingEmail"
 
 const socialInfo = [
   {
@@ -47,6 +48,8 @@ const socialInfo = [
 export function SectionFormulario() {
   const [currentIcon, setCurrentIcon] = useState('f-hello.svg');
   const [animateIcon, setAnimateIcon] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingStatus, setLoadingStatus] = useState(null); // "loading", "success", "error"
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -55,56 +58,56 @@ export function SectionFormulario() {
 
   const sectionRef = useRef(null);
 
-  // Função para lidar com as mudanças nos campos do formulário
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  // Função para tratar o foco nos campos
   const handleFocus = (icon) => {
     setAnimateIcon(true);
     setCurrentIcon(icon);
-    setTimeout(() => setAnimateIcon(false), 300); // Reseta a animação após a duração
+    setTimeout(() => setAnimateIcon(false), 300);
   };
 
-  // Função para tratar o envio do formulário
   const handleSubmit = async (e) => {
-    e.preventDefault();
+      e.preventDefault();
 
-    console.log(formData); // Verifique os dados do formulário antes de enviar
-    
-    try {
-      const response = await fetch('php/sendEmail.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData), // Envia o formData completo
-      });
-
-      if (response.ok) {
-        alert('Formulário enviado com sucesso!');
-        setFormData({
-          nome: '',
-          email: '',
-          mensagem: '', // Limpar os campos após o envio
-        });
-      } else {
-        const error = await response.text();
-        alert(error);
+      if (!formData.nome || !formData.email || !formData.mensagem) {
+          setLoadingStatus("error");
+          return;
       }
-    } catch (error) {
-      alert('Erro na comunicação com o servidor');
-      console.error(error);
-    }
+
+      setIsLoading(true);
+      setLoadingStatus("loading");
+
+      try {
+          const response = await fetch('php/sendEmail.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+          });
+
+          if (response.ok) {
+              setLoadingStatus("success");
+              setFormData({ nome: '', email: '', mensagem: '' });
+          } else {
+              setLoadingStatus("error");
+          }
+      } catch {
+          setLoadingStatus("error");
+      } finally {
+          // Depois de exibir o status, deixa o componente visível por 3 segundos
+          setTimeout(() => {
+              setIsLoading(false);
+              setLoadingStatus(null); // Isso remove o LoadingEmail após o tempo
+          }, 4000); // 3 segundos de delay
+      }
   };
+
 
   useEffect(() => {
-    // Registra o ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.from(sectionRef.current, {
@@ -126,6 +129,12 @@ export function SectionFormulario() {
 
   return (
     <section ref={sectionRef}>
+      {isLoading && (
+        <LoadingEmail
+          status={loadingStatus}
+          onClose={() => setLoadingStatus(null)}
+        />
+      )}
       <ContainerGrid className="w-full h-full flex flex-col items-start justify-center py-28 gap-16 md:flex-row">
         <div className="flex flex-col items-start justify-start gap-8 w-full">
           <div>
@@ -141,7 +150,7 @@ export function SectionFormulario() {
               Vamos iniciar uma conversa! Preencha nosso formulário de contato, <br /> e entraremos em contato com você o mais rápido possível
             </Paragraph>
             <Link href={"/certificates/Curriculo_Luiz_2025.pdf"} target='_blank'>
-              <BotaoPrimary estilo="primary">Dowload CV</BotaoPrimary>
+              <BotaoPrimary estilo="primary">Download CV</BotaoPrimary>
             </Link>
           </div>
           <div className="flex flex-col items-start justify-start gap-4">
@@ -175,7 +184,7 @@ export function SectionFormulario() {
             <Heading as="h4" size="medium" color="white" className="break-words w-full max-w-400">
               Olá {formData.nome}
             </Heading>
-            <div className={`absolute right-0 top-0 ${animateIcon ? 'animate-icon-change' : ''}`} >
+            <div className={`absolute right-0 top-0 ${animateIcon ? 'animate-icon-change' : ''}`}>
               <Image
                 src={`icons/icon-faces/${currentIcon}`}
                 width={120}
@@ -185,7 +194,6 @@ export function SectionFormulario() {
               />
             </div>
           </div>
-
           <InputForm
             quest="Meu nome é"
             placehold="Insira seu nome"

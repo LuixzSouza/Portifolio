@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import Head from "next/head"; // Importação do Head
+import Script from 'next/script';
 import "./globals.css";
 
 // Configuração das fontes locais
@@ -57,9 +58,18 @@ export default function RootLayout({
           name="google-site-verification"
           content="El5tZOY56TqgKeNuwqhifuMJQw-H0QOlRc096i5sg10"
         />
-        {/* Google Tag Manager Script */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCYHYMKXDZ"></script>
-        <script
+      </Head>
+      <body>
+        {children}
+        {/* Google Tag Manager Script usando o componente Script */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-HCYHYMKXDZ"
+          async
+        />
+        <Script
+          strategy="afterInteractive"
+          id="google-analytics-script" // Adicionando um id único
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -69,8 +79,7 @@ export default function RootLayout({
             `,
           }}
         />
-      </Head>
-      <body>{children}</body>
+      </body>
     </html>
   );
 }

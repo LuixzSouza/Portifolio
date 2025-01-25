@@ -162,6 +162,17 @@ const config = {
             transform: 'translate(-50%, -50%) rotate(360deg)',
           },
         },
+        spinLoad: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "50%": {
+            transform: "rotate(180deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
         slide: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
@@ -180,10 +191,11 @@ const config = {
         floating2: 'floating 6s ease-in-out infinite 2s',
         floating3: 'floating 6s ease-in-out infinite 4s',
         blink: 'blink 1s step-end infinite',
-        'spin-slow': 'spin 10s linear infinite',
         slide: 'slide 20s linear infinite',
         bounce: 'bounce 1s infinite', 
         jump: 'jump 0.5s ease-in-out',
+        'spin-slow': 'spin 10s linear infinite',
+        'loading-spin': "spinLoad 1.5s linear infinite",
         'icon-change': 'iconChange 0.5s ease-in-out',
       },
       gridTemplateColumns: {
