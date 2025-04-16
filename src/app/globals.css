@@ -22,7 +22,6 @@
 body {
   position: relative;
   font-family: var(--font-family-base), sans-serif;
-  line-height: 1.5; /* Aumenta a legibilidade */
   -webkit-font-smoothing: antialiased; /* Suaviza fontes no macOS */
   -moz-osx-font-smoothing: grayscale; /* Suaviza fontes no Firefox */
   background-color: #000; /* Cor de fundo branca */

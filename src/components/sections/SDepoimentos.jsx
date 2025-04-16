@@ -11,13 +11,13 @@ const depoiments = [
     {
         nome: "Eduardo Souza",
         emprego: "Visual Design",
-        depoimento: "Solicitado...",
+        depoimento: "Estou impressionado com o crescimento e a evolução do Luiz como desenvolvedor. Ele tem mostrado uma dedicação incrível e uma capacidade de resolver tarefas complexas com eficiência e clareza. Seu comprometimento com o trabalho e sua disposição para aprender fazem dele um profissional cada vez mais valioso. Ele também tem se destacado pela atenção aos detalhes, entregando resultados pixel perfect e conseguindo seguir com precisão os projetos de design passados a ele. Apesar de estar iniciando sua jornada profissional, tenho certeza de que ele tem um futuro brilhante pela frente.",
         image: "/image/edu.png",
     },
     {
         nome: "Lennon Mauricio",
         emprego: "Produtor de Vídeo",
-        depoimento: "Solicitado...",
+        depoimento: "Trabalhei com Luiz em um projeto e fiquei impressionado com sua dedicação e profissionalismo. Ele é muito aberto a feedbacks, sempre disposto a fazer ajustes necessários para garantir o melhor resultado. Além de dominar boas práticas de desenvolvimento, Luiz é colaborativo, tornando o trabalho em equipe mais fluido e produtivo. Sua disponibilidade para prestar suporte técnico foi fundamental durante todo o processo. Seu comprometimento foi fundamental para a entrega do projeto!",
         image: "/image/lennon.png",
     },
     {

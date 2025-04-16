@@ -16,7 +16,7 @@ export const Depoimento = React.forwardRef(({ nome, emprego, depoimento, image, 
                     <Image src={"/image/stars-5.svg"} width={120} height={50} alt="5 Estrela" className="invert" />
                 </div>
             </div>
-            <Paragraph size="small" color="white" className={"w-full"}>⌜ {depoimento} ⌟</Paragraph>
+            <Paragraph size="litlleSmall" color="white" className={"w-full"}>⌜ {depoimento} ⌟</Paragraph>
         </div>
     );
 });
