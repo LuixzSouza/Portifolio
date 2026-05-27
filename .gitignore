@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 
 # production
@@ -32,9 +33,28 @@ yarn-error.log*
 # env files (can opt-in for commiting if needed)
 .env*
 
+# segredos do backend PHP (credenciais SMTP) — nunca versionar
+/src/php/config.php
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Arquivos temporários & dumps de tradução
+translations-*.json
+__deploy_ftp.txt
+
+# IDE & editor
+.vscode/settings.json
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs & temporários
+*.log
+*.tmp

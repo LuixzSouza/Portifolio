@@ -1,0 +1,104 @@
+# =====================================================================
+# Portfólio Luiz Souza — config Apache (Hostinger) para o export estático
+# =====================================================================
+
+# ---- URLs limpas e fallbacks para Next.js App Router ---------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Força HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Não processa arquivos que existem (JS, CSS, imagens, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Não processa diretórios que existem
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Remove trailing slashes (exceto raiz)
+  RewriteCond %{REQUEST_URI} !^/$
+  RewriteCond %{REQUEST_URI} /$
+  RewriteRule ^(.*)/$  $1 [R=301,L]
+
+  # Arquivos especiais (manifest, robots, sitemap)
+  RewriteRule ^(manifest\.webmanifest|robots\.txt|sitemap\.xml)$ $1 [L]
+
+  # Protege o diretório PHP do backend (se existir)
+  RewriteCond %{REQUEST_URI} ^/php/
+  RewriteRule !^php/(api|sendEmail)\.php$ - [F]
+
+  # Rota raiz -> index.html
+  RewriteRule ^$ index.html [L]
+
+  # Páginas estáticas: about, work, contact, etc.
+  RewriteRule ^(about|work|contact|dashboard|styleguide)/?$ $1.html [L]
+
+  # Rotas dinâmicas certificados: /certificates/slug -> /certificates/[slug].html
+  RewriteRule ^certificates/([^/]+)/?$ certificates/$1.html [L]
+
+  # Rotas dinâmicas serviços: /services/slug -> /services/[slug].html
+  RewriteRule ^services/([^/]+)/?$ services/$1.html [L]
+
+  # Projeto com query string: /project?id=slug -> /project.html
+  RewriteCond %{QUERY_STRING} id=([^&]+)
+  RewriteRule ^project/?$ project.html [L]
+
+  # Admin (se for página estática)
+  RewriteRule ^admin/?$ admin.html [L]
+
+  # Fallback: se .html existe, serve
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^ %{REQUEST_URI}.html [L]
+
+  # Se nada encontrado, vai para 404.html
+  RewriteRule ^ 404.html [L]
+</IfModule>
+
+# ---- Página 404 personalizada --------------------------------------
+ErrorDocument 404 /404.html
+
+# ---- Compressão (Brotli quando disponível, senão Gzip) -------------
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml application/manifest+json
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml application/manifest+json
+</IfModule>
+
+# ---- Cache de longo prazo p/ assets com hash; HTML sem cache -------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Assets imutáveis (Next gera nomes com hash)
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType image/webp                    "access plus 1 year"
+  ExpiresByType image/jpeg                    "access plus 1 year"
+  ExpiresByType image/png                     "access plus 1 year"
+  ExpiresByType image/svg+xml                 "access plus 1 year"
+  ExpiresByType image/x-icon                  "access plus 1 year"
+  ExpiresByType font/woff2                    "access plus 1 year"
+  ExpiresByType application/pdf               "access plus 1 month"
+
+  # HTML sempre revalida (conteúdo pode mudar)
+  ExpiresByType text/html                     "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Imutável p/ a pasta de assets com hash do Next
+  <FilesMatch "\.(css|js|woff2|webp|jpg|jpeg|png|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # ---- Headers de segurança (melhor padrão Web) --------------------
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>

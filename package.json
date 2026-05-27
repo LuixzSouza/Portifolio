@@ -4,28 +4,41 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/copy-php.mjs",
+    "copy:php": "node scripts/copy-php.mjs",
+    "build:deploy": "next build && node scripts/copy-php.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "node scripts/clean.mjs",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:types": "tsc -p tsconfig.vitest.json --noEmit"
   },
   "dependencies": {
-    "gsap": "^3.12.5",
-    "is-arrayish": "^0.3.2",
-    "is-number": "^7.0.0",
-    "next": "^15.0.1",
-    "react": "19.0.0-rc-69d4b800-20241021",
-    "react-dom": "19.0.0-rc-69d4b800-20241021",
-    "swiper": "^11.1.14",
-    "tailwind-merge": "^2.5.4"
+    "@anthropic-ai/sdk": "^0.99.0",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.562.0",
+    "next": "^15.5.18",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwind-merge": "^2.5.4",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.8.1",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^9.13.0",
-    "eslint-config-next": "15.0.1",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "9.13.0",
+    "eslint-config-next": "^15.5.18",
+    "jsdom": "^29.1.1",
     "postcss": "^8",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.7"
   }
 }

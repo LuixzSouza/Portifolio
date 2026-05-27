@@ -1,10 +1,9 @@
 <?php
-session_start();
-// Habilita a exibição de erros
-ini_set('display_errors', 1);
+// Endpoint de contato. Não exibe erros na resposta (evita vazar dados); registra no log.
+ini_set('display_errors', '0');
 error_reporting(E_ALL);
+header('Content-Type: application/json; charset=utf-8');
 
-// Incluindo os arquivos do PHPMailer manualmente
 require __DIR__ . '/PHPMailer/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer/src/Exception.php';
 require __DIR__ . '/PHPMailer/src/SMTP.php';
@@ -12,35 +11,54 @@ require __DIR__ . '/PHPMailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-$data = json_decode(file_get_contents('php://input'), true);  // Recebe o JSON enviado pelo fetch
-
-$nome = htmlspecialchars($data['nome'] ?? '');
-$email = filter_var($data['email'] ?? '', FILTER_SANITIZE_EMAIL);
-$mensagem = htmlspecialchars($data['mensagem'] ?? '');
-
-if (empty($nome) || empty($email) || empty($mensagem)) {
-    echo "Todos os campos são obrigatórios.";
+function respond(int $status, string $message): void
+{
+    http_response_code($status);
+    echo json_encode(['message' => $message]);
     exit;
 }
 
+// Credenciais: config.php (fora do versionamento) com fallback para variáveis de ambiente.
+$config = file_exists(__DIR__ . '/config.php') ? require __DIR__ . '/config.php' : [];
+$smtpHost = $config['smtp_host'] ?? getenv('SMTP_HOST') ?: 'smtp.hostinger.com';
+$smtpUser = $config['smtp_user'] ?? (getenv('SMTP_USER') ?: '');
+$smtpPass = $config['smtp_pass'] ?? (getenv('SMTP_PASS') ?: '');
+$smtpPort = (int) ($config['smtp_port'] ?? (getenv('SMTP_PORT') ?: 465));
+$mailTo   = $config['mail_to'] ?? (getenv('MAIL_TO') ?: $smtpUser);
+
+if ($smtpUser === '' || $smtpPass === '') {
+    error_log('sendEmail: credenciais SMTP ausentes (config.php ou variáveis de ambiente).');
+    respond(500, 'Configuração de e-mail indisponível.');
+}
+
+$data = json_decode(file_get_contents('php://input'), true) ?: [];
+
+$nome = trim(htmlspecialchars($data['nome'] ?? ''));
+$email = filter_var(trim($data['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+$mensagem = trim(htmlspecialchars($data['mensagem'] ?? ''));
+
+if ($nome === '' || $email === '' || $mensagem === '') {
+    respond(422, 'Todos os campos são obrigatórios.');
+}
+
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "E-mail inválido.";
-    exit;
+    respond(422, 'E-mail inválido.');
 }
 
 $mail = new PHPMailer(true);
 try {
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com';  // Substitua com o seu host
+    $mail->Host = $smtpHost;
     $mail->SMTPAuth = true;
-    $mail->Username = 'ola@luixzsouza.com.br';
-    $mail->Password = 'Luizsouza@2025';
+    $mail->Username = $smtpUser;
+    $mail->Password = $smtpPass;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port = 465;
+    $mail->Port = $smtpPort;
 
-    $mail->setFrom('ola@luixzsouza.com.br', 'Formulário de Contato');
-    $mail->addAddress('ola@luixzsouza.com.br');  // E-mail para onde será enviado
+    $mail->setFrom($smtpUser, 'Formulário de Contato');
+    $mail->addAddress($mailTo);
+    $mail->addReplyTo($email, $nome);
 
     $mail->isHTML(true);
     $mail->Subject = 'Contato do Site';
@@ -50,8 +68,8 @@ try {
                    <p><strong>Mensagem:</strong> $mensagem</p>";
 
     $mail->send();
-    echo "E-mail enviado com sucesso!";
+    respond(200, 'E-mail enviado com sucesso!');
 } catch (Exception $e) {
-    echo "Erro ao enviar o e-mail: " . $mail->ErrorInfo;
+    error_log('sendEmail: falha ao enviar — ' . $mail->ErrorInfo);
+    respond(500, 'Não foi possível enviar a mensagem. Tente novamente mais tarde.');
 }
-?>

@@ -1,0 +1,195 @@
+import type { LocalizedText, LocalizedList } from "@/lib/i18n";
+
+export const aboutBio: LocalizedText = {
+  pt: "Sou Luiz Antônio, desenvolvedor front-end nascido e criado no interior de Minas Gerais. Percorro 100 km por dia para cursar Bacharelado em Sistemas de Informação na UNIVÁS, e atuo com desenvolvimento e web design há mais de dois anos — sempre em busca de evolução constante.",
+  en: "I'm Luiz Antônio, a front-end developer born and raised in the countryside of Minas Gerais, Brazil. I travel 100 km a day to study for a Bachelor's in Information Systems at UNIVÁS, and I've worked with development and web design for over two years — always chasing constant growth.",
+  es: "Soy Luiz Antônio, un desarrollador front-end nacido y criado en el interior de Minas Gerais, Brasil. Viajo 100 km diarios para cursar una Licenciatura en Sistemas de Información en la UNIVÁS, y he trabajado en desarrollo y diseño web durante más de dos años — siempre buscando un crecimiento constante.",
+  fr: "Je suis Luiz Antônio, un développeur front-end né et élevé dans l'intérieur du Minas Gerais, au Brésil. Je parcours 100 km par jour pour étudier une Licence en Systèmes d'Information à l'UNIVÁS, et j'ai travaillé dans le développement et le design web pendant plus de deux ans — toujours en quête d'une croissance constante.",
+  de: "Ich bin Luiz Antônio, ein Front-End-Entwickler, der im Landesinneren von Minas Gerais, Brasilien, geboren und aufgewachsen ist. Ich fahre täglich 100 km, um einen Bachelor in Informationssystemen an der UNIVÁS zu absolvieren, und ich arbeite seit über zwei Jahren in Entwicklung und Webdesign — immer auf der Suche nach ständigem Wachstum.",
+  it: "Sono Luiz Antônio, uno sviluppatore front-end nato e cresciuto nelle campagne di Minas Gerais, Brasile. Viaggio 100 km al giorno per studiare una Laurea in Sistemi Informativi presso l'UNIVÁS, e ho lavorato nello sviluppo e nel web design per oltre due anni — sempre alla ricerca di una crescita costante.",
+  zh: "我是Luiz Antônio，一位在巴西米纳斯吉拉斯州内陆出生和成长的前端开发者。我每天往返100公里在UNIVÁS攻读信息系统学士学位，从事开发和网页设计工作已超过两年——始终追求不断的成长。",
+  ja: "私はLuiz Antônioで、ブラジルのミナスジェライス州の田舎で生まれ育ったフロントエンド開発者です。UNIVÁSで情報システム学士号を取得するため毎日100km移動しており、開発とウェブデザインの仕事に2年以上携わっています — 常に継続的な成長を追求しています。",
+  ru: "Я Луиз Антониу, фронтенд-разработчик, рожденный и выросший в сельской местности Минас-Жерайса, Бразилия. Я проезжаю 100 км в день, чтобы получить степень бакалавра по информационным системам в UNIVÁS, и работаю в области разработки и веб-дизайна более двух лет — всегда стремясь к постоянному росту.",
+  ar: "أنا لويز أنطونيو، مطور واجهات أمامية وُلدت وترعرعت في ريف ولاية ميناس جيرايس بالبرازيل. أسافر 100 كم يومياً لدراسة بكالوريوس أنظمة المعلومات في جامعة UNIVÁS، وعملت في مجال التطوير وتصميم الويب لأكثر من سنتين — دائماً أسعى إلى النمو المستمر.",
+  hi: "मैं Luiz Antônio हूँ, एक फ्रंटएंड डेवलपर जो ब्राज़ील के Minas Gerais के ग्रामीण क्षेत्र में जन्मा और पला-बढ़ा है। मैं UNIVÁS में इनफॉर्मेशन सिस्टम्स में स्नातक की डिग्री के लिए हर दिन 100 किमी की यात्रा करता हूँ, और मैंने दो साल से अधिक समय तक डेवलपमेंट और वेब डिज़ाइन में काम किया है — हमेशा निरंतर विकास की खोज में।",
+  ko: "저는 Luiz Antônio이며, 브라질 Minas Gerais 시골 지역에서 태어나고 자란 프론트엔드 개발자입니다. UNIVÁS에서 정보시스템 학사 학위를 취득하기 위해 매일 100km를 이동하고 있으며, 개발 및 웹 디자인 분야에서 2년 이상 일해왔습니다 — 항상 지속적인 성장을 추구합니다.",
+  id: "Saya Luiz Antônio, seorang pengembang front-end yang lahir dan besar di pedesaan Minas Gerais, Brasil. Saya melakukan perjalanan 100 km setiap hari untuk mengejar gelar Sarjana Sistem Informasi di UNIVÁS, dan telah bekerja dalam pengembangan dan desain web selama lebih dari dua tahun — selalu mencari pertumbuhan yang berkelanjutan.",
+};
+
+export interface AboutFact {
+  label: LocalizedText;
+  value: LocalizedText;
+}
+
+export const aboutFacts: AboutFact[] = [
+  { label: { pt: "Base", en: "Based in", es: "Ubicación", fr: "Basé à", de: "Ansässig in", it: "Base", zh: "所在地", ja: "拠点", ru: "Местоположение", ar: "الموقع", hi: "आधारभूत स्थान", ko: "기반지", id: "Berdomisili di" }, value: { pt: "Minas Gerais, Brasil", en: "Minas Gerais, Brazil", es: "Minas Gerais, Brasil", fr: "Minas Gerais, Brésil", de: "Minas Gerais, Brasilien", it: "Minas Gerais, Brasile", zh: "米纳斯吉拉斯州，巴西", ja: "ミナスジェライス州、ブラジル", ru: "Минас-Жерайс, Бразилия", ar: "ولاية ميناس جيرايس، البرازيل", hi: "Minas Gerais, ब्राज़ील", ko: "Minas Gerais, 브라질", id: "Minas Gerais, Brasil" } },
+  {
+    label: { pt: "Formação", en: "Studying", es: "Formación", fr: "Formation", de: "Ausbildung", it: "Studi", zh: "学习中", ja: "勉強中", ru: "Обучение", ar: "الدراسة", hi: "अध्ययन", ko: "공부 중", id: "Sedang Belajar" },
+    value: { pt: "Sistemas de Informação (UNIVÁS)", en: "Information Systems (UNIVÁS)", es: "Sistemas de Información (UNIVÁS)", fr: "Systèmes d'Information (UNIVÁS)", de: "Informationssysteme (UNIVÁS)", it: "Sistemi Informativi (UNIVÁS)", zh: "信息系统（UNIVÁS）", ja: "情報システム（UNIVÁS）", ru: "Информационные системы (UNIVÁS)", ar: "أنظمة المعلومات (UNIVÁS)", hi: "सूचना प्रणाली (UNIVÁS)", ko: "정보시스템 (UNIVÁS)", id: "Sistem Informasi (UNIVÁS)" },
+  },
+  { label: { pt: "Foco", en: "Focus", es: "Enfoque", fr: "Domaine", de: "Fokus", it: "Focus", zh: "专注", ja: "焦点", ru: "Фокус", ar: "التركيز", hi: "ध्यान", ko: "초점", id: "Fokus" }, value: { pt: "Front-end & produtos web", en: "Front-end & web products", es: "Front-end & productos web", fr: "Front-end & produits web", de: "Front-End & Webprodukte", it: "Front-end & prodotti web", zh: "前端和Web产品", ja: "フロントエンド & ウェブプロダクト", ru: "Front-end и веб-продукты", ar: "الواجهات الأمامية والمنتجات الويب", hi: "फ्रंटएंड और वेब उत्पाद", ko: "프론트엔드 & 웹 제품", id: "Front-end & produk web" } },
+  { label: { pt: "Desde", en: "Since", es: "Desde", fr: "Depuis", de: "Seit", it: "Dal", zh: "自", ja: "以来", ru: "С", ar: "منذ", hi: "के बाद से", ko: "부터", id: "Sejak" }, value: "2021" },
+];
+
+export const storyQuote: LocalizedText = {
+  pt: "Enfrentei dificuldades, mas pude crescer e aprender o que significa realmente ter uma família.",
+  en: "I faced hardships, but I was able to grow and learn what it truly means to have a family.",
+  es: "Enfrenté dificultades, pero pude crecer y aprender qué significa realmente tener una familia.",
+  fr: "J'ai affronté des difficultés, mais j'ai pu grandir et apprendre ce que signifie vraiment avoir une famille.",
+  de: "Ich bin auf Schwierigkeiten gestoßen, aber ich konnte wachsen und lernen, was es wirklich bedeutet, eine Familie zu haben.",
+  it: "Ho affrontato difficoltà, ma sono riuscito a crescere e imparare cosa significhi davvero avere una famiglia.",
+  zh: "我面临了困难，但我能够成长并学会了真正拥有一个家庭的含义。",
+  ja: "困難に直面しましたが、成長することができ、本当の意味で家族を持つことの意味を学びました。",
+  ru: "Я столкнулся с трудностями, но смог вырасти и понять, что на самом деле означает иметь семью.",
+  ar: "واجهت صعوبات، لكن تمكنت من النمو والتعلم عما يعنيه حقاً أن يكون لديك عائلة.",
+  hi: "मुझे कठिनाइयों का सामना करना पड़ा, लेकिन मैं विकसित हो सका और समझ गया कि वास्तव में एक परिवार होने का क्या मतलब है।",
+  ko: "나는 어려움에 직면했지만, 성장할 수 있었고 가족을 갖는다는 것이 정말로 무엇을 의미하는지 배웠습니다.",
+  id: "Saya menghadapi kesulitan, tetapi saya dapat tumbuh dan belajar apa arti sebenarnya dari memiliki keluarga.",
+};
+
+export interface AboutVideo {
+  /** ID do arquivo no Google Drive (embed /preview). */
+  driveId: string;
+  category: LocalizedText;
+  title: LocalizedText;
+  date: LocalizedText;
+  duration: LocalizedText;
+}
+
+export const aboutVideos: AboutVideo[] = [
+  {
+    driveId: "1n8ybI69mWs8uWvrb22zY_xbDZqfJYTml",
+    category: { pt: "Sobre", en: "About", es: "Acerca de", fr: "À propos", de: "Über", it: "Chi sono", zh: "关于", ja: "について", ru: "О", ar: "عن", hi: "परिचय", ko: "소개", id: "Tentang" },
+    title: { pt: "Quem sou eu?", en: "Who am I?", es: "¿Quién soy?", fr: "Qui suis-je?", de: "Wer bin ich?", it: "Chi sono?", zh: "我是谁？", ja: "私は誰ですか？", ru: "Кто я?", ar: "من أنا؟", hi: "मैं कौन हूँ?", ko: "나는 누구인가?", id: "Siapa saya?" },
+    date: { pt: "20 de jan. de 2025", en: "Jan 20, 2025", es: "20 de ene. de 2025", fr: "20 janv. 2025", de: "20. Jan. 2025", it: "20 gen. 2025", zh: "2025年1月20日", ja: "2025年1月20日", ru: "20 янв. 2025", ar: "20 يناير 2025", hi: "20 जनवरी 2025", ko: "2025년 1월 20일", id: "20 Jan 2025" },
+    duration: { pt: "1 min", en: "1 min", es: "1 min", fr: "1 min", de: "1 Min.", it: "1 min", zh: "1分钟", ja: "1分", ru: "1 мин.", ar: "1 دقيقة", hi: "1 मिनट", ko: "1분", id: "1 menit" },
+  },
+  {
+    driveId: "1tn03XJZXC6ljF-WcVbbyTSuXuaKCu0pC",
+    category: { pt: "Tecnologia", en: "Technology", es: "Tecnología", fr: "Technologie", de: "Technologie", it: "Tecnologia", zh: "技术", ja: "技術", ru: "Технология", ar: "التكنولوجيا", hi: "प्रौद्योगिकी", ko: "기술", id: "Teknologi" },
+    title: { pt: "O que é Front-End? #1", en: "What is Front-End? #1", es: "¿Qué es Front-End? #1", fr: "Qu'est-ce que le Front-End? #1", de: "Was ist Front-End? #1", it: "Cos'è il Front-End? #1", zh: "什么是前端？#1", ja: "フロントエンドとは？#1", ru: "Что такое Front-End? #1", ar: "ما هو الواجهة الأمامية؟ #1", hi: "फ्रंट-एंड क्या है? #1", ko: "프론트엔드란? #1", id: "Apa itu Front-End? #1" },
+    date: { pt: "18 de nov. de 2024", en: "Nov 18, 2024", es: "18 de nov. de 2024", fr: "18 nov. 2024", de: "18. Nov. 2024", it: "18 nov. 2024", zh: "2024年11月18日", ja: "2024年11月18日", ru: "18 нояб. 2024", ar: "18 نوفمبر 2024", hi: "18 नवंबर 2024", ko: "2024년 11월 18일", id: "18 Nov 2024" },
+    duration: { pt: "5 min", en: "5 min", es: "5 min", fr: "5 min", de: "5 Min.", it: "5 min", zh: "5分钟", ja: "5分", ru: "5 мин.", ar: "5 دقائق", hi: "5 मिनट", ko: "5분", id: "5 menit" },
+  },
+  {
+    driveId: "1j6tl672n3leC4IZ3b5H09EtWHythhlI8",
+    category: { pt: "Tecnologia", en: "Technology", es: "Tecnología", fr: "Technologie", de: "Technologie", it: "Tecnologia", zh: "技术", ja: "技術", ru: "Технология", ar: "التكنولوجيا", hi: "प्रौद्योगिकी", ko: "기술", id: "Teknologi" },
+    title: { pt: "O que é Front-End? #2", en: "What is Front-End? #2", es: "¿Qué es Front-End? #2", fr: "Qu'est-ce que le Front-End? #2", de: "Was ist Front-End? #2", it: "Cos'è il Front-End? #2", zh: "什么是前端？#2", ja: "フロントエンドとは？#2", ru: "Что такое Front-End? #2", ar: "ما هو الواجهة الأمامية؟ #2", hi: "फ्रंट-एंड क्या है? #2", ko: "프론트엔드란? #2", id: "Apa itu Front-End? #2" },
+    date: { pt: "26 de nov. de 2024", en: "Nov 26, 2024", es: "26 de nov. de 2024", fr: "26 nov. 2024", de: "26. Nov. 2024", it: "26 nov. 2024", zh: "2024年11月26日", ja: "2024年11月26日", ru: "26 нояб. 2024", ar: "26 نوفمبر 2024", hi: "26 नवंबर 2024", ko: "2024년 11월 26일", id: "26 Nov 2024" },
+    duration: { pt: "3 min", en: "3 min", es: "3 min", fr: "3 min", de: "3 Min.", it: "3 min", zh: "3分钟", ja: "3分", ru: "3 мин.", ar: "3 دقائق", hi: "3 मिनट", ko: "3분", id: "3 menit" },
+  },
+];
+
+export interface GalleryItem {
+  /** Caminho da imagem (ex.: /image/familia.webp). Vazio = placeholder "em breve". */
+  src?: string;
+  caption: LocalizedText;
+}
+
+/**
+ * Galeria pessoal (família, lugares, paixões). Por enquanto sem imagens — os
+ * cards saem como placeholders elegantes; basta preencher `src` (ou via painel)
+ * para as fotos aparecerem.
+ */
+export const aboutGallery: GalleryItem[] = [
+  { caption: { pt: "Família", en: "Family", es: "Familia", fr: "Famille", de: "Familie", it: "Famiglia", zh: "家庭", ja: "家族", ru: "Семья", ar: "العائلة", hi: "परिवार", ko: "가족", id: "Keluarga" } },
+  { caption: { pt: "Na estrada", en: "On the road", es: "En el camino", fr: "Sur la route", de: "Unterwegs", it: "In viaggio", zh: "在路上", ja: "道中で", ru: "В дороге", ar: "في الطريق", hi: "सड़क पर", ko: "길 위에서", id: "Di jalan" } },
+  { caption: { pt: "Games", en: "Games", es: "Juegos", fr: "Jeux", de: "Spiele", it: "Giochi", zh: "游戏", ja: "ゲーム", ru: "Игры", ar: "الألعاب", hi: "खेल", ko: "게임", id: "Permainan" } },
+  { caption: { pt: "Café & código", en: "Coffee & code", es: "Café & código", fr: "Café & code", de: "Kaffee & Code", it: "Caffè & codice", zh: "咖啡和代码", ja: "コーヒーとコード", ru: "Кофе и код", ar: "القهوة والكود", hi: "कॉफी और कोड", ko: "커피 & 코드", id: "Kopi & kode" } },
+  { caption: { pt: "Natureza", en: "Outdoors", es: "Naturaleza", fr: "Nature", de: "Natur", it: "Natura", zh: "自然", ja: "自然", ru: "Природа", ar: "الطبيعة", hi: "प्रकृति", ko: "자연", id: "Alam" } },
+  { caption: { pt: "Música", en: "Music", es: "Música", fr: "Musique", de: "Musik", it: "Musica", zh: "音乐", ja: "音楽", ru: "Музыка", ar: "الموسيقى", hi: "संगीत", ko: "음악", id: "Musik" } },
+];
+
+export const storyParagraphs: LocalizedList = {
+  pt: [
+    "Minha história é marcada por desafios e superações. Meus pais eram surdos e mudos, mas não herdei essa condição. Quando eu tinha apenas dois anos, minha mãe faleceu, e fui encontrado chorando ao seu lado.",
+    "Meu pai, que não podia cuidar de mim sozinho, me deixou aos cuidados dos meus avós, e fui separado da minha irmã — algo que me marcou profundamente. Pouco tempo depois, ele sofreu um acidente a caminho do hospital e entrou em coma. Resistiu por um tempo, mas não tive a oportunidade de me despedir; guardo dele apenas as memórias.",
+    "Na infância eu era uma criança rebelde, que passava boa parte do tempo na rua. Quando fui morar com minha tia e meu tio — que considero meus pais —, dei muito trabalho, mas fui educado com amor e paciência.",
+    "Enfrentei dificuldades na escola e cheguei a repetir de ano para conseguir acompanhar os estudos. Mas, com o apoio incondicional da minha família, aprendi o que significa, de verdade, ter um lar.",
+    "Hoje sou grato por ter a minha tia Edmara e o meu tio João como pais, e meu irmão adotivo, Edu, que tanto admiro. Toda essa trajetória é o combustível que me faz percorrer 100 km diários e entregar sempre o meu melhor na tecnologia.",
+  ],
+  en: [
+    "My story is marked by challenges and resilience. My parents were deaf and mute, but I didn't inherit that condition. When I was only two years old, my mother passed away, and I was found crying by her side.",
+    "My father, who couldn't care for me on his own, left me in my grandparents' care, and I was separated from my sister — something that deeply affected me. Soon after, he suffered an accident on the way to the hospital and fell into a coma. He held on for a while, but I never got the chance to say goodbye; all I have left of him are memories.",
+    "As a child I was rebellious, spending much of my time out on the streets. When I went to live with my aunt and uncle — whom I consider my parents — I gave them a lot of trouble, but they raised me with love and patience.",
+    "I struggled at school and even had to repeat a year to keep up with my studies. But with my family's unconditional support, I learned what it truly means to have a home.",
+    "Today I'm grateful to have my aunt Edmara and my uncle João as parents, and my adoptive brother, Edu, whom I admire so much. This whole journey is the fuel that drives me to travel 100 km a day and always deliver my best in technology.",
+  ],
+  es: [
+    "Mi historia está marcada por desafíos y superaciones. Mis padres eran sordos y mudos, pero no heredé esa condición. Cuando tenía solo dos años, mi madre falleció, y fui encontrado llorando a su lado.",
+    "Mi padre, que no podía cuidarme solo, me dejó a cargo de mis abuelos, y fui separado de mi hermana — algo que me afectó profundamente. Poco tiempo después, sufrió un accidente camino al hospital y entró en coma. Resistió un tiempo, pero nunca tuve la oportunidad de despedirme; solo me quedan sus recuerdos.",
+    "De niño era rebelde, pasaba gran parte de mi tiempo en la calle. Cuando fui a vivir con mi tía y mi tío — a quienes considero mis padres —, les di mucho trabajo, pero fui educado con amor y paciencia.",
+    "Tuve dificultades en la escuela e incluso tuve que repetir un año para poder seguir mis estudios. Pero con el apoyo incondicional de mi familia, aprendí lo que significa tener un hogar.",
+    "Hoy estoy agradecido de tener a mi tía Edmara y mi tío João como padres, y mi hermano adoptivo, Edu, a quien admiro tanto. Este viaje completo es el combustible que me impulsa a recorrer 100 km al día y siempre entregar mi mejor en la tecnología.",
+  ],
+  fr: [
+    "Mon histoire est marquée par les défis et la résilience. Mes parents étaient sourds et muets, mais je n'ai pas hérité de cette condition. Quand j'avais seulement deux ans, ma mère est décédée, et on m'a trouvé en pleurs à ses côtés.",
+    "Mon père, qui ne pouvait pas prendre soin de moi seul, m'a confié aux soins de mes grands-parents, et j'ai été séparé de ma sœur — quelque chose qui m'a profondément affecté. Peu de temps après, il a eu un accident en se rendant à l'hôpital et est tombé dans le coma. Il a tenu bon un moment, mais je n'ai jamais eu la chance de lui dire adieu; il ne me reste que ses souvenirs.",
+    "Enfant, j'étais rebelle, passant la plupart de mon temps dans la rue. Quand je suis allé vivre avec ma tante et mon oncle — que je considère comme mes parents —, je leur ai donné beaucoup de mal, mais ils m'ont élevé avec amour et patience.",
+    "J'ai eu des difficultés à l'école et j'ai même dû redoubler une année pour suivre mes études. Mais avec le soutien inconditionnel de ma famille, j'ai appris ce que signifie vraiment avoir un foyer.",
+    "Aujourd'hui, je suis reconnaissant d'avoir ma tante Edmara et mon oncle João comme parents, et mon frère adoptif, Edu, que j'admire beaucoup. Ce voyage entier est le carburant qui me pousse à parcourir 100 km par jour et à toujours donner mon meilleur en technologie.",
+  ],
+  de: [
+    "Meine Geschichte ist geprägt von Herausforderungen und Widerstandskraft. Meine Eltern waren taub und stumm, aber ich habe diese Bedingung nicht geerbt. Als ich erst zwei Jahre alt war, starb meine Mutter, und man fand mich weinend an ihrer Seite.",
+    "Mein Vater, der sich nicht allein um mich kümmern konnte, vertraute mich meinen Großeltern an, und ich wurde von meiner Schwester getrennt — etwas, das mich zutiefst berührte. Kurz darauf erlitt er einen Unfall auf dem Weg ins Krankenhaus und fiel ins Koma. Er hielt es eine Weile aus, aber ich bekam nie die Chance, mich zu verabschieden; mir bleiben nur seine Erinnerungen.",
+    "Als Kind war ich rebellisch und verbrachte viel Zeit auf der Straße. Als ich zu meiner Tante und meinem Onkel zog — die ich als meine Eltern betrachte —, machte ich ihnen viel Arbeit, aber sie erhoben mich mit Liebe und Geduld.",
+    "In der Schule hatte ich Schwierigkeiten und musste sogar ein Jahr wiederholen, um meine Studien fortzusetzen. Aber mit der bedingungslosen Unterstützung meiner Familie lernte ich, was es wirklich bedeutet, ein Zuhause zu haben.",
+    "Heute bin ich dankbar, meine Tante Edmara und meinen Onkel João als Eltern zu haben, und meinen Adoptivbruder Edu, den ich bewundere. Diese ganze Reise ist der Treibstoff, der mich antreibt, 100 km pro Tag zu fahren und immer mein Bestes in der Technologie zu geben.",
+  ],
+  it: [
+    "La mia storia è segnata da sfide e resilienza. I miei genitori erano sordi e muti, ma non ho ereditato quella condizione. Quando avevo solo due anni, mia madre è morta, e sono stato trovato piangente al suo fianco.",
+    "Mio padre, che non riusciva a prendersi cura di me da solo, mi ha affidato ai miei nonni, e sono stato separato da mia sorella — qualcosa che mi ha profondamente colpito. Poco dopo, ha avuto un incidente mentre andava in ospedale e è caduto in coma. Ha resistito per un po', ma non ho mai avuto la possibilità di dirgli addio; mi rimangono solo i suoi ricordi.",
+    "Da bambino ero ribelle, passavo gran parte del tempo per strada. Quando andai a vivere con mia zia e mio zio — che considero i miei genitori —, diedi loro molto fastidio, ma mi hanno cresciuto con amore e pazienza.",
+    "Ho avuto difficoltà a scuola e ho dovuto persino ripetere un anno per stare al passo con i miei studi. Ma con il supporto incondizionato della mia famiglia, ho imparato cosa significhi veramente avere una casa.",
+    "Oggi sono grato di avere mia zia Edmara e mio zio João come genitori, e mio fratello adottivo, Edu, che ammiro molto. Questo intero viaggio è il carburante che mi spinge a percorrere 100 km al giorno e a dare sempre il mio meglio in tecnologia.",
+  ],
+  zh: [
+    "我的故事充满了挑战和韧性。我的父母是聋子和哑巴，但我没有遗传这种条件。当我只有两岁时，我的母亲去世了，有人发现我在她身边哭泣。",
+    "我的父亲无法独自照顾我，把我留给了祖父母，我也因此与姐姐分离了——这深深地影响了我。不久之后，他在去医院的途中发生了事故并陷入了昏迷。他坚持了一段时间，但我从未有机会和他道别；我只留下了他的回忆。",
+    "童年时我很叛逆，大部分时间都在街上度过。当我去和叔叔阿姨住时——我把他们视为我的父母——我让他们很烦恼，但他们用爱和耐心养育了我。",
+    "我在学校遇到了困难，甚至不得不重读一年才能跟上我的学习。但在家人无条件的支持下，我学会了真正拥有一个家的含义。",
+    "今天我很感激有我的阿姨Edmara和叔叔João作为我的父母，还有我的养兄弟Edu，我非常钦佩他。这整个旅程是驱动我每天行驶100公里并在技术领域始终全力以赴的动力。",
+  ],
+  ja: [
+    "私の物語は、課題と回復力によって特徴付けられています。私の両親は聴覚障害者でしたが、その状態を遺伝しませんでした。私が2歳の時、母が亡くなり、私は彼女のそばで泣いているのが見つかりました。",
+    "私の父は一人で私の面倒を見ることができず、祖父母に任せ、姉妹と別れることになりました — それは私に深刻な影響を与えました。その直後、彼は病院への途中で事故に遭い、昏睡状態に陥りました。彼はしばらく持ちこたえましたが、別れを告げる機会は二度と訪れず、彼の思い出だけが残りました。",
+    "子どもの頃、私は反抗的でした。多くの時間を路上で過ごしていました。叔母と叔父と一緒に住むことになった時 — 彼らを両親と考えていました —、私は彼らに多くの問題を与えましたが、愛と忍耐をもって育てられました。",
+    "学校では苦労しており、学業についていくために1年間留年することさえありました。しかし、家族の無条件のサポートにより、本当の意味で家を持つことが何を意味するのかを学びました。",
+    "今日、私は叔母Edmara と叔父João を両親として持つことができて感謝しており、そして私の養兄弟Eduは私が非常に尊敬する人です。このすべての旅は、毎日100km移動し、技術分野で常に最善を尽くすようにさせてくれる燃料です。",
+  ],
+  ru: [
+    "Моя история отмечена вызовами и устойчивостью. Мои родители были глухонемыми, но я не унаследовал это условие. Когда мне было всего два года, моя мать умерла, и я был найден плачущим рядом с ней.",
+    "Мой отец, который не мог заботиться обо мне самостоятельно, оставил меня у своих родителей, и я был разлучен со своей сестрой — что глубоко повлияло на меня. Вскоре после этого он попал в аварию по пути в больницу и впал в кому. Он держался какое-то время, но мне так и не удалось попрощаться; остались только его воспоминания.",
+    "В детстве я был бунтарским ребенком, большую часть времени проводившим на улице. Когда я пошел жить с моей тетей и дядей — которых я считаю своими родителями —, я доставил им много хлопот, но они воспитывали меня с любовью и терпением.",
+    "У меня были трудности в школе, и мне даже пришлось повторить год, чтобы не отстать от учебы. Но при безусловной поддержке моей семьи я узнал, что действительно означает иметь дом.",
+    "Сегодня я благодарен, что у меня есть моя тетя Эдмара и мой дядя Жуан в роли родителей, и мой приемный брат Эду, которого я так сильно уважаю. Это путешествие — то топливо, которое заставляет меня проезжать 100 км в день и всегда выкладываться в технологии.",
+  ],
+  ar: [
+    "قصتي مليئة بالتحديات والمرونة. كان والداي صماً وبكماً، لكن لم أرث هذه الحالة. عندما كان عمري سنتين فقط، توفيت والدتي، وتم العثور علي أبكي بجانبها.",
+    "والدي الذي لم يتمكن من الاعتناء بي وحده، تركني تحت رعاية والديّ، وتم فصلي عن أختي — شيء أثر علي بعمق. بعد فترة قصيرة، تعرض لحادث في الطريق إلى المستشفى ودخل في غيبوبة. صمد لفترة ما، لكن لم تتح لي فرصة الوداع؛ لم يتبقَ لي سوى ذكرياته.",
+    "كنت طفلاً متمرداً، قضيت معظم وقتي في الشارع. عندما ذهبت للعيش مع عمتي وعمي — اللذين أعتبرهما والديّ — سببت لهما الكثير من المتاعب، لكنهما ربياني بحب وصبر.",
+    "واجهت صعوبات في المدرسة واضطررت حتى إلى إعادة سنة دراسية لمواكبة دراستي. لكن بدعم عائلتي غير المشروط، تعلمت ما يعنيه حقاً أن يكون لديك بيت.",
+    "اليوم أشعر بالامتنان لامتلاك عمتي Edmara وعمي João كوالدين، وأخي بالتبني Edu الذي أعجب به كثيراً. هذه الرحلة كلها هي الوقود الذي يدفعني للسفر 100 كم يومياً وتقديم أفضل ما لدي في مجال التكنولوجيا.",
+  ],
+  hi: [
+    "मेरी कहानी चुनौतियों और दृढ़ता से भरी है। मेरे माता-पिता बहरे और गूंगे थे, लेकिन मैंने यह स्थिति विरासत में नहीं पाई। जब मैं केवल दो साल का था, तो मेरी माँ का निधन हो गया, और मुझे उसके पास रो रहे हुए पाया गया।",
+    "मेरे पिता जो अकेले मेरी देखभाल नहीं कर सकते थे, मुझे अपने दादा-दादी की देखभाल में छोड़ गए, और मुझे अपनी बहन से अलग कर दिया गया — कुछ जो मुझे गहराई से प्रभावित करता है। कुछ समय बाद, उन्हें अस्पताल जाते समय एक दुर्घटना हुई और वह कोमा में चले गए। वह कुछ समय के लिए टिके रहे, लेकिन मुझे विदा कहने का मौका कभी नहीं मिला; मेरे पास उनकी केवल यादें हैं।",
+    "बचपन में मैं विद्रोही था, अधिकांश समय सड़क पर बिताता था। जब मैं अपनी चाची और चाचा के साथ रहने गया — जिन्हें मैं अपने माता-पिता मानता हूँ —, मैंने उन्हें बहुत परेशानी दी, लेकिन उन्होंने मुझे प्रेम और धैर्य से पाला।",
+    "मुझे स्कूल में कठिनाइयों का सामना करना पड़ा और अपनी पढ़ाई को आगे बढ़ाने के लिए एक साल दोहराना भी पड़ा। लेकिन अपने परिवार के अशर्त समर्थन के साथ, मैंने सीखा कि सच में एक घर का मतलब क्या है।",
+    "आज मैं अपनी चाची Edmara और चाचा João को माता-पिता के रूप में पाने के लिए आभारी हूँ, और मेरे दत्तक भाई Edu के लिए, जिनकी मैं बहुत प्रशंसा करता हूँ। यह पूरी यात्रा वह ईंधन है जो मुझे हर दिन 100 किमी की यात्रा करने और तकनीक में हमेशा अपना सर्वश्रेष्ठ देने के लिए प्रेरित करती है।",
+  ],
+  ko: [
+    "제 이야기는 도전과 회복력으로 특징 지어집니다. 제 부모님은 청각 장애인이셨지만, 저는 그 상태를 유전받지 않았습니다. 제가 2살일 때 어머니께서 돌아가셨고, 저는 어머니 곁에서 울고 있는 것으로 발견되었습니다.",
+    "저를 혼자 돌볼 수 없던 아버지께서는 저를 조부모님께 맡기셨고, 저는 누나와 헤어지게 되었습니다 — 이것은 저에게 깊은 영향을 미쳤습니다. 얼마 후 아버지께서 병원으로 가시던 중 사고를 당하셨고 혼수상태에 빠지셨습니다. 한동안 버티셨지만 저는 작별인사를 할 기회를 갖지 못했습니다; 제게 남은 것은 그분의 추억뿐입니다.",
+    "어린 시절 저는 반항심이 많아 대부분의 시간을 거리에서 보냈습니다. 고모와 고모부님 — 저는 그분들을 부모님이라고 생각합니다 — 과 함께 살게 되었을 때 많은 골칫거리를 드렸지만, 그분들은 저를 사랑과 인내로 양육해주셨습니다.",
+    "저는 학교에서 어려움을 겪었고 학업을 따라가기 위해 한 해를 유급하기도 했습니다. 하지만 제 가족의 무조건적인 지원으로 저는 진정한 의미에서 집을 갖는다는 것이 무엇인지 배웠습니다.",
+    "오늘 저는 제 고모 Edmara와 고모부 João를 부모님으로 가질 수 있어 감사하며, 제가 존경하는 양형 Edu도 있습니다. 이 모든 여정은 저를 매일 100km를 이동하게 하고 항상 기술 분야에서 최선을 다하게 하는 연료입니다.",
+  ],
+  id: [
+    "Kisah saya ditandai dengan tantangan dan ketangguhan. Orang tua saya adalah penyandang tunarungu-tunawicara, tetapi saya tidak mewarisi kondisi itu. Ketika saya baru berusia dua tahun, ibu saya meninggal, dan saya ditemukan menangis di sisinya.",
+    "Ayah saya, yang tidak bisa merawat saya sendiri, meninggalkan saya kepada nenek-kakek saya, dan saya dipisahkan dari saudara perempuan saya — sesuatu yang sangat mempengaruhi saya. Tidak lama setelah itu, dia mengalami kecelakaan dalam perjalanan ke rumah sakit dan jatuh koma. Dia bertahan sebentar, tetapi saya tidak pernah berkesempatan untuk mengucapkan selamat tinggal; yang tersisa adalah ingatan-ingatannya.",
+    "Saat kecil saya adalah anak yang pemberontak, menghabiskan banyak waktu di jalan. Ketika saya pergi tinggal dengan bibi dan paman saya — yang saya anggap sebagai orang tua saya — saya memberi mereka banyak kesulitan, tetapi mereka membesarkan saya dengan cinta dan kesabaran.",
+    "Saya berjuang di sekolah dan bahkan harus mengulangi setahun untuk mengikuti pelajaran saya. Tetapi dengan dukungan tak terbatas keluarga saya, saya belajar apa arti sebenarnya memiliki rumah.",
+    "Hari ini saya bersyukur memiliki bibi Edmara dan paman João sebagai orang tua, dan adik angkat saya, Edu, yang saya kagumi sangat banyak. Seluruh perjalanan ini adalah bahan bakar yang mendorong saya untuk melakukan perjalanan 100 km setiap hari dan selalu memberikan yang terbaik dalam teknologi.",
+  ],
+};

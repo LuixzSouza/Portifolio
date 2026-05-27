@@ -1,48 +1,52 @@
-// Next
-import type { Metadata } from "next";
-
 // Componentes
-import { HeaderHome } from "@/components/headers/HeaderHome";
-import { SectionAbout } from "@/components/sections/SectionAbout"
-import { MenuDefaultOpen } from "@/components/menus/MenuDefaultOpen"
+import { AboutHero } from "@/components/sections/AboutHero"
+import { Story } from "@/components/sections/Story"
+import { PersonalGallery } from "@/components/sections/PersonalGallery"
+import { VideoStory } from "@/components/sections/VideoStory"
+import { Certificates } from "@/components/sections/Certificates"
+import { Testimonials } from "@/components/sections/Testimonials"
+import type { Metadata } from "next";
 import { SectionFooter } from "@/components/sections/Footer";
-import { SDepoimentos } from "@/components/sections/SDepoimentos"
+import { pageMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/seo/JsonLd";
+import type { Lang } from "@/lib/locales";
 
-export const metadata: Metadata = {
-  title: "Sobre Luiz Souza | Desenvolvedor Front-End",
-  description: "Descubra a trajetória de Luiz Antônio de Souza, um desenvolvedor front-end apaixonado por criar soluções web modernas e impactantes.",
-  openGraph: {
-    images: [
-      {
-        url: "https://luixzsouza.com.br/image/imgShareCover.png",
-        width: 1200,
-        height: 630,
-        alt: "Imagem de Luiz Souza, destacando sua experiência como desenvolvedor.",
-      },
-    ],
-    title: "Conheça Luiz Souza | Desenvolvedor Front-End",
-    description: "Saiba mais sobre a história e a experiência de Luiz Souza no desenvolvimento de soluções digitais de alta qualidade.",
-    url: "https://luixzsouza.com.br/sobre",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata({
     title: "Sobre Luiz Souza | Desenvolvedor Front-End",
-    description: "Explore a trajetória de Luiz Souza e descubra suas habilidades e projetos como desenvolvedor front-end.",
-    images: ["https://luixzsouza.com.br/image/imgShareCover.png"],
-  },
-};
+    description:
+      "Descubra a trajetória de Luiz Antônio de Souza, um desenvolvedor front-end apaixonado por criar soluções web modernas e impactantes.",
+    path: "/about",
+    locale: locale as Lang,
+    ogTitle: "Conheça Luiz Souza | Desenvolvedor Front-End",
+    ogDescription:
+      "Saiba mais sobre a história e a experiência de Luiz Souza no desenvolvimento de soluções digitais de alta qualidade.",
+  });
+}
 
-
-
-export default function About() {
+export default async function About({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
     return (
         <>
-            <MenuDefaultOpen/>
-            <HeaderHome/>
-            <SectionAbout/>
-            <SDepoimentos/>
-            <SectionFooter bg={"bg-about"} />
+            <Breadcrumbs items={[{ name: "Sobre", path: "/about" }]} locale={locale as Lang} />
+            <main id="conteudo">
+                <AboutHero/>
+                <Story/>
+                <PersonalGallery/>
+                <VideoStory/>
+                <Certificates/>
+                <Testimonials/>
+            </main>
+            <SectionFooter/>
         </>
     )
 }
