@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Heading } from "@/components/ds/Heading";
 import { Text } from "@/components/ds/Text";
+import { useCursorFollow } from "@/hooks/useCursorFollow";
 import { useLocalizedHref } from "@/lib/useLocale";
 
 export interface Service {
@@ -22,18 +23,8 @@ export function ServicesInteractive({ services }: { services: Service[] }) {
   const [errored, setErrored] = useState<Record<string, boolean>>({});
   const loc = useLocalizedHref();
 
-  // 1. Framer Motion: Rastreamento do cursor com física de mola
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
-  const x = useSpring(mouseX, springConfig);
-  const y = useSpring(mouseY, springConfig);
-
-  function follow(e: MouseEvent) {
-    mouseX.set(e.clientX);
-    mouseY.set(e.clientY);
-  }
+  // Framer Motion: rastreamento do cursor com física de mola (ver useCursorFollow).
+  const { x, y, follow } = useCursorFollow({ damping: 25, stiffness: 200, mass: 0.5 });
 
   return (
     <div onMouseMove={follow} className="relative">

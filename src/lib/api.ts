@@ -54,6 +54,16 @@ import {
  */
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "/php";
 
+/**
+ * Em dev não há PHP rodando (o backend vive na Hostinger), então toda chamada
+ * batia 404 e poluía o console — os componentes já caem no fallback estático.
+ * Desabilita a rede SÓ em desenvolvimento; se um backend for apontado
+ * explicitamente (NEXT_PUBLIC_API_BASE, ex.: PHP local p/ testar o /admin),
+ * reabilita. Em produção e em teste (fetch mockado) fica sempre habilitado.
+ */
+const API_ENABLED =
+  process.env.NODE_ENV !== "development" || process.env.NEXT_PUBLIC_API_BASE != null;
+
 export class ApiError extends Error {
   status: number;
   constructor(status: number, message: string) {
@@ -72,6 +82,12 @@ export function _resetCsrf(): void {
 }
 
 async function request<T>(path: string, schema: z.ZodType<T>, init?: RequestInit): Promise<T> {
+  // Sem backend configurado em dev: nem tenta a rede (evita 404 no console). O
+  // chamador trata como falha e mantém o conteúdo estático.
+  if (!API_ENABLED) {
+    throw new ApiError(0, "API desabilitada (sem backend configurado em dev).");
+  }
+
   let res: Response;
   try {
     res = await fetch(`${API_BASE}${path}`, { credentials: "include", ...init });
@@ -106,6 +122,9 @@ function jsonInit(body: unknown): RequestInit {
     body: JSON.stringify(body),
   };
 }
+
+/** Resposta padrão de escritas sem retorno (delete/reorder/logout). */
+const okSchema = z.object({ ok: z.boolean() });
 
 // ---------------------------------------------------------------------------
 // Público (site)
@@ -150,7 +169,7 @@ export async function me(): Promise<AdminUser | null> {
 }
 
 export async function logout(): Promise<void> {
-  await request("/api/auth.php?action=logout", z.object({ ok: z.boolean() }), jsonInit({}));
+  await request("/api/auth.php?action=logout", okSchema, jsonInit({}));
   csrfToken = null;
 }
 
@@ -174,7 +193,7 @@ export async function updateProject(id: number, input: ProjectInput): Promise<Pr
 }
 
 export async function deleteProject(id: number): Promise<void> {
-  await request("/api/projects.php?action=delete", z.object({ ok: z.boolean() }), jsonInit({ id }));
+  await request("/api/projects.php?action=delete", okSchema, jsonInit({ id }));
 }
 
 export async function reorderProjects(ids: number[]): Promise<void> {
@@ -191,8 +210,6 @@ export async function uploadImage(file: File): Promise<string> {
   });
   return data.path;
 }
-
-const okSchema = z.object({ ok: z.boolean() });
 
 // ---------------------------------------------------------------------------
 // Certificados

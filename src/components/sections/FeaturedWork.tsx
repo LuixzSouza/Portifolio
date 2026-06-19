@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { WorkCursor, useCursorFollow } from "@/components/sections/WorkCursor";
+import { WorkCursor } from "@/components/sections/WorkCursor";
+import { useCursorFollow } from "@/hooks/useCursorFollow";
 import { WorkCardMedia } from "@/components/sections/WorkCardMedia";
 import { Container } from "@/components/ds/Container";
 import { Section } from "@/components/ds/Section";

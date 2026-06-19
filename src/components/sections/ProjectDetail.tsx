@@ -4,9 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Linkedin, Maximize2, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Github, Linkedin, Maximize2, X } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { WorkCursor, useCursorFollow } from "@/components/sections/WorkCursor";
+import { WorkCursor } from "@/components/sections/WorkCursor";
+import { useCursorFollow } from "@/hooks/useCursorFollow";
 import { Container } from "@/components/ds/Container";
 import { Section } from "@/components/ds/Section";
 import { Heading } from "@/components/ds/Heading";
@@ -16,6 +17,7 @@ import { LiveProjectButton } from "@/components/ds/LiveProjectButton";
 import { type Projeto } from "@/data/projects";
 import { projetos } from "@/data/projects";
 import { listProjects } from "@/lib/api";
+import { useCmsList } from "@/hooks/useCmsList";
 import { slugify } from "@/lib/slug";
 import { useLocalizedHref } from "@/lib/useLocale";
 import { useTranslations } from "@/content/useTranslations";
@@ -33,34 +35,26 @@ export function ProjectDetail() {
   const reduceMotion = useReducedMotion();
   const id = useSearchParams().get("id");
 
-  // Fallback estático (@/data); substituído pela API quando ela responder.
-  const [items, setItems] = useState(projetos);
+  // Fallback estático (@/data); substituído pela API quando ela responder. Mescla
+  // o conteúdo rico do @/data (resumo/conteúdo/galeria) sobre a base da API por
+  // slug — enquanto a API ainda não carrega esses campos.
+  const items = useCmsList(
+    listProjects,
+    (data) =>
+      data.map((p) => {
+        const local = projetos.find(
+          (lp) => slugify(lp.nome) === p.slug || lp.nome === p.nome,
+        );
+        return local
+          ? { ...p, resumo: local.resumo, conteudo: local.conteudo, galeria: local.galeria }
+          : p;
+      }) as unknown as Projeto[],
+    projetos,
+  );
   // Lightbox da galeria (índice da imagem aberta) + cursor "Visualizar" do hero.
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [heroHover, setHeroHover] = useState(false);
   const { x: cx, y: cy, follow: heroFollow } = useCursorFollow();
-  useEffect(() => {
-    let active = true;
-    listProjects()
-      .then((data) => {
-        if (!active || data.length === 0) return;
-        // Mescla o conteúdo rico do @/data (resumo/conteúdo/galeria) sobre a
-        // base da API por slug — enquanto a API ainda não carrega esses campos.
-        const merged = data.map((p) => {
-          const local = projetos.find(
-            (lp) => slugify(lp.nome) === p.slug || lp.nome === p.nome,
-          );
-          return local
-            ? { ...p, resumo: local.resumo, conteudo: local.conteudo, galeria: local.galeria }
-            : p;
-        });
-        setItems(merged as unknown as Projeto[]);
-      })
-      .catch(() => {});
-    return () => {
-      active = false;
-    };
-  }, []);
 
   const index = id ? items.findIndex((p) => slugify(p.nome) === id) : -1;
   const project = index >= 0 ? items[index] : undefined;

@@ -3,9 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: 'export',
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   // Dev e build usam diretórios de cache separados para não se corromperem.
   // Antes, `next build` sobrescrevia o `.next` que o `next dev` usava, e ao
   // voltar pro dev quebrava com "Cannot find module './XYZ.js'".

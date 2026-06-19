@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useCursorFollow } from "@/hooks/useCursorFollow";
 import { Container } from "@/components/ds/Container";
 import { Section } from "@/components/ds/Section";
 import { Heading } from "@/components/ds/Heading";
@@ -22,17 +23,7 @@ export function Certificates({ items: initial = certificates }: { items?: Certif
   const loc = useLocalizedHref();
   const items = useCertificates(initial);
   const [active, setActive] = useState<number | null>(null);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
-  const x = useSpring(mouseX, springConfig);
-  const y = useSpring(mouseY, springConfig);
-
-  function follow(e: MouseEvent) {
-    mouseX.set(e.clientX);
-    mouseY.set(e.clientY);
-  }
+  const { x, y, follow } = useCursorFollow({ damping: 25, stiffness: 200, mass: 0.5 });
 
   return (
     <Section id="certificados" className="border-t border-foreground/10">

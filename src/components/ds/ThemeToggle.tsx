@@ -1,13 +1,12 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 import { useTransition } from "./TransitionProvider";
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const { theme, toggleTheme } = useTheme();
   const { run } = useTransition();
-  const reduceMotion = useReducedMotion();
 
   const isDark = theme === "dark";
 

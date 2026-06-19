@@ -19,17 +19,16 @@ import {
 import { BrandMark } from "@/components/layout/BrandMark";
 import { ThemeToggle } from "@/components/ds/ThemeToggle";
 import { useAdmin } from "./AdminProvider";
-import { AdminOverview } from "./AdminOverview";
-import { EnhancedOverview } from "./EnhancedOverview";
+import { Overview } from "./Overview";
 import {
-  EnhancedProjectsManager,
-  EnhancedCertificatesManager,
-  EnhancedTestimonialsManager,
-  EnhancedMilestonesManager,
-  EnhancedSkillsManager,
-  EnhancedServicesManager,
-} from "./enhanced-managers";
-import { EnhancedContentManager } from "./EnhancedContentManager";
+  ProjectsManager,
+  CertificatesManager,
+  TestimonialsManager,
+  MilestonesManager,
+  SkillsManager,
+  ServicesManager,
+} from "./managers";
+import { ContentManager } from "./ContentManager";
 
 type TabId =
   | "overview"
@@ -42,14 +41,14 @@ type TabId =
   | "content";
 
 const TABS: { id: TabId; label: string; icon: LucideIcon; render: (go: (id: TabId) => void) => React.ReactNode }[] = [
-  { id: "overview", label: "Visão geral", icon: LayoutDashboard, render: (go) => <EnhancedOverview onNavigate={(id) => go(id as TabId)} /> },
-  { id: "projects", label: "Projetos", icon: FolderGit2, render: () => <EnhancedProjectsManager /> },
-  { id: "certificates", label: "Certificados", icon: Award, render: () => <EnhancedCertificatesManager /> },
-  { id: "testimonials", label: "Depoimentos", icon: Quote, render: () => <EnhancedTestimonialsManager /> },
-  { id: "milestones", label: "Trajetória", icon: Milestone, render: () => <EnhancedMilestonesManager /> },
-  { id: "skills", label: "Skills", icon: Layers, render: () => <EnhancedSkillsManager /> },
-  { id: "services", label: "Serviços", icon: Briefcase, render: () => <EnhancedServicesManager /> },
-  { id: "content", label: "Conteúdo (Sobre)", icon: FileText, render: () => <EnhancedContentManager /> },
+  { id: "overview", label: "Visão geral", icon: LayoutDashboard, render: (go) => <Overview onNavigate={(id) => go(id as TabId)} /> },
+  { id: "projects", label: "Projetos", icon: FolderGit2, render: () => <ProjectsManager /> },
+  { id: "certificates", label: "Certificados", icon: Award, render: () => <CertificatesManager /> },
+  { id: "testimonials", label: "Depoimentos", icon: Quote, render: () => <TestimonialsManager /> },
+  { id: "milestones", label: "Trajetória", icon: Milestone, render: () => <MilestonesManager /> },
+  { id: "skills", label: "Skills", icon: Layers, render: () => <SkillsManager /> },
+  { id: "services", label: "Serviços", icon: Briefcase, render: () => <ServicesManager /> },
+  { id: "content", label: "Conteúdo (Sobre)", icon: FileText, render: () => <ContentManager /> },
 ];
 
 export function AdminShell() {

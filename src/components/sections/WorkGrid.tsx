@@ -3,7 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Github, Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { WorkCursor, useCursorFollow } from "@/components/sections/WorkCursor";
+import { WorkCursor } from "@/components/sections/WorkCursor";
+import { useCursorFollow } from "@/hooks/useCursorFollow";
+import { useCmsList } from "@/hooks/useCmsList";
 import { WorkCardMedia } from "@/components/sections/WorkCardMedia";
 import { Container } from "@/components/ds/Container";
 import { Section } from "@/components/ds/Section";
@@ -51,37 +53,30 @@ export function WorkGrid() {
   const [query, setQuery] = useState("");
   const [visible, setVisible] = useState(PAGE);
   // Fallback estático (dados de @/data); substituído pela API quando ela responder.
-  const [items, setItems] = useState(projetos);
+  const items = useCmsList(listProjects, (data) => data as unknown as Projeto[], projetos);
   const githubRepos = useGithubRepos();
   const { x, y, follow } = useCursorFollow();
   const [hovering, setHovering] = useState(false);
 
-  useEffect(() => {
-    let active = true;
-    listProjects()
-      .then((data) => {
-        if (active && data.length > 0) setItems(data as unknown as Projeto[]);
-      })
-      .catch(() => {});
-    return () => {
-      active = false;
-    };
-  }, []);
-
   // Junta projetos curados + repos do GitHub num só formato de card.
   const cards = useMemo<GridItem[]>(() => {
-    const local: GridItem[] = items.map((p) => ({
+    const local: GridItem[] = items.map((p) => {
+      // resumo é o texto curto do card; cai para descricao (único campo que a
+      // API fornece, e o que muitos projetos estáticos usam) p/ não ficar vazio.
+      const desc = p.resumo ?? p.descricao;
+      return {
       key: p.nome,
       nome: p.nome,
       image: p.imagem,
       hoverSrc: p.links.verProjeto ? screenshotUrl(p.links.verProjeto) : undefined,
-      desc: p.resumo ? pickText(p.resumo, lang) : undefined,
+      desc: desc ? pickText(desc, lang) : undefined,
       techs: p.tecnologias,
       href: `/project?id=${slugify(p.nome)}`,
       external: false,
       isGithub: false,
       live: Boolean(p.links.verProjeto),
-    }));
+      };
+    });
     const github: GridItem[] = githubRepos.map((r) => ({
       key: `gh-${r.name}`,
       nome: r.name,

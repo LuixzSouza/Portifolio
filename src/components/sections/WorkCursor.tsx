@@ -1,22 +1,7 @@
 "use client";
 
-import { type MouseEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useMotionValue, useSpring, type MotionValue } from "framer-motion";
-
-/** Motion values que seguem o cursor (com mola) + handler de onMouseMove. */
-export function useCursorFollow() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const spring = { damping: 22, stiffness: 350, mass: 0.4 };
-  const x = useSpring(mouseX, spring);
-  const y = useSpring(mouseY, spring);
-  const follow = (e: MouseEvent) => {
-    mouseX.set(e.clientX);
-    mouseY.set(e.clientY);
-  };
-  return { x, y, follow };
-}
+import { motion, type MotionValue } from "framer-motion";
 
 /**
  * Disco translúcido com blur ("Visualizar") que segue o cursor sobre os cards

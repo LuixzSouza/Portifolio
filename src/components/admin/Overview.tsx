@@ -1,11 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import {
   Search,
   TrendingUp,
-  Clock,
+  Layers,
   Eye,
   EyeOff,
   Plus,
@@ -15,6 +14,10 @@ import {
   ArrowRight,
   FolderGit2,
   Award,
+  Quote,
+  Milestone as MilestoneIcon,
+  Briefcase,
+  type LucideIcon,
 } from "lucide-react";
 import {
   ApiError,
@@ -27,26 +30,35 @@ import {
 } from "@/lib/api";
 import type { Project } from "@/lib/schemas/project";
 import type { Certificate } from "@/lib/schemas/certificate";
+import type { Testimonial } from "@/lib/schemas/testimonial";
+import type { Milestone } from "@/lib/schemas/milestone";
+import type { SkillGroup } from "@/lib/schemas/skill";
+import type { Service } from "@/lib/schemas/service";
 import { useAdmin } from "./AdminProvider";
 import { PreviewCard, PreviewGrid, type PreviewData } from "./PreviewCard";
-
-interface Stats {
-  total: number;
-  published: number;
-  draft: number;
-  recent: number; // últimos 7 dias
-}
 
 interface EntityData {
   projects: Project[];
   certificates: Certificate[];
-  // outros tipos virão aqui
+  testimonials: Testimonial[];
+  milestones: Milestone[];
+  skills: SkillGroup[];
+  services: Service[];
 }
+
+const QUICK_ACTIONS: { id: string; label: string; icon: LucideIcon }[] = [
+  { id: "projects", label: "Projetos", icon: FolderGit2 },
+  { id: "certificates", label: "Certificados", icon: Award },
+  { id: "testimonials", label: "Depoimentos", icon: Quote },
+  { id: "milestones", label: "Trajetória", icon: MilestoneIcon },
+  { id: "skills", label: "Skills", icon: Layers },
+  { id: "services", label: "Serviços", icon: Briefcase },
+];
 
 type ViewMode = "grid" | "list";
 type FilterType = "all" | "published" | "draft";
 
-export function EnhancedOverview({ onNavigate }: { onNavigate: (id: string) => void }) {
+export function Overview({ onNavigate }: { onNavigate: (id: string) => void }) {
   const { user } = useAdmin();
   const [data, setData] = useState<Partial<EntityData>>({});
   const [loading, setLoading] = useState(true);
@@ -70,11 +82,7 @@ export function EnhancedOverview({ onNavigate }: { onNavigate: (id: string) => v
       listAllServices(),
     ])
       .then(([projects, certificates, testimonials, milestones, skills, services]) => {
-        setData({
-          projects,
-          certificates,
-          // adicionar outros conforme necessário
-        });
+        setData({ projects, certificates, testimonials, milestones, skills, services });
       })
       .catch((e: unknown) =>
         setError(e instanceof ApiError ? e.message : "Erro ao carregar os dados.")
@@ -84,10 +92,29 @@ export function EnhancedOverview({ onNavigate }: { onNavigate: (id: string) => v
 
   useEffect(() => load(), [load]);
 
-  // Calcula estatísticas
-  const stats: Record<string, Stats> = {
-    projects: calculateStats(data.projects || []),
-    certificates: calculateStats(data.certificates || []),
+  // Estatísticas agregadas de TODAS as entidades. As que têm `publicado`
+  // (tudo menos grupos de skills) entram em publicados/rascunhos; skills contam
+  // só no total (estão sempre visíveis).
+  const withPublished = [
+    ...(data.projects ?? []),
+    ...(data.certificates ?? []),
+    ...(data.testimonials ?? []),
+    ...(data.milestones ?? []),
+    ...(data.services ?? []),
+  ];
+  const skillsCount = (data.skills ?? []).length;
+  const totalItems = withPublished.length + skillsCount;
+  const publishedItems = withPublished.filter((i) => i.publicado).length;
+  const draftItems = withPublished.length - publishedItems;
+
+  // Contagem por entidade para os atalhos.
+  const counts: Record<string, number> = {
+    projects: (data.projects ?? []).length,
+    certificates: (data.certificates ?? []).length,
+    testimonials: (data.testimonials ?? []).length,
+    milestones: (data.milestones ?? []).length,
+    skills: skillsCount,
+    services: (data.services ?? []).length,
   };
 
   // Converte projetos para preview data
@@ -144,14 +171,14 @@ export function EnhancedOverview({ onNavigate }: { onNavigate: (id: string) => v
           <StatCard
             icon={<TrendingUp className="h-5 w-5" />}
             label="Total de itens"
-            value={stats.projects.total + stats.certificates.total}
-            subtitle={`${stats.projects.published + stats.certificates.published} publicados`}
+            value={totalItems}
+            subtitle="Em todas as coleções"
             loading={loading}
           />
           <StatCard
             icon={<Eye className="h-5 w-5" />}
             label="Publicados"
-            value={stats.projects.published + stats.certificates.published}
+            value={publishedItems}
             subtitle="Visíveis no site"
             loading={loading}
             variant="success"
@@ -159,16 +186,16 @@ export function EnhancedOverview({ onNavigate }: { onNavigate: (id: string) => v
           <StatCard
             icon={<EyeOff className="h-5 w-5" />}
             label="Rascunhos"
-            value={stats.projects.draft + stats.certificates.draft}
-            subtitle="Em desenvolvimento"
+            value={draftItems}
+            subtitle="Ocultos do público"
             loading={loading}
             variant="warning"
           />
           <StatCard
-            icon={<Clock className="h-5 w-5" />}
-            label="Recentes"
-            value={stats.projects.recent + stats.certificates.recent}
-            subtitle="Últimos 7 dias"
+            icon={<Layers className="h-5 w-5" />}
+            label="Coleções"
+            value={6}
+            subtitle="Tipos de conteúdo"
             loading={loading}
             variant="info"
           />
@@ -309,26 +336,37 @@ export function EnhancedOverview({ onNavigate }: { onNavigate: (id: string) => v
           </div>
         )}
 
-        {/* Quick Actions */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { id: "projects", label: "Gerenciar Projetos", icon: "🚀" },
-            { id: "certificates", label: "Certificados", icon: "🏆" },
-            { id: "testimonials", label: "Depoimentos", icon: "💭" },
-          ].map((action) => (
-            <button
-              key={action.id}
-              type="button"
-              onClick={() => onNavigate(action.id)}
-              className="group flex items-center justify-between p-4 rounded-2xl border border-foreground/10 bg-surface/50 transition-all hover:border-foreground/20 hover:bg-foreground/5"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{action.icon}</span>
-                <span className="font-medium text-foreground">{action.label}</span>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted transition-transform group-hover:translate-x-1" />
-            </button>
-          ))}
+        {/* Quick Actions — uma por entidade, com contagem real */}
+        <div>
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted">
+            Gerenciar conteúdo
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {QUICK_ACTIONS.map((action) => {
+              const Icon = action.icon;
+              return (
+                <button
+                  key={action.id}
+                  type="button"
+                  onClick={() => onNavigate(action.id)}
+                  className="group flex items-center justify-between rounded-2xl border border-foreground/10 bg-surface/50 p-4 transition-all hover:border-foreground/20 hover:bg-foreground/5"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/5 text-foreground/70">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <div className="text-left">
+                      <span className="block font-medium text-foreground">{action.label}</span>
+                      <span className="text-xs text-muted">
+                        {loading ? "…" : `${counts[action.id] ?? 0} ${counts[action.id] === 1 ? "item" : "itens"}`}
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowRight className="h-4 w-4 text-muted transition-transform group-hover:translate-x-1" />
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
@@ -384,15 +422,6 @@ function StatCard({
 }
 
 // Helper Functions
-function calculateStats<T extends { publicado: boolean }>(items: T[]): Stats {
-  const total = items.length;
-  const published = items.filter(item => item.publicado).length;
-  const draft = total - published;
-  const recent = 0; // TODO: implementar baseado em data de criação
-
-  return { total, published, draft, recent };
-}
-
 function projectToPreview(project: Project): PreviewData {
   return {
     title: project.nome,

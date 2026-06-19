@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X, User, FolderOpen, MessageCircle, ArrowRight } from "lucide-react";
+import { User, FolderOpen, MessageCircle, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ds/Container";
 import { ArrowButton } from "@/components/ds/ArrowButton";
 import { AnimatedLink } from "@/components/ds/AnimatedLink";
@@ -85,7 +85,6 @@ export function SiteHeader() {
   const { user } = useAdmin();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
   const { vibrate } = useHaptic();
 
   const locale = localeFromPath(pathname);
@@ -141,23 +140,22 @@ export function SiteHeader() {
             const active = isActive(item.href);
             return (
               <span key={item.href} className="relative flex items-center">
+                <AnimatedLink
+                  href={href(item.href)}
+                  effect="roll"
+                  className="text-sm"
+                  aria-current={active ? "page" : undefined}
+                >
+                  {t.nav[item.key]}
+                </AnimatedLink>
                 {active && (
                   <motion.span
-                    layoutId="nav-active-dot"
+                    layoutId="nav-active-underline"
                     aria-hidden
-                    className="absolute -left-3.5 h-1.5 w-1.5 rounded-full bg-foreground"
+                    className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] rounded-full bg-foreground"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                <span
-                  className={`transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                    active ? "translate-x-1" : "translate-x-0"
-                  }`}
-                >
-                  <AnimatedLink href={href(item.href)} effect="roll" active={active} className="text-sm">
-                    {t.nav[item.key]}
-                  </AnimatedLink>
-                </span>
               </span>
             );
           })}
@@ -385,11 +383,7 @@ export function SiteHeader() {
                   href={href(item.href)}
                   onClick={() => {
                     vibrate([40]); // Haptic feedback no card
-                    setIsClosing(true);
-                    setTimeout(() => {
-                      setOpen(false);
-                      setIsClosing(false);
-                    }, 300);
+                    setTimeout(() => setOpen(false), 300);
                   }}
                   aria-current={active ? "page" : undefined}
                   className="group relative block"

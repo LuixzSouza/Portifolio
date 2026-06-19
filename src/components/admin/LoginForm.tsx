@@ -78,7 +78,7 @@ export function LoginForm() {
     try {
       await logout();
       setShowLoggedInView(false);
-    } catch (err) {
+    } catch {
       setError("Erro ao fazer logout.");
     } finally {
       setBusy(false);

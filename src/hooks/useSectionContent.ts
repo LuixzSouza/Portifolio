@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { getContent } from "@/lib/api";
+import { cmsCoversLocale } from "@/lib/locales";
+import { useLocale } from "@/lib/useLocale";
 import type { ContentMap } from "@/lib/schemas/content";
 
 /**
@@ -12,8 +14,10 @@ import type { ContentMap } from "@/lib/schemas/content";
  */
 export function useSectionContent(): ContentMap | null {
   const [content, setContent] = useState<ContentMap | null>(null);
+  const locale = useLocale();
 
   useEffect(() => {
+    if (!cmsCoversLocale(locale)) return; // idioma sem CMS → mantém o estático
     let active = true;
     getContent()
       .then((map) => {
@@ -23,7 +27,7 @@ export function useSectionContent(): ContentMap | null {
     return () => {
       active = false;
     };
-  }, []);
+  }, [locale]);
 
   return content;
 }
