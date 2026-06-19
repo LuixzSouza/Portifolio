@@ -119,7 +119,7 @@ export function AboutHero() {
                 <Parallax distance={48} className="absolute inset-x-0 -inset-y-[12%]">
                   <div className="relative h-full w-full">
                     <Image
-                      src="/image/MySelf.webp"
+                      src="/image/fotosobre.webp"
                       alt="Retrato de Luiz Souza"
                       fill
                       priority

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Container } from "@/components/ds/Container";
 import { Section } from "@/components/ds/Section";
 import { Heading } from "@/components/ds/Heading";
@@ -23,6 +23,18 @@ export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [focused, setFocused] = useState<ContactField>(null);
   const [hovered, setHovered] = useState<string | null>(null);
+  const [attempted, setAttempted] = useState(false);
+
+  const nomeRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const mensagemRef = useRef<HTMLTextAreaElement>(null);
+
+  const emailValid = /\S+@\S+\.\S+/.test(form.email.trim());
+  const invalid = {
+    nome: attempted && !form.nome.trim(),
+    email: attempted && (!form.email.trim() || !emailValid),
+    mensagem: attempted && !form.mensagem.trim(),
+  };
 
   const channels = [
     { key: "email", label: t.contact.channelEmail, value: "ola@luixzsouza.com.br", href: "mailto:ola@luixzsouza.com.br" },
@@ -68,13 +80,30 @@ export function ContactForm() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!form.nome || !form.email || !form.mensagem) {
+    setAttempted(true);
+
+    // Valida e leva o foco direto ao primeiro campo com problema.
+    if (!form.nome.trim()) {
       setStatus("error");
+      nomeRef.current?.focus();
       return;
     }
+    if (!form.email.trim() || !emailValid) {
+      setStatus("error");
+      emailRef.current?.focus();
+      return;
+    }
+    if (!form.mensagem.trim()) {
+      setStatus("error");
+      mensagemRef.current?.focus();
+      return;
+    }
+
     setStatus("loading");
     try {
-      const res = await fetch("php/sendEmail.php", {
+      // URL absoluta: o backend vive em /php (mesma origem). Relativo quebrava
+      // nas rotas por idioma (/pt/contact → /pt/php/sendEmail.php, inexistente).
+      const res = await fetch("/php/sendEmail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -165,6 +194,7 @@ export function ContactForm() {
               <label className="flex flex-col gap-2">
                 <span className="text-sm font-medium text-muted">{t.contact.nameLabel}</span>
                 <input
+                  ref={nomeRef}
                   type="text"
                   name="nome"
                   value={form.nome}
@@ -173,13 +203,15 @@ export function ContactForm() {
                   onBlur={() => setFocused(null)}
                   placeholder={t.contact.namePlaceholder}
                   disabled={loading}
-                  className={FIELD_CLASS}
+                  aria-invalid={invalid.nome}
+                  className={`${FIELD_CLASS} ${invalid.nome ? "border-red-500/60 focus:border-red-500/60" : ""}`}
                 />
               </label>
 
               <label className="flex flex-col gap-2">
                 <span className="text-sm font-medium text-muted">{t.contact.emailLabel}</span>
                 <input
+                  ref={emailRef}
                   type="email"
                   name="email"
                   value={form.email}
@@ -188,13 +220,15 @@ export function ContactForm() {
                   onBlur={() => setFocused(null)}
                   placeholder={t.contact.emailPlaceholder}
                   disabled={loading}
-                  className={FIELD_CLASS}
+                  aria-invalid={invalid.email}
+                  className={`${FIELD_CLASS} ${invalid.email ? "border-red-500/60 focus:border-red-500/60" : ""}`}
                 />
               </label>
 
               <label className="flex flex-col gap-2">
                 <span className="text-sm font-medium text-muted">{t.contact.messageLabel}</span>
                 <textarea
+                  ref={mensagemRef}
                   name="mensagem"
                   value={form.mensagem}
                   onChange={(e) => update("mensagem", e.target.value)}
@@ -203,7 +237,8 @@ export function ContactForm() {
                   placeholder={t.contact.messagePlaceholder}
                   rows={5}
                   disabled={loading}
-                  className={`${FIELD_CLASS} resize-none`}
+                  aria-invalid={invalid.mensagem}
+                  className={`${FIELD_CLASS} resize-none ${invalid.mensagem ? "border-red-500/60 focus:border-red-500/60" : ""}`}
                 />
               </label>
 
@@ -218,12 +253,14 @@ export function ContactForm() {
                       {t.contact.success}
                     </Text>
                   )}
-                  {status === "error" && (
-                    <Text size="sm" tone="muted">
+                </div>
+                {status === "error" && (
+                  <div role="alert">
+                    <Text size="sm" className="text-red-600">
                       {t.contact.error}
                     </Text>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </form>
           </Reveal>

@@ -43,7 +43,7 @@ export default async function Home({
         alternateName: SITE.name,
         url: SITE.url,
         jobTitle: SITE.jobTitle,
-        image: `${SITE.url}/image/MySelf.webp`,
+        image: `${SITE.url}/image/fotoformal.webp`,
         email: `mailto:${SITE.email}`,
         sameAs,
         nationality: "Brazil",

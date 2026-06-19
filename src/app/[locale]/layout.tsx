@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { LanguageProvider } from "@/components/ds/LanguageProvider";
+import { LocaleFlash } from "@/components/ds/LocaleFlash";
 import { TransitionProvider } from "@/components/ds/TransitionProvider";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SkipLink } from "@/components/layout/SkipLink";
@@ -36,6 +37,7 @@ export default async function LocaleLayout({
       <LanguageProvider initialLang={locale}>
         <TransitionProvider>
           <Preloader />
+          <LocaleFlash />
           <PageTransition />
           <SkipLink />
           <SiteHeader />

@@ -2,9 +2,11 @@
 
 import { Loader2 } from "lucide-react";
 import { AdminProvider, useAdmin } from "./AdminProvider";
+import { AdminToastProvider } from "./Toast";
 import { LoginForm } from "./LoginForm";
 import { AdminShell } from "./AdminShell";
 import { BrandMark } from "@/components/layout/BrandMark";
+import { TransitionProvider } from "@/components/ds/TransitionProvider";
 
 function AdminGate() {
   const { user, loading } = useAdmin();
@@ -25,9 +27,13 @@ function AdminGate() {
 export function AdminApp() {
   return (
     <AdminProvider>
-      <div className="fixed inset-0 z-[55] overflow-y-auto bg-background text-foreground">
-        <AdminGate />
-      </div>
+      <AdminToastProvider>
+        <TransitionProvider>
+          <div className="fixed inset-0 z-[55] overflow-y-auto bg-background text-foreground">
+            <AdminGate />
+          </div>
+        </TransitionProvider>
+      </AdminToastProvider>
     </AdminProvider>
   );
 }

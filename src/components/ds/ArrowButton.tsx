@@ -65,11 +65,13 @@ export function ArrowButton({
           className="pointer-events-none absolute inset-y-0 left-0 z-20 w-1/4 animate-shine bg-gradient-to-r from-transparent via-background/30 to-transparent group-hover:[animation-play-state:paused]"
         />
       )}
-      {/* Círculo que cresce a partir da seta e engole o botão */}
+      {/* Círculo que cresce a partir da seta e engole o botão. transform-gpu +
+          will-change promovem a camada antes do hover → escala composta, sem
+          repintar a cada frame (corrige a "travada" no início do hover). */}
       <span
         aria-hidden
         className={twMerge(
-          "pointer-events-none absolute top-1/2 z-0 -translate-y-1/2 scale-100 rounded-full",
+          "pointer-events-none absolute top-1/2 z-0 -translate-y-1/2 scale-100 rounded-full transform-gpu [backface-visibility:hidden] will-change-transform",
           s.badge,
           s.edge,
           isSolid ? "bg-background" : "bg-foreground",

@@ -298,4 +298,3 @@ public/                # imagens, backgrounds, ícones
   (conteúdo da nova página sobe/aparece) e indicador ativo no header que desliza
   lateralmente (motion layoutId). Marca compartilhada em components/layout/BrandMark.
   SiteHeader fecha o menu mobile no change de pathname (a navegação é interceptada).
-

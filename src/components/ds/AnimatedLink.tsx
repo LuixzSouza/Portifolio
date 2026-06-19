@@ -52,12 +52,15 @@ export function AnimatedLink({
           />
         </span>
       ) : (
-        <span className="relative inline-block">
+        // overflow-hidden corta o overshoot horizontal do ease elástico (o traço
+        // passa de 100% e "vazava" pra fora do texto). pb-[3px] dá o respiro pro
+        // sublinhado morar DENTRO da caixa recortada (bottom-0), sem ser cortado.
+        <span className="relative inline-block overflow-hidden pb-[3px]">
           {children}
           {/* Sublinhado: aparece no hover e fica fixo quando é a página ativa */}
           <span
             aria-hidden
-            className={`absolute -bottom-0.5 left-0 h-[1.5px] w-full bg-current transition-transform duration-500 ${SPRING_EASE} ${
+            className={`absolute bottom-0 left-0 h-[1.5px] w-full bg-current transition-transform duration-500 ${SPRING_EASE} ${
               active
                 ? "origin-left scale-x-100"
                 : "origin-right scale-x-0 group-hover:origin-left group-hover:scale-x-100"
@@ -66,20 +69,18 @@ export function AnimatedLink({
         </span>
       )}
 
-      {/* Seta com efeito de gaveta usando CSS Grid */}
+      {/* Seta em "gaveta": a coluna do grid abre de 0fr→1fr revelando o ícone.
+          O gap (ml-1.5) fica DENTRO do overflow-hidden, então abre junto com a
+          seta — sem animar margin no texto (evita reflow/travada no hover). */}
       {withArrow && (
-        <div
+        <span
           aria-hidden
-          className={`grid transition-all duration-500 ${SPRING_EASE} ml-0 grid-cols-[0fr] opacity-0 group-hover:ml-1.5 group-hover:grid-cols-[1fr] group-hover:opacity-100`}
+          className={`grid grid-cols-[0fr] opacity-0 transition-[grid-template-columns,opacity] duration-500 ${SPRING_EASE} group-hover:grid-cols-[1fr] group-hover:opacity-100`}
         >
-          <div className="flex items-center overflow-hidden">
-            {/* O ícone desliza da esquerda para a direita (como se saísse de dentro da palavra) */}
-            <ArrowRight
-              className={`h-4 w-4 -translate-x-full text-current transition-transform duration-500 ${SPRING_EASE} group-hover:translate-x-0`}
-              strokeWidth={2}
-            />
-          </div>
-        </div>
+          <span className="flex items-center overflow-hidden">
+            <ArrowRight className="ml-1.5 h-4 w-4 text-current" strokeWidth={2} />
+          </span>
+        </span>
       )}
     </a>
   );

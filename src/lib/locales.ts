@@ -41,6 +41,19 @@ export const DEFAULT_LOCALE: Lang = "pt";
 /** Ordem de fallback quando um idioma não tem tradução. */
 export const FALLBACK_CHAIN: Lang[] = ["en", "pt"];
 
+/**
+ * Idiomas cobertos pelo CMS (backend PHP é bilíngue). Os demais existem só no
+ * conteúdo estático (@/data), que tem os 13 idiomas. Por isso os componentes só
+ * substituem o estático pelos dados da API quando o idioma atual é coberto —
+ * senão um /fr, /de… cairia para pt/en ao carregar a API. Ver cmsCoversLocale.
+ */
+export const CMS_LOCALES: Lang[] = ["pt", "en"];
+
+/** Se o CMS (API) tem tradução para o idioma; senão, manter o estático rico. */
+export function cmsCoversLocale(lang: Lang): boolean {
+  return CMS_LOCALES.includes(lang);
+}
+
 export const LOCALE_CODES: Lang[] = LOCALES.map((l) => l.code);
 
 const LOCALE_BY_CODE = new Map<string, LocaleMeta>(LOCALES.map((l) => [l.code, l]));

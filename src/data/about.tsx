@@ -92,12 +92,13 @@ export interface GalleryItem {
  * para as fotos aparecerem.
  */
 export const aboutGallery: GalleryItem[] = [
-  { caption: { pt: "Família", en: "Family", es: "Familia", fr: "Famille", de: "Familie", it: "Famiglia", zh: "家庭", ja: "家族", ru: "Семья", ar: "العائلة", hi: "परिवार", ko: "가족", id: "Keluarga" } },
-  { caption: { pt: "Na estrada", en: "On the road", es: "En el camino", fr: "Sur la route", de: "Unterwegs", it: "In viaggio", zh: "在路上", ja: "道中で", ru: "В дороге", ar: "في الطريق", hi: "सड़क पर", ko: "길 위에서", id: "Di jalan" } },
-  { caption: { pt: "Games", en: "Games", es: "Juegos", fr: "Jeux", de: "Spiele", it: "Giochi", zh: "游戏", ja: "ゲーム", ru: "Игры", ar: "الألعاب", hi: "खेल", ko: "게임", id: "Permainan" } },
-  { caption: { pt: "Café & código", en: "Coffee & code", es: "Café & código", fr: "Café & code", de: "Kaffee & Code", it: "Caffè & codice", zh: "咖啡和代码", ja: "コーヒーとコード", ru: "Кофе и код", ar: "القهوة والكود", hi: "कॉफी और कोड", ko: "커피 & 코드", id: "Kopi & kode" } },
-  { caption: { pt: "Natureza", en: "Outdoors", es: "Naturaleza", fr: "Nature", de: "Natur", it: "Natura", zh: "自然", ja: "自然", ru: "Природа", ar: "الطبيعة", hi: "प्रकृति", ko: "자연", id: "Alam" } },
-  { caption: { pt: "Música", en: "Music", es: "Música", fr: "Musique", de: "Musik", it: "Musica", zh: "音乐", ja: "音楽", ru: "Музыка", ar: "الموسيقى", hi: "संगीत", ko: "음악", id: "Musik" } },
+  { src: "/image/familia.webp", caption: { pt: "Família", en: "Family", es: "Familia", fr: "Famille", de: "Familie", it: "Famiglia", zh: "家庭", ja: "家族", ru: "Семья", ar: "العائلة", hi: "परिवार", ko: "가족", id: "Keluarga" } },
+  { src: "/image/cachorro.webp", caption: { pt: "Meu cachorro", en: "My dog", es: "Mi perro", fr: "Mon chien", de: "Mein Hund", it: "Il mio cane", zh: "我的狗", ja: "私の犬", ru: "Моя собака", ar: "كلبي", hi: "मेरा कुत्ता", ko: "내 강아지", id: "Anjing saya" } },
+  { src: "/image/estrada.webp", caption: { pt: "Na estrada", en: "On the road", es: "En el camino", fr: "Sur la route", de: "Unterwegs", it: "In viaggio", zh: "在路上", ja: "道中で", ru: "В дороге", ar: "في الطريق", hi: "सड़क पर", ko: "길 위에서", id: "Di jalan" } },
+  { src: "/image/gamer.webp", caption: { pt: "Games", en: "Games", es: "Juegos", fr: "Jeux", de: "Spiele", it: "Giochi", zh: "游戏", ja: "ゲーム", ru: "Игры", ar: "الألعاب", hi: "खेल", ko: "게임", id: "Permainan" } },
+  { src: "/image/cafe.webp", caption: { pt: "Café & código", en: "Coffee & code", es: "Café & código", fr: "Café & code", de: "Kaffee & Code", it: "Caffè & codice", zh: "咖啡和代码", ja: "コーヒーとコード", ru: "Кофе и код", ar: "القهوة والكود", hi: "कॉफी और कोड", ko: "커피 & 코드", id: "Kopi & kode" } },
+  { src: "/image/natureza.webp", caption: { pt: "Natureza", en: "Outdoors", es: "Naturaleza", fr: "Nature", de: "Natur", it: "Natura", zh: "自然", ja: "自然", ru: "Природа", ar: "الطبيعة", hi: "प्रकृति", ko: "자연", id: "Alam" } },
+  { src: "/image/musica.webp", caption: { pt: "Música", en: "Music", es: "Música", fr: "Musique", de: "Musik", it: "Musica", zh: "音乐", ja: "音楽", ru: "Музыка", ar: "الموسيقى", hi: "संगीत", ko: "음악", id: "Musik" } },
 ];
 
 export const storyParagraphs: LocalizedList = {

@@ -60,7 +60,7 @@ export function Preloader() {
       aria-hidden
       initial={{ y: 0 }}
       animate={controls}
-      className="fixed inset-0 z-[110] flex flex-col items-center justify-center bg-[#0a0a0a] text-white"
+      className="fixed inset-0 z-[110] flex flex-col items-center justify-center gap-7 bg-[#0a0a0a] text-white"
     >
       <motion.div
         initial={{ y: 18, opacity: 0 }}
@@ -70,18 +70,12 @@ export function Preloader() {
         <BrandMark className="text-5xl md:text-7xl" />
       </motion.div>
 
-      {/* Barra de progresso + contador no rodapé. */}
-      <div className="absolute inset-x-6 bottom-8 flex items-end justify-between md:inset-x-12 md:bottom-12">
-        <div className="h-px w-2/3 max-w-md overflow-hidden bg-white/15">
-          <div
-            className="h-full bg-white"
-            style={{ width: `${count}%`, transition: "width 80ms linear" }}
-          />
-        </div>
-        <span className="font-roobert text-4xl font-semibold tabular-nums md:text-6xl">
-          {count}
-          <span className="text-white/35">%</span>
-        </span>
+      {/* Linha fina de progresso sob a marca — sem contador. */}
+      <div className="h-px w-40 overflow-hidden bg-white/15 md:w-56">
+        <div
+          className="h-full bg-white"
+          style={{ width: `${count}%`, transition: "width 80ms linear" }}
+        />
       </div>
     </motion.div>
   );

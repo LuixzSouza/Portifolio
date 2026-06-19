@@ -10,19 +10,15 @@ import {
 } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
-type Variant = "curtain" | "theme" | "lang";
+type Variant = "curtain" | "theme";
 
 interface RunOptions {
-  /** Tipo de transição: cortina padrão, círculo de tema ou painel de idioma. */
+  /** Tipo de transição: cortina padrão ou círculo de tema. */
   variant?: Variant;
   /** Ponto de origem (px na viewport) do círculo de tema. */
   origin?: { x: number; y: number };
   /** Tema de destino — define a cor do círculo. */
   toTheme?: "dark" | "light";
-  /** Rótulo grande exibido na transição de idioma. */
-  label?: string;
-  /** Bandeira (emoji) exibida na transição de idioma. */
-  flag?: string;
 }
 
 interface TransitionContextValue {
@@ -45,14 +41,11 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   const curtain = useAnimationControls();
   const circle = useAnimationControls();
   const themeIcon = useAnimationControls();
-  const langPanel = useAnimationControls();
   const busy = useRef(false);
 
   const [circleColor, setCircleColor] = useState<string>(BG.dark);
   const [iconTheme, setIconTheme] = useState<"dark" | "light">("dark");
   const [iconAt, setIconAt] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  const [langLabel, setLangLabel] = useState("");
-  const [langFlag, setLangFlag] = useState("");
 
   const run = useCallback(
     (apply: () => void, opts?: RunOptions) => {
@@ -102,20 +95,6 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
           await sleep(260);
           await circle.start({ opacity: 0, transition: { duration: 0.45, ease: "easeOut" } });
           circle.set({ clipPath: "circle(0px at 50% 50%)" });
-        } else if (variant === "lang") {
-          // Painel horizontal entra da direção correta: PT da direita, EN da esquerda.
-          const isPortuguese = opts?.label?.includes("Português");
-          const startPosition = isPortuguese ? "100%" : "-100%";
-          const exitPosition = isPortuguese ? "-100%" : "100%";
-
-          setLangLabel(opts?.label ?? "");
-          setLangFlag(opts?.flag ?? "");
-          langPanel.set({ x: startPosition });
-          await langPanel.start({ x: "0%", transition: { duration: 0.45, ease: EASE } });
-          apply();
-          await sleep(160);
-          await langPanel.start({ x: exitPosition, transition: { duration: 0.55, ease: EASE } });
-          langPanel.set({ x: startPosition });
         } else {
           // Cortina vertical padrão.
           await curtain.start({ y: "0%", transition: { duration: 0.5, ease: EASE } });
@@ -127,7 +106,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
         busy.current = false;
       })();
     },
-    [curtain, circle, themeIcon, langPanel],
+    [curtain, circle, themeIcon],
   );
 
   return (
@@ -152,179 +131,6 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
         className="pointer-events-none fixed z-[101] -translate-x-1/2 -translate-y-1/2"
       >
         {iconTheme === "dark" ? <MoonGlyph /> : <SunGlyph />}
-      </motion.div>
-
-      {/* Painel de idioma — desliza na horizontal com bandeira + nome do idioma */}
-      <motion.div
-        aria-hidden
-        initial={{ x: "100%" }}
-        animate={langPanel}
-        className="pointer-events-none fixed inset-0 z-[100] flex items-center justify-center bg-background text-foreground overflow-hidden"
-      >
-        {/* Padrão de fundo animado */}
-        <div className="absolute inset-0 opacity-5">
-          <motion.div
-            initial={{ x: "-100%", rotate: 0 }}
-            animate={{ x: "100%", rotate: 360 }}
-            transition={{ duration: 2, ease: "linear", repeat: Infinity }}
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground to-transparent transform scale-[2] -skew-y-12"
-          />
-        </div>
-
-        {/* Elementos decorativos flutuantes */}
-        <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 rounded-full bg-foreground/20"
-              initial={{
-                opacity: 0,
-                scale: 0,
-                x: `${Math.random() * 100}vw`,
-                y: `${Math.random() * 100}vh`
-              }}
-              animate={{
-                opacity: [0, 0.3, 0],
-                scale: [0, 1, 0],
-                x: `${Math.random() * 100}vw`,
-                y: `${Math.random() * 100}vh`
-              }}
-              transition={{
-                duration: 2,
-                ease: "easeInOut",
-                delay: i * 0.1,
-                repeat: Infinity,
-                repeatDelay: 1
-              }}
-            />
-          ))}
-
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={`circle-${i}`}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-foreground/10"
-              style={{
-                width: `${200 + i * 100}px`,
-                height: `${200 + i * 100}px`
-              }}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{
-                scale: [0, 1.2, 1.5],
-                opacity: [0, 0.1, 0]
-              }}
-              transition={{
-                duration: 1.5,
-                ease: "easeOut",
-                delay: 0.2 + i * 0.1
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Conteúdo principal */}
-        <motion.div
-          key={langLabel}
-          initial={{ opacity: 0, y: 24, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.12 }}
-          className="flex flex-col items-center gap-6 relative z-10"
-        >
-          {/* Bandeira com animações */}
-          <motion.div className="relative">
-            <motion.span
-              className="text-8xl drop-shadow-lg md:text-9xl block"
-              animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, 5, -5, 0],
-                filter: [
-                  "drop-shadow(0 0 0 rgba(255,255,255,0))",
-                  "drop-shadow(0 0 20px rgba(255,255,255,0.3))",
-                  "drop-shadow(0 0 0 rgba(255,255,255,0))"
-                ]
-              }}
-              transition={{
-                duration: 2,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatDelay: 0.5
-              }}
-            >
-              {langFlag}
-            </motion.span>
-
-            <motion.div
-              initial={{ scale: 0, rotate: 0 }}
-              animate={{
-                scale: [0.8, 1.2, 1],
-                rotate: [0, 180, 360]
-              }}
-              transition={{
-                duration: 1.2,
-                ease: "easeOut",
-                delay: 0.2
-              }}
-              className="absolute inset-0 rounded-full border-2 border-foreground/20 border-dashed"
-            />
-          </motion.div>
-
-          {/* Nome do idioma */}
-          <div className="relative">
-            <motion.span
-              className="font-serif text-5xl font-normal italic md:text-7xl block relative"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              {langLabel?.split('').map((char, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.4 + i * 0.05,
-                    duration: 0.3,
-                    ease: "easeOut"
-                  }}
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </motion.span>
-
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-              className="absolute -bottom-2 left-0 h-0.5 w-full bg-gradient-to-r from-transparent via-foreground/40 to-transparent origin-left"
-            />
-          </div>
-
-          {/* Indicador de loading */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.3 }}
-            className="flex gap-1"
-          >
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 rounded-full bg-foreground/50"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 1, 0.3]
-                }}
-                transition={{
-                  duration: 0.8,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                  delay: i * 0.2
-                }}
-              />
-            ))}
-          </motion.div>
-        </motion.div>
       </motion.div>
 
       {/* Cortina vertical padrão (fallback) */}

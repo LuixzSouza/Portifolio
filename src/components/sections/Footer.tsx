@@ -82,7 +82,7 @@ export function SectionFooter({ className = "" }: { className?: string }) {
   };
 
   return (
-    <Section as="footer" id="footer" className={`overflow-hidden border-t border-foreground/10 ${className}`}>
+    <Section as="footer" id="footer" className={`overflow-hidden border-t border-foreground/10 pb-10 md:pb-12 lg:pb-16 ${className}`}>
       <Container>
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -182,7 +182,7 @@ export function SectionFooter({ className = "" }: { className?: string }) {
             className="group relative aspect-square w-[clamp(72px,12vw,168px)] shrink-0 overflow-hidden rounded-full border border-foreground/15 bg-surface"
           >
             <Image
-              src="/image/MySelf.webp"
+              src="/image/fotoformal.webp"
               alt="Luiz Souza"
               fill
               sizes="168px"
@@ -192,10 +192,15 @@ export function SectionFooter({ className = "" }: { className?: string }) {
           </motion.div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-foreground/10 pt-8 pb-8 sm:flex-row sm:items-center sm:justify-between">
-          <Text size="sm" tone="muted">
-            © 2021 — {mounted ? year : "2025"} Luiz Antônio de Souza
-          </Text>
+        <div className="mt-10 flex flex-col gap-3 border-t border-foreground/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Text size="sm" tone="muted">
+              © 2021 — {mounted ? year : "2025"} Luiz Antônio de Souza
+            </Text>
+            <AnimatedLink href={href("/styleguide")} className="text-xs text-muted">
+              Styleguide
+            </AnimatedLink>
+          </div>
           <div className="flex items-center gap-2 text-sm">
             <span className="text-muted">{t.footer.madeIn}</span>
             <span aria-hidden className="text-muted/40">·</span>

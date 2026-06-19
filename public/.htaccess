@@ -10,6 +10,13 @@
   RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Admin não tem versão por idioma: /pt/admin (etc.) -> /admin
+  RewriteRule ^(?:pt|en|es|fr|de|it|zh|ja|ru|ar|hi|ko|id)/admin/?$ /admin [R=301,L]
+
+  # Home de cada idioma: /pt -> pt.html (o export NÃO gera pt/index.html;
+  # precisa vir ANTES do teste -d, senão a pasta pt/ sem index dá 403)
+  RewriteRule ^(pt|en|es|fr|de|it|zh|ja|ru|ar|hi|ko|id)/?$ $1.html [L]
+
   # Não processa arquivos que existem (JS, CSS, imagens, etc.)
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
@@ -26,9 +33,11 @@
   # Arquivos especiais (manifest, robots, sitemap)
   RewriteRule ^(manifest\.webmanifest|robots\.txt|sitemap\.xml)$ $1 [L]
 
-  # Protege o diretório PHP do backend (se existir)
-  RewriteCond %{REQUEST_URI} ^/php/
-  RewriteRule !^php/(api|sendEmail)\.php$ - [F]
+  # Protege o backend PHP: bloqueia includes/dados sensíveis,
+  # mas mantém acessíveis os handlers (php/api/*.php e php/sendEmail.php)
+  RewriteRule ^php/api/(db|lib|setup-admin)\.php$ - [F]
+  RewriteRule ^php/config\.php$ - [F]
+  RewriteRule ^php/(sql|PHPMailer)/ - [F]
 
   # Rota raiz -> index.html
   RewriteRule ^$ index.html [L]
@@ -52,6 +61,9 @@
   # Fallback: se .html existe, serve
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^ %{REQUEST_URI}.html [L]
+
+  DirectoryIndex index.html
+
 
   # Se nada encontrado, vai para 404.html
   RewriteRule ^ 404.html [L]

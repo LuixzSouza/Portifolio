@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { motion, useAnimationControls } from "framer-motion";
 import { BrandMark } from "./BrandMark";
 import { useLanguage } from "@/components/ds/LanguageProvider";
@@ -9,6 +9,32 @@ import type { Lang } from "@/components/ds/LanguageProvider";
 
 const EASE = [0.76, 0, 0.24, 1] as const; // expo — encorpado, desacelera no fim
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
+
+/**
+ * Espera a navegação commitar de fato: a URL do navegador só muda para `dest`
+ * quando o Next já carregou o chunk da rota e renderizou. Em dev, o chunk
+ * compila sob demanda (pode levar segundos) — por isso esperamos a URL bater em
+ * vez de um timeout cego, que revelaria a página antiga cedo demais. `maxMs`
+ * destrava a cortina se a navegação falhar.
+ */
+function waitForLocation(dest: string, maxMs = 6000): Promise<void> {
+  return new Promise((resolve) => {
+    const start = performance.now();
+    const tick = () => {
+      const now = window.location.pathname + window.location.search;
+      if (now === dest || performance.now() - start > maxMs) resolve();
+      else requestAnimationFrame(tick);
+    };
+    tick();
+  });
+}
+
+/** Resolve após a nova página ter pintado ao menos um frame (dois rAF). */
+function nextPaint(): Promise<void> {
+  return new Promise((resolve) =>
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+  );
+}
 
 /** Nome humano do destino a partir do pathname (bilíngue). */
 function destLabel(pathname: string, lang: Lang): string {
@@ -44,20 +70,16 @@ export function PageTransition() {
   const back = useAnimationControls();
   const front = useAnimationControls();
   const router = useRouter();
-  const pathname = usePathname();
   const { lang } = useLanguage();
 
   const busy = useRef(false);
   const revealing = useRef(false);
-  const target = useRef<string | null>(null);
   const [info, setInfo] = useState<{ label: string; path: string } | null>(null);
 
   const reveal = useCallback(async () => {
     if (revealing.current) return;
     revealing.current = true;
     window.scrollTo(0, 0);
-    // Deixa a nova página pintar atrás da cortina antes de revelar.
-    await new Promise((r) => setTimeout(r, 80));
     // A cortina da frente sai primeiro (revela a de trás), depois a de trás.
     void front.start({ y: "-100%", transition: { duration: 0.6, ease: EASE } });
     await back.start({ y: "-100%", transition: { duration: 0.6, ease: EASE, delay: 0.1 } });
@@ -65,17 +87,8 @@ export function PageTransition() {
     back.set({ y: "100%" });
     busy.current = false;
     revealing.current = false;
-    target.current = null;
     setInfo(null);
   }, [front, back]);
-
-  // A rota mudou enquanto a cortina cobria → revela a nova página.
-  useEffect(() => {
-    if (busy.current && target.current !== null) {
-      void reveal();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -117,7 +130,6 @@ export function PageTransition() {
       if (busy.current) return;
 
       busy.current = true;
-      target.current = dest;
       setInfo({ label: destLabel(url.pathname, lang), path: url.pathname });
 
       void (async () => {
@@ -125,10 +137,11 @@ export function PageTransition() {
         void back.start({ y: "0%", transition: { duration: 0.5, ease: EASE } });
         await front.start({ y: "0%", transition: { duration: 0.5, ease: EASE, delay: 0.1 } });
         router.push(dest);
-        // Segurança: rotas que mudam só a query (?id=) não disparam o efeito de pathname.
-        setTimeout(() => {
-          if (busy.current) void reveal();
-        }, 800);
+        // Só revela quando a navegação commitou (URL = dest) e a nova página
+        // pintou — evita a cortina subir mostrando a página antiga.
+        await waitForLocation(dest);
+        await nextPaint();
+        void reveal();
       })();
     };
 

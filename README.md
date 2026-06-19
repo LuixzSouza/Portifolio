@@ -37,7 +37,7 @@ npm run dev
     {/* Imagem Pessoal */}
     <section className="flex items-center space-x-4">
       <Image 
-        src="/image/MySelf.jpg" 
+        src="/image/fotoformal.jpg" 
         width={240} 
         height={140} 
         alt="foto luiz" 
