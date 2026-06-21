@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { LocalizedText, LocalizedList } from "@/lib/i18n";
 
 /** Imagem extra da galeria do projeto, com legenda opcional bilíngue. */
