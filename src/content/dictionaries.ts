@@ -17,6 +17,8 @@ export interface Dictionary {
     clearSearch: string;
     selectLanguage: string;
     close: string;
+    source: string;
+    loading: string;
   };
   nav: {
     work: string;
@@ -228,6 +230,8 @@ const pt: Dictionary = {
     clearSearch: "Limpar busca",
     selectLanguage: "Selecionar idioma",
     close: "Fechar",
+    source: "Origem",
+    loading: "Carregando",
   },
   nav: {
     work: "Trabalhos",
@@ -459,6 +463,8 @@ const en: Dictionary = {
     clearSearch: "Clear search",
     selectLanguage: "Select language",
     close: "Close",
+    source: "Source",
+    loading: "Loading",
   },
   nav: {
     work: "Work",
@@ -690,6 +696,8 @@ const es: Dictionary = {
     clearSearch: "Limpiar búsqueda",
     selectLanguage: "Seleccionar idioma",
     close: "Cerrar",
+    source: "Origen",
+    loading: "Cargando",
   },
   nav: {
     work: "Proyectos",
@@ -918,6 +926,8 @@ const fr: Dictionary = {
     clearSearch: "Effacer la recherche",
     selectLanguage: "Choisir la langue",
     close: "Fermer",
+    source: "Source",
+    loading: "Chargement",
   },
   nav: {
     work: "Projets",
@@ -1146,6 +1156,8 @@ const de: Dictionary = {
     clearSearch: "Suche löschen",
     selectLanguage: "Sprache auswählen",
     close: "Schließen",
+    source: "Quelle",
+    loading: "Wird geladen",
   },
   nav: {
     work: "Projekte",
@@ -1374,6 +1386,8 @@ const it: Dictionary = {
     clearSearch: "Cancella ricerca",
     selectLanguage: "Seleziona lingua",
     close: "Chiudi",
+    source: "Origine",
+    loading: "Caricamento",
   },
   nav: {
     work: "Progetti",
@@ -1602,6 +1616,8 @@ const zh: Dictionary = {
     clearSearch: "清除搜索",
     selectLanguage: "选择语言",
     close: "关闭",
+    source: "来源",
+    loading: "加载中",
   },
   nav: {
     work: "作品",
@@ -1830,6 +1846,8 @@ const ja: Dictionary = {
     clearSearch: "検索をクリア",
     selectLanguage: "言語を選択",
     close: "閉じる",
+    source: "ソース",
+    loading: "読み込み中",
   },
   nav: {
     work: "ポートフォリオ",
@@ -2058,6 +2076,8 @@ const ru: Dictionary = {
     clearSearch: "Очистить поиск",
     selectLanguage: "Выбрать язык",
     close: "Закрыть",
+    source: "Источник",
+    loading: "Загрузка",
   },
   nav: {
     work: "Работы",
@@ -2286,6 +2306,8 @@ const ar: Dictionary = {
     clearSearch: "مسح البحث",
     selectLanguage: "اختر اللغة",
     close: "إغلاق",
+    source: "المصدر",
+    loading: "جار التحميل",
   },
   nav: {
     work: "الأعمال",
@@ -2514,6 +2536,8 @@ const hi: Dictionary = {
     clearSearch: "खोज साफ़ करें",
     selectLanguage: "भाषा चुनें",
     close: "बंद करें",
+    source: "स्रोत",
+    loading: "लोड हो रहा है",
   },
   nav: {
     work: "काम",
@@ -2742,6 +2766,8 @@ const ko: Dictionary = {
     clearSearch: "검색 지우기",
     selectLanguage: "언어 선택",
     close: "닫기",
+    source: "출처",
+    loading: "로딩 중",
   },
   nav: {
     work: "작업",
@@ -2970,6 +2996,8 @@ const id: Dictionary = {
     clearSearch: "Hapus pencarian",
     selectLanguage: "Pilih bahasa",
     close: "Tutup",
+    source: "Sumber",
+    loading: "Memuat",
   },
   nav: {
     work: "Pekerjaan",

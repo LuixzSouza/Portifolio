@@ -204,7 +204,7 @@ export function WorkGrid() {
           {/* Segmented control de origem (Sliding Pill) */}
           <div
             role="group"
-            aria-label="Origem"
+            aria-label={t.a11y.source}
             className="inline-flex shrink-0 items-center self-start rounded-full border border-foreground/15 p-1 text-sm font-medium md:self-auto"
           >
             {SOURCES.map((s) => {
