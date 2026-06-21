@@ -176,6 +176,10 @@ export interface Dictionary {
     galleryLabel: string;
     liveLink: string;
     counterLabel: string;
+    /** Labels do caso de estudo (opcionais; fallback EN no componente). */
+    objectivesLabel?: string;
+    challengesLabel?: string;
+    learningsLabel?: string;
   };
   serviceDetail: {
     label: string;
@@ -400,6 +404,9 @@ const pt: Dictionary = {
     galleryLabel: "Galeria",
     liveLink: "Site ao vivo",
     counterLabel: "Projeto",
+    objectivesLabel: "Objetivos",
+    challengesLabel: "Desafios",
+    learningsLabel: "Aprendizados",
   },
   serviceDetail: {
     label: "Serviço",
@@ -624,6 +631,9 @@ const en: Dictionary = {
     galleryLabel: "Gallery",
     liveLink: "Live site",
     counterLabel: "Project",
+    objectivesLabel: "Objectives",
+    challengesLabel: "Challenges",
+    learningsLabel: "What I learned",
   },
   serviceDetail: {
     label: "Service",

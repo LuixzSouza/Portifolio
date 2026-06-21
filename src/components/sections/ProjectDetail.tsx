@@ -126,7 +126,7 @@ export function ProjectDetail() {
     );
   }
 
-  const { nome, imagem, tecnologias, descricao, data, links, resumo, conteudo, galeria } = project;
+  const { nome, imagem, tecnologias, descricao, data, links, resumo, conteudo, galeria, objetivos, desafios, aprendizados } = project;
   const slug = slugify(nome);
   const projectUrl = `${SITE.url}${localizedPath(`/project?id=${slug}`, lang)}`;
   const prevProject = items[(index - 1 + items.length) % items.length];
@@ -345,6 +345,40 @@ export function ProjectDetail() {
                       {paragraph}
                     </motion.p>
                   ))}
+                </div>
+              )}
+
+              {/* Caso de estudo: objetivos / desafios / aprendizados (quando existem) */}
+              {(objetivos || desafios || aprendizados) && (
+                <div className="mt-12 flex flex-col gap-10 md:mt-16">
+                  {[
+                    { label: t.project.objectivesLabel ?? "Objectives", list: objetivos },
+                    { label: t.project.challengesLabel ?? "Challenges", list: desafios },
+                    { label: t.project.learningsLabel ?? "What I learned", list: aprendizados },
+                  ]
+                    .filter((b) => b.list)
+                    .map((b) => (
+                      <div key={b.label} className="flex flex-col gap-4">
+                        <span className="text-xs font-semibold uppercase tracking-widest text-muted">
+                          {b.label}
+                        </span>
+                        <ul className="flex flex-col gap-3">
+                          {pickList(b.list!, lang).map((item, i) => (
+                            <motion.li
+                              key={i}
+                              initial={{ opacity: 0, y: 16 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true, margin: "-80px" }}
+                              transition={{ duration: 0.6, ease: EASE, delay: (i % 4) * 0.05 }}
+                              className="flex gap-3 text-pretty font-roobert text-lg leading-relaxed text-foreground/70 md:text-xl"
+                            >
+                              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" aria-hidden />
+                              <span className="max-w-[58ch]">{item}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                 </div>
               )}
             </motion.div>

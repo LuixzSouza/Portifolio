@@ -154,6 +154,18 @@ const rawProjects = [
                 "Keep the store fast even with many product images (WebP)"
             ]
         },
+        aprendizados: {
+            pt: [
+                "Integrar pagamentos reais (Pix + cartões) exige cuidado com estados de erro e confirmação assíncrona.",
+                "Em e-commerce, performance é conversão: cada imagem otimizada conta.",
+                "Uma navegação por categorias bem pensada reduz a fricção até o checkout."
+            ],
+            en: [
+                "Integrating real payments (Pix + cards) requires care with error states and asynchronous confirmation.",
+                "In e-commerce, performance is conversion: every optimized image counts.",
+                "Well-thought-out category navigation reduces friction all the way to checkout."
+            ]
+        },
         tags: ["e-commerce", "joias", "loja virtual", "next.js", "react"]
     },
     {
@@ -216,6 +228,18 @@ const rawProjects = [
                 "Balance editorial storytelling with store usability",
                 "Implement customer authentication",
                 "Optimize images (WebP) and SEO for performance"
+            ]
+        },
+        aprendizados: {
+            pt: [
+                "Storytelling e usabilidade não competem — uma home editorial pode converter tanto quanto uma loja 'seca'.",
+                "Conteúdo bem estruturado (FAQ, 'Sobre Nós') reduz dúvidas e objeções de compra.",
+                "Otimização de imagens e SEO desde o início evita retrabalho depois."
+            ],
+            en: [
+                "Storytelling and usability don't compete — an editorial home can convert as well as a plain store.",
+                "Well-structured content (FAQ, 'About Us') reduces doubts and purchase objections.",
+                "Optimizing images and SEO from the start avoids rework later."
             ]
         },
         tags: ["e-commerce", "café", "loja virtual", "next.js", "react"]
