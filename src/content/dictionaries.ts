@@ -224,40 +224,40 @@ const pt: Dictionary = {
     cta: "Vamos conversar",
   },
   hero: {
-    badge: "Disponível para projetos",
+    badge: "Disponível para vagas",
     role: "Desenvolvedor",
     typing: ["Full-Stack", "Front-End", "Back-End"],
     tagline:
-      "Eu construo sites e interfaces que carregam rápido, funcionam em qualquer tela e fazem o seu negócio parecer tão bom quanto ele é.",
+      "Desenvolvedor full-stack com foco em front-end. Construo interfaces rápidas, acessíveis e bem-feitas com React, Next.js e TypeScript — do design ao deploy.",
     ctaPrimary: "Vamos conversar",
-    ctaSecondary: "Ver trabalhos",
+    ctaSecondary: "Ver projetos",
     location: "Brasil",
     hint: "Passe o mouse",
   },
   services: {
     eyebrow: "O que eu faço",
-    heading: "Sem jargão. Só resultado que dá pra ver.",
-    text: "Do site simples ao sistema completo — eu cuido do design, do código e da publicação. Você acompanha e recebe pronto pro mundo ver.",
+    heading: "O que eu construo — e com qual stack.",
+    text: "Front-end moderno, back-end e integrações. Da arquitetura ao deploy: código tipado, testado, acessível e pensado para escalar.",
     items: [
       {
-        title: "Sites & Landing Pages",
-        desc: "Sites institucionais e páginas que explicam o seu negócio de forma simples e convencem o visitante a entrar em contato.",
-        tags: ["Design exclusivo", "Carrega rápido", "SEO", "Responsivo"],
+        title: "Front-end & Interfaces",
+        desc: "Interfaces e sites de alta performance com SSR/SSG, Core Web Vitals no verde, acessibilidade e design responsivo.",
+        tags: ["React", "Next.js", "TypeScript", "Tailwind"],
       },
       {
-        title: "Sistemas & Painéis",
-        desc: "Sistemas sob medida para automatizar o seu dia a dia: cadastros, painéis de gestão, relatórios e integrações.",
-        tags: ["Painel admin", "Gestão de dados", "APIs"],
+        title: "Sistemas & APIs",
+        desc: "Aplicações e painéis de gestão completos: autenticação, CRUD, dashboards e APIs REST com banco relacional.",
+        tags: ["Node.js", "PHP", "MySQL", "REST APIs"],
       },
       {
-        title: "Lojas Virtuais",
-        desc: "Lojas online prontas para vender, com pagamento seguro, controle de estoque e foco em conversão.",
-        tags: ["Pagamentos", "Estoque", "Alta conversão"],
+        title: "E-commerce & Integrações",
+        desc: "Lojas e fluxos de checkout com pagamentos, controle de estoque e integrações, focados em conversão e performance.",
+        tags: ["E-commerce", "Pagamentos", "Integrações"],
       },
     ],
     stackLabel: "Tecnologias que domino",
-    ctaText: "Precisa de algo assim? Vamos tirar a ideia do papel.",
-    ctaButton: "Começar um projeto",
+    ctaText: "Quer ver tudo isso em código? Dá uma olhada nos projetos.",
+    ctaButton: "Ver todos os projetos",
   },
   featuredWork: {
     eyebrow: "Trabalhos selecionados",
@@ -448,40 +448,40 @@ const en: Dictionary = {
     cta: "Let's talk",
   },
   hero: {
-    badge: "Available for projects",
+    badge: "Open to work",
     role: "Developer",
     typing: ["Full-Stack", "Front-End", "Back-End"],
     tagline:
-      "I build websites and interfaces that load fast, work on any screen, and make your business look as good as it truly is.",
+      "Full-stack developer with a front-end focus. I build fast, accessible, well-crafted interfaces with React, Next.js and TypeScript — from design to deploy.",
     ctaPrimary: "Let's talk",
-    ctaSecondary: "View work",
+    ctaSecondary: "View projects",
     location: "Brazil",
     hint: "Hover me",
   },
   services: {
     eyebrow: "What I do",
-    heading: "No jargon. Just results you can see.",
-    text: "From a simple website to a full system — I handle the design, the code and the deploy. You follow along and get it ready for the world.",
+    heading: "What I build — and the stack behind it.",
+    text: "Modern front-end, back-end and integrations. From architecture to deploy: typed, tested, accessible code built to scale.",
     items: [
       {
-        title: "Websites & Landing Pages",
-        desc: "Institutional sites and pages that explain your business clearly and convince visitors to get in touch.",
-        tags: ["Custom design", "Fast loading", "SEO", "Responsive"],
+        title: "Front-end & Interfaces",
+        desc: "High-performance interfaces and sites with SSR/SSG, green Core Web Vitals, accessibility and responsive design.",
+        tags: ["React", "Next.js", "TypeScript", "Tailwind"],
       },
       {
-        title: "Systems & Dashboards",
-        desc: "Tailor-made systems to automate your day to day: records, management dashboards, reports and integrations.",
-        tags: ["Admin panel", "Data management", "APIs"],
+        title: "Systems & APIs",
+        desc: "Full applications and management dashboards: authentication, CRUD, dashboards and REST APIs over a relational database.",
+        tags: ["Node.js", "PHP", "MySQL", "REST APIs"],
       },
       {
-        title: "Online Stores",
-        desc: "Online stores ready to sell, with secure payments, stock control and a focus on conversion.",
-        tags: ["Payments", "Stock", "High conversion"],
+        title: "E-commerce & Integrations",
+        desc: "Stores and checkout flows with payments, stock control and integrations, focused on conversion and performance.",
+        tags: ["E-commerce", "Payments", "Integrations"],
       },
     ],
     stackLabel: "Technologies I master",
-    ctaText: "Need something like this? Let's bring the idea to life.",
-    ctaButton: "Start a project",
+    ctaText: "Want to see all of this in code? Take a look at the projects.",
+    ctaButton: "View all projects",
   },
   featuredWork: {
     eyebrow: "Selected work",
@@ -672,7 +672,7 @@ const es: Dictionary = {
     cta: "Hablemos",
   },
   hero: {
-    badge: "Disponible para proyectos",
+    badge: "Disponible para empleo",
     role: "Desarrollador",
     typing: ["Full-Stack", "Front-End", "Back-End"],
     tagline:
@@ -896,7 +896,7 @@ const fr: Dictionary = {
     cta: "Parlons ensemble",
   },
   hero: {
-    badge: "Disponible pour les projets",
+    badge: "Ouvert aux opportunités",
     role: "Développeur",
     typing: ["Full-Stack", "Front-End", "Back-End"],
     tagline:
@@ -1120,7 +1120,7 @@ const de: Dictionary = {
     cta: "Lass uns sprechen",
   },
   hero: {
-    badge: "Verfügbar für Projekte",
+    badge: "Offen für neue Stellen",
     role: "Entwickler",
     typing: ["Full-Stack", "Front-End", "Back-End"],
     tagline:
@@ -1344,7 +1344,7 @@ const it: Dictionary = {
     cta: "Parliamone",
   },
   hero: {
-    badge: "Disponibile per nuovi progetti",
+    badge: "Aperto a nuove opportunità",
     role: "Sviluppatore",
     typing: ["Full-Stack", "Front-End", "Back-End"],
     tagline:
@@ -1568,7 +1568,7 @@ const zh: Dictionary = {
     cta: "让我们谈谈",
   },
   hero: {
-    badge: "可承接新项目",
+    badge: "正在求职",
     role: "开发者",
     typing: ["全栈", "前端", "后端"],
     tagline:
@@ -1792,7 +1792,7 @@ const ja: Dictionary = {
     cta: "話そう",
   },
   hero: {
-    badge: "プロジェクト受け付け中",
+    badge: "求職中",
     role: "開発者",
     typing: ["フルスタック", "フロントエンド", "バックエンド"],
     tagline:
@@ -2016,7 +2016,7 @@ const ru: Dictionary = {
     cta: "Давайте поговорим",
   },
   hero: {
-    badge: "Доступен для новых проектов",
+    badge: "Открыт к предложениям",
     role: "Разработчик",
     typing: ["Полный стек", "Фронтенд", "Бэкенд"],
     tagline:
@@ -2240,7 +2240,7 @@ const ar: Dictionary = {
     cta: "دعنا نتحدث",
   },
   hero: {
-    badge: "متاح للمشاريع",
+    badge: "متاح للعمل",
     role: "مطور",
     typing: ["كامل المجموعة", "الواجهة الأمامية", "الواجهة الخلفية"],
     tagline:
@@ -2464,7 +2464,7 @@ const hi: Dictionary = {
     cta: "चलिए बात करते हैं",
   },
   hero: {
-    badge: "परियोजनाओं के लिए उपलब्ध",
+    badge: "नौकरी के लिए उपलब्ध",
     role: "डेवलपर",
     typing: ["फुल-स्टैक", "फ्रंट-एंड", "बैक-एंड"],
     tagline:
@@ -2688,7 +2688,7 @@ const ko: Dictionary = {
     cta: "대화해보세요",
   },
   hero: {
-    badge: "프로젝트 가능",
+    badge: "구직 중",
     role: "개발자",
     typing: ["풀스택", "프론트엔드", "백엔드"],
     tagline:
@@ -2912,7 +2912,7 @@ const id: Dictionary = {
     cta: "Mari berbicara",
   },
   hero: {
-    badge: "Tersedia untuk proyek",
+    badge: "Terbuka untuk pekerjaan",
     role: "Pengembang",
     typing: ["Full-Stack", "Front-End", "Back-End"],
     tagline:

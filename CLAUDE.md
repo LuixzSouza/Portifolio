@@ -217,9 +217,10 @@ public/                # imagens, backgrounds, ícones
     export estático não faz fetch em build. Só os componentes client refrescam.
     - A seção "O que eu faço" (Services/ServicesInteractive) é curada/tradução
     própria de propósito — não vem do banco.
-    - FeaturedWork (Home) mostra um subconjunto ALEATÓRIO de @/data/projects (só os
-    com verProjeto) — random no cliente após mount (SSR mostra os 4 primeiros p/ não
-    quebrar hidratação).
+    - FeaturedWork (Home) mostra os projetos CURADOS (destaque:true, só os com
+    verProjeto) SEMPRE primeiro; as vagas restantes (COUNT=4) são preenchidas
+    aleatoriamente no cliente após mount p/ dar variedade (SSR mostra destaques +
+    início do resto p/ não quebrar hidratação).
   - [x] Trabalhos com cursor + screenshot ao vivo + GitHub:
     - WorkCursor.tsx: disco "Visualizar" (blur, translúcido) que segue o cursor sobre
     os cards (desktop/lg; no toque fica o badge central). Reaproveita o padrão de

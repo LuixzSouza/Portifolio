@@ -21,15 +21,20 @@ import { useTranslations } from "@/content/useTranslations";
 // Só projetos com site no ar entram nos destaques (o hover mostra o site real).
 const POOL = projetos.filter((p) => p.links.verProjeto);
 const COUNT = 4;
+// Projetos curados (destaque) vêm SEMPRE primeiro — o recrutador vê o melhor
+// trabalho, não um sorteio que pode trazer um projeto fraco. As vagas restantes
+// (se houver) são preenchidas aleatoriamente, para dar variedade.
+const PINNED = POOL.filter((p) => p.destaque);
+const REST = POOL.filter((p) => !p.destaque);
 
 export function FeaturedWork() {
   const t = useTranslations();
   const { x, y, follow } = useCursorFollow();
   const [hovering, setHovering] = useState(false);
-  // Random só no cliente (evita mismatch de hidratação): o SSR mostra os 4 primeiros.
-  const [items, setItems] = useState<Projeto[]>(() => POOL.slice(0, COUNT));
+  // Random só no cliente (evita mismatch de hidratação): o SSR mostra destaques + início do resto.
+  const [items, setItems] = useState<Projeto[]>(() => [...PINNED, ...REST].slice(0, COUNT));
   useEffect(() => {
-    setItems(shuffle(POOL).slice(0, COUNT));
+    setItems([...PINNED, ...shuffle(REST)].slice(0, COUNT));
   }, []);
 
   return (

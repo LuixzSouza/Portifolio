@@ -99,7 +99,7 @@ export function Services() {
           <Text size="lg" className="max-w-[28ch]">
             {t.services.ctaText}
           </Text>
-          <ArrowButton href="/contact" variant="solid">
+          <ArrowButton href="/work" variant="solid">
             {t.services.ctaButton}
           </ArrowButton>
         </Reveal>

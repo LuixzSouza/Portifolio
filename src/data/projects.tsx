@@ -93,6 +93,134 @@ function completeProject(project: unknown): Projeto {
 
 const rawProjects = [
     {
+        id: "silver-ocean",
+        nome: "Silver Ocean",
+        imagem: "/mockup/silver-ocean.webp",
+        categoria: "real-projects",
+        status: "active",
+        complexidade: "advanced",
+        destaque: true,
+        tecnologias: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "E-commerce", "Pagamentos", "SEO", "Responsive Design"],
+        tecnologiasPrincipais: ["Next.js", "React", "TypeScript"],
+        tamanhoEquipe: 1,
+        links: {
+            github: "https://github.com/LuixzSouza",
+            verProjeto: "https://silverocean925.com.br"
+        },
+        descricao: {
+            pt: "E-commerce completo de joias em prata 925: catálogo por categorias, carrinho, contas de cliente, rastreio de pedidos e checkout com Pix e cartões.",
+            en: "Full silver 925 jewelry e-commerce: category catalog, cart, customer accounts, order tracking and checkout with Pix and cards."
+        },
+        data: { pt: "2026", en: "2026" },
+        resumo: {
+            pt: "Loja virtual de joias em prata 925 com design elegante, jornada de compra completa e foco em conversão.",
+            en: "Silver 925 jewelry online store with elegant design, a complete purchase journey and a focus on conversion."
+        },
+        conteudo: {
+            pt: [
+                "A Silver Ocean é uma marca de joias em prata 925 que precisava de uma loja própria à altura do produto — elegante, rápida e confiável. O desafio era cobrir toda a jornada de compra, do catálogo ao pagamento, sem abrir mão de uma estética minimalista e premium.",
+                "Construí um e-commerce completo: navegação por categorias (anéis, colares, brincos, pulseiras, linha masculina e personalizados), carrinho, contas de cliente com lista de favoritos e rastreamento de pedidos. O checkout aceita Pix e os principais cartões, com parcelamento.",
+                "No técnico, priorizei performance e SEO: imagens em WebP, carregamento otimizado e estrutura pensada para ranquear no Google. A interface é totalmente responsiva e usa animações sutis para dar sofisticação sem pesar.",
+                "O resultado é uma loja que transmite confiança — reforçada por garantia vitalícia, troca facilitada e prova social (mais de 850 avaliações com média 4.9). Hoje está no ar atendendo clientes em todo o Brasil."
+            ],
+            en: [
+                "Silver Ocean is a silver 925 jewelry brand that needed a store worthy of the product — elegant, fast and trustworthy. The challenge was to cover the entire purchase journey, from catalog to payment, without giving up a minimalist, premium aesthetic.",
+                "I built a complete e-commerce: category navigation (rings, necklaces, earrings, bracelets, men's line and personalized pieces), cart, customer accounts with a wishlist and order tracking. Checkout accepts Pix and the main credit cards, with installments.",
+                "On the technical side, I prioritized performance and SEO: WebP images, optimized loading and a structure built to rank on Google. The interface is fully responsive and uses subtle animations for sophistication without weight.",
+                "The result is a store that conveys trust — reinforced by a lifetime warranty, easy returns and social proof (850+ reviews averaging 4.9). It is live today, serving customers across Brazil."
+            ]
+        },
+        objetivos: {
+            pt: [
+                "Entregar uma experiência de compra premium, do catálogo ao checkout",
+                "Suportar pagamento com Pix e cartões com parcelamento",
+                "Garantir performance e SEO para ranquear e converter"
+            ],
+            en: [
+                "Deliver a premium shopping experience, from catalog to checkout",
+                "Support payment via Pix and credit cards with installments",
+                "Ensure performance and SEO to rank and convert"
+            ]
+        },
+        desafios: {
+            pt: [
+                "Estruturar carrinho, contas de cliente e rastreio de pedidos",
+                "Integrar gateway de pagamento (Pix + cartões) de forma segura",
+                "Manter a loja rápida mesmo com muitas imagens de produto (WebP)"
+            ],
+            en: [
+                "Structure cart, customer accounts and order tracking",
+                "Securely integrate the payment gateway (Pix + cards)",
+                "Keep the store fast even with many product images (WebP)"
+            ]
+        },
+        tags: ["e-commerce", "joias", "loja virtual", "next.js", "react"]
+    },
+    {
+        id: "berilo-cafe",
+        nome: "Berilo Café",
+        imagem: "/mockup/berilo-cafe.webp",
+        categoria: "real-projects",
+        status: "active",
+        complexidade: "advanced",
+        destaque: true,
+        tecnologias: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "E-commerce", "SEO", "Responsive Design"],
+        tecnologiasPrincipais: ["Next.js", "React", "TypeScript"],
+        tamanhoEquipe: 1,
+        links: {
+            github: "https://github.com/LuixzSouza",
+            verProjeto: "https://berilocafe.com.br"
+        },
+        descricao: {
+            pt: "E-commerce de cafés especiais de uma torrefação artesanal de Minas Gerais: catálogo de cafés, contas de cliente, página institucional e FAQ.",
+            en: "Specialty coffee e-commerce for an artisanal roastery from Minas Gerais: coffee catalog, customer accounts, brand story and FAQ."
+        },
+        data: { pt: "2026", en: "2026" },
+        resumo: {
+            pt: "Loja de cafés especiais com narrativa de marca, catálogo de produtos e experiência de compra limpa e responsiva.",
+            en: "Specialty coffee store with brand storytelling, a product catalog and a clean, responsive buying experience."
+        },
+        conteudo: {
+            pt: [
+                "O Berilo é uma torrefação artesanal do Campo das Vertentes, em Minas Gerais, que queria levar seus cafés especiais para todo o Brasil. Mais do que vender, o site precisava contar a história do produto — origem rastreável e torra em micro-lotes — para sustentar o posicionamento premium.",
+                "Desenvolvi uma loja com forte narrativa de marca: home editorial, catálogo de cafés ('Nossos Cafés'), página 'Sobre Nós' com a história da torrefação, contato dedicado e um FAQ que antecipa as principais dúvidas. Há também autenticação de clientes.",
+                "A prioridade técnica foi equilibrar storytelling com a usabilidade de um e-commerce, mantendo tudo rápido (imagens em WebP) e responsivo, com SEO desde a base.",
+                "O projeto entrega uma experiência limpa e sofisticada, reforçada por prova social (4.9 no Google) e garantia de devolução incondicional — a confiança necessária para a compra online de um produto sensorial como café."
+            ],
+            en: [
+                "Berilo is an artisanal roastery from the Campo das Vertentes region in Minas Gerais that wanted to take its specialty coffees to all of Brazil. More than selling, the site had to tell the product's story — traceable origin and micro-batch roasting — to support the premium positioning.",
+                "I built a store with strong brand storytelling: an editorial home, a coffee catalog ('Nossos Cafés'), an 'About Us' page with the roastery's history, a dedicated contact page and a FAQ that anticipates the main questions. It also includes customer authentication.",
+                "The technical priority was to balance storytelling with e-commerce usability, keeping everything fast (WebP images) and responsive, with SEO from the ground up.",
+                "The project delivers a clean, sophisticated experience, reinforced by social proof (4.9 on Google) and an unconditional return guarantee — the trust needed to buy a sensory product like coffee online."
+            ]
+        },
+        objetivos: {
+            pt: [
+                "Contar a história da marca e da origem dos grãos (Campo das Vertentes)",
+                "Apresentar o catálogo de cafés e levar o cliente à compra",
+                "Transmitir confiança com prova social, FAQ e garantia"
+            ],
+            en: [
+                "Tell the brand and bean-origin story (Campo das Vertentes)",
+                "Showcase the coffee catalog and guide the customer to purchase",
+                "Build trust with social proof, FAQ and a guarantee"
+            ]
+        },
+        desafios: {
+            pt: [
+                "Equilibrar narrativa editorial com a usabilidade de uma loja",
+                "Implementar autenticação de clientes",
+                "Otimizar imagens (WebP) e SEO para performance"
+            ],
+            en: [
+                "Balance editorial storytelling with store usability",
+                "Implement customer authentication",
+                "Optimize images (WebP) and SEO for performance"
+            ]
+        },
+        tags: ["e-commerce", "café", "loja virtual", "next.js", "react"]
+    },
+    {
         id: "formula-idiomas",
         nome: "Formula Idiomas",
         imagem: "/mockup/m-banconeon.webp",

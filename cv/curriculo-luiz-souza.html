@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Currículo — Luiz Antônio de Souza</title>
+<!--
+  COMO GERAR O PDF:
+  1. Abra este arquivo no Chrome/Edge.
+  2. Ctrl+P (Imprimir).
+  3. Destino: "Salvar como PDF".
+  4. Margens: "Padrão". Marque "Gráficos de plano de fundo".
+  5. Salve substituindo public/certificates/Curriculo_Luiz_2025.pdf
+     (assim o botão "Baixar CV" do site continua funcionando).
+
+  CAMPOS A CONFERIR/PREENCHER estão marcados com  <!-- TODO -->  .
+-->
+<style>
+  :root {
+    --ink: #14110f;
+    --muted: #5b554f;
+    --line: #e2ddd6;
+    --accent: #14110f;
+    --bg: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #f4f1ec;
+    line-height: 1.5;
+    font-size: 10.5pt;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 16px auto;
+    padding: 18mm 18mm 16mm;
+    background: var(--bg);
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  }
+  h1, h2, h3 { font-family: "Georgia", "Times New Roman", serif; font-weight: 600; letter-spacing: -.01em; }
+
+  /* Header */
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 14px; margin-bottom: 18px; }
+  .name { font-size: 30pt; line-height: 1; }
+  .name .light { font-style: italic; font-weight: 400; color: var(--muted); }
+  .role { margin-top: 6px; font-size: 11pt; text-transform: uppercase; letter-spacing: .18em; color: var(--muted); }
+  .contact { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 9.5pt; color: var(--muted); }
+  .contact a { color: var(--ink); text-decoration: none; }
+  .contact span::before { content: ""; }
+
+  /* Layout */
+  .grid { display: grid; grid-template-columns: 1fr 64mm; gap: 20px; }
+  section { margin-bottom: 16px; }
+  .sec-title { font-size: 9pt; text-transform: uppercase; letter-spacing: .2em; color: var(--muted);
+    border-bottom: 1px solid var(--line); padding-bottom: 5px; margin-bottom: 10px; }
+
+  .summary { font-size: 10.5pt; color: #2a2622; }
+
+  /* Experience / items */
+  .item { margin-bottom: 13px; break-inside: avoid; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .item-title { font-family: Georgia, serif; font-size: 11.5pt; font-weight: 600; }
+  .item-meta { font-size: 9pt; color: var(--muted); white-space: nowrap; }
+  .item-sub { font-size: 9.5pt; color: var(--muted); margin-bottom: 4px; }
+  .item ul { margin: 5px 0 0 16px; }
+  .item li { margin-bottom: 2px; font-size: 10pt; }
+  .stack { margin-top: 5px; font-size: 8.7pt; color: var(--muted); }
+  .stack b { color: var(--ink); font-weight: 600; }
+
+  /* Sidebar */
+  .side .sec-title { margin-top: 0; }
+  .skill-group { margin-bottom: 11px; }
+  .skill-group h4 { font-family: Georgia, serif; font-size: 10pt; margin-bottom: 5px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag { font-size: 8.4pt; border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; color: #3a352f; }
+  .cert { margin-bottom: 8px; }
+  .cert .c { font-weight: 600; font-size: 9.6pt; }
+  .cert .i { font-size: 8.6pt; color: var(--muted); }
+  .lang-row { display: flex; justify-content: space-between; font-size: 9.6pt; margin-bottom: 3px; }
+  .lang-row .lv { color: var(--muted); }
+
+  @media print {
+    body { background: #fff; font-size: 10pt; }
+    .page { margin: 0; box-shadow: none; width: auto; min-height: auto; padding: 12mm 14mm; }
+    a { color: var(--ink) !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="name">Luiz Antônio <span class="light">de Souza</span></div>
+    <div class="role">Desenvolvedor Full-Stack · Front-End</div>
+    <div class="contact">
+      <a href="mailto:ola@luixzsouza.com.br">ola@luixzsouza.com.br</a>
+      <a href="https://luixzsouza.com.br">luixzsouza.com.br</a>
+      <a href="https://github.com/LuixzSouza">github.com/LuixzSouza</a>
+      <a href="https://www.linkedin.com/in/luiz-antonio-souza-5000a226b/">linkedin.com/in/luiz-antonio-souza</a>
+      <span>Minas Gerais, Brasil</span>
+      <!-- TODO: telefone/WhatsApp, se quiser incluir -->
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- ================= COLUNA PRINCIPAL ================= -->
+    <main>
+      <section>
+        <div class="sec-title">Resumo</div>
+        <p class="summary">
+          Desenvolvedor full-stack com foco em front-end e mais de 3 anos construindo
+          interfaces e produtos web. Trabalho com <b>React, Next.js e TypeScript</b> no
+          front e <b>Node.js, PHP e MySQL</b> no back, do design ao deploy. Cuido de
+          performance (Core Web Vitals), acessibilidade e SEO técnico, escrevendo código
+          tipado, testado e fácil de manter. Cursando Bacharelado em Sistemas de Informação.
+        </p>
+      </section>
+
+      <section>
+        <div class="sec-title">Experiência &amp; Projetos</div>
+
+        <div class="item">
+          <div class="item-head">
+            <span class="item-title">Desenvolvedor Web — Projetos &amp; Freelance</span>
+            <span class="item-meta">2022 — Atual</span>
+          </div>
+          <div class="item-sub">Autônomo · Minas Gerais, Brasil</div>
+          <ul>
+            <li>Desenvolvimento de sites e sistemas sob medida para clientes, do layout (Figma) ao deploy.</li>
+            <li>Foco em performance, responsividade e SEO técnico, com código componentizado e reutilizável.</li>
+          </ul>
+          <div class="stack"><b>Stack:</b> React · Next.js · TypeScript · Tailwind · Node.js · PHP · MySQL</div>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <span class="item-title">Estágio em Desenvolvimento de Software</span>
+            <span class="item-meta"><!-- TODO: período -->2024 — 2024</span>
+          </div>
+          <div class="item-sub"><!-- TODO: nome da empresa do estágio --> Empresa (estágio)</div>
+          <ul>
+            <li>Desenvolvi o <b>Control Spooler</b>, um sistema desktop em ElectronJS para gerenciar
+              filas de impressão, automatizando e simplificando o fluxo de trabalho da equipe.</li>
+          </ul>
+          <div class="stack"><b>Stack:</b> ElectronJS · JavaScript · Node.js</div>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <span class="item-title">Portal &amp; CMS — Prefeitura de Inconfidentes/MG</span>
+            <span class="item-meta">2025</span>
+          </div>
+          <div class="item-sub">Projeto · Portal oficial + painel administrativo</div>
+          <ul>
+            <li>Portal institucional com painel administrativo (CMS) para a equipe publicar conteúdo sem código.</li>
+          </ul>
+          <div class="stack"><b>Stack:</b> Next.js 15 · Prisma · Tailwind CSS</div>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <span class="item-title">Silver Ocean — E-commerce de Joias</span>
+            <span class="item-meta">silverocean925.com.br</span>
+          </div>
+          <div class="item-sub">Loja virtual de joias em prata 925</div>
+          <ul>
+            <li>E-commerce completo: catálogo por categorias, carrinho, contas de cliente,
+              rastreio de pedidos e checkout com Pix e cartões. 857+ avaliações (4.9★).</li>
+          </ul>
+          <div class="stack"><b>Stack:</b> <!-- TODO: confirme -->Next.js · React · TypeScript · Tailwind</div>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <span class="item-title">Berilo Café — E-commerce de Cafés Especiais</span>
+            <span class="item-meta">berilocafe.com.br</span>
+          </div>
+          <div class="item-sub">Loja de torrefação artesanal (Campo das Vertentes/MG)</div>
+          <ul>
+            <li>Catálogo de cafés especiais, contas de cliente, página institucional e FAQ,
+              com narrativa de marca, performance (WebP) e SEO. 4.9★ no Google.</li>
+          </ul>
+          <div class="stack"><b>Stack:</b> <!-- TODO: confirme -->Next.js · React · TypeScript · Tailwind</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title">Formação</div>
+        <div class="item">
+          <div class="item-head">
+            <span class="item-title">Bacharelado em Sistemas de Informação</span>
+            <span class="item-meta">2021 — Atual</span>
+          </div>
+          <div class="item-sub">UNIVÁS — Universidade do Vale do Sapucaí · Pouso Alegre/MG</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="side">
+      <section>
+        <div class="sec-title">Competências</div>
+
+        <div class="skill-group">
+          <h4>Front-end</h4>
+          <div class="tags">
+            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
+            <span class="tag">JavaScript</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+            <span class="tag">Sass</span><span class="tag">Tailwind</span><span class="tag">Styled Components</span>
+            <span class="tag">Framer Motion</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Back-end &amp; Dados</h4>
+          <div class="tags">
+            <span class="tag">Node.js</span><span class="tag">PHP</span><span class="tag">MySQL</span>
+            <span class="tag">Java</span><span class="tag">REST APIs</span><span class="tag">Prisma</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Design &amp; UI</h4>
+          <div class="tags">
+            <span class="tag">Figma</span><span class="tag">UI/UX</span><span class="tag">Prototipação</span>
+            <span class="tag">Design Responsivo</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Ferramentas &amp; Infra</h4>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">AWS</span><span class="tag">Linux</span>
+            <span class="tag">Netlify</span><span class="tag">Vercel</span><span class="tag">WordPress</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title">Certificações</div>
+        <div class="cert"><div class="c">Especialista PHP</div><div class="i">Rocketseat · 2024</div></div>
+        <div class="cert"><div class="c">AWS Academy Cloud Foundations</div><div class="i">AWS Academy · 2024</div></div>
+        <div class="cert"><div class="c">CodeBoost Front-End</div><div class="i">William Moreira · 2023</div></div>
+        <div class="cert"><div class="c">Criação de Sites</div><div class="i">Bradesco · 2024</div></div>
+        <div class="cert"><div class="c">Melhor Arte Visual — Game Jam</div><div class="i">Game Jam · 2024</div></div>
+      </section>
+
+      <section>
+        <div class="sec-title">Idiomas</div>
+        <div class="lang-row"><span>Português</span><span class="lv">Nativo</span></div>
+        <div class="lang-row"><span>Inglês</span><span class="lv"><!-- TODO: ajuste -->Técnico / Intermediário</span></div>
+      </section>
+
+      <section>
+        <div class="sec-title">Links</div>
+        <div class="lang-row"><span>Portfólio</span><span class="lv">luixzsouza.com.br</span></div>
+        <div class="lang-row"><span>GitHub</span><span class="lv">/LuixzSouza</span></div>
+        <div class="lang-row"><span>CodeWars</span><span class="lv">/LuixzSouza</span></div>
+      </section>
+    </aside>
+  </div>
+
+</div>
+</body>
+</html>

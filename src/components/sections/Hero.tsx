@@ -122,13 +122,21 @@ export function Hero() {
             </motion.div>
 
             <motion.div variants={textRevealVariants} className="mt-10 flex flex-wrap items-center gap-5">
-              <MagneticButton href="/contact">{t.hero.ctaPrimary}</MagneticButton>
-              <ArrowButton href="/work" variant="outline">
-                {t.hero.ctaSecondary}
+              <MagneticButton href="/work">{t.hero.ctaSecondary}</MagneticButton>
+              <ArrowButton
+                href="/certificates/Curriculo_Luiz_2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline"
+              >
+                {t.contact.cv}
               </ArrowButton>
             </motion.div>
 
             <motion.div variants={textRevealVariants} className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm">
+              <AnimatedLink href="/contact" withArrow>
+                {t.hero.ctaPrimary}
+              </AnimatedLink>
               <AnimatedLink
                 href="https://github.com/LuixzSouza"
                 target="_blank"
