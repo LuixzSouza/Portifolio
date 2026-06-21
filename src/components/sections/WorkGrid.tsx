@@ -192,7 +192,7 @@ export function WorkGrid() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.6 }}
                   onClick={() => setQuery("")}
-                  aria-label="Limpar busca"
+                  aria-label={t.a11y.clearSearch}
                   className="absolute right-3 flex h-6 w-6 items-center justify-center rounded-full text-muted transition-colors hover:bg-foreground/10 hover:text-foreground"
                 >
                   <X className="h-3.5 w-3.5" />

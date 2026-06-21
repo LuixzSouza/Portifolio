@@ -42,7 +42,7 @@ function Logo({ onClick, href = "/" }: { onClick?: () => void; href?: string }) 
     <Link
       href={href}
       onClick={onClick}
-      aria-label="Luiz Souza — início"
+      aria-label="Luiz Souza"
       className="group relative inline-flex items-center font-roobert text-base font-semibold uppercase text-foreground transition-transform active:scale-95 md:text-lg"
     >
       {/* Símbolo de abertura: desliza para a esquerda */}

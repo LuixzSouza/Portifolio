@@ -13,6 +13,10 @@ export interface ServiceItemCopy {
 export interface Dictionary {
   a11y: {
     skipToContent: string;
+    backToTop: string;
+    clearSearch: string;
+    selectLanguage: string;
+    close: string;
   };
   nav: {
     work: string;
@@ -220,6 +224,10 @@ export interface Dictionary {
 const pt: Dictionary = {
   a11y: {
     skipToContent: "Pular para o conteúdo",
+    backToTop: "Voltar ao topo",
+    clearSearch: "Limpar busca",
+    selectLanguage: "Selecionar idioma",
+    close: "Fechar",
   },
   nav: {
     work: "Trabalhos",
@@ -447,6 +455,10 @@ const pt: Dictionary = {
 const en: Dictionary = {
   a11y: {
     skipToContent: "Skip to content",
+    backToTop: "Back to top",
+    clearSearch: "Clear search",
+    selectLanguage: "Select language",
+    close: "Close",
   },
   nav: {
     work: "Work",
@@ -674,6 +686,10 @@ const en: Dictionary = {
 const es: Dictionary = {
   a11y: {
     skipToContent: "Ir al contenido",
+    backToTop: "Volver arriba",
+    clearSearch: "Limpiar búsqueda",
+    selectLanguage: "Seleccionar idioma",
+    close: "Cerrar",
   },
   nav: {
     work: "Proyectos",
@@ -898,6 +914,10 @@ const es: Dictionary = {
 const fr: Dictionary = {
   a11y: {
     skipToContent: "Aller au contenu",
+    backToTop: "Retour en haut",
+    clearSearch: "Effacer la recherche",
+    selectLanguage: "Choisir la langue",
+    close: "Fermer",
   },
   nav: {
     work: "Projets",
@@ -1122,6 +1142,10 @@ const fr: Dictionary = {
 const de: Dictionary = {
   a11y: {
     skipToContent: "Zum Inhalt springen",
+    backToTop: "Zurück nach oben",
+    clearSearch: "Suche löschen",
+    selectLanguage: "Sprache auswählen",
+    close: "Schließen",
   },
   nav: {
     work: "Projekte",
@@ -1346,6 +1370,10 @@ const de: Dictionary = {
 const it: Dictionary = {
   a11y: {
     skipToContent: "Vai al contenuto",
+    backToTop: "Torna su",
+    clearSearch: "Cancella ricerca",
+    selectLanguage: "Seleziona lingua",
+    close: "Chiudi",
   },
   nav: {
     work: "Progetti",
@@ -1570,6 +1598,10 @@ const it: Dictionary = {
 const zh: Dictionary = {
   a11y: {
     skipToContent: "跳转到内容",
+    backToTop: "返回顶部",
+    clearSearch: "清除搜索",
+    selectLanguage: "选择语言",
+    close: "关闭",
   },
   nav: {
     work: "作品",
@@ -1794,6 +1826,10 @@ const zh: Dictionary = {
 const ja: Dictionary = {
   a11y: {
     skipToContent: "コンテンツにスキップ",
+    backToTop: "トップに戻る",
+    clearSearch: "検索をクリア",
+    selectLanguage: "言語を選択",
+    close: "閉じる",
   },
   nav: {
     work: "ポートフォリオ",
@@ -2018,6 +2054,10 @@ const ja: Dictionary = {
 const ru: Dictionary = {
   a11y: {
     skipToContent: "Перейти к содержанию",
+    backToTop: "Наверх",
+    clearSearch: "Очистить поиск",
+    selectLanguage: "Выбрать язык",
+    close: "Закрыть",
   },
   nav: {
     work: "Работы",
@@ -2242,6 +2282,10 @@ const ru: Dictionary = {
 const ar: Dictionary = {
   a11y: {
     skipToContent: "انتقل إلى المحتوى",
+    backToTop: "العودة إلى الأعلى",
+    clearSearch: "مسح البحث",
+    selectLanguage: "اختر اللغة",
+    close: "إغلاق",
   },
   nav: {
     work: "الأعمال",
@@ -2466,6 +2510,10 @@ const ar: Dictionary = {
 const hi: Dictionary = {
   a11y: {
     skipToContent: "सामग्री पर जाएं",
+    backToTop: "शीर्ष पर वापस जाएं",
+    clearSearch: "खोज साफ़ करें",
+    selectLanguage: "भाषा चुनें",
+    close: "बंद करें",
   },
   nav: {
     work: "काम",
@@ -2690,6 +2738,10 @@ const hi: Dictionary = {
 const ko: Dictionary = {
   a11y: {
     skipToContent: "콘텐츠로 건너뛰기",
+    backToTop: "맨 위로",
+    clearSearch: "검색 지우기",
+    selectLanguage: "언어 선택",
+    close: "닫기",
   },
   nav: {
     work: "작업",
@@ -2914,6 +2966,10 @@ const ko: Dictionary = {
 const id: Dictionary = {
   a11y: {
     skipToContent: "Lewati ke konten",
+    backToTop: "Kembali ke atas",
+    clearSearch: "Hapus pencarian",
+    selectLanguage: "Pilih bahasa",
+    close: "Tutup",
   },
   nav: {
     work: "Pekerjaan",

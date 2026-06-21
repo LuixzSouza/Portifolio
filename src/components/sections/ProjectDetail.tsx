@@ -526,7 +526,7 @@ export function ProjectDetail() {
             <button
               type="button"
               onClick={() => setLightbox(null)}
-              aria-label="Fechar"
+              aria-label={t.a11y.close}
               className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 text-foreground transition-colors hover:bg-foreground/10 md:right-8 md:top-8"
             >
               <X className="h-5 w-5" />

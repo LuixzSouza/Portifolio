@@ -120,7 +120,7 @@ export function AboutHero() {
                   <div className="relative h-full w-full">
                     <Image
                       src="/image/fotosobre.webp"
-                      alt="Retrato de Luiz Souza"
+                      alt="Luiz Antônio de Souza"
                       fill
                       priority
                       sizes="(max-width: 1024px) 90vw, 45vw"

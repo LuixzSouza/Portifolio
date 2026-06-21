@@ -178,7 +178,7 @@ export function Hero() {
             >
               <Image
                 src="/image/fotoformal.webp"
-                alt="Retrato de Luiz Souza"
+                alt="Luiz Antônio de Souza"
                 fill
                 priority
                 sizes="(max-width: 1024px) 80vw, 40vw"
