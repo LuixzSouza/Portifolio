@@ -322,6 +322,30 @@ export const services: ServiceDetailData[] = [
   },
 ];
 
+/** Copy da página índice de serviços (/services). Bilíngue pt/en (fallback via pickText). */
+export const servicesIndexCopy = {
+  eyebrow: { pt: "Serviços", en: "Services" } as LocalizedText,
+  heading: {
+    pt: "Soluções sob medida para o seu negócio crescer",
+    en: "Tailored solutions to grow your business",
+  } as LocalizedText,
+  text: {
+    pt: "Do site que vende à loja que fatura e ao sistema que organiza a operação — cada projeto é construído do zero, com foco em performance, conversão e código que dura.",
+    en: "From the site that sells to the store that earns and the system that runs your operation — every project is built from scratch, focused on performance, conversion and code that lasts.",
+  } as LocalizedText,
+  metaTitle: {
+    pt: "Serviços — Sites, Sistemas e E-commerce | Luiz Souza",
+    en: "Services — Websites, Systems and E-commerce | Luiz Souza",
+  } as LocalizedText,
+  metaDescription: {
+    pt: "Desenvolvimento de sites, landing pages, sistemas de gestão e lojas virtuais com React, Next.js e PHP. Design exclusivo, performance e foco em conversão.",
+    en: "Development of websites, landing pages, management systems and online stores with React, Next.js and PHP. Exclusive design, performance and conversion focus.",
+  } as LocalizedText,
+  forWhoLabel: { pt: "Ideal para", en: "Ideal for" } as LocalizedText,
+  includesLabel: { pt: "O que entrego", en: "What I deliver" } as LocalizedText,
+  cta: { pt: "Ver detalhes", en: "See details" } as LocalizedText,
+};
+
 export const serviceSlugs = services.map((s) => s.slug);
 
 export function getService(slug: string): ServiceDetailData | undefined {

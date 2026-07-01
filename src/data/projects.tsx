@@ -1220,3 +1220,21 @@ const rawProjects = [
 
 // Aplicar campos padrão a todos os projetos
 export const projetos: Projeto[] = rawProjects.map(completeProject);
+
+/** Busca um projeto pelo id. */
+export function getProjeto(id: string): Projeto | undefined {
+    return projetos.find((p) => p.id === id);
+}
+
+/**
+ * Projetos com narrativa profunda o suficiente para virarem estudo de caso
+ * dedicado (têm "desafios" descritos). Usado pela rota /work/case/[slug].
+ */
+export const caseStudySlugs: string[] = projetos
+    .filter((p) => Array.isArray(p.desafios) || (p.desafios && typeof p.desafios === "object"))
+    .map((p) => p.id);
+
+export function getCaseStudy(slug: string): Projeto | undefined {
+    const p = getProjeto(slug);
+    return p && p.desafios ? p : undefined;
+}

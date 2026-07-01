@@ -15,7 +15,7 @@ import { Text } from "@/components/ds/Text";
 import { AnimatedLink } from "@/components/ds/AnimatedLink";
 import { LiveProjectButton } from "@/components/ds/LiveProjectButton";
 import { type Projeto } from "@/data/projects";
-import { projetos } from "@/data/projects";
+import { projetos, caseStudySlugs } from "@/data/projects";
 import { listProjects } from "@/lib/api";
 import { useCmsList } from "@/hooks/useCmsList";
 import { slugify } from "@/lib/slug";
@@ -31,6 +31,7 @@ const EASE = [0.76, 0, 0.24, 1] as const;
 export function ProjectDetail() {
   const t = useTranslations();
   const { lang } = useLanguage();
+  const loc = useLocalizedHref();
   const router = useRouter();
   const reduceMotion = useReducedMotion();
   const id = useSearchParams().get("id");
@@ -380,6 +381,18 @@ export function ProjectDetail() {
                       </div>
                     ))}
                 </div>
+              )}
+
+              {project.id && caseStudySlugs.includes(project.id) && (
+                <Link
+                  href={loc(`/work/case/${project.id}`)}
+                  className="group mt-12 inline-flex items-center gap-3 self-start rounded-full border border-foreground/20 py-3 pl-6 pr-3 text-base font-medium text-foreground transition-colors duration-500 hover:border-foreground/50 hover:bg-foreground/[0.04] md:mt-16"
+                >
+                  {pickText({ pt: "Ver estudo de caso completo", en: "View full case study" }, lang)}
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground text-background transition-transform duration-500 group-hover:rotate-45">
+                    <ArrowRight className="h-4 w-4 -rotate-45" strokeWidth={2} />
+                  </span>
+                </Link>
               )}
             </motion.div>
 
